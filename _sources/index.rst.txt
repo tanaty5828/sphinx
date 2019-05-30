@@ -17,7 +17,7 @@ Welcome to VARIDATO's documentation!
 バグがあったら田中まで。
 
 .. image:: ../logo2.png
-    :align: left
+    :align: center
 
 
 .. toctree::
