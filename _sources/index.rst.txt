@@ -1,0 +1,24 @@
+.. VARIDATO documentation master file, created by
+   sphinx-quickstart on Fri May 24 13:06:13 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to VARIDATO's documentation!
+====================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents
+   :numbered:
+
+   /welcome/test1
+   /linux/linux1
+   /slack/insto
+
+
+Indices and tables
+==================
+
+.. * :ref:`genindex`
+.. * :ref:`modindex`
+.. * :ref:`search`
