@@ -28,6 +28,7 @@ Welcome to VARIDATO's documentation!
    /welcome/test1
    /linux/linux1
    /slack/insto
+   /device/main
 
 
 Indices and tables
