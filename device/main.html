@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. 研究室のデバイス利用方法について &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>4. Device in Lab. &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -85,12 +85,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basics !!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">3. slack</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. 研究室のデバイス利用方法について</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id2">4.1. プリンター</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">4.1.1. 816(817?)号室プリンター</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#linux">4.1.1.1. Linux</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Device in Lab.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">4.1. プリンター</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.1.1. 816(817?)号室プリンター</a></li>
 </ul>
 </li>
 </ul>
@@ -140,7 +137,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>4. 研究室のデバイス利用方法について</li>
+      <li>4. Device in Lab.</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -159,19 +156,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="id1">
-<h1>4. 研究室のデバイス利用方法について<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="device-in-lab">
+<h1>4. Device in Lab.<a class="headerlink" href="#device-in-lab" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>4.1. プリンター<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
-<h2>4.1. プリンター<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id3">
-<h3>4.1.1. 816(817?)号室プリンター<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="linux">
-<h4>4.1.1.1. Linux<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>インストールパッケージは、いろいろ配布されているようだが、</p>
-<p>簡易インストーラを利用するのが一番いいみたい。</p>
+<h3>4.1.1. 816(817?)号室プリンター<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>インストールパッケージは、いろいろ配布されているようだが、簡易インストーラを利用するのが一番いいみたい。</p>
 <p><a class="reference external" href="https://support.brother.co.jp/j/b/downloadtop.aspx?c=jp&amp;lang=ja&amp;prod=hl4570cdw">HL-4570のドライバーサイト</a>  にアクセス</p>
 <p>Linux, <strong>rpm</strong> を選んで、</p>
-<p>ユーティリティソフトから**Linux簡易インストーラ**を選択し、適当な場所へダウンロードする。</p>
+<p>ユーティリティソフトから <strong>Linux簡易インストーラ</strong> を選択し、適当な場所へダウンロードする。</p>
 <p>以降は画面の指示に従えばいいが、ここにも書いておく</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ダウンロードディレクトリに移動</span>
 <span class="nb">cd</span> ~/Downloads
@@ -179,15 +173,13 @@
 <span class="c1"># 展開</span>
 tar xvf linux-????
 
-<span class="c1"># プリンター名を追加して実行</span>
-bash bash linux-???? HL-4570
+<span class="c1"># プリンター名(HL-4570)を追加して実行</span>
+bash linux-???? HL-4570
 </pre></div>
 </div>
 <p>途中の質問にはすべてyes(y)で答えていけばよく、</p>
-<p>最後、プリンターと接続するところで、<strong>ipアドレスを指定</strong> を選択し、</p>
-<p>ipアドレス**192.168.101.101**を入力。</p>
+<p>最後、プリンターと接続するところで、<strong>ipアドレスを指定</strong> を選択し、ipアドレス <strong>192.168.101.101</strong> を入力。</p>
 <p>プリンターが追加されているはずだ。</p>
-</div>
 </div>
 </div>
 </div>
