@@ -1,3 +1,5 @@
+
+
 # How to edit this homepages
 
 このページは、git及びgithubを使って管理されているため、誰でも編集することができます。
@@ -6,11 +8,83 @@ gitはオリジナルを編集せずに自分だけで編集ができ、後で�
 
 ここではgitの使い方及び編集の仕方を解説します。
 
-## 大まかな流れ
+## アカウント作成
+
+**git**のアカウントと**github**のアカウントは別物です。
+
+まず、[git入門](https://backlog.com/ja/git-tutorial/intro/06/)を参考に、gitのアカウントを作成します。
+
+次に、[githubアカウント](https://qiita.com/kooohei/items/361da3c9dbb6e0c7946b)を参考に、アカウントを作ります。
+
+更に[github ssh](https://qiita.com/shizuma/items/2b2f873a0034839e47ce#%E5%85%AC%E9%96%8B%E9%8D%B5%E3%82%92github%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%81%99%E3%82%8B)を参考にアカウントに公開鍵を登録しておくと便利です。（既存のものでいい）
+
+
+
+## 編集の流れ
 
 図で示すと、
 
-![pull_request3_1](https://backlog.com/ja/git-tutorial/assets/img/pull-request/pull_request3_1.png)
+![](https://backlog.com/ja/git-tutorial/assets/img/pull-request/pull_request3_1.png)
 
 上記のようになっており、皆さんには左の開発者の1~5を行ってもらいます。
+
+
+
+### リモートリポジトリをpull（上図１）
+
+わかりやすく言うと、ネットワーク上にあるファイルを持ってくるだけです。
+
+今回は、`~/Document/web`で作業しますが、実際はどこでも構いません。
+
+```shell
+cd ~/Document/web/ #ディレクトリの移動
+
+git clone git://github.com/tanaty5828/varidato_source #データのダウンロード(公開鍵登録した人)
+git clone https://github.com/tanaty5828/varidato_source #データのダウンロード（してない人）
+```
+
+
+
+### ブランチを分ける（上図２）
+
+このままではオリジナルが変更されてしまうので、ブランチを分けます。
+
+わかりやすく言うと、変更するからオリジナルを残してね〜という意味になります。
+
+```shell
+cd varidato_source #ディレクトリの移動
+git branch ishikawa #ブランチの作成、名前は自由です。
+git checkout ishikawa #ブランチの移動
+```
+
+
+
+### 編集をする（上図３）
+
+`varidato_source/`の中身は、内容ごとにディレクトリがわけられています。
+
+編集のテスト用に`MD/`というディレクトリがあるので、これに入り、
+
+中にある`gromacs.rst`を編集してみましょう。
+
+```shell
+cd MD
+vi gromacs.rst
+#適当に編集…
+```
+
+
+
+### pushする（上図４）
+
+ここまでの編集をネットに送ります。
+
+```shell
+cd ~/Document/web/varidato_source/ #varidato_source/まで戻る。
+git add . #変更履歴の保存
+git commit -m "test" #どのような変更を行ったかのメモ
+git push 
+```
+
+
 

@@ -88,7 +88,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../device/main.html">4. Device in Lab.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">5. Gromacsのページ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">6. How to edit this homepages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">6.1. 大まかな流れ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">6.1. アカウント作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">6.2. 編集の流れ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pull-1">6.2.1. リモートリポジトリをpull（上図１）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">6.2.2. ブランチを分ける（上図２）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">6.2.3. 編集をする（上図３）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-4">6.2.4. pushする（上図４）</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -161,10 +168,59 @@
 <p>gitはオリジナルを編集せずに自分だけで編集ができ、後で統合することができるためとても便利です。</p>
 <p>ここではgitの使い方及び編集の仕方を解説します。</p>
 <div class="section" id="id1">
-<h2>6.1. 大まかな流れ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.1. アカウント作成<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><strong>git</strong>のアカウントと<strong>github</strong>のアカウントは別物です。</p>
+<p>まず、<a class="reference external" href="https://backlog.com/ja/git-tutorial/intro/06/">git入門</a>を参考に、gitのアカウントを作成します。</p>
+<p>次に、<a class="reference external" href="https://qiita.com/kooohei/items/361da3c9dbb6e0c7946b">githubアカウント</a>を参考に、アカウントを作ります。</p>
+<p>更に<a class="reference external" href="https://qiita.com/shizuma/items/2b2f873a0034839e47ce#%E5%85%AC%E9%96%8B%E9%8D%B5%E3%82%92github%E3%81%AB%E3%82%A2%E3%83%83%E3%83%97%E3%81%99%E3%82%8B">github ssh</a>を参考にアカウントに公開鍵を登録しておくと便利です。（既存のものでいい）</p>
+</div>
+<div class="section" id="id2">
+<h2>6.2. 編集の流れ<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>図で示すと、</p>
-<p><img alt="https://backlog.com/ja/git-tutorial/assets/img/pull-request/pull_request3_1.png" src="https://backlog.com/ja/git-tutorial/assets/img/pull-request/pull_request3_1.png" />pull_request3_1</p>
+<p><img alt="https://backlog.com/ja/git-tutorial/assets/img/pull-request/pull_request3_1.png" src="https://backlog.com/ja/git-tutorial/assets/img/pull-request/pull_request3_1.png" /></p>
 <p>上記のようになっており、皆さんには左の開発者の1~5を行ってもらいます。</p>
+<div class="section" id="pull-1">
+<h3>6.2.1. リモートリポジトリをpull（上図１）<a class="headerlink" href="#pull-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>わかりやすく言うと、ネットワーク上にあるファイルを持ってくるだけです。</p>
+<p>今回は、<code class="docutils literal notranslate"><span class="pre">~/Document/web</span></code>で作業しますが、実際はどこでも構いません。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/ <span class="c1">#ディレクトリの移動</span>
+
+git clone git://github.com/tanaty5828/varidato_source <span class="c1">#データのダウンロード(公開鍵登録した人)</span>
+git clone https://github.com/tanaty5828/varidato_source <span class="c1">#データのダウンロード（してない人）</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>6.2.2. ブランチを分ける（上図２）<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このままではオリジナルが変更されてしまうので、ブランチを分けます。</p>
+<p>わかりやすく言うと、変更するからオリジナルを残してね〜という意味になります。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> varidato_source <span class="c1">#ディレクトリの移動</span>
+git branch ishikawa <span class="c1">#ブランチの作成、名前は自由です。</span>
+git checkout ishikawa <span class="c1">#ブランチの移動</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>6.2.3. 編集をする（上図３）<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">varidato_source/</span></code>の中身は、内容ごとにディレクトリがわけられています。</p>
+<p>編集のテスト用に<code class="docutils literal notranslate"><span class="pre">MD/</span></code>というディレクトリがあるので、これに入り、</p>
+<p>中にある<code class="docutils literal notranslate"><span class="pre">gromacs.rst</span></code>を編集してみましょう。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> MD
+vi gromacs.rst
+<span class="c1">#適当に編集…</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="push-4">
+<h3>6.2.4. pushする（上図４）<a class="headerlink" href="#push-4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ここまでの編集をネットに送ります。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/varidato_source/ <span class="c1">#varidato_source/まで戻る。</span>
+git add . <span class="c1">#変更履歴の保存</span>
+git commit -m <span class="s2">&quot;test&quot;</span> <span class="c1">#どのような変更を行ったかのメモ</span>
+git push 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
