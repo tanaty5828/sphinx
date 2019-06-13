@@ -38,7 +38,7 @@ gitはオリジナルを編集せずに自分だけで編集ができ、後で�
 
 ```shell
 cd ~/Document/web/ #ディレクトリの移動
-git clone https://github.com/tanaty5828/varidato_source #データのダウンロード（してない人）
+git clone https://github.com/tanaty5828/varidato_source #データのダウンロード
 ```
 
 
@@ -93,6 +93,15 @@ git push https://github.com/tanaty5828/varidato_source hishikawa #送る。"hish
 
 [プルリクエストの作成](https://backlog.com/ja/git-tutorial/pull-request/06/)を参考に、送っていただければすぐに反映します。
 
+### ローカルにあるものを消す。
+
+push が一通り終わったら作業したものは消して、また編集したいときには
+
+```shell
+git clone https://github.com/tanaty5828/varidato_source #データのダウンロード
+```
+
+から始めるといいです。
 
 
 ## テキストの記載法
