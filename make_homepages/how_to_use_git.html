@@ -94,8 +94,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#id3">6.2.2. ブランチを分ける（上図２）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">6.2.3. 編集をする（上図３）</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#push-4">6.2.4. pushする（上図４）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pull-5">6.2.5. pullリクエストの作成（上図５）</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">6.3. テキストの記載法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">6.4. ディレクトリの構成</a></li>
 </ul>
 </li>
 </ul>
@@ -184,8 +187,6 @@
 <p>わかりやすく言うと、ネットワーク上にあるファイルを持ってくるだけです。</p>
 <p>今回は、<code class="docutils literal notranslate"><span class="pre">~/Document/web</span></code>で作業しますが、実際はどこでも構いません。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/ <span class="c1">#ディレクトリの移動</span>
-
-git clone git://github.com/tanaty5828/varidato_source <span class="c1">#データのダウンロード(公開鍵登録した人)</span>
 git clone https://github.com/tanaty5828/varidato_source <span class="c1">#データのダウンロード（してない人）</span>
 </pre></div>
 </div>
@@ -217,10 +218,49 @@ vi gromacs.rst
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/varidato_source/ <span class="c1">#varidato_source/まで戻る。</span>
 git add . <span class="c1">#変更履歴の保存</span>
 git commit -m <span class="s2">&quot;test&quot;</span> <span class="c1">#どのような変更を行ったかのメモ</span>
-git push 
+git push https://github.com/tanaty5828/varidato_source hishikawa <span class="c1">#送る。&quot;hishikawa&quot;はブランチを分けたときの名前にする。</span>
+<span class="c1">## githubのUsernameとpasswordを入力</span>
 </pre></div>
 </div>
 </div>
+<div class="section" id="pull-5">
+<h3>6.2.5. pullリクエストの作成（上図５）<a class="headerlink" href="#pull-5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>このままだと変更は管理者に伝わってないので、プルリクエストを送ります。</p>
+<p><a class="reference external" href="https://backlog.com/ja/git-tutorial/pull-request/06/">プルリクエストの作成</a>を参考に、送っていただければすぐに反映します。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>6.3. テキストの記載法<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ソースコードの書き方には、2種類あり、</p>
+<ul class="simple">
+<li><p>Markdown(<code class="docutils literal notranslate"><span class="pre">.md</span></code>)</p></li>
+<li><p>reStructuredText(<code class="docutils literal notranslate"><span class="pre">.rst</span></code>)</p></li>
+</ul>
+<p>があります。Markdownのほうが書きやすいけどできることは少なく、reStructuredTextのほうが書きにくく高機能です。</p>
+<p>詳しい書き方は、</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://qiita.com/Minalinsky_1911/items/b684cfabe0f2fde0c67b">Markdown</a></p></li>
+<li><p><a class="reference external" href="https://planset-study-sphinx.readthedocs.io/ja/latest/04.html">reStructuredText</a></p></li>
+</ul>
+<p>を参考にしてください。</p>
+<p>エディターは<code class="docutils literal notranslate"><span class="pre">vim</span></code>でも<code class="docutils literal notranslate"><span class="pre">emacs</span></code>でも<code class="docutils literal notranslate"><span class="pre">vscode</span></code>でも何でもいいですが、Markdownを使うならMacでもWindowsでも使える<a class="reference external" href="https://typora.io/">Typora</a> がおすすめです。</p>
+</div>
+<div class="section" id="id6">
+<h2>6.4. ディレクトリの構成<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.
+└── varidato_source
+    ├── device
+    ├── linux
+    ├── make_homepages
+    ├── MD
+    ├── slack
+    ├── _static
+    │   └── css
+    └── welcome
+</pre></div>
+</div>
+<p>となっています（現在）。内容ごとに分かれているので、例えば<code class="docutils literal notranslate"><span class="pre">gromacs</span></code>のページを作成したければ、</p>
+<p>まず<code class="docutils literal notranslate"><span class="pre">gromacs</span></code>のディレクトリを作り、その中で<code class="docutils literal notranslate"><span class="pre">~~~.md</span></code>のファイルを作り書き込んで行きます。</p>
 </div>
 </div>
 
