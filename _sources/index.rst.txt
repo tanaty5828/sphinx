@@ -29,7 +29,7 @@ Welcome to VARIDATO's documentation!
    /linux/linux1
    /slack/insto
    /device/main
-   /MD/gromacs
+   /MD/mdsoft
    /make_homepages/how_to_use_git
 
 Indices and tables

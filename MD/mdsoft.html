@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Linux Basics !! &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>5. Molecular Dynamics Software &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="3. slack" href="../slack/insto.html" />
-    <link rel="prev" title="1. Welocome to Okazaki-Lab !!" href="../welcome/test1.html" /> 
+    <link rel="next" title="6. How to edit this homepages" href="../make_homepages/how_to_use_git.html" />
+    <link rel="prev" title="4. Device in Lab." href="../device/main.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,17 +84,15 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Linux Basics !!</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#linux">2.1. Linuxってなんなのさ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">2.1.1. ディストリビューション</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. アプリケーションの起動</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basics !!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">3. slack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../device/main.html">4. Device in Lab.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">5. Molecular Dynamics Software</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Molecular Dynamics Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gromacs">5.1. Gromacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lammps">5.2. Lammps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#namd">5.3. Namd</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">6. How to edit this homepages</a></li>
 </ul>
 
@@ -141,13 +139,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. Linux Basics !!</li>
+      <li>5. Molecular Dynamics Software</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/linux1.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/MD/mdsoft.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -160,27 +158,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="linux-basics">
-<h1>2. Linux Basics !!<a class="headerlink" href="#linux-basics" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Linuxの基礎について</p>
-<p>まずは、パソコンを触って慣れましょう！</p>
-<p>パソコンは「習うより慣れろ」です。壊しても大丈夫なので、いろいろ触って見よう！</p>
-<div class="section" id="linux">
-<h2>2.1. Linuxってなんなのさ<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>簡単に言えば、&quot;Windows&quot;や&quot;Mac&quot;のような種類のことです。</p>
-<p>難しい言葉を使えば、&quot;OS(Operating System)&quot;というものになります。</p>
-<p>触ってみると意外と簡単で、奥が深く楽しい物となっています。</p>
-<div class="section" id="id1">
-<h3>2.1.1. ディストリビューション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Linuxは様々な種類があり、この種類をディストリビューションといいます。</p>
-<p>これを読んでいる人のパソコンのディストリビューションは&quot;Centos(セントス、セントオーエス)&quot;になっているはずです。</p>
-<p>パソコンでわからいことがあったら、&quot;Centos XXXX 使い方&quot;などと検索すると答えが出てくるでしょう。</p>
+  <div class="section" id="molecular-dynamics-software">
+<h1>5. Molecular Dynamics Software<a class="headerlink" href="#molecular-dynamics-software" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="gromacs">
+<h2>5.1. Gromacs<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>gmx gump -f md.trr</p>
 </div>
+<div class="section" id="lammps">
+<h2>5.2. Lammps<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
-<div class="section" id="id2">
-<h2>2.2. アプリケーションの起動<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>LinuxではWindowsなどとは違いデスクトップ(はじめの画面)にワードやエクセルのアイコンはありません。</p>
-<p>右上に <em>Applications</em> というボタンがあるはずなので、これを押してみよう！</p>
+<div class="section" id="namd">
+<h2>5.3. Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 </div>
 
@@ -192,10 +180,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../slack/insto.html" class="btn btn-neutral float-right" title="3. slack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../make_homepages/how_to_use_git.html" class="btn btn-neutral float-right" title="6. How to edit this homepages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../welcome/test1.html" class="btn btn-neutral float-left" title="1. Welocome to Okazaki-Lab !!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../device/main.html" class="btn btn-neutral float-left" title="4. Device in Lab." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
