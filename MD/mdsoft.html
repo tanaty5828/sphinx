@@ -91,6 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#gromacs">5.1. Gromacs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#lammps">5.2. Lammps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#namd">5.3. Namd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mpdyn">5.4. MPDyn</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">6. How to edit this homepages</a></li>
@@ -162,13 +163,20 @@
 <h1>5. Molecular Dynamics Software<a class="headerlink" href="#molecular-dynamics-software" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="gromacs">
 <h2>5.1. Gromacs<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>gmx gump -f md.trr</p>
+<p>普通のPCに使えるプログラムの中では最速。生体系を対象としている。汎用性は比較的高く、テーブル関数による相互作用計算が可能。粗視化モデルにも対応。GPUにも対応。解析ツールも充実しており、使いこなせばかなり使い勝手がよいはず。</p>
 </div>
 <div class="section" id="lammps">
 <h2>5.2. Lammps<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Sandia National Labで開発されたプログラムであり、クラスターコンピュータで十分な並列効率を保ち、GPUにも対応している。非常に汎用性の高いプログラムであり、様々な境界条件、モデルに対応が可能であり、ポリマーを含む材料系のMD計算では最も利用価値の高いプログラムの一つである。篠田の開発した粗視化モデルも組み込まれており(CG/CMMという名前)、GPUクラスターを用いた高速演算が可能なため、粗視化MDで主に利用している。ソースコードはC++で書かれているが、非常に読みやすく、開発ユーザーが多い。</p>
 </div>
 <div class="section" id="namd">
 <h2>5.3. Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Illinois大学で開発されているMDプログラムであり、生体系を主な対象とした大規模計算用に開発された老舗プログラム。同グループで開発されたvmdとの連接が非常に良く、interactive MDを実現している。CHARMM力場を標準としているが、OPLSなどの利用も可能。エネルギー最小化などのアルゴリズムが充実。熱浴にはNose-Hooverが利用できず、Langevin熱浴が標準である。Langevin熱浴による分子運動へのartifactが懸念される（詳細は現在調査中）。ソースコードはC++で書かれており公開されているが、よほどのマニア以外は解読を諦めた方がよい。GPUにも対応済み。</p>
+<p>篠田グループでは粗視化のための全原子リファレンスデータを取るために利用することが多い。</p>
+</div>
+<div class="section" id="mpdyn">
+<h2>5.4. MPDyn<a class="headerlink" href="#mpdyn" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>篠田の個人的な汎用プログラムであり、粗視化モデルの開発などもこちらを用いて最初行っていた。並列化効率は高くないので一般的なMDには扱いがよくないが、新しいモデルの開発には扱いが非常に良い。膜系の解析ツールが充実しているため、現在では主にMDのトラジェクトリーの解析プログラムとして利用している。ソースコードはfortran90で書かれており、比較的解読が容易と思われる。</p>
 </div>
 </div>
 
