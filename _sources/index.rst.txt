@@ -31,6 +31,7 @@ Welcome to VARIDATO's documentation!
    /device/main
    /MD/mdsoft
    /make_homepages/how_to_use_git
+   /MD/namd
 
 Indices and tables
 ==================

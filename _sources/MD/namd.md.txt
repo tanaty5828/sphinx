@@ -1,0 +1,91 @@
+# Namd
+
+## 概要
+
+NAMD (NAnoscale Molecular Dynamics program)は、フリーウェアの分子動力学シミュレーションパッケージの一つである。Charm++並列プログラミングモデルを用いて書かれ、並列効率の高さで知られており、大規模な系（数百万の原子）をシミュレートするためにしばしば使われている。NAMDはイリノイ大学アーバナ・シャンペーン校のTheoretical and Computational Biophysics Group (TCB) とParallel Programming Laboratory (PPL) との共同研究によって開発されている。
+
+
+
+## インストール方法
+
+[Download NAMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD)にアクセスし、「[Linux-x86_64-multicore-CUDA](https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1566)」とかいてあるものを選択。
+
+（上のリンクはバージョン2.13へのリンクだが、より新しい物がリリースされている場合は新しい物でもいい。）
+
+
+
+------
+
+ただし、**Namdはバージョンが異なるソフトで計算された場合、restartファイルの引き継ぎができないことがある。**
+
+特にB4の学生は名大CXを使うことが多いが、名大CXにインストールされているNamdのバージョンは2.10のため、
+
+注意が必要。
+
+------
+
+
+
+途中アカウントを作成したりするところがあるが、指示に従って進めて行けばいい。
+
+ダウンロードディレクトリを指定するように言われたら、適当なディレクトリでダウンロードする。
+
+(今回は`~/App/`以下にする。)
+
+```shell
+cd ~/App/ #ディレクトリ移動
+tar xvf NAMD-?????.tar.gz #展開
+cd NAMD-????? #Namdのディレクトリに移動
+```
+
+Namdはこれでインストールが完成し、起動できるようになっている。
+
+あとはパスを通すだけである。
+
+```shell
+vi ~/.bashrc #.bashrcの編集
+```
+
+```bash
+export PATH=???????　と書いてある行の末尾に
+　
+:$HOME/App/NAMD-????/
+
+を追加する。
+```
+
+確認のため、
+
+```shell
+source ~/.bashrc
+namd2
+```
+
+とやってみる。
+
+```shell
+------------- Processor 0 Exiting: Called CmiAbort ------------
+Reason: FATAL ERROR: No simulation config file specified on command line.
+
+[0] Stack Traceback:
+  [0:0]   [0x12c1525]
+  [0:1]   [0x5b060d]
+  [0:2]   [0x5c8172]
+  [0:3] __libc_start_main+0xf5  [0x7f7cb3da03d5]
+  [0:4]   [0x4c73a9]
+Charm++ fatal error:
+FATAL ERROR: No simulation config file specified on command line.
+
+[0] Stack Traceback:
+  [0:0]   [0x12c1c05]
+  [0:1]   [0x12c14de]
+  [0:2]   [0x12c1525]
+  [0:3]   [0x5b060d]
+  [0:4]   [0x5c8172]
+  [0:5] __libc_start_main+0xf5  [0x7f7cb3da03d5]
+  [0:6]   [0x4c73a9]
+[1]    18170 abort (core dumped)  namd2
+
+```
+
+このような表示が出れば、インストール及びパスは成功している。
