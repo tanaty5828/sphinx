@@ -1,0 +1,16 @@
+# How to edit this homepages
+
+このページは、git及びgithubを使って管理されているため、誰でも編集することができます。
+
+gitはオリジナルを編集せずに自分だけで編集ができ、後で統合することができるためとても便利です。
+
+ここではgitの使い方及び編集の仕方を解説します。
+
+## 大まかな流れ
+
+図で示すと、
+
+![pull_request3_1](https://backlog.com/ja/git-tutorial/assets/img/pull-request/pull_request3_1.png)
+
+上記のようになっており、皆さんには左の開発者の1~5を行ってもらいます。
+
