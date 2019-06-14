@@ -92,6 +92,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">7. Namd</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">7.1. 概要</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">7.2. インストール方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#md-inputfile">7.3. MD計算:inputfileについて</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">8. Gnuplotでグラフ作成</a></li>
@@ -224,6 +225,236 @@ FATAL ERROR: No simulation config file specified on <span class="nb">command</sp
 </pre></div>
 </div>
 <p>このような表示が出れば、インストール及びパスは成功している。</p>
+</div>
+<div class="section" id="md-inputfile">
+<h2>7.3. MD計算:inputfileについて<a class="headerlink" href="#md-inputfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下は自分が水ーリボース系での計算をしたときのインプットファイルである。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#############################################################
+## JOB DESCRIPTION                                         ##
+#############################################################
+
+structure           ./step2_autopsf.psf
+coordinates         ./step2_autopsf.pdb
+set outputname      p3_npt
+
+#NOTE:WHEN CONTINUING A SIMULATION USE RESTART FILES AND COMMENT OUT SET TEMP.#
+# set inputname       p2_nvt
+# bincoordinates      $inputname.coor
+# binvelocities       $inputname.vel
+# extendedSystem      $inputname.xsc
+extendedSystem      initial.xsc
+set temperature     310.
+temperature	    $temperature
+#NOTE:WHEN CONT. A SIM. MAKE FIRST TIMESTEP THE LAST TIMESTEP OF THE LAST DCD FILE#
+firsttimestep      0
+
+
+#############################################################
+## SIMULATION PARAMETERS                                   ##
+#############################################################
+#Remove input temp when continuing
+# Input
+paraTypeCharmm       on
+parameters          /home/tanaka/toppar_all36/par_all36_lip_peg_new.prm
+parameters          /home/tanaka/toppar_all36/par_c36_sm_chol.prm
+#parameters          ../../toppar_all36/par_all35_ethers.prm
+
+# Force-Field Parameters
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              12.
+switching           on
+switchdist         10.0
+pairlistdist       14.0
+margin              5.0
+vdwForceSwitching   on
+
+# Integrator Parameters
+timestep            2.0  ;# 2fs/step
+#timestep            1.0  ;# 2fs/step
+rigidBonds          all  ;# Needed for 2fs steps
+nonbondedFreq       1
+fullElectFrequency  2
+stepspercycle       20
+
+# Constant Temperature Control
+langevin            on    ;# do langevin dynamics
+langevinDamping     5     ;# damping coefficient (gamma) of 5/ps
+langevinTemp        310.
+langevinHydrogen    off    ;# don&#39;t couple langevin bath to hydrogens
+
+#NOTE:WHEN CONT A SIM TURN THESE OFF AS THEY WILL BE READ FROM RESTART XSC FILE#
+# Periodic Boundary Conditions
+cellOrigin           0.          0.0             0.0
+wrapWater           on
+
+# PME (for full-system periodic electrostatics)
+PME                  yes
+PMEGridSizeX       64
+PMEGridSizeY       64
+PMEGridSizeZ       84
+
+# Constant Pressure Control (variable volume)
+useGroupPressure      yes ;# needed for rigidBonds
+useFlexibleCell       no
+# useFlexibleCell       yes
+useConstantRatio      no
+# useConstantRatio      yes :# default is xy couple
+
+langevinPiston        on
+langevinPistonTarget  1.01325 ;#  in bar -&gt; 1 atm
+langevinPistonPeriod  200.
+langevinPistonDecay   100.
+langevinPistonTemp    310.
+
+# Output
+outputName          $outputname
+
+restartfreq          5000    ;# 500steps = every 1 ps
+dcdfreq              1000
+#dcdUnitcell         yes
+xstFreq             500
+outputEnergies      500
+outputPressure      500
+
+
+#############################################################
+## EXECUTION SCRIPT                                        ##
+#############################################################
+#NOTE:WHEN CONT A SIM DO NOT MINIMIZE#
+# Minimization
+minimize           10000
+#reinitvels          300
+run   5000000 ;# 10 ns
+</pre></div>
+</div>
+<p>順に解説していく</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 結合や質量ファイル(.psf)の指定</span>
+<span class="n">structure</span>           <span class="o">./</span><span class="n">step2_autopsf</span><span class="o">.</span><span class="n">psf</span>
+
+<span class="c1">#初期配置の指定</span>
+<span class="n">coordinates</span>         <span class="o">./</span><span class="n">step2_autopsf</span><span class="o">.</span><span class="n">pdb</span>
+
+<span class="c1">#outputファイル名の指定</span>
+<span class="c1">#aaa という名前にするとaaa.dcdやaaa.velなどのファイルが出力される。</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># もし前の計算を引き継ぎたいときは、以下４行のコメントアウト（＃）を外す。</span>
+
+<span class="c1"># 引き継ぐファイルのファイル名（拡張子は不要）</span>
+<span class="c1"># set inputname       p2_nvt</span>
+
+<span class="c1"># 以下３行はそのまま。</span>
+<span class="c1"># bincoordinates      $inputname.coor</span>
+<span class="c1"># binvelocities       $inputname.vel</span>
+<span class="c1"># extendedSystem      $inputname.xsc</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># 系のサイズ情報が入ったデータの指定（フォーマットがあるので他のものからコピペ安定）
+extendedSystem      initial.xsc
+
+# 温度の指定。２行必要
+set temperature     310.
+temperature	    $temperature
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 何タイムステップ目から計算を始めるか。</span>
+<span class="c1"># 通常は0だが、計算の引き継ぎをしている場合は50000000とかになる点に注意</span>
+
+<span class="n">firsttimestep</span>      <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># charmm形式のパラメーターを使う場合、そのパスを指定する。</span>
+<span class="c1"># 基本的にはcharmm-guiでダウンロードされるものを指定すればいい。</span>
+
+<span class="n">paraTypeCharmm</span>       <span class="n">on</span>
+<span class="n">parameters</span>          <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">tanaka</span><span class="o">/</span><span class="n">toppar_all36</span><span class="o">/</span><span class="n">par_all36_lip_peg_new</span><span class="o">.</span><span class="n">prm</span>
+<span class="n">parameters</span>          <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">tanaka</span><span class="o">/</span><span class="n">toppar_all36</span><span class="o">/</span><span class="n">par_c36_sm_chol</span><span class="o">.</span><span class="n">prm</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1-4相互作用の除外やカットオフ数値の指定</span>
+<span class="c1"># 基本的にはこのままでいい。</span>
+
+<span class="n">exclude</span>             <span class="n">scaled1</span><span class="o">-</span><span class="mi">4</span>
+<span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="n">scaling</span>          <span class="mf">1.0</span>
+<span class="n">cutoff</span>              <span class="mf">12.</span>
+<span class="n">switching</span>           <span class="n">on</span>
+<span class="n">switchdist</span>         <span class="mf">10.0</span>
+<span class="n">pairlistdist</span>       <span class="mf">14.0</span>
+<span class="n">margin</span>              <span class="mf">5.0</span>
+<span class="n">vdwForceSwitching</span>   <span class="n">on</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2fs / 1 timestepという刻み幅の指定</span>
+<span class="c1"># それ以外はそのまま。</span>
+
+<span class="n">timestep</span>            <span class="mf">2.0</span>  <span class="p">;</span><span class="c1"># 2fs/step</span>
+<span class="n">rigidBonds</span>          <span class="nb">all</span>  <span class="p">;</span><span class="c1"># Needed for 2fs steps</span>
+<span class="n">nonbondedFreq</span>       <span class="mi">1</span>
+<span class="n">fullElectFrequency</span>  <span class="mi">2</span>
+<span class="n">stepspercycle</span>       <span class="mi">20</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 温度をlangevin熱浴で制御するコマンド。</span>
+<span class="c1"># はじめに指定した温度とあわせる。</span>
+<span class="c1"># シミュレーションの世界では能勢-Hoovar熱浴を使うべきらしいがNamdは非対応。</span>
+
+<span class="n">langevin</span>            <span class="n">on</span>    <span class="p">;</span><span class="c1"># do langevin dynamics</span>
+<span class="n">langevinDamping</span>     <span class="mi">5</span>     <span class="p">;</span><span class="c1"># damping coefficient (gamma) of 5/ps</span>
+<span class="n">langevinTemp</span>        <span class="mf">310.</span>
+<span class="n">langevinHydrogen</span>    <span class="n">off</span>    <span class="p">;</span><span class="c1"># don&#39;t couple langevin bath to hydrogens</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># なんであるのかわからなかったけど多分必要</span>
+
+<span class="n">cellOrigin</span>           <span class="mf">0.</span>          <span class="mf">0.0</span>             <span class="mf">0.0</span>
+<span class="n">wrapWater</span>           <span class="n">on</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Particle mesh ewald法を使うかとそのグリッドサイズの指定。
+グリッドサイズはそれぞれシステムサイズ（Å）を5で割ったくらいの値にするといいらしい。
+
+PME                  yes
+PMEGridSizeX       64
+PMEGridSizeY       64
+PMEGridSizeZ       84
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># なんであるのかわからなかったけど多分必要</span>
+
+<span class="n">useGroupPressure</span>      <span class="n">yes</span> <span class="p">;</span><span class="c1"># needed for rigidBonds</span>
+<span class="n">useFlexibleCell</span>       <span class="n">no</span>
+<span class="n">useConstantRatio</span>      <span class="n">no</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 圧力制御にlangevin Pistonを使うかとその値。</span>
+<span class="c1"># 圧力は通常1atmなので温度だけはじめの値と合わせる。</span>
+
+<span class="n">langevinPiston</span>        <span class="n">on</span>
+<span class="n">langevinPistonTarget</span>  <span class="mf">1.01325</span> <span class="p">;</span><span class="c1">#  in bar -&gt; 1 atm</span>
+<span class="n">langevinPistonPeriod</span>  <span class="mf">200.</span>
+<span class="n">langevinPistonDecay</span>   <span class="mf">100.</span>
+<span class="n">langevinPistonTemp</span>    <span class="mf">310.</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># restartファイルやトラジェクトリファイルを何ステップごとに出力するかといった値。</span>
+<span class="c1"># 理由がなければ以下の値を使えばいい。</span>
+
+<span class="n">restartfreq</span>          <span class="mi">5000</span>    <span class="p">;</span><span class="c1"># 500steps = every 1 ps</span>
+<span class="n">dcdfreq</span>              <span class="mi">1000</span>
+<span class="c1">#dcdUnitcell         yes</span>
+<span class="n">xstFreq</span>             <span class="mi">500</span>
+<span class="n">outputEnergies</span>      <span class="mi">500</span>
+<span class="n">outputPressure</span>      <span class="mi">500</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># はじめの10000ステップはminimize（構造最適化）</span>
+<span class="c1"># その後シミュレーションを5000000ステップ行う。</span>
+
+<span class="n">minimize</span>           <span class="mi">10000</span>
+<span class="n">run</span>   <span class="mi">5000000</span> <span class="p">;</span><span class="c1"># 10 ns</span>
+</pre></div>
+</div>
 </div>
 </div>
 

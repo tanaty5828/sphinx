@@ -85,3 +85,256 @@ FATAL ERROR: No simulation config file specified on command line.
 ```
 
 このような表示が出れば、インストール及びパスは成功している。
+
+
+
+## MD計算:inputfileについて
+
+以下は自分が水ーリボース系での計算をしたときのインプットファイルである。
+
+```
+#############################################################
+## JOB DESCRIPTION                                         ##
+#############################################################
+
+structure           ./step2_autopsf.psf
+coordinates         ./step2_autopsf.pdb
+set outputname      p3_npt
+
+#NOTE:WHEN CONTINUING A SIMULATION USE RESTART FILES AND COMMENT OUT SET TEMP.#
+# set inputname       p2_nvt
+# bincoordinates      $inputname.coor
+# binvelocities       $inputname.vel
+# extendedSystem      $inputname.xsc
+extendedSystem      initial.xsc
+set temperature     310.
+temperature	    $temperature
+#NOTE:WHEN CONT. A SIM. MAKE FIRST TIMESTEP THE LAST TIMESTEP OF THE LAST DCD FILE#
+firsttimestep      0
+
+
+#############################################################
+## SIMULATION PARAMETERS                                   ##
+#############################################################
+#Remove input temp when continuing
+# Input
+paraTypeCharmm       on
+parameters          /home/tanaka/toppar_all36/par_all36_lip_peg_new.prm
+parameters          /home/tanaka/toppar_all36/par_c36_sm_chol.prm
+#parameters          ../../toppar_all36/par_all35_ethers.prm
+
+# Force-Field Parameters
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              12.
+switching           on
+switchdist         10.0
+pairlistdist       14.0
+margin              5.0
+vdwForceSwitching   on
+
+# Integrator Parameters
+timestep            2.0  ;# 2fs/step
+#timestep            1.0  ;# 2fs/step
+rigidBonds          all  ;# Needed for 2fs steps
+nonbondedFreq       1
+fullElectFrequency  2
+stepspercycle       20
+
+# Constant Temperature Control
+langevin            on    ;# do langevin dynamics
+langevinDamping     5     ;# damping coefficient (gamma) of 5/ps
+langevinTemp        310.
+langevinHydrogen    off    ;# don't couple langevin bath to hydrogens
+
+#NOTE:WHEN CONT A SIM TURN THESE OFF AS THEY WILL BE READ FROM RESTART XSC FILE#
+# Periodic Boundary Conditions
+cellOrigin           0.          0.0             0.0
+wrapWater           on
+
+# PME (for full-system periodic electrostatics)
+PME                  yes
+PMEGridSizeX       64
+PMEGridSizeY       64
+PMEGridSizeZ       84
+
+# Constant Pressure Control (variable volume)
+useGroupPressure      yes ;# needed for rigidBonds
+useFlexibleCell       no
+# useFlexibleCell       yes
+useConstantRatio      no
+# useConstantRatio      yes :# default is xy couple
+
+langevinPiston        on
+langevinPistonTarget  1.01325 ;#  in bar -> 1 atm
+langevinPistonPeriod  200.
+langevinPistonDecay   100.
+langevinPistonTemp    310.
+
+# Output
+outputName          $outputname
+
+restartfreq          5000    ;# 500steps = every 1 ps
+dcdfreq              1000
+#dcdUnitcell         yes
+xstFreq             500
+outputEnergies      500
+outputPressure      500
+
+
+#############################################################
+## EXECUTION SCRIPT                                        ##
+#############################################################
+#NOTE:WHEN CONT A SIM DO NOT MINIMIZE#
+# Minimization
+minimize           10000
+#reinitvels          300
+run   5000000 ;# 10 ns
+```
+
+
+
+
+
+順に解説していく
+
+```
+# 結合や質量ファイル(.psf)の指定
+structure           ./step2_autopsf.psf
+
+#初期配置の指定
+coordinates         ./step2_autopsf.pdb
+
+#outputファイル名の指定
+#aaa という名前にするとaaa.dcdやaaa.velなどのファイルが出力される。
+```
+
+```
+# もし前の計算を引き継ぎたいときは、以下４行のコメントアウト（＃）を外す。
+
+# 引き継ぐファイルのファイル名（拡張子は不要）
+# set inputname       p2_nvt
+
+# 以下３行はそのまま。
+# bincoordinates      $inputname.coor
+# binvelocities       $inputname.vel
+# extendedSystem      $inputname.xsc
+```
+
+```
+# 系のサイズ情報が入ったデータの指定（フォーマットがあるので他のものからコピペ安定）
+extendedSystem      initial.xsc
+
+# 温度の指定。２行必要
+set temperature     310.
+temperature	    $temperature
+```
+
+```
+# 何タイムステップ目から計算を始めるか。
+# 通常は0だが、計算の引き継ぎをしている場合は50000000とかになる点に注意
+
+firsttimestep      0
+```
+
+```
+# charmm形式のパラメーターを使う場合、そのパスを指定する。
+# 基本的にはcharmm-guiでダウンロードされるものを指定すればいい。
+
+paraTypeCharmm       on
+parameters          /home/tanaka/toppar_all36/par_all36_lip_peg_new.prm
+parameters          /home/tanaka/toppar_all36/par_c36_sm_chol.prm
+```
+
+```
+# 1-4相互作用の除外やカットオフ数値の指定
+# 基本的にはこのままでいい。
+
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              12.
+switching           on
+switchdist         10.0
+pairlistdist       14.0
+margin              5.0
+vdwForceSwitching   on
+```
+
+```
+# 2fs / 1 timestepという刻み幅の指定
+# それ以外はそのまま。
+
+timestep            2.0  ;# 2fs/step
+rigidBonds          all  ;# Needed for 2fs steps
+nonbondedFreq       1
+fullElectFrequency  2
+stepspercycle       20
+```
+
+```
+# 温度をlangevin熱浴で制御するコマンド。
+# はじめに指定した温度とあわせる。
+# シミュレーションの世界では能勢-Hoovar熱浴を使うべきらしいがNamdは非対応。
+
+langevin            on    ;# do langevin dynamics
+langevinDamping     5     ;# damping coefficient (gamma) of 5/ps
+langevinTemp        310.
+langevinHydrogen    off    ;# don't couple langevin bath to hydrogens
+```
+
+```
+# なんであるのかわからなかったけど多分必要
+
+cellOrigin           0.          0.0             0.0
+wrapWater           on
+```
+
+```
+# Particle mesh ewald法を使うかとそのグリッドサイズの指定。
+グリッドサイズはそれぞれシステムサイズ（Å）を5で割ったくらいの値にするといいらしい。
+
+PME                  yes
+PMEGridSizeX       64
+PMEGridSizeY       64
+PMEGridSizeZ       84
+```
+
+```
+# なんであるのかわからなかったけど多分必要
+
+useGroupPressure      yes ;# needed for rigidBonds
+useFlexibleCell       no
+useConstantRatio      no
+```
+
+```
+# 圧力制御にlangevin Pistonを使うかとその値。
+# 圧力は通常1atmなので温度だけはじめの値と合わせる。
+
+langevinPiston        on
+langevinPistonTarget  1.01325 ;#  in bar -> 1 atm
+langevinPistonPeriod  200.
+langevinPistonDecay   100.
+langevinPistonTemp    310.
+```
+
+```
+# restartファイルやトラジェクトリファイルを何ステップごとに出力するかといった値。
+# 理由がなければ以下の値を使えばいい。
+
+restartfreq          5000    ;# 500steps = every 1 ps
+dcdfreq              1000
+#dcdUnitcell         yes
+xstFreq             500
+outputEnergies      500
+outputPressure      500
+```
+
+```
+# はじめの10000ステップはminimize（構造最適化）
+# その後シミュレーションを5000000ステップ行う。
+
+minimize           10000
+run   5000000 ;# 10 ns
+```
+
