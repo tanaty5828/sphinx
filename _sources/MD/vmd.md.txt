@@ -74,7 +74,9 @@ vmd <構造ファイル>　<トラジェクトリファイル>
 ### Gromacsの計算結果の場合
 
 ```shell
-vmd structure.??? trajectory.???
+vmd structure.gro trajectory.trr
+
+## ".trr"の他にも、".xtc"でも可
 ```
 
 
