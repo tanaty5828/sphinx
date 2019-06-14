@@ -56,3 +56,42 @@ vmd
 このような画像が出できたらインストール成功である。
 
 (`exit`や左上のFile -> Quit)で閉じることができる。
+
+
+
+## 使い方
+
+vmdでトラジェクトリを見るためには、
+
+```shell
+vmd <構造ファイル>　<トラジェクトリファイル>
+```
+
+とする。
+
+
+
+### Gromacsの計算結果の場合
+
+```shell
+vmd structure.??? trajectory.???
+```
+
+
+
+### Namdの計算結果の場合
+
+```
+vmd structure.psf trajectory.dcd
+```
+
+
+
+### Lammpsの計算結果の場合
+
+```
+vmd structure.psf trajectory.xtc
+	or
+vmd structure.psf trajectory.dcd
+```
+

@@ -92,6 +92,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">8. Gnuplotでグラフ作成</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">9. VMD</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">9.1. インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">9.2. 使い方</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gromacs">9.2.1. Gromacsの計算結果の場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namd">9.2.2. Namdの計算結果の場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lammps">9.2.3. Lammpsの計算結果の場合</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -201,6 +207,34 @@ sudo make install
 <p><img alt="../_images/vmd.png" src="../_images/vmd.png" /></p>
 <p>このような画像が出できたらインストール成功である。</p>
 <p>(<code class="docutils literal notranslate"><span class="pre">exit</span></code>や左上のFile -&gt; Quit)で閉じることができる。</p>
+</div>
+<div class="section" id="id2">
+<h2>9.2. 使い方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>vmdでトラジェクトリを見るためには、</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vmd &lt;構造ファイル&gt;　&lt;トラジェクトリファイル&gt;
+</pre></div>
+</div>
+<p>とする。</p>
+<div class="section" id="gromacs">
+<h3>9.2.1. Gromacsの計算結果の場合<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vmd structure.??? trajectory.???
+</pre></div>
+</div>
+</div>
+<div class="section" id="namd">
+<h3>9.2.2. Namdの計算結果の場合<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vmd</span> <span class="n">structure</span><span class="o">.</span><span class="n">psf</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">dcd</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lammps">
+<h3>9.2.3. Lammpsの計算結果の場合<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vmd</span> <span class="n">structure</span><span class="o">.</span><span class="n">psf</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">xtc</span>
+	<span class="ow">or</span>
+<span class="n">vmd</span> <span class="n">structure</span><span class="o">.</span><span class="n">psf</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">dcd</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
