@@ -271,7 +271,7 @@ git branch -a
 
 ```shell
 # ブランチの作成、移動を１コマンドで
-git branch -b ishikawa
+git checkout -b ishikawa
 
 # こうするより楽
 git branch ishikawa
