@@ -1,0 +1,58 @@
+# VMD
+
+VMD(Visual molecular dynamics)は、分子モデリングならびに可視化コンピュータプログラムである。
+
+MDは分子動力学シミュレーションの結果を眺め、解析するためのツールとして主に開発されたが、容積データや配列データ、任意のグラフィックオブジェクトを扱うためのツールも含まれている。
+
+早い話、MD計算のトラジェクトリを可視化できるツールである。
+
+
+
+## インストール
+
+[VMD_downloads](https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1475)にアクセスし、Namdと同様にアカウント作成、ダウンロードまで進む。
+
+以下`~/App/` にダウンロードしここにインストールする方法。
+
+
+
+```shell
+# 移動
+cd ~/App/
+
+# 展開
+tar xvf vmd-1.9.3??????.tar.gz
+
+# 移動
+cd vmd-1.9.3/
+
+# (任意)インストールディレクトリの変更をしたい場合は
+vi configure
+
+# とし、以下２行を書き換える。
+$install_bin_dir="/usr/local/bin";
+$install_library_dir="/usr/local/lib/$install_name";
+
+# make 設定
+./configure
+
+# 移動
+cd src
+
+# インストール
+sudo make install
+```
+
+一度terminalを閉じて、
+
+```shell
+vmd
+```
+
+としたときに、
+
+![](./vmd.png)
+
+このような画像が出できたらインストール成功である。
+
+(`exit`や左上のFile -> Quit)で閉じることができる。

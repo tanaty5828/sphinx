@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>1. Welocome to Okazaki-Lab !! &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>9. VMD &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -36,8 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="2. Linux Basics !!" href="../linux/linux1.html" />
-    <link rel="prev" title="Welcome to VARIDATO&#39;s documentation!" href="../index.html" /> 
+    <link rel="prev" title="8. Gnuplotでグラフ作成" href="../Gnuplot/Gnuplot_01.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -83,15 +82,18 @@
             
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Welocome to Okazaki-Lab !!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basics !!</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">3. slack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../device/main.html">4. Device in Lab.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">5. Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdsoft.html">5. Molecular Dynamics Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">6. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">7. Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namd.html">7. Namd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">8. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">9. VMD</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. VMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">9.1. インストール</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -137,13 +139,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>1. Welocome to Okazaki-Lab !!</li>
+      <li>9. VMD</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/welcome/test1.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/MD/vmd.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -156,14 +158,50 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welocome-to-okazaki-lab">
-<h1>1. Welocome to Okazaki-Lab !!<a class="headerlink" href="#welocome-to-okazaki-lab" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>岡崎研究室のページヘようこそ！！</p>
-<p>このページは、岡崎研究室に配属されたけど</p>
-<p>パソコンなんて使ったことないよ〜って人のためのチュートリアルページです！</p>
-<p>（開発中）</p>
-<p>バグがあったら田中まで。</p>
-<img alt="../_images/logo21.png" class="align-left" src="../_images/logo21.png" />
+  <div class="section" id="vmd">
+<h1>9. VMD<a class="headerlink" href="#vmd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>VMD(Visual molecular dynamics)は、分子モデリングならびに可視化コンピュータプログラムである。</p>
+<p>MDは分子動力学シミュレーションの結果を眺め、解析するためのツールとして主に開発されたが、容積データや配列データ、任意のグラフィックオブジェクトを扱うためのツールも含まれている。</p>
+<p>早い話、MD計算のトラジェクトリを可視化できるツールである。</p>
+<div class="section" id="id1">
+<h2>9.1. インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&amp;AccessCode=&amp;ArchiveID=1475">VMD_downloads</a>にアクセスし、Namdと同様にアカウント作成、ダウンロードまで進む。</p>
+<p>以下<code class="docutils literal notranslate"><span class="pre">~/App/</span></code> にダウンロードしここにインストールする方法。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 移動</span>
+<span class="nb">cd</span> ~/App/
+
+<span class="c1"># 展開</span>
+tar xvf vmd-1.9.3??????.tar.gz
+
+<span class="c1"># 移動</span>
+<span class="nb">cd</span> vmd-1.9.3/
+
+<span class="c1"># (任意)インストールディレクトリの変更をしたい場合は</span>
+vi configure
+
+<span class="c1"># とし、以下２行を書き換える。</span>
+<span class="nv">$install_bin_dir</span><span class="o">=</span><span class="s2">&quot;/usr/local/bin&quot;</span><span class="p">;</span>
+<span class="nv">$install_library_dir</span><span class="o">=</span><span class="s2">&quot;/usr/local/lib/</span><span class="nv">$install_name</span><span class="s2">&quot;</span><span class="p">;</span>
+
+<span class="c1"># make 設定</span>
+./configure
+
+<span class="c1"># 移動</span>
+<span class="nb">cd</span> src
+
+<span class="c1"># インストール</span>
+sudo make install
+</pre></div>
+</div>
+<p>一度terminalを閉じて、</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vmd
+</pre></div>
+</div>
+<p>としたときに、</p>
+<p><img alt="../_images/vmd.png" src="../_images/vmd.png" /></p>
+<p>このような画像が出できたらインストール成功である。</p>
+<p>(<code class="docutils literal notranslate"><span class="pre">exit</span></code>や左上のFile -&gt; Quit)で閉じることができる。</p>
+</div>
 </div>
 
 
@@ -174,10 +212,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../linux/linux1.html" class="btn btn-neutral float-right" title="2. Linux Basics !!" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to VARIDATO&#39;s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../Gnuplot/Gnuplot_01.html" class="btn btn-neutral float-left" title="8. Gnuplotでグラフ作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

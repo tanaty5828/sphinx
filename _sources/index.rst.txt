@@ -33,6 +33,7 @@ Welcome to VARIDATO's documentation!
    /make_homepages/how_to_use_git
    /MD/namd
    /Gnuplot/Gnuplot_01
+   /MD/vmd.md
 
 Indices and tables
 ==================

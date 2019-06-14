@@ -58,7 +58,6 @@ namd2
 ```
 
 とやってみる。
-
 ```shell
 ------------- Processor 0 Exiting: Called CmiAbort ------------
 Reason: FATAL ERROR: No simulation config file specified on command line.
@@ -210,7 +209,7 @@ coordinates         ./step2_autopsf.pdb
 ```
 
 ```
-# もし前の計算を引き継ぎたいときは、以下４行のコメントアウト（＃）を外す。
+# もし前の計算を引き継ぎたいときは、以下４行のコメントアウト（#）を外す。
 
 # 引き継ぐファイルのファイル名（拡張子は不要）
 # set inputname       p2_nvt
