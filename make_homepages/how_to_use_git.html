@@ -101,6 +101,15 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id6">6.3. テキストの記載法</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id7">6.4. ディレクトリの構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git">6.5. Git の便利なコマンドまとめ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">6.5.1. 現在の状況を表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">6.5.2. これまでのコミット履歴をみる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-clone-git-add">6.5.3. ファイルを編集したが、やっぱり<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>したときの状態に戻したい(まだ<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>していない。)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">6.5.4. ファイル内の変更箇所を見たい</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">6.5.5. ブランチの表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">6.5.6. ブランチの作成、移動をまとめて</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">7. Namd</a></li>
@@ -272,6 +281,123 @@ git push https://github.com/tanaty5828/varidato_source hishikawa <span class="c1
 </div>
 <p>となっています（現在）。内容ごとに分かれているので、例えば<code class="docutils literal notranslate"><span class="pre">gromacs</span></code>のページを作成したければ、</p>
 <p>まず<code class="docutils literal notranslate"><span class="pre">gromacs</span></code>のディレクトリを作り、その中で<code class="docutils literal notranslate"><span class="pre">~~~.md</span></code>のファイルを作り書き込んで行きます。</p>
+</div>
+<div class="section" id="git">
+<h2>6.5. Git の便利なコマンドまとめ<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id8">
+<h3>6.5.1. 現在の状況を表示する<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 現在の状況を表示</span>
+git status
+
+<span class="c1"># output</span>
+
+<span class="c1"># On branch master</span>
+<span class="c1"># Changes not staged for commit:</span>
+<span class="c1">#   (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span>
+<span class="c1">#   (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span>
+<span class="c1">#</span>
+<span class="c1">#	modified:   make_homepages/how_to_use_git.md</span>
+<span class="c1">#</span>
+</pre></div>
+</div>
+<p>これは、今<code class="docutils literal notranslate"><span class="pre">master</span></code>ブランチにいて<code class="docutils literal notranslate"><span class="pre">make_homepages/how_to_use_git.md</span></code>というファイルが編集されているが、</p>
+<p>まだコミットされていないという意味である。</p>
+</div>
+<div class="section" id="id9">
+<h3>6.5.2. これまでのコミット履歴をみる<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 履歴をみる</span>
+git log
+
+<span class="c1"># output</span>
+
+commit f65397b64d315d24ef8a586d0d0a2cb4e69c7b20
+Merge: efd639e 1540efa
+Author: Hiroki tanaka &lt;tanaka@tanaka.og.apchem.nagoya-u.ac.jp&gt;
+Date:   Thu Jun <span class="m">13</span> <span class="m">15</span>:19:47 <span class="m">2019</span> +0900
+
+    web
+
+commit efd639e1454a379bb189322d49176872500b02ce
+Author: Tsurumaki &lt;tsurumaki.shuhei@d.mbox.nagoya-u.ac.jp&gt;
+Date:   Thu Jun <span class="m">13</span> <span class="m">14</span>:48:59 <span class="m">2019</span> +0900
+
+    aaa
+</pre></div>
+</div>
+<p>コミット履歴やマージ履歴が確認できる。</p>
+<p>ただし,<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code>は少々細かいので、<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">reflog</span></code>もおすすめである。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git reflog
+
+<span class="c1"># output</span>
+
+b9411a7 HEAD@<span class="o">{</span><span class="m">0</span><span class="o">}</span>: commit: ren
+8b3fd63 HEAD@<span class="o">{</span><span class="m">1</span><span class="o">}</span>: commit: note
+904d45d HEAD@<span class="o">{</span><span class="m">2</span><span class="o">}</span>: commit: namd
+24699f5 HEAD@<span class="o">{</span><span class="m">3</span><span class="o">}</span>: commit: mdpages2
+982e5ae HEAD@<span class="o">{</span><span class="m">4</span><span class="o">}</span>: commit: mdpages
+cb8d492 HEAD@<span class="o">{</span><span class="m">5</span><span class="o">}</span>: commit: namechenge
+3177df3 HEAD@<span class="o">{</span><span class="m">6</span><span class="o">}</span>: commit: namechenge
+f65397b HEAD@<span class="o">{</span><span class="m">7</span><span class="o">}</span>: commit <span class="o">(</span>merge<span class="o">)</span>: web
+3a00161 HEAD@<span class="o">{</span><span class="m">8</span><span class="o">}</span>: pull origin hishikawa: Merge made by the <span class="s1">&#39;recursive&#39;</span> strategy.
+708049f HEAD@<span class="o">{</span><span class="m">9</span><span class="o">}</span>: commit: web
+82bce41 HEAD@<span class="o">{</span><span class="m">10</span><span class="o">}</span>: commit: unknown
+d7f1070 HEAD@<span class="o">{</span><span class="m">11</span><span class="o">}</span>: commit: git
+ae755eb HEAD@<span class="o">{</span><span class="m">12</span><span class="o">}</span>: commit: image
+2570c4a HEAD@<span class="o">{</span><span class="m">13</span><span class="o">}</span>: commit: git
+c1490e7 HEAD@<span class="o">{</span><span class="m">14</span><span class="o">}</span>: commit: md-pages
+f3bb236 HEAD@<span class="o">{</span><span class="m">15</span><span class="o">}</span>: checkout: moving from hishikawa to master
+f3bb236 HEAD@<span class="o">{</span><span class="m">16</span><span class="o">}</span>: checkout: moving from master to hishikawa
+f3bb236 HEAD@<span class="o">{</span><span class="m">17</span><span class="o">}</span>: commit <span class="o">(</span>initial<span class="o">)</span>: first-commit
+</pre></div>
+</div>
+<p>と、ログが並びわかりやすいと思う。</p>
+</div>
+<div class="section" id="git-clone-git-add">
+<h3>6.5.3. ファイルを編集したが、やっぱり<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>したときの状態に戻したい(まだ<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>していない。)<a class="headerlink" href="#git-clone-git-add" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># myfile.txt を元の状態に戻したい。</span>
+git checkout HEAD myfile.txt
+
+<span class="c1"># ブランチ全体を戻す。</span>
+git checkout HEAD
+</pre></div>
+</div>
+<p>上のコマンドを推奨する。</p>
+</div>
+<div class="section" id="id10">
+<h3>6.5.4. ファイル内の変更箇所を見たい<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># myfile.txtの差分を表示</span>
+git diff myfile.txt
+
+<span class="c1"># output</span>
+
+-# output
++# output_data
+</pre></div>
+</div>
+<p>削除した行は<code class="docutils literal notranslate"><span class="pre">-</span></code>で、追加した行は<code class="docutils literal notranslate"><span class="pre">+</span></code>で表示される。</p>
+</div>
+<div class="section" id="id11">
+<h3>6.5.5. ブランチの表示<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">#すべてのブランチ（リモート・ローカル問わず）を表示</span>
+git branch -a
+
+<span class="c1"># output</span>
+  origin/Gnuplot
+  origin/master
+</pre></div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>6.5.6. ブランチの作成、移動をまとめて<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># ブランチの作成、移動を１コマンドで</span>
+git branch -b ishikawa
+
+<span class="c1"># こうするより楽</span>
+git branch ishikawa
+git checkout ishikawa
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 

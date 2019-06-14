@@ -141,3 +141,140 @@ git clone https://github.com/tanaty5828/varidato_source #データのダウン�
 となっています（現在）。内容ごとに分かれているので、例えば`gromacs`のページを作成したければ、
 
 まず`gromacs`のディレクトリを作り、その中で`~~~.md`のファイルを作り書き込んで行きます。
+
+
+
+## Git の便利なコマンドまとめ
+
+### 現在の状況を表示する
+
+```shell
+# 現在の状況を表示
+git status
+
+# output
+
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   make_homepages/how_to_use_git.md
+#
+```
+
+これは、今`master`ブランチにいて`make_homepages/how_to_use_git.md`というファイルが編集されているが、
+
+まだコミットされていないという意味である。
+
+
+
+### これまでのコミット履歴をみる
+
+```shell
+# 履歴をみる
+git log
+
+# output
+
+commit f65397b64d315d24ef8a586d0d0a2cb4e69c7b20
+Merge: efd639e 1540efa
+Author: Hiroki tanaka <tanaka@tanaka.og.apchem.nagoya-u.ac.jp>
+Date:   Thu Jun 13 15:19:47 2019 +0900
+
+    web
+
+commit efd639e1454a379bb189322d49176872500b02ce
+Author: Tsurumaki <tsurumaki.shuhei@d.mbox.nagoya-u.ac.jp>
+Date:   Thu Jun 13 14:48:59 2019 +0900
+
+    aaa
+```
+
+コミット履歴やマージ履歴が確認できる。
+
+ただし,`git log`は少々細かいので、`git reflog`もおすすめである。
+
+```shell
+git reflog
+
+# output
+
+b9411a7 HEAD@{0}: commit: ren
+8b3fd63 HEAD@{1}: commit: note
+904d45d HEAD@{2}: commit: namd
+24699f5 HEAD@{3}: commit: mdpages2
+982e5ae HEAD@{4}: commit: mdpages
+cb8d492 HEAD@{5}: commit: namechenge
+3177df3 HEAD@{6}: commit: namechenge
+f65397b HEAD@{7}: commit (merge): web
+3a00161 HEAD@{8}: pull origin hishikawa: Merge made by the 'recursive' strategy.
+708049f HEAD@{9}: commit: web
+82bce41 HEAD@{10}: commit: unknown
+d7f1070 HEAD@{11}: commit: git
+ae755eb HEAD@{12}: commit: image
+2570c4a HEAD@{13}: commit: git
+c1490e7 HEAD@{14}: commit: md-pages
+f3bb236 HEAD@{15}: checkout: moving from hishikawa to master
+f3bb236 HEAD@{16}: checkout: moving from master to hishikawa
+f3bb236 HEAD@{17}: commit (initial): first-commit
+```
+
+と、ログが並びわかりやすいと思う。
+
+
+
+### ファイルを編集したが、やっぱり`git clone`したときの状態に戻したい(まだ`git add .`していない。)
+
+```shell
+# myfile.txt を元の状態に戻したい。
+git checkout HEAD myfile.txt
+
+# ブランチ全体を戻す。
+git checkout HEAD
+```
+
+上のコマンドを推奨する。
+
+
+
+### ファイル内の変更箇所を見たい
+
+```shell
+# myfile.txtの差分を表示
+git diff myfile.txt
+
+# output
+
+-# output
++# output_data
+```
+
+削除した行は`-`で、追加した行は`+`で表示される。
+
+
+
+###  ブランチの表示
+
+```shell
+#すべてのブランチ（リモート・ローカル問わず）を表示
+git branch -a
+
+# output
+  origin/Gnuplot
+  origin/master
+```
+
+
+
+### ブランチの作成、移動をまとめて
+
+```shell
+# ブランチの作成、移動を１コマンドで
+git branch -b ishikawa
+
+# こうするより楽
+git branch ishikawa
+git checkout ishikawa
+```
+
