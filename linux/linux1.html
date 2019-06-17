@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Linux Basics !! &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>2. Linux Basic &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -84,12 +84,19 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Linux Basics !!</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#linux">2.1. Linuxってなんなのさ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">2.1.1. ディストリビューション</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Linux Basic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">2.1. Linuxとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guicui">2.2. GUIとCUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#terminal">2.3. 端末：Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.4. コマンドを実行しよう</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.4.1. （応用）プロンプトの読み方</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. アプリケーションの起動</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.5. 基本的なコマンドを練習しよう</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pwd">2.5.1. <code class="docutils literal notranslate"><span class="pre">pwd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ls">2.5.2. <code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">3. slack</a></li>
@@ -144,13 +151,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. Linux Basics !!</li>
+      <li>2. Linux Basic</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/linux/linux1.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/linux/linux1.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,27 +170,95 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="linux-basics">
-<h1>2. Linux Basics !!<a class="headerlink" href="#linux-basics" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>Linuxの基礎について</p>
+  <div class="section" id="linux-basic">
+<h1>2. Linux Basic<a class="headerlink" href="#linux-basic" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>このページでは、Linuxの基礎知識を解説します。</p>
 <p>まずは、パソコンを触って慣れましょう！</p>
 <p>パソコンは「習うより慣れろ」です。壊しても大丈夫なので、いろいろ触って見よう！</p>
 <div class="section" id="linux">
-<h2>2.1. Linuxってなんなのさ<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>2.1. Linuxとは？<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>簡単に言えば、&quot;Windows&quot;や&quot;Mac&quot;のような種類のことです。</p>
 <p>難しい言葉を使えば、&quot;OS(Operating System)&quot;というものになります。</p>
-<p>触ってみると意外と簡単で、奥が深く楽しい物となっています。</p>
+<p>Windowsにも</p>
+<ul class="simple">
+<li><p>Windows 10</p></li>
+<li><p>Windows 8</p></li>
+<li><p>Windows vista</p></li>
+</ul>
+<p>のように、いろいろな種類があるように、Linuxにも様々な種類があります。</p>
+<p><img alt="../_images/img1262.jpg" src="../_images/img1262.jpg" /></p>
+<p><strong>CentOS</strong>の例（みなさんのパソコン）</p>
+<p><img alt="../_images/img1269.jpg" src="../_images/img1269.jpg" /></p>
+<p><strong>Ubuntu</strong>の例（ウプントゥと発音します。）</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>わからないことは「Centos OOOO インストール」などで検索すると答えが出てくるでしょう。</p>
+</div>
+</div>
+<div class="section" id="guicui">
+<h2>2.2. GUIとCUI<a class="headerlink" href="#guicui" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>私たちが Windowsで慣れ親しんでいるような、ウィンドウを表示してマウスで操作するスタイルが
+「GUI ( Graphical User Interface )」です。</p>
+<p>GUI に対して、キーボードでコマンド(command :命令)を入力し、 その結果を文字で受け取るスタイルが「 CUI ( Character User Interface )」になります。</p>
+<p><img alt="../_images/img1430.jpg" src="../_images/img1430.jpg" /></p>
+<p>CUIの一例（映画とかで見るハッカーがパソコンを操作している画面をイメージしてください）</p>
+<p>Linuxはマウスをつかって操作することもできますが、キーボードを使ってコマンドを入力することが一般的になってくるでしょう。</p>
+<p>ここでは、CUIの使い方を初心者の方でもわかるように解説をしていきますが、わからないことは簡単なことでも先輩に聞いて見ましょう。</p>
+<p>先輩たちは教えたがりなので優しく教えてくれます。</p>
+</div>
+<div class="section" id="terminal">
+<h2>2.3. 端末：Terminal<a class="headerlink" href="#terminal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>実際問題、CUIのみを使って操作することはほとんどなく、GUI 環境でコマンドラインを使用したい場合は、「端末ウィンドウ」を使用します。</p>
+<p>以下のように、「端末」を起動してみましょう！</p>
+<p><img alt="../_images/img1484.jpg" src="../_images/img1484.jpg" /></p>
+<p>「study」や「localhost」の名前は異なりますが、カーソルが点滅している白い画面が出てきたでしょうか？</p>
+<p>これは「端末」や「ターミナル」と呼ばれ、GUIからCUIを操作で来る優れものです。以降基本的に研究や輪講の課題はこのターミナルで行うことになります。</p>
+</div>
 <div class="section" id="id1">
-<h3>2.1.1. ディストリビューション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Linuxは様々な種類があり、この種類をディストリビューションといいます。</p>
-<p>これを読んでいる人のパソコンのディストリビューションは&quot;Centos(セントス、セントオーエス)&quot;になっているはずです。</p>
-<p>パソコンでわからいことがあったら、&quot;Centos XXXX 使い方&quot;などと検索すると答えが出てくるでしょう。</p>
-</div>
-</div>
+<h2>2.4. コマンドを実行しよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここでコマンドを入力して[ Enter ]キーを押すと、実行結果が表示されます。試しに、<code class="docutils literal notranslate"><span class="pre">df</span></code>と入力して[ Enter ]キーを押して見ましょう。（以下の図を参照。）</p>
+<p><img alt="../_images/img1492.jpg" src="../_images/img1492.jpg" /></p>
+<p>似たような画面が出てきたら成功です。ちなみに<code class="docutils literal notranslate"><span class="pre">df</span></code>はディスク使用量を表示するコマンドです。</p>
 <div class="section" id="id2">
-<h2>2.2. アプリケーションの起動<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>LinuxではWindowsなどとは違いデスクトップ(はじめの画面)にワードやエクセルのアイコンはありません。</p>
-<p>右上に <em>Applications</em> というボタンがあるはずなので、これを押してみよう！</p>
+<h3>2.4.1. （応用）プロンプトの読み方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ターミナルにはさまざまな情報が表示されています。例えば、今回使用している画面では「 [study&#64;localhost ~]$ 」 と表示されています。</p>
+<p>この [] の中に書かれている内容は「 ユーザー名 &#64; ホスト名 カレントディレクトリ」という意味になります。</p>
+<p>「 ~ (チルダ)」記号は、ホームディレクトリという意味です。</p>
+<p>最後の記号は、 いわばコマンドプロンプトの 目印 のようなもので、一般ユーザーで実行している場合は「 $ 」記号が表示されるように設定されています 。</p>
+<p>root ユーザーという特別なユーザーで実行している場合は「 # 」という記号が表示されます。</p>
+<p>つまり、
+「 [study&#64;localhost ~]$ 」というプロンプトからは「現在、一般ユーザーとしてコマンドラインを使っており、 study という名前で localhost というホストにログインしている。カレントディレクトリはホームディレクトリ」ということが分かります。</p>
+<hr class="docutils" />
+<p>皆さんにとって重要なのは、<strong>カレントディレクトリ</strong>ぐらいです。ディレクトリはWindowsで言うならばフォルダを意味し、今現在自分がどこのフォルダにいるかということを示します。</p>
+<p><strong>ホームディレクトリ</strong>とはWindowsの「PC」フォルダにほぼ当たります。つまり以下の２つの画像は両方ともホームディレクトリにいるという意味です。</p>
+<p><img alt="../_images/win_home.png" src="../_images/win_home.png" /></p>
+<p><img alt="../_images/img1484.jpg" src="../_images/img1484.jpg" /></p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>2.5. 基本的なコマンドを練習しよう<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>そもそも覚えておくべきコマンドに<code class="docutils literal notranslate"><span class="pre">ls</span></code>や<code class="docutils literal notranslate"><span class="pre">cd</span></code>、<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>などがあります。</p>
+<p>ここではその使い方を説明します。</p>
+<p>まずは、上を参考にターミナルを開きましょう。</p>
+<div class="section" id="pwd">
+<h3>2.5.1. <code class="docutils literal notranslate"><span class="pre">pwd</span></code><a class="headerlink" href="#pwd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ターミナルでは常に 自分がどのディレクトリにいるか を意識する必要があります。これは<code class="docutils literal notranslate"><span class="pre">pwd</span></code>というコマンドで確認できます。</p>
+<p>ターミナルに<code class="docutils literal notranslate"><span class="pre">pwd</span></code>と入力し、[Enter]キーを押してみましょう。</p>
+<p><img alt="../_images/img1692.jpg" src="../_images/img1692.jpg" /></p>
+<p>似たような表示になりましたか？これは自分が今<code class="docutils literal notranslate"><span class="pre">/home/study</span></code> という場所に居ることを示しています。</p>
+<p>(先程も言いましたが、<code class="docutils literal notranslate"><span class="pre">~</span></code>はホームディレクトリを表す特別な記号で、<code class="docutils literal notranslate"><span class="pre">/home/study</span></code>と全く同じ意味です。)</p>
+</div>
+<div class="section" id="ls">
+<h3>2.5.2. <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#ls" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>カレントディレクトリのファイルやディレクトリが一覧表示されます。Windowsのファイルを開いて、どんなファイルがあるかな〜と眺めているのと同じですね。上と同様にターミナルに<code class="docutils literal notranslate"><span class="pre">ls</span></code>と入力し、[Enter]キーを押してみましょう。</p>
+<p>![](./img1697 (copy).jpg)</p>
+<p>英語ではなく、日本語で「デスクトップ」「ドキュメント」と表示さてれているかもしれませんが、同じことです。</p>
+<hr class="docutils" />
+<p>またコマンドには様々なオプションをつけて実行することができます。オプションは<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>のように<code class="docutils literal notranslate"><span class="pre">コマンド</span><span class="pre">-オプション</span></code>　と入力し、実行します。</p>
+<p>同様にターミナルに<code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>と入力し、[Enter]キーを押してみましょう。</p>
+<p><img alt="../_images/img1685.jpg" src="../_images/img1685.jpg" /></p>
+<p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>の<code class="docutils literal notranslate"><span class="pre">-l</span></code>オプションは、ファイルの属性や所有者、最終更新日などの詳細を表示するオプションです。</p>
+</div>
 </div>
 </div>
 
