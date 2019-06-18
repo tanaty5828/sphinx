@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>5. Gromacsのページ &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>8. Namd &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="6. How to edit this homepages" href="../make_homepages/how_to_use_git.html" />
-    <link rel="prev" title="4. Device in Lab." href="../device/main.html" /> 
+    <link rel="next" title="9. Gnuplotでグラフ作成" href="../Gnuplot/Gnuplot_01.html" />
+    <link rel="prev" title="7. Namd" href="namd.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,11 +84,20 @@
               <p class="caption"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basics !!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">3. slack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../device/main.html">4. Device in Lab.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">5. Gromacsのページ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdsoft.html">5. Molecular Dynamics Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">6. How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namd.html">7. Namd</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">8. Namd</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">8.1. 概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">8.2. インストール方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">9. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vmd.html">10. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">11. Discovery Studio</a></li>
 </ul>
 
             
@@ -134,13 +143,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>5. Gromacsのページ</li>
+      <li>8. Namd</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/MD/gromacs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/MD/gromacs.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -153,9 +162,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="gromacs">
-<h1>5. Gromacsのページ<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>gmx gump -f md.trr</p>
+  <div class="section" id="namd">
+<h1>8. Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>8.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>GROMACS (Groningen Machine for Chemical Simulations)は、フリーウェアの分子動力学シミュレーションパッケージの一つである。オランダ・フローニンゲン大学で開発され、その後世界中の開発者によって更新され続けている。</p>
+</div>
+<div class="section" id="id2">
+<h2>8.2. インストール方法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://manual.gromacs.org/documentation/">Download GROMACS</a>にアクセスし、適当なバージョンの項目の「Download」をクリックし、&quot;Source code&quot; の項目からダウンロードする。</p>
+<p>ダウンロードするファイル名は、gromacs-XXX.tar.gz のような名前になっているはず。&quot;XXX&quot;にはバージョンが入る。</p>
+<hr class="docutils" />
+<p>どのバージョンをダウンロードすればいいかわからないときは、とりあえず最新のものにしておけば良い。
+自分の研究テーマの前任者とバージョンを合わせた方が良い場合もある。</p>
+<hr class="docutils" />
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1">## &quot;gromacs-XXX.tar.gz&quot;が、ディレクトリ&quot;~/App&quot;内にあるとします。</span>
+
+<span class="nb">cd</span>  ~/App/
+tar -xzvf gromacs-XXX.tar.gz
+<span class="nb">cd</span>  ./gromacs-XXX/
+</pre></div>
+</div>
+<p>上のようにコマンドを打つと、圧縮ファイルである&quot;gromacs-XXX.tar.gz&quot;を解凍して、新たに&quot;gromacs-XXX&quot;というディレクトリが作成されます。
+(&quot;圧縮&quot;,&quot;解凍&quot;などが意味不明でキレそうな時は、<a class="reference external" href="https://wa3.i-3-i.info/word1477.html">参考ページ</a>を読んで落ち着いてください。)</p>
+<p>この状態で<code class="docutils literal notranslate"><span class="pre">ls</span></code>コマンドを打つと、&quot;gromacs-XXX&quot;の中身が表示されます。
+その中に、&quot;README&quot;や&quot;INSTALL&quot;のようなファイルがあり、それを読み、その指示通りにすればインストールができるはずです。
+ただ、全て英語でわかりにくいと思うので、ここに日本語で書いておきます。</p>
+<p>このまま、つまりディレクトリ&quot;gromacs-XXX&quot;にいる状態で、次のようにコマンドを打ってください。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mkdir gmx_install
+mkdir build
+<span class="nb">cd</span> ./build
+cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>ON -DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>ON -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-XXX/gmx_install
+make -j4
+make check
+sudo make install
+</pre></div>
+</div>
+<p>&quot;cmake&quot;や&quot;make&quot;のコマンドではある程度時間がかかります。</p>
+<p>ここまででエラーがでなければ、さらにVim等で&quot;~/.bashrc&quot;を開き(<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bashrc</span></code>),次のように書き加える。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>最後の行に
+　
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-XXX/gmx_install/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
+
+を追加する。
+</pre></div>
+</div>
+<p>確認のため、</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+gmx --version
+</pre></div>
+</div>
+<p>と打ち、gromacsのバージョンが正しく表示されていれば、インストール完了です。</p>
+</div>
 </div>
 
 
@@ -166,10 +224,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../make_homepages/how_to_use_git.html" class="btn btn-neutral float-right" title="6. How to edit this homepages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../Gnuplot/Gnuplot_01.html" class="btn btn-neutral float-right" title="9. Gnuplotでグラフ作成" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../device/main.html" class="btn btn-neutral float-left" title="4. Device in Lab." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="namd.html" class="btn btn-neutral float-left" title="7. Namd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

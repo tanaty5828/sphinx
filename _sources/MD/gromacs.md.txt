@@ -1,0 +1,69 @@
+# Namd
+
+## 概要
+
+GROMACS (Groningen Machine for Chemical Simulations)は、フリーウェアの分子動力学シミュレーションパッケージの一つである。オランダ・フローニンゲン大学で開発され、その後世界中の開発者によって更新され続けている。
+
+
+
+## インストール方法
+
+[Download GROMACS](http://manual.gromacs.org/documentation/)にアクセスし、適当なバージョンの項目の「Download」をクリックし、"Source code" の項目からダウンロードする。
+
+ダウンロードするファイル名は、gromacs-XXX.tar.gz のような名前になっているはず。"XXX"にはバージョンが入る。
+
+------
+
+どのバージョンをダウンロードすればいいかわからないときは、とりあえず最新のものにしておけば良い。
+自分の研究テーマの前任者とバージョンを合わせた方が良い場合もある。
+
+------
+
+```shell
+
+## "gromacs-XXX.tar.gz"が、ディレクトリ"~/App"内にあるとします。
+
+cd  ~/App/
+tar -xzvf gromacs-XXX.tar.gz
+cd  ./gromacs-XXX/
+```
+
+上のようにコマンドを打つと、圧縮ファイルである"gromacs-XXX.tar.gz"を解凍して、新たに"gromacs-XXX"というディレクトリが作成されます。
+("圧縮","解凍"などが意味不明でキレそうな時は、[参考ページ](https://wa3.i-3-i.info/word1477.html)を読んで落ち着いてください。)
+
+この状態で`ls`コマンドを打つと、"gromacs-XXX"の中身が表示されます。
+その中に、"README"や"INSTALL"のようなファイルがあり、それを読み、その指示通りにすればインストールができるはずです。
+ただ、全て英語でわかりにくいと思うので、ここに日本語で書いておきます。
+
+このまま、つまりディレクトリ"gromacs-XXX"にいる状態で、次のようにコマンドを打ってください。
+
+```shell
+mkdir gmx_install
+mkdir build
+cd ./build
+cmake ../ -DGMX_BUILD_OWN_FFTW=ON -DREGRESSIONTEST_DOWNLOAD=ON -DCMAKE_INSTALL_PREFIX=${HOME}/App/gromacs-XXX/gmx_install
+make -j4
+make check
+sudo make install
+```
+
+"cmake"や"make"のコマンドではある程度時間がかかります。
+
+ここまででエラーがでなければ、さらにVim等で"~/.bashrc"を開き(`vim ~/.bashrc`),次のように書き加える。
+
+```bash
+最後の行に
+　
+export PATH=${HOME}/App/gromacs-XXX/gmx_install/bin:${PATH}
+
+を追加する。
+```
+
+確認のため、
+
+```shell
+source ~/.bashrc
+gmx --version
+```
+
+と打ち、gromacsのバージョンが正しく表示されていれば、インストール完了です。
