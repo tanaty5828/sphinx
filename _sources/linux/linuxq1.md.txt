@@ -76,3 +76,6 @@ Linux : 簡単に言えば、"Windows"や"Mac"のような種類のこと。OS(�
 [study@localhost ~]$ cd new_dir
 ```
 
+
+
+## 問題：

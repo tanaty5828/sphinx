@@ -33,8 +33,9 @@ Welcome to VARIDATO's documentation!
    /MD/mdsoft
    /make_homepages/how_to_use_git
    /MD/namd
+   /MD/gromacs
    /Gnuplot/Gnuplot_01
-   /MD/vmd.md
+   /MD/vmd
    /MD/Discovery_studio
 
 
