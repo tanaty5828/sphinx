@@ -34,6 +34,7 @@ Welcome to VARIDATO's documentation!
    /MD/namd
    /Gnuplot/Gnuplot_01
    /MD/vmd.md
+   /MD/Discovery_studio
 
 Indices and tables
 ==================

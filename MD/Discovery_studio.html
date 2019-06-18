@@ -1,0 +1,304 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>10. Discovery Studio &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="prev" title="9. VMD" href="vmd.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VARIDATO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">3. slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">4. Device in Lab.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdsoft.html">5. Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">6. How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namd.html">7. Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">8. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vmd.html">9. VMD</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Discovery Studio</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">10.1. インストール方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">10.1.1. パスを通す</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VARIDATO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>10. Discovery Studio</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/MD/Discovery_studio.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="discovery-studio">
+<h1>10. Discovery Studio<a class="headerlink" href="#discovery-studio" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><a class="reference external" href="http://www.3dsbiovia.com/products/collaborative-science/biovia-discovery-studio/">Discovery Studio</a>はBIODIA社の分子可視化ツールで、特にDNAやアミノ酸などの生体分子を目で見て初期構造を作るときには重宝します。</p>
+<p>有償版だとこれ１つでMD計算までできてしまうが、無料版でも初期構造の作成や構造緩和程度なら十分高機能に使える。</p>
+<p>篠田グループの方はインストールすべし</p>
+<p><img alt="../_images/Discovery.png" src="../_images/Discovery.png" /></p>
+<div class="section" id="id1">
+<h2>10.1. インストール方法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://www.3dsbiovia.com/products/collaborative-science/biovia-discovery-studio/visualization-download.php">ダウンロードページ(2019現在)</a>にアクセスし、適当にプロフィールを入力します。</p>
+<p>すべて入力し、submitするとダウンロードリンクが現れるので<strong>Linux</strong>版をダウンロードします。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># ダウンロードディレクトリに移動</span>
+<span class="nb">cd</span> ~/Downloads
+
+<span class="c1"># インストールの実行（名前は異なるかもですが、[.bin]を実行すればいい。）</span>
+./biovia_2019.ds2019client.bin
+
+<span class="c1"># もし、何も始まらなかった場合、</span>
+chmod +x ./biovia_2019.ds2019client.bin
+./biovia_2019.ds2019client.bin
+<span class="c1"># としてください。</span>
+
+<span class="c1"># あとは指示に従ってインストールディレクトリなどの指定をする。</span>
+<span class="c1"># 特に理由がなければ[1(デフォルト)]を選択しすすめる。</span>
+
+<span class="c1"># インストールしたディレクトリに移動</span>
+<span class="c1"># デフォルトは[~/BIOVIA/DiscoveryStudio2019/ と思われる。]</span>
+<span class="nb">cd</span> ~/BIOVIA/DiscoveryStudio2019/
+
+<span class="c1"># ライセンスパックのある場所へ移動</span>
+<span class="nb">cd</span> lp_installer
+
+<span class="c1"># ライセンスパックのインストール</span>
+./lp_setup_linux.sh
+<span class="c1"># 特に理由がなければ[1(デフォルト)]を選択しすすめる。</span>
+
+<span class="c1"># ライセンスパックの[/etc/]がある場所へ移動</span>
+<span class="c1"># デフォルトは[~/BIODIA/BIOVIA_LicensePack/etc と思われる。]</span>
+<span class="nb">cd</span> ~/BIODIA/BIOVIA_LicensePack/etc
+
+<span class="c1"># コンフィグファイルが[csh]記法なので、必要に応じてcshをダウンロード</span>
+sudo yum install -y csh
+
+<span class="c1"># コンフィグの実行</span>
+csh ./lp_config
+csh ./lp_echovars
+
+<span class="c1">## 以下のような表示が出ていれば成功</span>
+<span class="c1">## PATH=?????????</span>
+<span class="c1">## export PATH=????</span>
+
+<span class="c1"># DiscoveryStudioの[/bin/]の場所へ移動</span>
+<span class="nb">cd</span> ~/BIODIA/DiscoveryStudio2019/bin
+
+<span class="c1"># ライセンスパックがあるところを指定しつつコンフィグを実行</span>
+<span class="c1"># ここまでデフォルトを指定していれば[~/BIODIA/BIOVIA_LicensePack]にあると思う</span>
+./config_lp_location ~/BIODIA/BIOVIA_LicensePack
+
+<span class="c1"># ただし、[~]のような文字が使えるかは試していないので、しっかり絶対パスで指定するほうが無難（tanakaの部分は適宜変更してください。）</span>
+./config_lp_location /home/tanaka/BIODIA/BIOVIA_LicensePack
+
+<span class="c1"># DiscoveryStadioの起動</span>
+./DiscoveryStudio2019
+</pre></div>
+</div>
+<p>これで起動すればインストール成功です。</p>
+<p>起動時に「ライブラリがありません」のようなエラーがでる場合は、</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>sudo yum install -y mesa-libGLU-devel
+sudo yum install -y libXi-devel
+</pre></div>
+</div>
+<p>とすることで、解決した。（個人差があるかも）</p>
+<div class="section" id="id2">
+<h3>10.1.1. パスを通す<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi ~/.bashrc <span class="c1">#.bashrcの編集</span>
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>???????　と書いてある行の末尾に
+　
+:<span class="nv">$HOME</span>/BIODIA/DiscoveryStudio2019/bin
+
+を追加する。
+</pre></div>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+./DiscoveryStudio2019
+</pre></div>
+</div>
+<p>で起動できたらOK。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="vmd.html" class="btn btn-neutral float-left" title="9. VMD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, htanaka, stsurumaki, hishikawa
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
