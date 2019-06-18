@@ -96,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#pwd">2.5.1. <code class="docutils literal notranslate"><span class="pre">pwd</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ls">2.5.2. <code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cd">2.5.3. <code class="docutils literal notranslate"><span class="pre">cd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mkdir">2.5.4. <code class="docutils literal notranslate"><span class="pre">mkdir</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -105,10 +106,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">5. Molecular Dynamics Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">6. How to edit this homepages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">7. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">8. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">9. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">10. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">11. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">8. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">9. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">10. Discovery Studio</a></li>
 </ul>
 
             
@@ -270,6 +270,53 @@
 <p>（日本語環境の方は<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">ピクチャ−</span></code>だと思われる。）</p>
 <p>なお、このときに 「 cd P 」 まで入力して [ Tab ] キーを押すと、ディレクトリ名が補完されて 「 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Pictures/</span></code> 」
 と自動で入力されるので「 cd P 」→[ Tab ]キー→[ Enter ]キーで移動できます。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost ~<span class="o">]</span>$ <span class="nb">cd</span> Pictures
+<span class="o">[</span>study@localhost Pictures<span class="o">]</span>$
+</pre></div>
+</div>
+<p>このように、＄の前の表示が変わっただろうか？これは自分が今<code class="docutils literal notranslate"><span class="pre">Pictures</span></code>ディレクトリにいることを示している。</p>
+<p>この状態で、今居るディレクトリと表示する<code class="docutils literal notranslate"><span class="pre">pwd</span></code>コマンドを使えば、</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost Pictures<span class="o">]</span>$ <span class="nb">pwd</span>
+/home/study/Pictures
+<span class="o">[</span>study@localhost Pictures<span class="o">]</span>$
+</pre></div>
+</div>
+<p>と、表示されるだろう。</p>
+<hr class="docutils" />
+<p>また、今居るディレクトリは<code class="docutils literal notranslate"><span class="pre">.</span></code>で、一つ上のディレクトリは<code class="docutils literal notranslate"><span class="pre">..</span></code>で表すことができる。</p>
+<p>つまり、一つ上のディレクトリに行きたいときは<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">..</span></code>で移動できる。</p>
+<p>（慣例的に<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">../</span></code>とする人が多いが同じことである。）</p>
+<p><code class="docutils literal notranslate"><span class="pre">Pictures</span></code>ディレクトリからひとつ上のホームディレクトリに戻ってみよう</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost Pictures<span class="o">]</span>$ <span class="nb">cd</span> ../
+<span class="o">[</span>study@localhost ~<span class="o">]</span>$ <span class="nb">pwd</span>
+/home/study
+</pre></div>
+</div>
+<p>ホームディレクトリにもどることができた。</p>
+</div>
+<div class="section" id="mkdir">
+<h3>2.5.4. <code class="docutils literal notranslate"><span class="pre">mkdir</span></code><a class="headerlink" href="#mkdir" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>これは、新しいディレクトリを作成するコマンドです。</p>
+<p>Windowsでの「新しいフォルダの作成」と同じです。</p>
+<p>使い方は、<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">新しいディレクトリ名</span></code>です。</p>
+<p>ホームディレクトリに、<code class="docutils literal notranslate"><span class="pre">test</span></code>というディレクトリを作成し、そこに移動してみましょう。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost ~<span class="o">]</span>$ mkdir <span class="nb">test</span>
+<span class="o">[</span>study@localhost ~<span class="o">]</span>$ ls <span class="c1">#何があるか確認してみる。</span>
+...................... <span class="nb">test</span> <span class="c1">#testがどこかにあるはず。</span>
+<span class="o">[</span>study@localhost ~<span class="o">]</span>$　<span class="nb">cd</span> <span class="nb">test</span>
+<span class="o">[</span>study@localhost test<span class="o">]</span>$ <span class="nb">pwd</span>
+/home/study/test
+</pre></div>
+</div>
+<hr class="docutils" />
+<p>これまでにも何度か登場してきた「ディレクトリ」という言葉を、 ここであらためておさらいしましょう。</p>
+<p>コンピュータではさまざまなデータを扱いますが、これらは基本的に全て「ファイル」として HDD などの記憶
+媒体に保存されています。そして、これらのファイルがどこにあるかを整理したものが 「ディレクトリ ( directory ) になります。</p>
+<p>ディレクトリは階層化されています。つまり、ディレクトリの中にディレクトリがあり、そのディレクトリの中にま
+たディレクトリがある......というような管理が可能になっています。</p>
+<p>このディレクトリの中にあるディレクトリを「サブディレクトリ」と呼びます。また、 サブディレクトリ側から見た場合、自分自身の 1 つ上の階層のディレクトリを「親ディレクトリ」と呼びます。</p>
+<p>ディレクトリは「 / 」記号で表します。例えば、「 home 」ディレクトリの下に「 study 」ディレクトリがあり、そ
+こに「 file.txt 」というファイルがあった場合は、「 home/study/file.txt 」のように表すことができます。</p>
 </div>
 </div>
 </div>

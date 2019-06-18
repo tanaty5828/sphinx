@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>10. VMD &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>9. VMD &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="11. Discovery Studio" href="Discovery_studio.html" />
-    <link rel="prev" title="9. Gnuplotでグラフ作成" href="../Gnuplot/Gnuplot_01.html" /> 
+    <link rel="next" title="10. Discovery Studio" href="Discovery_studio.html" />
+    <link rel="prev" title="8. Gnuplotでグラフ作成" href="../Gnuplot/Gnuplot_01.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -90,19 +90,18 @@
 <li class="toctree-l1"><a class="reference internal" href="mdsoft.html">5. Molecular Dynamics Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">6. How to edit this homepages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="namd.html">7. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gromacs.html">8. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">9. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. VMD</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">10.1. インストール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">10.2. 使い方</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#gromacs">10.2.1. Gromacsの計算結果の場合</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#namd">10.2.2. Namdの計算結果の場合</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lammps">10.2.3. Lammpsの計算結果の場合</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">8. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">9. VMD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">9.1. インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">9.2. 使い方</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gromacs">9.2.1. Gromacsの計算結果の場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#namd">9.2.2. Namdの計算結果の場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lammps">9.2.3. Lammpsの計算結果の場合</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">11. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">10. Discovery Studio</a></li>
 </ul>
 
             
@@ -148,7 +147,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>10. VMD</li>
+      <li>9. VMD</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -168,12 +167,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="vmd">
-<h1>10. VMD<a class="headerlink" href="#vmd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>9. VMD<a class="headerlink" href="#vmd" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>VMD(Visual molecular dynamics)は、分子モデリングならびに可視化コンピュータプログラムである。</p>
 <p>MDは分子動力学シミュレーションの結果を眺め、解析するためのツールとして主に開発されたが、容積データや配列データ、任意のグラフィックオブジェクトを扱うためのツールも含まれている。</p>
 <p>早い話、MD計算のトラジェクトリを可視化できるツールである。</p>
 <div class="section" id="id1">
-<h2>10.1. インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.1. インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&amp;AccessCode=&amp;ArchiveID=1475">VMD_downloads</a>にアクセスし、Namdと同様にアカウント作成、ダウンロードまで進む。</p>
 <p>以下<code class="docutils literal notranslate"><span class="pre">~/App/</span></code> にダウンロードしここにインストールする方法。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># 移動</span>
@@ -212,14 +211,14 @@ sudo make install
 <p>(<code class="docutils literal notranslate"><span class="pre">exit</span></code>や左上のFile -&gt; Quit)で閉じることができる。</p>
 </div>
 <div class="section" id="id2">
-<h2>10.2. 使い方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>9.2. 使い方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>vmdでトラジェクトリを見るためには、</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vmd &lt;構造ファイル&gt;　&lt;トラジェクトリファイル&gt;
 </pre></div>
 </div>
 <p>とする。</p>
 <div class="section" id="gromacs">
-<h3>10.2.1. Gromacsの計算結果の場合<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>9.2.1. Gromacsの計算結果の場合<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vmd structure.gro trajectory.trr
 
 <span class="c1">## &quot;.trr&quot;の他にも、&quot;.xtc&quot;でも可</span>
@@ -227,13 +226,13 @@ sudo make install
 </div>
 </div>
 <div class="section" id="namd">
-<h3>10.2.2. Namdの計算結果の場合<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>9.2.2. Namdの計算結果の場合<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vmd</span> <span class="n">structure</span><span class="o">.</span><span class="n">psf</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">dcd</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="lammps">
-<h3>10.2.3. Lammpsの計算結果の場合<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>9.2.3. Lammpsの計算結果の場合<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vmd</span> <span class="n">structure</span><span class="o">.</span><span class="n">psf</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">xtc</span>
 	<span class="ow">or</span>
 <span class="n">vmd</span> <span class="n">structure</span><span class="o">.</span><span class="n">psf</span> <span class="n">trajectory</span><span class="o">.</span><span class="n">dcd</span>
@@ -251,10 +250,10 @@ sudo make install
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Discovery_studio.html" class="btn btn-neutral float-right" title="11. Discovery Studio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Discovery_studio.html" class="btn btn-neutral float-right" title="10. Discovery Studio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../Gnuplot/Gnuplot_01.html" class="btn btn-neutral float-left" title="9. Gnuplotでグラフ作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../Gnuplot/Gnuplot_01.html" class="btn btn-neutral float-left" title="8. Gnuplotでグラフ作成" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
