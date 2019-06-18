@@ -1,4 +1,4 @@
-# Namd
+# Gromacs
 
 ## 概要
 
