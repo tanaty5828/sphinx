@@ -27,6 +27,7 @@ Welcome to VARIDATO's documentation!
 
    /welcome/test1
    /linux/linux1
+   /linux/linuxq1
    /slack/insto
    /device/main
    /MD/mdsoft
@@ -35,6 +36,7 @@ Welcome to VARIDATO's documentation!
    /Gnuplot/Gnuplot_01
    /MD/vmd.md
    /MD/Discovery_studio
+
 
 Indices and tables
 ==================
