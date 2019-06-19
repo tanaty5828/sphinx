@@ -90,20 +90,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">3.1.1. 解答</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">3.2. 問題：端末を開いて、カレントディレクトリを表示せよ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">3.2. 問題：端末を開いて、カレントディレクトリを表示せよ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2.1. 解答</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#picturesdocuments">3.3. 問題：<code class="docutils literal notranslate"><span class="pre">Pictures</span></code>ディレクトリに入り、ホームディレクトリにもどる。その後<code class="docutils literal notranslate"><span class="pre">Documents</span></code>ディレクトリに移動しよう。</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">3.3.1. 解答</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.3.1. 解答</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pictures1documents-2-31">3.4. 問題：まずは<code class="docutils literal notranslate"><span class="pre">Pictures</span></code>ディレクトリに入る。その後１行のコマンドで<code class="docutils literal notranslate"><span class="pre">Documents</span></code>ディレクトリに移動しよう。(上の解答の2~3行目を１行で行う)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">3.4.1. 解答</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.4.1. 解答</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#new-dir">3.5. 問題：ホームディレクトリに<code class="docutils literal notranslate"><span class="pre">new_dir</span></code>というディレクトリを作成し、その中へ移動せよ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">3.5.1. 解答</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.5.1. 解答</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">3.6. 問題：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">3.6. 問題：</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">4. slack</a></li>
@@ -197,19 +200,21 @@
 </div>
 <div class="section" id="id3">
 <h2>3.2. 問題：端末を開いて、カレントディレクトリを表示せよ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>解答</p>
+<div class="section" id="id4">
+<h3>3.2.1. 解答<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><img alt="../_images/img1484.jpg" src="../_images/img1484.jpg" /></p>
 <p>([Ctrl] + [shift] + [T]でも端末が開くかもしれません)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost ~<span class="o">]</span>$ <span class="nb">pwd</span>
 /home/study
 </pre></div>
 </div>
-<p>減災のカレントディレクトリは<code class="docutils literal notranslate"><span class="pre">/home/study</span></code>(ホームディレクトリである。)</p>
+<p>現在のカレントディレクトリは<code class="docutils literal notranslate"><span class="pre">/home/study</span></code>(ホームディレクトリである。)</p>
+</div>
 </div>
 <div class="section" id="picturesdocuments">
 <h2>3.3. 問題：<code class="docutils literal notranslate"><span class="pre">Pictures</span></code>ディレクトリに入り、ホームディレクトリにもどる。その後<code class="docutils literal notranslate"><span class="pre">Documents</span></code>ディレクトリに移動しよう。<a class="headerlink" href="#picturesdocuments" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id4">
-<h3>3.3.1. 解答<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id5">
+<h3>3.3.1. 解答<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost ~<span class="o">]</span>$ <span class="nb">cd</span> Pictures
 <span class="o">[</span>study@localhost Pictures<span class="o">]</span>$ <span class="nb">cd</span> ../ <span class="c1">#(cd ~)も正解</span>
 <span class="o">[</span>study@localhost ~<span class="o">]</span>$ <span class="nb">cd</span> Documents
@@ -220,8 +225,8 @@
 </div>
 <div class="section" id="pictures1documents-2-31">
 <h2>3.4. 問題：まずは<code class="docutils literal notranslate"><span class="pre">Pictures</span></code>ディレクトリに入る。その後１行のコマンドで<code class="docutils literal notranslate"><span class="pre">Documents</span></code>ディレクトリに移動しよう。(上の解答の2~3行目を１行で行う)<a class="headerlink" href="#pictures1documents-2-31" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id5">
-<h3>3.4.1. 解答<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id6">
+<h3>3.4.1. 解答<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost ~<span class="o">]</span>$ <span class="nb">cd</span> Pictures
 <span class="o">[</span>study@localhost Pictures<span class="o">]</span>$ <span class="nb">cd</span> ../Documents <span class="c1">#(cd ~/Documents)も正解</span>
 <span class="o">[</span>study@localhost Documents<span class="o">]</span>$
@@ -231,16 +236,16 @@
 </div>
 <div class="section" id="new-dir">
 <h2>3.5. 問題：ホームディレクトリに<code class="docutils literal notranslate"><span class="pre">new_dir</span></code>というディレクトリを作成し、その中へ移動せよ<a class="headerlink" href="#new-dir" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id6">
-<h3>3.5.1. 解答<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id7">
+<h3>3.5.1. 解答<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>study@localhost ~<span class="o">]</span>$ mkdir new_dir
 <span class="o">[</span>study@localhost ~<span class="o">]</span>$ <span class="nb">cd</span> new_dir
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>3.6. 問題：<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id8">
+<h2>3.6. 問題：<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 </div>
 </div>
 
