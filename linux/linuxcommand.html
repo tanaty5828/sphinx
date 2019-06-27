@@ -92,22 +92,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Linux commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cp">3.1. <code class="docutils literal notranslate"><span class="pre">cp</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">3.1.1. 文法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#example">3.1.2. example</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#test1-dat-test2-datcp-test1-dat-test2-dat">3.1.2.1. test1.dat をtest2.datという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test1.dat</span> <span class="pre">test2.dat</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filetext1-datcp-file-text1-dat">3.1.2.2. fileディレクトリの中のtext1.datを一つ上のディレクトリにコピーしてくる。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file/text1.dat</span> <span class="pre">./</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filefile-samecp-r-file-file-same">3.1.2.3. fileディレクトリをfile_sameという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">file</span> <span class="pre">file_same</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#test1-dat-test2-datcp-test1-dat-test2-dat">3.1.2. test1.dat をtest2.datという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test1.dat</span> <span class="pre">test2.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filetext1-datcp-file-text1-dat">3.1.3. fileディレクトリの中のtext1.datを一つ上のディレクトリにコピーしてくる。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file/text1.dat</span> <span class="pre">./</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filefile-samecp-r-file-file-same">3.1.4. fileディレクトリをfile_sameという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">file</span> <span class="pre">file_same</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#mv">3.2. <code class="docutils literal notranslate"><span class="pre">mv</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">3.2.1. ファイル名変更時の文法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">3.2.2. example</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#text1-dat-text-new-datmv-text1-dat-text-new-dat">3.2.2.1. text1.dat をtext_new.datに改名<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">text_new.dat</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">3.2.3. ファイル移動時の文法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">3.2.4. example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#text1-dat-text-new-datmv-text1-dat-text-new-dat">3.2.2. text1.dat をtext_new.datに改名<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">text_new.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2.3. ファイル移動時の文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.2.4. </a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#text1-dat-filemv-text1-dat-file">3.2.4.1. text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code></a></li>
 </ul>
 </li>
@@ -244,10 +238,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="example">
-<h3>3.1.2. example<a class="headerlink" href="#example" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="test1-dat-test2-datcp-test1-dat-test2-dat">
-<h4>3.1.2.1. test1.dat をtest2.datという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test1.dat</span> <span class="pre">test2.dat</span></code><a class="headerlink" href="#test1-dat-test2-datcp-test1-dat-test2-dat" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h3>3.1.2. test1.dat をtest2.datという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test1.dat</span> <span class="pre">test2.dat</span></code><a class="headerlink" href="#test1-dat-test2-datcp-test1-dat-test2-dat" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
 text1.dat
 
@@ -259,7 +251,7 @@ text1.dat test2.dat
 </div>
 </div>
 <div class="section" id="filetext1-datcp-file-text1-dat">
-<h4>3.1.2.2. fileディレクトリの中のtext1.datを一つ上のディレクトリにコピーしてくる。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file/text1.dat</span> <span class="pre">./</span></code><a class="headerlink" href="#filetext1-datcp-file-text1-dat" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h3>3.1.3. fileディレクトリの中のtext1.datを一つ上のディレクトリにコピーしてくる。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file/text1.dat</span> <span class="pre">./</span></code><a class="headerlink" href="#filetext1-datcp-file-text1-dat" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls 
 file
 
@@ -271,7 +263,7 @@ file text1.dat
 </div>
 </div>
 <div class="section" id="filefile-samecp-r-file-file-same">
-<h4>3.1.2.3. fileディレクトリをfile_sameという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">file</span> <span class="pre">file_same</span></code><a class="headerlink" href="#filefile-samecp-r-file-file-same" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h3>3.1.4. fileディレクトリをfile_sameという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">file</span> <span class="pre">file_same</span></code><a class="headerlink" href="#filefile-samecp-r-file-file-same" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
 file text1.dat
 
@@ -282,7 +274,6 @@ file file_same text1.dat
 </pre></div>
 </div>
 <p>このように、ファイルなら<code class="docutils literal notranslate"><span class="pre">cp</span></code>で問題ないがディレクトリをコピーする場合、<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span></code>とする。</p>
-</div>
 </div>
 </div>
 <div class="section" id="mv">
@@ -297,10 +288,8 @@ file file_same text1.dat
 </pre></div>
 </div>
 </div>
-<div class="section" id="id3">
-<h3>3.2.2. example<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="text1-dat-text-new-datmv-text1-dat-text-new-dat">
-<h4>3.2.2.1. text1.dat をtext_new.datに改名<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">text_new.dat</span></code><a class="headerlink" href="#text1-dat-text-new-datmv-text1-dat-text-new-dat" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h3>3.2.2. text1.dat をtext_new.datに改名<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">text_new.dat</span></code><a class="headerlink" href="#text1-dat-text-new-datmv-text1-dat-text-new-dat" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
 text1.dat
 $ mv text1.dat text_new.dat
@@ -310,16 +299,15 @@ text_new.dat
 </pre></div>
 </div>
 </div>
-</div>
 <hr class="docutils" />
-<div class="section" id="id4">
-<h3>3.2.3. ファイル移動時の文法<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id3">
+<h3>3.2.3. ファイル移動時の文法<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mv 移動したいファイル　移動先のディレクトリ
 </pre></div>
 </div>
 </div>
-<div class="section" id="id5">
-<h3>3.2.4. example<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id4">
+<h3>3.2.4. <a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="text1-dat-filemv-text1-dat-file">
 <h4>3.2.4.1. text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code><a class="headerlink" href="#text1-dat-filemv-text1-dat-file" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
