@@ -1,4 +1,4 @@
-# Linux commands
+# Linux commands (nessesary)
 
 先の章で説明したように、linuxは`cd`や`mkdir`などのコマンドを用いて操作します。
 
@@ -16,6 +16,9 @@
  cp                                     ファイル・ディレクトリのコピー
  mv                                     ファイル移動 or ファイル名変更
  rm                                     ファイル・ディレクトリ削除
+ echo                                   文字の表示
+ cat                                    ファイルの中身を表示
+ sl                                     ここまで疲れたらやってみてね
 =====================================  =====================================
 ```
 
@@ -182,3 +185,74 @@ $ ls
 
 `cp` のと同様にディレクトリに対して行うには`-r`のオプションが必要。
 
+
+
+## `echo`
+
+文字の表示をするコマンド
+
+### 文法
+
+```shell
+echo 表示したい文字
+```
+
+### 
+
+### I am a geniusと表示する。`echo "I am a genius"`
+
+```shell
+$ echo "I am a genius"
+I am a genius
+```
+
+これだけだと何の面白みもないが、あとで紹介する「リダイレクト」を活用することで利便性が格段に上がる。
+
+
+
+### I am a geniusという内容が書かれたtest.datというファイルを作成。`echo "I am a genius" > test.dat`
+
+```shell
+$ echo "I am a genius" > test.dat
+$ cat test.dat
+I am a genius
+```
+
+`cat `はファイルの中身を表示するコマンドで、次に説明する。
+
+
+
+## `cat`
+
+ファイルの中身を表示する。
+
+### 文法
+
+```shell
+cat 中身を表示したいファイル
+```
+
+
+
+### I am a geniusという内容が書かれたtest.datというファイルの中身を見る`cat test.dat`
+
+```shell
+$ cat test.dat
+I am a genius
+```
+
+
+
+### ~/.bashrcの中身を表示してみる。
+
+```shell
+$ cat ~/.bashrc
+........................
+........................
+```
+
+
+
+## `sl`
+
+ここまでやって疲れたら`sl`コマンドを試してほしい。疲れがなくなるはずだ。

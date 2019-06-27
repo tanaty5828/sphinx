@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Linux commands &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>3. Linux commands (nessesary) &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -89,7 +89,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="linux1.html">1. Linux Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linuxq1.html">2. Linux Basic Questions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Linux commands</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Linux commands (nessesary)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#cp">3.1. <code class="docutils literal notranslate"><span class="pre">cp</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1">3.1.1. 文法</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#test1-dat-test2-datcp-test1-dat-test2-dat">3.1.2. test1.dat をtest2.datという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test1.dat</span> <span class="pre">test2.dat</span></code></a></li>
@@ -112,6 +112,20 @@
 <li class="toctree-l3"><a class="reference internal" href="#file-rm-r-file">3.3.3. ディレクトリ file/ を削除 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">file</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#echo">3.4. <code class="docutils literal notranslate"><span class="pre">echo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.4.1. 文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.4.2. </a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-am-a-geniusecho-i-am-a-genius">3.4.3. I am a geniusと表示する。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-am-a-geniustest-datecho-i-am-a-genius-test-dat">3.4.4. I am a geniusという内容が書かれたtest.datというファイルを作成。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.dat</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cat">3.5. <code class="docutils literal notranslate"><span class="pre">cat</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.5.1. 文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-am-a-geniustest-datcat-test-dat">3.5.2. I am a geniusという内容が書かれたtest.datというファイルの中身を見る<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">test.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bashrc">3.5.3. ~/.bashrcの中身を表示してみる。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sl">3.6. <code class="docutils literal notranslate"><span class="pre">sl</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -174,7 +188,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>3. Linux commands</li>
+      <li>3. Linux commands (nessesary)</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -193,8 +207,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="linux-commands">
-<h1>3. Linux commands<a class="headerlink" href="#linux-commands" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="linux-commands-nessesary">
+<h1>3. Linux commands (nessesary)<a class="headerlink" href="#linux-commands-nessesary" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>先の章で説明したように、linuxは<code class="docutils literal notranslate"><span class="pre">cd</span></code>や<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>などのコマンドを用いて操作します。</p>
 <p>このページではその他のコマンドについて解説します。</p>
 <table class="docutils align-default">
@@ -226,6 +240,15 @@
 </tr>
 <tr class="row-even"><td><p>rm</p></td>
 <td><p>ファイル・ディレクトリ削除</p></td>
+</tr>
+<tr class="row-odd"><td><p>echo</p></td>
+<td><p>文字の表示</p></td>
+</tr>
+<tr class="row-even"><td><p>cat</p></td>
+<td><p>ファイルの中身を表示</p></td>
+</tr>
+<tr class="row-odd"><td><p>sl</p></td>
+<td><p>ここまで疲れたらやってみてね</p></td>
 </tr>
 </tbody>
 </table>
@@ -359,6 +382,65 @@ $ ls
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">cp</span></code> のと同様にディレクトリに対して行うには<code class="docutils literal notranslate"><span class="pre">-r</span></code>のオプションが必要。</p>
 </div>
+</div>
+<div class="section" id="echo">
+<h2>3.4. <code class="docutils literal notranslate"><span class="pre">echo</span></code><a class="headerlink" href="#echo" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>文字の表示をするコマンド</p>
+<div class="section" id="id5">
+<h3>3.4.1. 文法<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> 表示したい文字
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>3.4.2. <a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="i-am-a-geniusecho-i-am-a-genius">
+<h3>3.4.3. I am a geniusと表示する。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span></code><a class="headerlink" href="#i-am-a-geniusecho-i-am-a-genius" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;I am a genius&quot;</span>
+I am a genius
+</pre></div>
+</div>
+<p>これだけだと何の面白みもないが、あとで紹介する「リダイレクト」を活用することで利便性が格段に上がる。</p>
+</div>
+<div class="section" id="i-am-a-geniustest-datecho-i-am-a-genius-test-dat">
+<h3>3.4.4. I am a geniusという内容が書かれたtest.datというファイルを作成。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.dat</span></code><a class="headerlink" href="#i-am-a-geniustest-datecho-i-am-a-genius-test-dat" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;I am a genius&quot;</span> &gt; test.dat
+$ cat test.dat
+I am a genius
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cat</span> </code>はファイルの中身を表示するコマンドで、次に説明する。</p>
+</div>
+</div>
+<div class="section" id="cat">
+<h2>3.5. <code class="docutils literal notranslate"><span class="pre">cat</span></code><a class="headerlink" href="#cat" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ファイルの中身を表示する。</p>
+<div class="section" id="id7">
+<h3>3.5.1. 文法<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>cat 中身を表示したいファイル
+</pre></div>
+</div>
+</div>
+<div class="section" id="i-am-a-geniustest-datcat-test-dat">
+<h3>3.5.2. I am a geniusという内容が書かれたtest.datというファイルの中身を見る<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">test.dat</span></code><a class="headerlink" href="#i-am-a-geniustest-datcat-test-dat" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cat test.dat
+I am a genius
+</pre></div>
+</div>
+</div>
+<div class="section" id="bashrc">
+<h3>3.5.3. ~/.bashrcの中身を表示してみる。<a class="headerlink" href="#bashrc" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ cat ~/.bashrc
+........................
+........................
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="sl">
+<h2>3.6. <code class="docutils literal notranslate"><span class="pre">sl</span></code><a class="headerlink" href="#sl" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここまでやって疲れたら<code class="docutils literal notranslate"><span class="pre">sl</span></code>コマンドを試してほしい。疲れがなくなるはずだ。</p>
 </div>
 </div>
 
