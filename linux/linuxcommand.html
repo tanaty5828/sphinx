@@ -100,11 +100,16 @@
 <li class="toctree-l2"><a class="reference internal" href="#mv">3.2. <code class="docutils literal notranslate"><span class="pre">mv</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">3.2.1. ファイル名変更時の文法</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#text1-dat-text-new-datmv-text1-dat-text-new-dat">3.2.2. text1.dat をtext_new.datに改名<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">text_new.dat</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">3.2.3. ファイル移動時の文法</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">3.2.4. </a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#text1-dat-filemv-text1-dat-file">3.2.4.1. text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2.3. ファイル移動時の文法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#text1-dat-filemv-text1-dat-file">3.2.3.1. text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code></a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rm">3.3. <code class="docutils literal notranslate"><span class="pre">rm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.3.1. 文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-dat-rm-test-dat">3.3.2. ファイル test.dat を削除<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">test.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-rm-r-file">3.3.3. ディレクトリ file/ を削除 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">file</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -197,12 +202,10 @@
 <col style="width: 50%" />
 <col style="width: 50%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>command</p></th>
-<th class="head"><p>result</p></th>
-</tr>
-</thead>
 <tbody>
+<tr class="row-odd"><td><p>## command ##</p></td>
+<td><p>## result ##</p></td>
+</tr>
 <tr class="row-even"><td><p>pwd</p></td>
 <td><p>カレントディレクトリの表示</p></td>
 </tr>
@@ -227,8 +230,7 @@
 </tbody>
 </table>
 <p>ここでは、</p>
-<p><a class="reference internal" href="linux1.html"><span class="doc">Linux Basic</span></a></p>
-<p>で紹介しなかったものについて解説をします。</p>
+<p><a class="reference internal" href="linux1.html"><span class="doc">Linux Basic</span></a> で紹介しなかったものについて解説をします。</p>
 <div class="section" id="cp">
 <h2>3.1. <code class="docutils literal notranslate"><span class="pre">cp</span></code><a class="headerlink" href="#cp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ファイルをコピーするコマンド</p>
@@ -305,11 +307,8 @@ text_new.dat
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mv 移動したいファイル　移動先のディレクトリ
 </pre></div>
 </div>
-</div>
-<div class="section" id="id4">
-<h3>3.2.4. <a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="text1-dat-filemv-text1-dat-file">
-<h4>3.2.4.1. text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code><a class="headerlink" href="#text1-dat-filemv-text1-dat-file" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>3.2.3.1. text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code><a class="headerlink" href="#text1-dat-filemv-text1-dat-file" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
 file text1.dat
 
@@ -324,6 +323,41 @@ test1.dat
 </div>
 <p>移動先のディレクトリはすでに存在している必要がある。まだ作ってなければtext1.datがfileに改名されてしまう。</p>
 </div>
+</div>
+</div>
+<div class="section" id="rm">
+<h2>3.3. <code class="docutils literal notranslate"><span class="pre">rm</span></code><a class="headerlink" href="#rm" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ファイルを削除するコマンド</p>
+<div class="section" id="id4">
+<h3>3.3.1. 文法<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>rm 削除したいファイル
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-dat-rm-test-dat">
+<h3>3.3.2. ファイル test.dat を削除<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">test.dat</span></code><a class="headerlink" href="#test-dat-rm-test-dat" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
+test.dat
+
+$ rm test.dat
+
+$ ls
+</pre></div>
+</div>
+<p>このように、確認メッセージなどがなく、削除されるため注意が必要！！</p>
+<p>（ゴミ箱に行ったりもせずいきなり消える）</p>
+</div>
+<div class="section" id="file-rm-r-file">
+<h3>3.3.3. ディレクトリ file/ を削除 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">file</span></code><a class="headerlink" href="#file-rm-r-file" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls
+file 
+
+$ rm -r file
+
+$ ls
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">cp</span></code> のと同様にディレクトリに対して行うには<code class="docutils literal notranslate"><span class="pre">-r</span></code>のオプションが必要。</p>
 </div>
 </div>
 </div>
