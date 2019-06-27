@@ -37,15 +37,6 @@ Welcome to VARIDATO's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Tools
-   :numbered:
-
-   /slack/insto
-   /device/main
-   /make_homepages/how_to_use_git
-
-.. toctree::
-   :maxdepth: 2
    :caption: Molecular Dynamics
    :numbered:
 
@@ -55,6 +46,15 @@ Welcome to VARIDATO's documentation!
    /Gnuplot/Gnuplot_01
    /MD/vmd
    /MD/Discovery_studio
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tools
+   :numbered:
+
+   /slack/insto
+   /device/main
+   /make_homepages/how_to_use_git
 
 
 Indices and tables
