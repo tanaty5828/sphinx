@@ -1,0 +1,141 @@
+# Linux commands
+
+先の章で説明したように、linuxは`cd`や`mkdir`などのコマンドを用いて操作します。
+
+このページではその他のコマンドについて解説します。
+
+
+
+```eval_rst
+=====================================  =====================================
+command                                 result
+=====================================  =====================================
+ pwd                                    カレントディレクトリの表示
+ cd                                     ディレクトリ移動
+ mkdir                                  新規ディレクトリ作成
+ ls                                     ディレクトリの中身表示
+ cp                                     ファイル・ディレクトリのコピー
+ mv                                     ファイル移動 or ファイル名変更
+ rm                                     ファイル・ディレクトリ削除
+=====================================  =====================================
+```
+
+ここでは、
+
+```eval_rst
+:doc:`/linux/linux1`
+```
+
+で紹介しなかったものについて解説をします。
+
+
+
+## `cp`
+
+ファイルをコピーするコマンド
+
+### 文法
+
+```shell
+cp コピー元ファイル　コピー後名
+```
+
+
+
+### example
+
+#### test1.dat をtest2.datという名前でコピーする。`cp test1.dat test2.dat`
+
+```shell
+$ ls
+text1.dat
+
+$ cp text1.dat test2.dat # test1.dat をtest2.datという名前でコピーする。
+
+$ ls
+text1.dat test2.dat
+```
+
+
+
+#### fileディレクトリの中のtext1.datを一つ上のディレクトリにコピーしてくる。`cp file/text1.dat ./`
+
+```shell
+$ ls 
+file
+
+$ cp file/text1.dat ./
+
+$ ls
+file text1.dat
+```
+
+
+
+#### fileディレクトリをfile_sameという名前でコピーする。`cp -r file file_same`
+
+```shell
+$ ls
+file text1.dat
+
+$ cp -r file file_same
+
+$ ls 
+file file_same text1.dat
+```
+
+このように、ファイルなら`cp`で問題ないがディレクトリをコピーする場合、`cp -r`とする。
+
+
+
+## `mv`
+
+- ファイル名を変更するコマンド
+- ファイルを移動するコマンド
+
+### ファイル名変更時の文法
+
+```shell
+mv 変更前ファイル名　変更後ファイル名
+```
+
+### example
+
+#### text1.dat をtext_new.datに改名`mv text1.dat text_new.dat`
+
+```shell
+$ ls
+text1.dat
+$ mv text1.dat text_new.dat
+
+$ ls
+text_new.dat
+```
+
+------
+
+### ファイル移動時の文法
+
+```shell
+mv 移動したいファイル　移動先のディレクトリ
+```
+
+### example
+
+#### text1.dat をfileの中に入れる`mv text1.dat file`
+
+```shell
+$ ls
+file text1.dat
+
+$ mv test1.dat file
+
+$ ls
+file
+
+$ ls file/
+test1.dat
+```
+
+移動先のディレクトリはすでに存在している必要がある。まだ作ってなければtext1.datがfileに改名されてしまう。
+

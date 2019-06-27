@@ -34,6 +34,7 @@ Welcome to VARIDATO's documentation!
 
    /linux/linux1
    /linux/linuxq1
+   /linux/linuxcommand
 
 .. toctree::
    :maxdepth: 2
