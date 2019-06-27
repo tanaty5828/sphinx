@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>10. Gnuplotでグラフ作成 &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>4. Gnuplotでグラフ作成 &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="11. VMD" href="../MD/vmd.html" />
-    <link rel="prev" title="9. Gromacs" href="../MD/gromacs.html" /> 
+    <link rel="next" title="5. VMD" href="../MD/vmd.html" />
+    <link rel="prev" title="3. Namd" href="../MD/namd.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,34 +82,43 @@
             
             
               <p class="caption"><span class="caption-text">Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">3. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">4. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">5. Device in Lab.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">6. Molecular Dynamics Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">7. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">8. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">9. Gromacs</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">10. Gnuplotでグラフ作成</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">10.1. Gnuplotで何ができる？</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">10.2. とりあえずグラフをつくってみよう　その１</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">10.2.1. Gnuplotを起動</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#y-sin-x">10.2.2. y=sin(x) のグラフを描く</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#y-sin-x-y-cos-x-1">10.2.3. y=sin(x) と y=cos(x) を１つのグラフに描く</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">10.2.4. グラフを画像として保存する</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">1. Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">2. Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">3. Namd</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Gnuplotでグラフ作成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">4.1. Gnuplotで何ができる？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">4.2. とりあえずグラフをつくってみよう　その１</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.2.1. Gnuplotを起動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#y-sin-x">4.2.2. y=sin(x) のグラフを描く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#y-sin-x-y-cos-x-1">4.2.3. y=sin(x) と y=cos(x) を１つのグラフに描く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.2.4. グラフを画像として保存する</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">10.3. とりあえずグラフをつくってみよう　その２</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">10.3.1. データファイルからグラフを作成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">10.3.2. 判例と軸の名前を表示させる</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">4.3. とりあえずグラフをつくってみよう　その２</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">4.3.1. データファイルからグラフを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">4.3.2. 判例と軸の名前を表示させる</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">11. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">12. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">5. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">6. Discovery Studio</a></li>
 </ul>
 
             
@@ -155,7 +164,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>10. Gnuplotでグラフ作成</li>
+      <li>4. Gnuplotでグラフ作成</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -175,19 +184,19 @@
            <div itemprop="articleBody">
             
   <div class="section" id="gnuplot">
-<h1>10. Gnuplotでグラフ作成<a class="headerlink" href="#gnuplot" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>4. Gnuplotでグラフ作成<a class="headerlink" href="#gnuplot" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>グラフ作成ツール”Gnuplot”について</p>
 <p>このページでは、Gnuplotの基礎的な使い方を紹介します。</p>
 <div class="section" id="id1">
-<h2>10.1. Gnuplotで何ができる？<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.1. Gnuplotで何ができる？<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>データファイル(Excelみたいに数値が羅列されているファイル)などを元に、グラフを作成出来ます。</p>
 <p>Excelでもグラフは作れますが、Gnuplotを使えばLinux上で簡単にグラフが作れます。</p>
 <p>ミーティング資料、研究会スライド、ポスター、論文の制作など、様々な場面でグラフ作成は必須です。</p>
 </div>
 <div class="section" id="id2">
-<h2>10.2. とりあえずグラフをつくってみよう　その１<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.2. とりあえずグラフをつくってみよう　その１<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
-<h3>10.2.1. Gnuplotを起動<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.1. Gnuplotを起動<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まずは、Gnuplotがどんなものか試してみましょう。</p>
 <p>ターミナル上で<code class="docutils literal notranslate"><span class="pre">gnuplot</span></code>と入力すると、下のような画面になるはずです。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[tshuuhei@mars ~]$ gnuplot
@@ -210,7 +219,7 @@ gnuplot&gt;
 <p>Gnuplotを終了したいときは、<code class="docutils literal notranslate"><span class="pre">quit</span></code>, <code class="docutils literal notranslate"><span class="pre">q</span></code>, <code class="docutils literal notranslate"><span class="pre">exit</span></code>, <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code>+<code class="docutils literal notranslate"><span class="pre">d</span></code>のどれかを押してください。</p>
 </div>
 <div class="section" id="y-sin-x">
-<h3>10.2.2. y=sin(x) のグラフを描く<a class="headerlink" href="#y-sin-x" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.2. y=sin(x) のグラフを描く<a class="headerlink" href="#y-sin-x" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>練習として、y=sin(x)のグラフを描きましょう。</p>
 <p>Gnuplotを起動したまま、<code class="docutils literal notranslate"><span class="pre">f(x)=sin(x)</span></code>と入力してください。</p>
 <p>次に、<code class="docutils literal notranslate"><span class="pre">plot</span> <span class="pre">f(x)</span></code>と入力してください。</p>
@@ -236,7 +245,7 @@ gnuplot&gt;
 |       |        |</p>
 </div>
 <div class="section" id="y-sin-x-y-cos-x-1">
-<h3>10.2.3. y=sin(x) と y=cos(x) を１つのグラフに描く<a class="headerlink" href="#y-sin-x-y-cos-x-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.3. y=sin(x) と y=cos(x) を１つのグラフに描く<a class="headerlink" href="#y-sin-x-y-cos-x-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>次に、y=sin(x)とy=cos(x)のグラフを同時に表示させましょう。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnuplot</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">gnuplot</span><span class="o">&gt;</span> <span class="n">plot</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -249,7 +258,7 @@ gnuplot&gt;
 <p>このように、<code class="docutils literal notranslate"><span class="pre">plot</span></code>の代わりに<code class="docutils literal notranslate"><span class="pre">replot</span></code>とすると、１つ前に表示させたグラフに重ねてグラフを描くことができます。</p>
 </div>
 <div class="section" id="id4">
-<h3>10.2.4. グラフを画像として保存する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.4. グラフを画像として保存する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>グラフを作成しましたが、このままではGnuplotを閉じるとグラフは消えてしまいます。</p>
 <p>少し複雑ですが、次のようにすることでグラフを画像として保存することができます。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnuplot</span><span class="o">&gt;</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -274,9 +283,9 @@ gnuplot&gt;
 </div>
 </div>
 <div class="section" id="id5">
-<h2>10.3. とりあえずグラフをつくってみよう　その２<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.3. とりあえずグラフをつくってみよう　その２<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id6">
-<h3>10.3.1. データファイルからグラフを作成<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.3.1. データファイルからグラフを作成<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>次は、データファイルからグラフを作成してみましょう。</p>
 <p><a class="reference download internal" download="" href="../_downloads/97b38d5e93e8c6eb83b96262c789c19d/sample_01.dat"><code class="xref download docutils literal notranslate"><span class="pre">サンプルファイル</span></code></a></p>
 <p>上のファイルをダウンロードしてください。</p>
@@ -294,7 +303,7 @@ gnuplot&gt;
 <p>物体Aと物体Bが近づいたり離れたりを繰り返していることがわかります。</p>
 </div>
 <div class="section" id="id7">
-<h3>10.3.2. 判例と軸の名前を表示させる<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.3.2. 判例と軸の名前を表示させる<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>次に、このグラフに凡例と軸の名前をつけましょう。</p>
 <p>そうしないと、他人がグラフを見た時に何を表しているのか理解出来ません。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnuplot</span><span class="o">&gt;</span> <span class="nb">set</span> <span class="n">xlabel</span> <span class="s2">&quot;time&quot;</span>
@@ -319,10 +328,10 @@ gnuplot&gt;
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../MD/vmd.html" class="btn btn-neutral float-right" title="11. VMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../MD/vmd.html" class="btn btn-neutral float-right" title="5. VMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../MD/gromacs.html" class="btn btn-neutral float-left" title="9. Gromacs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../MD/namd.html" class="btn btn-neutral float-left" title="3. Namd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

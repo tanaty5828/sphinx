@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Linux Basic &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>1. Linux Basic &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -36,7 +36,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="3. Linux Basic Questions" href="linuxq1.html" />
+    <link rel="next" title="2. Linux Basic Questions" href="linuxq1.html" />
     <link rel="prev" title="1. Welocome to Okazaki-Lab !!" href="../welcome/test1.html" /> 
 </head>
 
@@ -82,44 +82,53 @@
             
             
               <p class="caption"><span class="caption-text">Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Linux Basic</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#linux">2.1. Linuxとは？</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#guicui">2.2. GUIとCUI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#terminal">2.3. 端末：Terminal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">2.4. コマンドを実行しよう</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">2.4.1. （応用）プロンプトの読み方</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Linux Basic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linux">1.1. Linuxとは？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#guicui">1.2. GUIとCUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#terminal">1.3. 端末：Terminal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1.4. コマンドを実行しよう</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.4.1. （応用）プロンプトの読み方</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.5. 基本的なコマンドを練習しよう</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#pwd">2.5.1. <code class="docutils literal notranslate"><span class="pre">pwd</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ls">2.5.2. <code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#cd">2.5.3. <code class="docutils literal notranslate"><span class="pre">cd</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mkdir">2.5.4. <code class="docutils literal notranslate"><span class="pre">mkdir</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.5. 基本的なコマンドを練習しよう</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pwd">1.5.1. <code class="docutils literal notranslate"><span class="pre">pwd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ls">1.5.2. <code class="docutils literal notranslate"><span class="pre">ls</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cd">1.5.3. <code class="docutils literal notranslate"><span class="pre">cd</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mkdir">1.5.4. <code class="docutils literal notranslate"><span class="pre">mkdir</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#tab">2.6. Tabキーの補完について</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">2.6.1. 補完：候補が１個しかない場合</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">2.6.2. 補完：候補が複数ある場合</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">2.6.3. ファイル名の補完</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tab">1.6. Tabキーの補完について</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">1.6.1. 補完：候補が１個しかない場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">1.6.2. 補完：候補が複数ある場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.6.3. ファイル名の補完</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id7">2.7. コマンドの編集</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id8">2.8. コマンド履歴：ヒストリ機能</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#vim">2.9. Vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">1.7. コマンドの編集</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">1.8. コマンド履歴：ヒストリ機能</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vim">1.9. Vim</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="linuxq1.html">3. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">4. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">5. Device in Lab.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">6. Molecular Dynamics Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">7. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">8. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">9. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">10. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">11. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">12. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linuxq1.html">2. Linux Basic Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">1. Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">2. Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">3. Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">4. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">5. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">6. Discovery Studio</a></li>
 </ul>
 
             
@@ -165,7 +174,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. Linux Basic</li>
+      <li>1. Linux Basic</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,12 +194,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="linux-basic">
-<h1>2. Linux Basic<a class="headerlink" href="#linux-basic" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>1. Linux Basic<a class="headerlink" href="#linux-basic" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>このページでは、Linuxの基礎知識を解説します。</p>
 <p>まずは、パソコンを触って慣れましょう！</p>
 <p>パソコンは「習うより慣れろ」です。壊しても大丈夫なので、いろいろ触って見よう！</p>
 <div class="section" id="linux">
-<h2>2.1. Linuxとは？<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.1. Linuxとは？<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>簡単に言えば、&quot;Windows&quot;や&quot;Mac&quot;のような種類のことです。</p>
 <p>難しい言葉を使えば、&quot;OS(Operating System)&quot;というものになります。</p>
 <p>Windowsにも</p>
@@ -211,7 +220,7 @@
 </div>
 </div>
 <div class="section" id="guicui">
-<h2>2.2. GUIとCUI<a class="headerlink" href="#guicui" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.2. GUIとCUI<a class="headerlink" href="#guicui" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>私たちが Windowsで慣れ親しんでいるような、ウィンドウを表示してマウスで操作するスタイルが
 「GUI ( Graphical User Interface )」です。</p>
 <p>GUI に対して、キーボードでコマンド(command :命令)を入力し、 その結果を文字で受け取るスタイルが「 CUI ( Character User Interface )」になります。</p>
@@ -222,7 +231,7 @@
 <p>先輩たちは教えたがりなので優しく教えてくれます。</p>
 </div>
 <div class="section" id="terminal">
-<h2>2.3. 端末：Terminal<a class="headerlink" href="#terminal" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.3. 端末：Terminal<a class="headerlink" href="#terminal" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>実際問題、CUIのみを使って操作することはほとんどなく、GUI 環境でコマンドラインを使用したい場合は、「端末ウィンドウ」を使用します。</p>
 <p>以下のように、「端末」を起動してみましょう！</p>
 <p><img alt="../_images/img1484.jpg" src="../_images/img1484.jpg" /></p>
@@ -230,12 +239,12 @@
 <p>これは「端末」や「ターミナル」と呼ばれ、GUIからCUIを操作で来る優れものです。以降基本的に研究や輪講の課題はこのターミナルで行うことになります。</p>
 </div>
 <div class="section" id="id1">
-<h2>2.4. コマンドを実行しよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.4. コマンドを実行しよう<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここでコマンドを入力して[ Enter ]キーを押すと、実行結果が表示されます。試しに、<code class="docutils literal notranslate"><span class="pre">df</span></code>と入力して[ Enter ]キーを押して見ましょう。（以下の図を参照。）</p>
 <p><img alt="../_images/img1492.jpg" src="../_images/img1492.jpg" /></p>
 <p>似たような画面が出てきたら成功です。ちなみに<code class="docutils literal notranslate"><span class="pre">df</span></code>はディスク使用量を表示するコマンドです。</p>
 <div class="section" id="id2">
-<h3>2.4.1. （応用）プロンプトの読み方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.4.1. （応用）プロンプトの読み方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ターミナルにはさまざまな情報が表示されています。例えば、今回使用している画面では「 [study&#64;localhost ~]$ 」 と表示されています。</p>
 <p>この [] の中に書かれている内容は「 ユーザー名 &#64; ホスト名 カレントディレクトリ」という意味になります。</p>
 <p>「 ~ (チルダ)」記号は、ホームディレクトリという意味です。</p>
@@ -251,12 +260,12 @@
 </div>
 </div>
 <div class="section" id="id3">
-<h2>2.5. 基本的なコマンドを練習しよう<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.5. 基本的なコマンドを練習しよう<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>そもそも覚えておくべきコマンドに<code class="docutils literal notranslate"><span class="pre">ls</span></code>や<code class="docutils literal notranslate"><span class="pre">cd</span></code>、<code class="docutils literal notranslate"><span class="pre">mkdir</span></code>などがあります。</p>
 <p>ここではその使い方を説明します。</p>
 <p>まずは、上を参考にターミナルを開きましょう。</p>
 <div class="section" id="pwd">
-<h3>2.5.1. <code class="docutils literal notranslate"><span class="pre">pwd</span></code><a class="headerlink" href="#pwd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.5.1. <code class="docutils literal notranslate"><span class="pre">pwd</span></code><a class="headerlink" href="#pwd" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ターミナルでは常に 自分がどのディレクトリにいるか を意識する必要があります。これは<code class="docutils literal notranslate"><span class="pre">pwd</span></code>というコマンドで確認できます。</p>
 <p>ターミナルに<code class="docutils literal notranslate"><span class="pre">pwd</span></code>と入力し、[Enter]キーを押してみましょう。</p>
 <p><img alt="../_images/img1692.jpg" src="../_images/img1692.jpg" /></p>
@@ -264,7 +273,7 @@
 <p>(先程も言いましたが、<code class="docutils literal notranslate"><span class="pre">~</span></code>はホームディレクトリを表す特別な記号で、<code class="docutils literal notranslate"><span class="pre">/home/study</span></code>と全く同じ意味です。)</p>
 </div>
 <div class="section" id="ls">
-<h3>2.5.2. <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#ls" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.5.2. <code class="docutils literal notranslate"><span class="pre">ls</span></code><a class="headerlink" href="#ls" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>カレントディレクトリのファイルやディレクトリが一覧表示されます。Windowsのファイルを開いて、どんなファイルがあるかな〜と眺めているのと同じですね。上と同様にターミナルに<code class="docutils literal notranslate"><span class="pre">ls</span></code>と入力し、[Enter]キーを押してみましょう。</p>
 <p><img alt="../_images/img1697-2.jpg" src="../_images/img1697-2.jpg" /></p>
 <p>英語ではなく、日本語で「デスクトップ」「ドキュメント」と表示さてれているかもしれませんが、同じことです。</p>
@@ -275,7 +284,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-l</span></code>の<code class="docutils literal notranslate"><span class="pre">-l</span></code>オプションは、ファイルの属性や所有者、最終更新日などの詳細を表示するオプションです。</p>
 </div>
 <div class="section" id="cd">
-<h3>2.5.3. <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#cd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.5.3. <code class="docutils literal notranslate"><span class="pre">cd</span></code><a class="headerlink" href="#cd" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>カレントディレクトリは「 cd 」コマンド( Change Directory )を使って、「 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">ディレクトリ名</span></code>」で移動すること
 ができます。</p>
 <p>例えば、 カレントディレクトリ下の「 Pictures 」ディレクトリに移動する場合は、「 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">Pictures</span></code> 」とします。</p>
@@ -307,7 +316,7 @@
 <p>ホームディレクトリにもどることができた。</p>
 </div>
 <div class="section" id="mkdir">
-<h3>2.5.4. <code class="docutils literal notranslate"><span class="pre">mkdir</span></code><a class="headerlink" href="#mkdir" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.5.4. <code class="docutils literal notranslate"><span class="pre">mkdir</span></code><a class="headerlink" href="#mkdir" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>これは、新しいディレクトリを作成するコマンドです。</p>
 <p>Windowsでの「新しいフォルダの作成」と同じです。</p>
 <p>使い方は、<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">新しいディレクトリ名</span></code>です。</p>
@@ -332,10 +341,10 @@
 </div>
 </div>
 <div class="section" id="tab">
-<h2>2.6. Tabキーの補完について<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.6. Tabキーの補完について<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここまでディレクトリ名などをタイピングしてもらってましたが、Linuxでは便利な補完機能（予測変換機能）があります。</p>
 <div class="section" id="id4">
-<h3>2.6.1. 補完：候補が１個しかない場合<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.6.1. 補完：候補が１個しかない場合<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>コマンドラインでは、コマンド名、オプション、ファイル名......とたくさんの項目をキーボードで入力しますが、
 この中のコマンド名とファイル名については「補完機能」を利用することができます。（予測変換のこと）</p>
 <p>では、実際にやってみましょう。ファイル名やコマンド名を途中まで入力したところで[ Tab ]キーを押すと続き
@@ -349,7 +358,7 @@
 す。[ Enter ]キーを押して実行すると、ネットワークに割り当てられている IP アドレスなどを確認できます。</p>
 </div>
 <div class="section" id="id5">
-<h3>2.6.2. 補完：候補が複数ある場合<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.6.2. 補完：候補が複数ある場合<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>補完候補となるコマンドが複数ある場合は、
 [ Tab ]キーを押すと候補が表示される代わりにビープ音が鳴ります(※音が出るかどうかは設定によって異なります)。</p>
 <p>もう一度[ Tab ]キーを押すと候補が一覧表示されるので、続きの文字を入力して再度[ Tab ]キーを押しましょう。</p>
@@ -360,12 +369,12 @@
 <p><img alt="../_images/img1550.jpg" src="../_images/img1550.jpg" /></p>
 </div>
 <div class="section" id="id6">
-<h3>2.6.3. ファイル名の補完<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>1.6.3. ファイル名の補完<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>コマンドライン上では、コマンドと同様、ファイル名にも補完機能が働きます。例えば、「 cat 」コマンドで「 /etc/shells 」ファイルを表示したい場合( <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/shells</span></code> )「 cat /e 」まで入力して[ Tab ]キーを押すと「 cat /etc/ 」まで補完され、続いて「 she 」と入力して[ Tab ]キーを押すと続きが補完されます。</p>
 </div>
 </div>
 <div class="section" id="id7">
-<h2>2.7. コマンドの編集<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.7. コマンドの編集<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>コマンドラインは、左右の矢印キー([←][→])やショートカットキーで編集できます。例えば、「 cat /etc/shells 」まで入力した後で、 cat コマンドに「 -n 」オプションを付けたくなったならば、キー操作で cat の後ろまで戻って「 -n 」を入力して[ Enter ]キーで実行する、 というようなことができます。</p>
 <p><img alt="../_images/img1555.jpg" src="../_images/img1555.jpg" /></p>
 <p>以下によく使うキーボードショートカットを示しますが、無理して覚える必要はないです。</p>
@@ -373,7 +382,7 @@
 <p><img alt="../_images/img1563.jpg" src="../_images/img1563.jpg" /></p>
 </div>
 <div class="section" id="id8">
-<h2>2.8. コマンド履歴：ヒストリ機能<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.8. コマンド履歴：ヒストリ機能<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>前にタイピングしたコマンドをもう一回使いたいといったことがありませんか？</p>
 <p>以前入力したコマンドは、 上下の矢印キー(↑][↓]) または [ Ctrl ]+[ P ]キーと[ Ctrl ]+[ N ]キーで呼び出すことができます。これが「ヒストリ」と呼ばれる機能です。もちろん、呼び出したコマンドを編集して実行することも可能です。</p>
 <p><img alt="../_images/img1571.jpg" src="../_images/img1571.jpg" /></p>
@@ -381,7 +390,7 @@
 <p><img alt="../_images/img1572.jpg" src="../_images/img1572.jpg" /></p>
 </div>
 <div class="section" id="vim">
-<h2>2.9. Vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.9. Vim<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここまではコマンドというものを学習してきました。ここでは<code class="docutils literal notranslate"><span class="pre">Vim</span></code>と呼ばれる、プログラムを書くためのWordみたいなものの説明をします。とはいえあまりに説明が長くなるので、別ページにしようと思います。</p>
 <p>（まだ時間なくてやってない！ごめんね）</p>
 </div>
@@ -395,7 +404,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="linuxq1.html" class="btn btn-neutral float-right" title="3. Linux Basic Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="linuxq1.html" class="btn btn-neutral float-right" title="2. Linux Basic Questions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../welcome/test1.html" class="btn btn-neutral float-left" title="1. Welocome to Okazaki-Lab !!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>6. Molecular Dynamics Software &mdash; VARIDATO 1.0.0 ドキュメント</title>
+  <title>1. Molecular Dynamics Software &mdash; VARIDATO 1.0.0 ドキュメント</title>
   
 
   
@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="7. How to edit this homepages" href="../make_homepages/how_to_use_git.html" />
-    <link rel="prev" title="5. Device in Lab." href="../device/main.html" /> 
+    <link rel="next" title="2. Gromacs" href="gromacs.html" />
+    <link rel="prev" title="3. How to edit this homepages" href="../make_homepages/how_to_use_git.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,25 +82,34 @@
             
             
               <p class="caption"><span class="caption-text">Contents</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">2. Linux Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">3. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">4. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">5. Device in Lab.</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">6. Molecular Dynamics Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#gromacs">6.1. Gromacs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lammps">6.2. Lammps</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#namd">6.3. Namd</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mpdyn">6.4. MPDyn</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Molecular Dynamics Software</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gromacs">1.1. Gromacs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lammps">1.2. Lammps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#namd">1.3. Namd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mpdyn">1.4. MPDyn</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">7. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namd.html">8. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gromacs.html">9. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">10. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vmd.html">11. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">12. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gromacs.html">2. Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="namd.html">3. Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">4. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vmd.html">5. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">6. Discovery Studio</a></li>
 </ul>
 
             
@@ -146,7 +155,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>6. Molecular Dynamics Software</li>
+      <li>1. Molecular Dynamics Software</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -166,27 +175,27 @@
            <div itemprop="articleBody">
             
   <div class="section" id="molecular-dynamics-software">
-<h1>6. Molecular Dynamics Software<a class="headerlink" href="#molecular-dynamics-software" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>1. Molecular Dynamics Software<a class="headerlink" href="#molecular-dynamics-software" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="gromacs">
-<h2>6.1. Gromacs<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.1. Gromacs<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="../_images/gromacs.jpg" src="../_images/gromacs.jpg" />
 <p>普通のPCに使えるプログラムの中では最速。生体系を対象としているが、高分子グループでも使われている。汎用性は比較的高く、テーブル関数による相互作用計算が可能。粗視化モデルにも対応。GPUにも対応。解析ツールも充実しており、使いこなせばかなり使い勝手がよいはず。</p>
 <p>具体的な使い方は <a class="reference internal" href="gromacs.html"><span class="doc">Gromacs</span></a> を参照してください。</p>
 </div>
 <div class="section" id="lammps">
-<h2>6.2. Lammps<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.2. Lammps<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="../_images/lammps-0.png" src="../_images/lammps-0.png" />
 <p>Sandia National Labで開発されたプログラムであり、クラスターコンピュータで十分な並列効率を保ち、GPUにも対応している。非常に汎用性の高いプログラムであり、様々な境界条件、モデルに対応が可能であり、ポリマーを含む材料系のMD計算では最も利用価値の高いプログラムの一つである。篠田の開発した粗視化モデルも組み込まれており(CG/CMMという名前)、GPUクラスターを用いた高速演算が可能なため、粗視化MDで主に利用している。ソースコードはC++で書かれているが、非常に読みやすく、開発ユーザーが多い。</p>
 </div>
 <div class="section" id="namd">
-<h2>6.3. Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.3. Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="../_images/namd.png" src="../_images/namd.png" />
 <p>Illinois大学で開発されているMDプログラムであり、生体系を主な対象とした大規模計算用に開発された老舗プログラム。同グループで開発されたvmdとの連接が非常に良く、interactive MDを実現している。CHARMM力場を標準としているが、OPLSなどの利用も可能。エネルギー最小化などのアルゴリズムが充実。熱浴にはNose-Hooverが利用できず、Langevin熱浴が標準である。Langevin熱浴による分子運動へのartifactが懸念される（詳細は現在調査中）。ソースコードはC++で書かれており公開されているが、よほどのマニア以外は解読を諦めた方がよい。GPUにも対応済み。</p>
 <p>篠田グループでは粗視化のための全原子リファレンスデータを取るために利用することが多い。</p>
 <p>具体的な使い方は <a class="reference internal" href="namd.html"><span class="doc">Namd</span></a> を参照してください。</p>
 </div>
 <div class="section" id="mpdyn">
-<h2>6.4. MPDyn<a class="headerlink" href="#mpdyn" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>1.4. MPDyn<a class="headerlink" href="#mpdyn" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>篠田の個人的な汎用プログラムであり、粗視化モデルの開発などもこちらを用いて最初行っていた。並列化効率は高くないので一般的なMDには扱いがよくないが、新しいモデルの開発には扱いが非常に良い。膜系の解析ツールが充実しているため、現在では主にMDのトラジェクトリーの解析プログラムとして利用している。ソースコードはfortran90で書かれており、比較的解読が容易と思われる。</p>
 <p>電池のグループで使われている？</p>
 </div>
@@ -200,10 +209,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../make_homepages/how_to_use_git.html" class="btn btn-neutral float-right" title="7. How to edit this homepages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gromacs.html" class="btn btn-neutral float-right" title="2. Gromacs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../device/main.html" class="btn btn-neutral float-left" title="5. Device in Lab." accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../make_homepages/how_to_use_git.html" class="btn btn-neutral float-left" title="3. How to edit this homepages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

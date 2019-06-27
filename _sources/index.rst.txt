@@ -26,14 +26,32 @@ Welcome to VARIDATO's documentation!
    :numbered:
 
    /welcome/test1
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Linux
+   :numbered:
+
    /linux/linux1
    /linux/linuxq1
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tools
+   :numbered:
+
    /slack/insto
    /device/main
-   /MD/mdsoft
    /make_homepages/how_to_use_git
-   /MD/namd
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Molecular Dynamics
+   :numbered:
+
+   /MD/mdsoft
    /MD/gromacs
+   /MD/namd
    /Gnuplot/Gnuplot_01
    /MD/vmd
    /MD/Discovery_studio
