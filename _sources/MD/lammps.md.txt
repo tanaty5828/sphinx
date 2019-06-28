@@ -1,0 +1,143 @@
+# LAMMPS
+
+篠田グループの粗視化モデルがインストールされているため、粗視化MD計算はこちらで行うことが多い。
+
+
+
+## インストール
+
+かなり長くて大変だが、説明しよう。
+
+以下は田中が東大物性研にインストールした際の手順だが、ほとんど同じはずだ。
+
+[LAMMPSのサイト](https://lammps.sandia.gov/)に行き、ダウンロードのページからstableと書いてあるものをダウンロード。
+
+以下は`~/App/`にインストールするものとする。
+
+ダウンロードした`.tar.gz`ファイルを`~/App/`に移動しておく。
+
+```shell
+tar xvf lammps-11Aug17 #2019現在。数字は異なる可能性あり。
+cd lammps-11Aug17/lib/colvars
+make -f Makefile.g++
+cd ../../src
+make yes-opt yes-rigid yes-xtc yes-misc yes-user-colvars yes-user-cg-cmm yes-user-misc yes-user-cgsdk yes-user-cgdna # 別途必要なモジュールがあれば指定する。
+vi MAKE/Makefile.mpi
+```
+
+```
+FFT_INC = 
+FFT_PATH =
+FFT_LIB = 
+ と、空行になっているところを編集する。fftwが`~/App/fftw3`にインストールしてあるなら、
+ 
+FFT_INC = -I/home/tanaka/App/fftw3/include -DFFT_FFTW3
+FFT_PATH =
+FFT_LIB = -L/home/tanaka/App/fftw3/lib -lfftw3
+と編集し、保存する。(/home/tanaka/)の部分は環境に合わせてください。
+```
+
+ここまでやったら、
+
+```shell
+make mpi -j 8
+```
+
+とする。
+
+```
+   text	   data	    bss	    dec	    hex	filename
+19373039	 396960	 290848	20060847	1321aaf	../lmp_mpi
+make[1]: Leaving directory '/home/tanaka/App/lammps-11Aug17/src/Obj_mpi'
+```
+
+↑のような表示が出ればインストール成功で、`./lmp_mpi`という実行バイナリが生成されている。
+
+インストールできなかった場合、`make clean-all`とすると生まれたゴミを一掃してくれて助かる。
+
+
+
+### `make`に失敗する場合
+
+また、東大物性研にインストールする際は、
+
+```
+CCFLAGS =	-g -O3 
+を、
+CCFLAGS =	-g -O3 -restrict
+```
+
+と編集しないとインストールできなかった。とりあえずそのままやってみて`make mpi -j 8`、上手く行かなかったら上のような編集をするといい。
+
+
+
+## インストール(gpu)
+
+パソコンにグラフィックボードが刺さってる場合は、gpu版を使ったほうが計算が劇的に早くなることがある。ただし、コンパイルのミスなどで逆に遅くなることもあるので注意して扱うべき？
+
+手元の環境ではgpuを使うとかなり早くなる。
+
+先ほどの続きで、
+
+```shell
+cd ~/App/lammps11-Aug17/src
+cd ../lib/gpu
+vi Makefile.linux
+```
+
+```
+CUDA_HOME=/usr/local/cuda
+を、
+CUDA_HOME=/home/app/cuda/cuda-8.0 # 東大物性研の場合。
+CUDA_HOME=/usr/local/cuda-10.0 # 研究室PCの場合
+に変更する。（デフォルトのcudaバージョンが変わったら数値は変更する必要あり。）
+ちなみに、
+echo $CUDA_HOME
+の出力結果に変更するのと同義である。わからなかったらecho $CUDA_HOMEをやって調べよう。
+
+また、
+CUDA_ARCH = -arch=sm_21
+の行はコメントアウトしておくほうがいい。ここはGPUのアーキテクチャに依存して変更するのだが、このアーキテクチャを調べる方法がわからないのである。
+```
+
+編集が終わったら、
+
+```shell
+make -f Makefile.linux
+vi Makefile.lammps
+```
+
+で確認して
+
+```
+CUDA_HOME=/home/app/cuda/cuda-8.0
+```
+
+のようになっていればOK。まれにここもデフォルト(`CUDA_HOME=/usr/local/cuda`)のままになっていることがあるので、注意が必要である。
+
+`make -f Makefile.linux`に成功したら、
+
+```shell
+cd ../../src
+make yes-gpu
+# いくつかファイルがないと言われるが、大丈夫である。
+
+make package-status
+# GPUがONになっていればOKである。
+
+make mpi -j 8
+```
+
+```
+   text	   data	    bss	    dec	    hex	filename
+19373039	 396960	 290848	20060847	1321aaf	../lmp_mpi
+make[1]: Leaving directory '/home/tanaka/App/lammps-11Aug17/src/Obj_mpi'
+```
+
+
+
+↑のような表示が出ればインストール成功で、./lmp_mpiという実行バイナリが生成されている。
+
+これはGPU計算にも対応しているバイナリである。
+
+インストールできなかった場合、make clean-allとすると生まれたゴミを一掃してくれて助かる。

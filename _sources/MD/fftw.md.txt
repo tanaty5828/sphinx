@@ -15,6 +15,7 @@
 ダウンロードしたディレクトリに行って
 
 ```shell
+mkdir ~/App/fftw3
 cd fftw-3.3.8 # 2019現在。数字は異なる可能性あり。
 ./configure --prefix=$HOME/App/fftw3 --enable-threads --enable-float --enable-sse2
 make -j 8 # 8はパソコンのコア数。スパコンでやるときは使わないほうがいい。
