@@ -17,7 +17,7 @@
 ダウンロードした`.tar.gz`ファイルを`~/App/`に移動しておく。
 
 ```shell
-tar xvf lammps-11Aug17 #2019現在。数字は異なる可能性あり。
+tar xvf lammps-11Aug17.tar.gz #2019現在。数字は異なる可能性あり。
 cd lammps-11Aug17/lib/colvars
 make -f Makefile.g++
 cd ../../src
@@ -26,11 +26,11 @@ vi MAKE/Makefile.mpi
 ```
 
 ```
-FFT_INC = 
+FFT_INC =
 FFT_PATH =
-FFT_LIB = 
+FFT_LIB =
  と、空行になっているところを編集する。fftwが`~/App/fftw3`にインストールしてあるなら、
- 
+
 FFT_INC = -I/home/tanaka/App/fftw3/include -DFFT_FFTW3
 FFT_PATH =
 FFT_LIB = -L/home/tanaka/App/fftw3/lib -lfftw3
@@ -51,7 +51,7 @@ make mpi -j 8
 make[1]: Leaving directory '/home/tanaka/App/lammps-11Aug17/src/Obj_mpi'
 ```
 
-↑のような表示が出ればインストール成功で、`./lmp_mpi`という実行バイナリが生成されている。
+↑のような表示が出ればインストール成功で、(`./lmp_mpi`)という実行バイナリが生成されている。
 
 インストールできなかった場合、`make clean-all`とすると生まれたゴミを一掃してくれて助かる。
 
@@ -59,10 +59,10 @@ make[1]: Leaving directory '/home/tanaka/App/lammps-11Aug17/src/Obj_mpi'
 
 ### `make`に失敗する場合
 
-また、東大物性研にインストールする際は、
+また、東大物性研にインストールする際は、`MAKE/makefile.mpi` を
 
 ```
-CCFLAGS =	-g -O3 
+CCFLAGS =	-g -O3
 を、
 CCFLAGS =	-g -O3 -restrict
 ```

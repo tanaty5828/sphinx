@@ -188,7 +188,7 @@
 <p><a class="reference external" href="https://lammps.sandia.gov/">LAMMPSのサイト</a>に行き、ダウンロードのページからstableと書いてあるものをダウンロード。</p>
 <p>以下は<code class="docutils literal notranslate"><span class="pre">~/App/</span></code>にインストールするものとする。</p>
 <p>ダウンロードした<code class="docutils literal notranslate"><span class="pre">.tar.gz</span></code>ファイルを<code class="docutils literal notranslate"><span class="pre">~/App/</span></code>に移動しておく。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar xvf lammps-11Aug17 <span class="c1">#2019現在。数字は異なる可能性あり。</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tar xvf lammps-11Aug17.tar.gz <span class="c1">#2019現在。数字は異なる可能性あり。</span>
 <span class="nb">cd</span> lammps-11Aug17/lib/colvars
 make -f Makefile.g++
 <span class="nb">cd</span> ../../src
@@ -196,11 +196,11 @@ make yes-opt yes-rigid yes-xtc yes-misc yes-user-colvars yes-user-cg-cmm yes-use
 vi MAKE/Makefile.mpi
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FFT_INC = 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>FFT_INC =
 FFT_PATH =
-FFT_LIB = 
+FFT_LIB =
  と、空行になっているところを編集する。fftwが`~/App/fftw3`にインストールしてあるなら、
- 
+
 FFT_INC = -I/home/tanaka/App/fftw3/include -DFFT_FFTW3
 FFT_PATH =
 FFT_LIB = -L/home/tanaka/App/fftw3/lib -lfftw3
@@ -217,12 +217,12 @@ FFT_LIB = -L/home/tanaka/App/fftw3/lib -lfftw3
 <span class="n">make</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">Leaving</span> <span class="n">directory</span> <span class="s1">&#39;/home/tanaka/App/lammps-11Aug17/src/Obj_mpi&#39;</span>
 </pre></div>
 </div>
-<p>↑のような表示が出ればインストール成功で、<code class="docutils literal notranslate"><span class="pre">./lmp_mpi</span></code>という実行バイナリが生成されている。</p>
+<p>↑のような表示が出ればインストール成功で、(<code class="docutils literal notranslate"><span class="pre">./lmp_mpi</span></code>)という実行バイナリが生成されている。</p>
 <p>インストールできなかった場合、<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean-all</span></code>とすると生まれたゴミを一掃してくれて助かる。</p>
 <div class="section" id="make">
 <h3>4.1.1. <code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>また、東大物性研にインストールする際は、</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CCFLAGS =	-g -O3 
+<p>また、東大物性研にインストールする際は、<code class="docutils literal notranslate"><span class="pre">MAKE/makefile.mpi</span></code> を</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CCFLAGS =	-g -O3
 を、
 CCFLAGS =	-g -O3 -restrict
 </pre></div>
