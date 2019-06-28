@@ -47,6 +47,7 @@ Welcome to VARIDATO's documentation!
    /Gnuplot/Gnuplot_01
    /MD/vmd
    /MD/Discovery_studio
+   /MD/fftw
 
 .. toctree::
    :maxdepth: 2
