@@ -90,7 +90,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">3. Linux commands (nessesary)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html#linux-commands-standard">4. Linux commands (standard)</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
 <ul class="current">
@@ -108,7 +107,12 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id5">4.3. とりあえずグラフをつくってみよう　その２</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id6">4.3.1. データファイルからグラフを作成</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">4.3.2. 判例と軸の名前を表示させる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">4.3.2. 凡例と軸の名前を表示させる</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">4.4. スクリプトファイルを読み込む</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">4.4.1. スクリプトファイルの書き方</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">4.4.2. スクリプトファイルの読み込み方</a></li>
 </ul>
 </li>
 </ul>
@@ -200,7 +204,7 @@
 <div class="section" id="id3">
 <h3>4.2.1. Gnuplotを起動<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>まずは、Gnuplotがどんなものか試してみましょう。</p>
-<p>ターミナル上で<code class="docutils literal notranslate"><span class="pre">gnuplot</span></code>と入力すると、下のような画面になるはずです。</p>
+<p>ターミナル上で <code class="docutils literal notranslate"><span class="pre">gnuplot</span></code> と入力すると、下のような画面になるはずです。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[tshuuhei@mars ~]$ gnuplot
 
     G N U P L O T
@@ -232,19 +236,34 @@ gnuplot&gt;
 <p><img alt="sin(x)のグラフ" src="../_images/fig_01.png" /></p>
 <p>上のようなグラフが表示されましたか？</p>
 <p>グラフ表示中は、次のような操作ができます。</p>
-<p>| 操作 | 結果 |
-| :--: | :--: |
-| マウスホイール上下 | 上下に画面移動 |
-| <code class="docutils literal notranslate"><span class="pre">Shift</span></code>+マウスホイール上下 | 左右に画面移動 |
-| <code class="docutils literal notranslate"><span class="pre">Ctrl</span></code>+マウスホイール上下 | 拡大・縮小 |
-| <code class="docutils literal notranslate"><span class="pre">a</span></code> | 元の縮尺に戻る |
-| <code class="docutils literal notranslate"><span class="pre">q</span></code> | グラフを閉じる |</p>
-<p>|  aaa  | aaa    |
-| :---: | ------ |
-| aaaaa | sgdfar |
-|       |        |
-|       |        |
-|       |        |</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>操作</strong></p></th>
+<th class="head"><p><strong>結果</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>マウスホイール上下</p></td>
+<td><p>上下に画面移動</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>Shift</cite> +マウスホイール上下</p></td>
+<td><p>左右に画面移動</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>Ctrl</cite> +マウスホイール上下</p></td>
+<td><p>拡大・縮小</p></td>
+</tr>
+<tr class="row-odd"><td><p><cite>a</cite></p></td>
+<td><p>元の縮尺に戻る</p></td>
+</tr>
+<tr class="row-even"><td><p><cite>q</cite></p></td>
+<td><p>グラフを閉じる</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="y-sin-x-y-cos-x-1">
 <h3>4.2.3. y=sin(x) と y=cos(x) を１つのグラフに描く<a class="headerlink" href="#y-sin-x-y-cos-x-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -305,7 +324,7 @@ gnuplot&gt;
 <p>物体Aと物体Bが近づいたり離れたりを繰り返していることがわかります。</p>
 </div>
 <div class="section" id="id7">
-<h3>4.3.2. 判例と軸の名前を表示させる<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.3.2. 凡例と軸の名前を表示させる<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>次に、このグラフに凡例と軸の名前をつけましょう。</p>
 <p>そうしないと、他人がグラフを見た時に何を表しているのか理解出来ません。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnuplot</span><span class="o">&gt;</span> <span class="nb">set</span> <span class="n">xlabel</span> <span class="s2">&quot;time&quot;</span>
@@ -318,6 +337,40 @@ gnuplot&gt;
 <p><img alt="サンプルデータ01のグラフ" src="../_images/fig_04.png" /></p>
 <p>上のようなグラフが表示されれば成功です。</p>
 <p>&quot;<a class="reference external" href="#%E3%82%B0%E3%83%A9%E3%83%95%E3%82%92%E7%94%BB%E5%83%8F%E3%81%A8%E3%81%97%E3%81%A6%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B">グラフを画像として保存する</a>&quot;で解説しているように画像として保存もしてみてください。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>4.4. スクリプトファイルを読み込む<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここまでは&quot;対話的に&quot;Gnuplotのコマンドを打ち込んでグラフを作成しましたが、</p>
+<p>打ち込みたいコマンドを予めファイルに書き込んでおき、Gnuplotにそのファイルを読み込ませることで</p>
+<p>コマンドの打ち込みを&quot;バッチ処理化&quot;することができます。</p>
+<div class="section" id="id9">
+<h3>4.4.1. スクリプトファイルの書き方<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>vi等を用いて、ファイルにGnuplotのコマンドを順番に書き込んでください。</p>
+<p>ファイル名や拡張子は何でも構いません。</p>
+<p>(拡張子は、わかりやすいように <code class="docutils literal notranslate"><span class="pre">.gnuplot</span></code> や <code class="docutils literal notranslate"><span class="pre">.gp</span></code> とするのがおすすめです。)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">xl</span> <span class="s2">&quot;time [ps]&quot;</span>
+<span class="nb">set</span> <span class="n">yl</span> <span class="s2">&quot;f(x) [-]&quot;</span>
+
+<span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">p</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="n">title</span> <span class="s2">&quot;sin(x)&quot;</span>
+
+<span class="n">pause</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>試しにこのように書き、適当な名前で保存してください。</p>
+<p>次に、作成したスクリプトファイルを読み込ませてみましょう。</p>
+</div>
+<div class="section" id="id10">
+<h3>4.4.2. スクリプトファイルの読み込み方<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>読み込み方は簡単で、ターミナル上で次のように打ち込むだけです。</p>
+<p>(&quot;test01.gp&quot;の部分は自分で作成したスクリプトファイルの名前にしてください。)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnuplot</span> <span class="n">test01</span><span class="o">.</span><span class="n">gp</span>
+</pre></div>
+</div>
+<p>上の例の通りのスクリプトを作成し読み込ませた場合は、sin(x)のグラフが画面上に表示されるはずです。</p>
+<p><code class="docutils literal notranslate"><span class="pre">q</span></code>キーでグラフを閉じ、<code class="docutils literal notranslate"><span class="pre">Enter</span></code>キーを押すとGnuplotが終了します。</p>
 </div>
 </div>
 </div>
