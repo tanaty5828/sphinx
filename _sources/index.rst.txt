@@ -58,6 +58,7 @@ Welcome to VARIDATO's documentation!
    /slack/insto
    /device/main
    /make_homepages/how_to_use_git
+   /trip/trip
 
 
 Indices and tables
