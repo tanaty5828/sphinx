@@ -91,6 +91,11 @@ FATAL ERROR: No simulation config file specified on command line.
 
 以下は自分が水ーリボース系での計算をしたときのインプットファイルである。
 
+<details>
+  <summary>長いので折りたたんでいます（クリックで展開）</summary>
+  <div>
+
+
 ```
 #############################################################
 ## JOB DESCRIPTION                                         ##
@@ -190,12 +195,12 @@ minimize           10000
 #reinitvels          300
 run   5000000 ;# 10 ns
 ```
-
-
-
-
-
 順に解説していく
+
+
+  </div>
+</details>
+
 
 ```
 # 結合や質量ファイル(.psf)の指定
