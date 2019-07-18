@@ -60,6 +60,12 @@ Welcome to VARIDATO's documentation!
    /make_homepages/how_to_use_git
    /trip/trip
 
+.. toctree::
+   :maxdepth: 2
+   :caption: Private
+   :numbered:
+
+   /intro/tanaka
 
 Indices and tables
 ==================

@@ -1,0 +1,18 @@
+# Hiroki Tanaka
+
+## Title
+
+![](./python.png)麻雀pythonista
+
+
+
+## Skils & Likes
+
+<img src="https://img.shields.io/badge/-Linux-6C6694.svg?logo=linux&style=flat"><img src="https://img.shields.io/badge/-Vim-019733.svg?logo=vim&style=flat"><img src="https://img.shields.io/badge/-Python-F9DC3E.svg?logo=python&style=flat"><img src="https://img.shields.io/badge/-GitHub-181717.svg?logo=github&style=flat">
+
+
+
+## Likes
+
+<img src="https://img.shields.io/badge/-Tesla-CC0000.svg?logo=tesla&style=flat"><img src="https://img.shields.io/badge/-YouTube-FF0000.svg?logo=youtube&style=flat"><img src="https://img.shields.io/badge/-Apple-999999.svg?logo=apple&style=flat"><img src="https://img.shields.io/badge/-Qiita-55C500.svg?logo=qiita&style=flat"><img src="https://img.shields.io/badge/-Amazon-FF9900.svg?logo=amazon&style=flat">
+
