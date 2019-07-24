@@ -6,7 +6,9 @@ NAMD (NAnoscale Molecular Dynamics program)は、フリーウェアの分子動�
 
 
 
-## インストール方法
+## インストール方法(Singlenode版)
+
+手元のPCや、tgpuなど1ノードで計算する場合はこちら
 
 [Download NAMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD)にアクセスし、「[Linux-x86_64-multicore-CUDA](https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1566)」とかいてあるものを選択。
 
@@ -85,6 +87,172 @@ FATAL ERROR: No simulation config file specified on command line.
 
 このような表示が出れば、インストール及びパスは成功している。
 
+
+
+## インストール方法(Multinode版)
+
+東大物性研などのノードにまたがった計算がしたければこちら
+
+手元のPCや、tgpuなど1ノードで計算する場合はこちら
+
+[Download NAMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD)にアクセスし、「Linux-x86_64-ibverbs-smp-CUDA」とかいてあるものを選択。
+
+このバージョンならGPU高速化にも対応しているので、東大物性研のaccノードで計算できる。
+
+```eval_rst
+.. warning::
+    ただし、Namdは **バージョンが異なるソフトで計算された場合、restartファイルの引き継ぎができない** ことがある。特にB4の学生は名大CXを使うことが多いが、名大CXにインストールされているNamdのバージョンは2.10のため、注意が必要。
+```
+
+途中アカウントを作成したりするところがあるが、指示に従って進めて行けばいい。
+
+ダウンロードディレクトリを指定するように言われたら、適当なディレクトリでダウンロードする。
+
+(今回は~/App/以下にする。)
+
+```shell
+cd ~/App/ #ディレクトリ移動
+tar xvf NAMD-?????.tar.gz #展開
+cd NAMD-????? #Namdのディレクトリに移動
+```
+
+あとはパスを通すだけである。
+
+
+```shell
+vi ~/.bashrc #.bashrcの編集
+```
+
+```bash
+export PATH=???????　と書いてある行の末尾に
+　
+:$HOME/App/NAMD-????/
+
+を追加する。
+```
+
+確認のため、
+
+```shell
+source ~/.bashrc
+namd2
+```
+
+とやってみる。
+```shell
+------------- Processor 0 Exiting: Called CmiAbort ------------
+Reason: FATAL ERROR: No simulation config file specified on command line.
+
+[0] Stack Traceback:
+  [0:0]   [0x12c1525]
+  [0:1]   [0x5b060d]
+  [0:2]   [0x5c8172]
+  [0:3] __libc_start_main+0xf5  [0x7f7cb3da03d5]
+  [0:4]   [0x4c73a9]
+Charm++ fatal error:
+FATAL ERROR: No simulation config file specified on command line.
+
+[0] Stack Traceback:
+  [0:0]   [0x12c1c05]
+  [0:1]   [0x12c14de]
+  [0:2]   [0x12c1525]
+  [0:3]   [0x5b060d]
+  [0:4]   [0x5c8172]
+  [0:5] __libc_start_main+0xf5  [0x7f7cb3da03d5]
+  [0:6]   [0x4c73a9]
+[1]    18170 abort (core dumped)  namd2
+
+```
+
+このような表示が出れば、インストール及びパスは成功している。
+
+### ジョブスクリプトについて
+
+マルチノードで計算を流すためには、`charmrun`というバイナリが必要だったり`nodelist`を指定したりとめんどくさい。
+
+そこで、サンプルジョブスクリプトを作っておいたのでコピペして使ってほしい。
+
+```bash
+#!/bin/bash
+#QSUB -queue i9acc 
+#QSUB -node  4
+#QSUB -mpi   16
+##QSUB -omp   96
+#QSUB -place distribute
+#QSUB -over false
+###PBS -l walltime=01:00:00
+#PBS -N NAME
+#PBS -j oe
+#PBS -o job.out
+
+CONV_RSH=rsh
+# cd ${PBS_O_WORKDIR}
+. /etc/profile.d/modules.sh
+
+module unload cuda/8.0
+module load cuda/6.5
+module load intel-mpi/2018.4.274
+
+
+PATH=/home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/:$PATH
+echo "group main" > list
+cat $PBS_NODEFILE | sort -u | sed 's/^/host /g' >> list
+echo "exec rsh \$1 \$2 \$3 /bin/bash -f" > myrsh
+chmod +x myrsh
+
+charmrun /home/k0386/k038615/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 ++ppn 4 ++p 16 ++nodelist list INPUT.conf > INPUT.out
+
+```
+
+重要な部分だけ解説をつける
+
+- `#QSUB -node  4`
+
+  確保するノード数を指定
+
+- `#QSUB -mpi   16`
+
+  確保する総CPU数を指定。東大物性研は1ノード24コアなので最大値は24。
+
+  しかし物性研は1ノードに2枚のグラフィックボードがあるのでおすすめは2*(上で指定した)ノード数がいいだろう。
+
+- `#QSUB -place distribute`
+
+  確保するCPUを書くノードに分散させるオプション。上の例なら{ノード１：４コア}、{ノード２：４コア}…と確保される。ちなみに詰めて確保したい場合は`#QSUB -place pack`とする。
+
+- `module load`系
+
+  Namd2.12は（おそらく）cuda6.5を必要としているため、デフォルトでロードされているcuda8.0をunloadし、cuda6.5をloadしている。デフォルトのバージョンやNamdが必要とするcudaはその時によって変わるので要確認。
+
+- `PATH=/home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/:$PATH`
+
+  `namd`の実行バイナリがあるディレクトリへのパスを追加する。HOMENAMEの部分を自分のアカウントに合わせてください。
+
+- `echo "group main" > list`、`cat $PBS_NODEFILE | sort -u | sed 's/^/host /g' >> list`
+
+  `list`というファイルに使うノードのリストを格納している。これはこのままで動くはず。
+
+- `echo "exec rsh \$1 \$2 \$3 /bin/bash -f" > myrsh`、`chmod +x myrsh`
+
+  これはいらない気がする。
+
+- `charmrun /home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 ++ppn 4 ++p 16 ++nodelist list INPUT.conf > INPUT.out`
+
+  - これが実行コマンドになる。何故か`charmrun`はパスが通っていたが`namd2`はフルパスで指定しないと動かなかった。要検証
+  - HOMENAMEの部分を自分のアカウントに合わせてください。
+  - INPUTの部分を計算のコンフィグレーションファイル名にしてください。
+
+  - `++ppn`はおそらく(proc per node)。1ノードあたり何個のCPUを利用するかを指定。つまり#QSUB mpi / #QSUB nodeの数になるはず。
+
+  - `++p` は総CPU数。#QSUB nodeと同じ数になるはず。
+
+  - `++nodelist`で先ほど作った`list`ファイルの中身を見ている。
+
+  - `>`標準出力をリダイレクトしている。これがないと動かなかった。
+
+    
+
+  
 
 
 ## MD計算:inputfileについて

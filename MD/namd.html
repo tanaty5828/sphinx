@@ -97,8 +97,12 @@
 <li class="toctree-l1"><a class="reference internal" href="gromacs.html">2. Gromacs</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">3. Namd</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">3.1. 概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">3.2. インストール方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#md-inputfile">3.3. MD計算:inputfileについて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#singlenode">3.2. インストール方法(Singlenode版)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multinode">3.3. インストール方法(Multinode版)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.3.1. ジョブスクリプトについて</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#md-inputfile">3.4. MD計算:inputfileについて</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="lammps.html">4. LAMMPS</a></li>
@@ -187,8 +191,9 @@
 <h2>3.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NAMD (NAnoscale Molecular Dynamics program)は、フリーウェアの分子動力学シミュレーションパッケージの一つである。Charm++並列プログラミングモデルを用いて書かれ、並列効率の高さで知られており、大規模な系（数百万の原子）をシミュレートするためにしばしば使われている。NAMDはイリノイ大学アーバナ・シャンペーン校のTheoretical and Computational Biophysics Group (TCB) とParallel Programming Laboratory (PPL) との共同研究によって開発されている。</p>
 </div>
-<div class="section" id="id2">
-<h2>3.2. インストール方法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="singlenode">
+<h2>3.2. インストール方法(Singlenode版)<a class="headerlink" href="#singlenode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>手元のPCや、tgpuなど1ノードで計算する場合はこちら</p>
 <p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD">Download NAMD</a>にアクセスし、「<a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&amp;AccessCode=&amp;ArchiveID=1566">Linux-x86_64-multicore-CUDA</a>」とかいてあるものを選択。</p>
 <p>（上のリンクはバージョン2.13へのリンクだが、より新しい物がリリースされている場合は新しい物でもいい。）</p>
 <div class="admonition warning">
@@ -247,8 +252,139 @@ FATAL ERROR: No simulation config file specified on <span class="nb">command</sp
 </div>
 <p>このような表示が出れば、インストール及びパスは成功している。</p>
 </div>
+<div class="section" id="multinode">
+<h2>3.3. インストール方法(Multinode版)<a class="headerlink" href="#multinode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>東大物性研などのノードにまたがった計算がしたければこちら</p>
+<p>手元のPCや、tgpuなど1ノードで計算する場合はこちら</p>
+<p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD">Download NAMD</a>にアクセスし、「Linux-x86_64-ibverbs-smp-CUDA」とかいてあるものを選択。</p>
+<p>このバージョンならGPU高速化にも対応しているので、東大物性研のaccノードで計算できる。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>ただし、Namdは <strong>バージョンが異なるソフトで計算された場合、restartファイルの引き継ぎができない</strong> ことがある。特にB4の学生は名大CXを使うことが多いが、名大CXにインストールされているNamdのバージョンは2.10のため、注意が必要。</p>
+</div>
+<p>途中アカウントを作成したりするところがあるが、指示に従って進めて行けばいい。</p>
+<p>ダウンロードディレクトリを指定するように言われたら、適当なディレクトリでダウンロードする。</p>
+<p>(今回は~/App/以下にする。)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/App/ <span class="c1">#ディレクトリ移動</span>
+tar xvf NAMD-?????.tar.gz <span class="c1">#展開</span>
+<span class="nb">cd</span> NAMD-????? <span class="c1">#Namdのディレクトリに移動</span>
+</pre></div>
+</div>
+<p>あとはパスを通すだけである。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi ~/.bashrc <span class="c1">#.bashrcの編集</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>???????　と書いてある行の末尾に
+　
+:<span class="nv">$HOME</span>/App/NAMD-????/
+
+を追加する。
+</pre></div>
+</div>
+<p>確認のため、</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+namd2
+</pre></div>
+</div>
+<p>とやってみる。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>------------- Processor <span class="m">0</span> Exiting: Called CmiAbort ------------
+Reason: FATAL ERROR: No simulation config file specified on <span class="nb">command</span> line.
+
+<span class="o">[</span><span class="m">0</span><span class="o">]</span> Stack Traceback:
+  <span class="o">[</span><span class="m">0</span>:0<span class="o">]</span>   <span class="o">[</span>0x12c1525<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:1<span class="o">]</span>   <span class="o">[</span>0x5b060d<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:2<span class="o">]</span>   <span class="o">[</span>0x5c8172<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:3<span class="o">]</span> __libc_start_main+0xf5  <span class="o">[</span>0x7f7cb3da03d5<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:4<span class="o">]</span>   <span class="o">[</span>0x4c73a9<span class="o">]</span>
+Charm++ fatal error:
+FATAL ERROR: No simulation config file specified on <span class="nb">command</span> line.
+
+<span class="o">[</span><span class="m">0</span><span class="o">]</span> Stack Traceback:
+  <span class="o">[</span><span class="m">0</span>:0<span class="o">]</span>   <span class="o">[</span>0x12c1c05<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:1<span class="o">]</span>   <span class="o">[</span>0x12c14de<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:2<span class="o">]</span>   <span class="o">[</span>0x12c1525<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:3<span class="o">]</span>   <span class="o">[</span>0x5b060d<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:4<span class="o">]</span>   <span class="o">[</span>0x5c8172<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:5<span class="o">]</span> __libc_start_main+0xf5  <span class="o">[</span>0x7f7cb3da03d5<span class="o">]</span>
+  <span class="o">[</span><span class="m">0</span>:6<span class="o">]</span>   <span class="o">[</span>0x4c73a9<span class="o">]</span>
+<span class="o">[</span><span class="m">1</span><span class="o">]</span>    <span class="m">18170</span> abort <span class="o">(</span>core dumped<span class="o">)</span>  namd2
+</pre></div>
+</div>
+<p>このような表示が出れば、インストール及びパスは成功している。</p>
+<div class="section" id="id2">
+<h3>3.3.1. ジョブスクリプトについて<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>マルチノードで計算を流すためには、<code class="docutils literal notranslate"><span class="pre">charmrun</span></code>というバイナリが必要だったり<code class="docutils literal notranslate"><span class="pre">nodelist</span></code>を指定したりとめんどくさい。</p>
+<p>そこで、サンプルジョブスクリプトを作っておいたのでコピペして使ってほしい。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1">#QSUB -queue i9acc </span>
+<span class="c1">#QSUB -node  4</span>
+<span class="c1">#QSUB -mpi   16</span>
+<span class="c1">##QSUB -omp   96</span>
+<span class="c1">#QSUB -place distribute</span>
+<span class="c1">#QSUB -over false</span>
+<span class="c1">###PBS -l walltime=01:00:00</span>
+<span class="c1">#PBS -N NAME</span>
+<span class="c1">#PBS -j oe</span>
+<span class="c1">#PBS -o job.out</span>
+
+<span class="nv">CONV_RSH</span><span class="o">=</span>rsh
+<span class="c1"># cd ${PBS_O_WORKDIR}</span>
+. /etc/profile.d/modules.sh
+
+module unload cuda/8.0
+module load cuda/6.5
+module load intel-mpi/2018.4.274
+
+
+<span class="nv">PATH</span><span class="o">=</span>/home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/:<span class="nv">$PATH</span>
+<span class="nb">echo</span> <span class="s2">&quot;group main&quot;</span> &gt; list
+cat <span class="nv">$PBS_NODEFILE</span> <span class="p">|</span> sort -u <span class="p">|</span> sed <span class="s1">&#39;s/^/host /g&#39;</span> &gt;&gt; list
+<span class="nb">echo</span> <span class="s2">&quot;exec rsh \$1 \$2 \$3 /bin/bash -f&quot;</span> &gt; myrsh
+chmod +x myrsh
+
+charmrun /home/k0386/k038615/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 ++ppn <span class="m">4</span> ++p <span class="m">16</span> ++nodelist list INPUT.conf &gt; INPUT.out
+</pre></div>
+</div>
+<p>重要な部分だけ解説をつける</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">#QSUB</span> <span class="pre">-node</span>&#160; <span class="pre">4</span></code></p>
+<p>確保するノード数を指定</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#QSUB</span> <span class="pre">-mpi</span>&#160;&#160; <span class="pre">16</span></code></p>
+<p>確保する総CPU数を指定。東大物性研は1ノード24コアなので最大値は24。</p>
+<p>しかし物性研は1ノードに2枚のグラフィックボードがあるのでおすすめは2*(上で指定した)ノード数がいいだろう。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#QSUB</span> <span class="pre">-place</span> <span class="pre">distribute</span></code></p>
+<p>確保するCPUを書くノードに分散させるオプション。上の例なら{ノード１：４コア}、{ノード２：４コア}…と確保される。ちなみに詰めて確保したい場合は<code class="docutils literal notranslate"><span class="pre">#QSUB</span> <span class="pre">-place</span> <span class="pre">pack</span></code>とする。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span></code>系</p>
+<p>Namd2.12は（おそらく）cuda6.5を必要としているため、デフォルトでロードされているcuda8.0をunloadし、cuda6.5をloadしている。デフォルトのバージョンやNamdが必要とするcudaはその時によって変わるので要確認。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PATH=/home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/:$PATH</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">namd</span></code>の実行バイナリがあるディレクトリへのパスを追加する。HOMENAMEの部分を自分のアカウントに合わせてください。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;group</span> <span class="pre">main&quot;</span> <span class="pre">&gt;</span> <span class="pre">list</span></code>、<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">$PBS_NODEFILE</span> <span class="pre">|</span> <span class="pre">sort</span> <span class="pre">-u</span> <span class="pre">|</span> <span class="pre">sed</span> <span class="pre">'s/^/host</span> <span class="pre">/g'</span> <span class="pre">&gt;&gt;</span> <span class="pre">list</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">list</span></code>というファイルに使うノードのリストを格納している。これはこのままで動くはず。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;exec</span> <span class="pre">rsh</span> <span class="pre">\$1</span> <span class="pre">\$2</span> <span class="pre">\$3</span> <span class="pre">/bin/bash</span> <span class="pre">-f&quot;</span> <span class="pre">&gt;</span> <span class="pre">myrsh</span></code>、<code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">myrsh</span></code></p>
+<p>これはいらない気がする。</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">charmrun</span> <span class="pre">/home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2</span> <span class="pre">++ppn</span> <span class="pre">4</span> <span class="pre">++p</span> <span class="pre">16</span> <span class="pre">++nodelist</span> <span class="pre">list</span> <span class="pre">INPUT.conf</span> <span class="pre">&gt;</span> <span class="pre">INPUT.out</span></code></p>
+<ul class="simple">
+<li><p>これが実行コマンドになる。何故か<code class="docutils literal notranslate"><span class="pre">charmrun</span></code>はパスが通っていたが<code class="docutils literal notranslate"><span class="pre">namd2</span></code>はフルパスで指定しないと動かなかった。要検証</p></li>
+<li><p>HOMENAMEの部分を自分のアカウントに合わせてください。</p></li>
+<li><p>INPUTの部分を計算のコンフィグレーションファイル名にしてください。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">++ppn</span></code>はおそらく(proc per node)。1ノードあたり何個のCPUを利用するかを指定。つまり#QSUB mpi / #QSUB nodeの数になるはず。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">++p</span></code> は総CPU数。#QSUB nodeと同じ数になるはず。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">++nodelist</span></code>で先ほど作った<code class="docutils literal notranslate"><span class="pre">list</span></code>ファイルの中身を見ている。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>標準出力をリダイレクトしている。これがないと動かなかった。</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="md-inputfile">
-<h2>3.3. MD計算:inputfileについて<a class="headerlink" href="#md-inputfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>3.4. MD計算:inputfileについて<a class="headerlink" href="#md-inputfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下は自分が水ーリボース系での計算をしたときのインプットファイルである。</p>
 <details>
   <summary>長いので折りたたんでいます（クリックで展開）</summary>
