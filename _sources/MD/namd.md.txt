@@ -174,7 +174,7 @@ FATAL ERROR: No simulation config file specified on command line.
 
 ```bash
 #!/bin/bash
-#QSUB -queue i9acc 
+#QSUB -queue i9acc
 #QSUB -node  4
 #QSUB -mpi   16
 ##QSUB -omp   96
@@ -200,7 +200,7 @@ cat $PBS_NODEFILE | sort -u | sed 's/^/host /g' >> list
 echo "exec rsh \$1 \$2 \$3 /bin/bash -f" > myrsh
 chmod +x myrsh
 
-charmrun /home/k0386/k038615/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 ++ppn 4 ++p 16 ++nodelist list INPUT.conf > INPUT.out
+charmrun /home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 ++ppn 4 ++p 16 ++nodelist list INPUT.conf > INPUT.out
 
 ```
 
@@ -250,9 +250,9 @@ charmrun /home/k0386/k038615/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 +
 
   - `>`標準出力をリダイレクトしている。これがないと動かなかった。
 
-    
 
-  
+
+
 
 
 ## MD計算:inputfileについて
