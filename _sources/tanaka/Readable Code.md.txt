@@ -1,0 +1,303 @@
+# リーダブルコード
+
+![](https://www.oreilly.co.jp/books/images/picture_large978-4-87311-565-8.jpeg)
+
+新人プログラマーが読むべき本に[リーダブルコード](https://www.amazon.co.jp/%E3%83%AA%E3%83%BC%E3%83%80%E3%83%96%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89-%E2%80%95%E3%82%88%E3%82%8A%E8%89%AF%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%A7%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-Theory-practice-Boswell/dp/4873115655)があり、読みやすくわかりやすいコードを書くためにどうしたらいいかといったtipsが書いてある本である。
+
+このページでは、本の内容を（剽窃にならない程度に）簡潔にまとめていこうと思う。
+
+また、本書ではサンプルコードはCで書かれているが、pythonだったらどうなるか、ということにも重視してまとめたいと思う。
+
+本書の章番号とホームページの章番号を一致させたいと思ったが、無理そうだ。
+
+
+
+## 1章｜理解しやすいコード
+
+### コードは他人が最短時間で理解できなければならない。
+
+以下のコードは、`exponent`の符号により、戻り値を変えるpythonプログラムである。(mantissa = 仮数)
+
+```python
+return mantissa * exponent if exponent >= 0 else mantissa / exponent
+```
+
+```python
+if (exponent >= 0):
+		return mantissa * exponent
+else:
+		return mantissa / exponent
+```
+
+上のほうが短く記述できるが、下のほうが安心感がある。
+
+### 短ければいいと言うわけではない。
+
+コメントがあると長くはなるがわかりやすくなる。
+
+
+
+## 2章｜名前に情報を詰め込む
+
+### 明確な名前をつける
+
+```python
+# Bad
+def GetPage(url):
+
+# Good
+def FetchPage(url):
+def DownloadPage(url):
+```
+
+getのような単語は避ける。ローカルからなのかデータベースからなのかインターネットからなのかわからない。
+
+Sizeも、**Height**か**Numnodes**か**MemoryBytes**とするとわかりやすい。
+
+### 汎用的な名前は避ける。
+
+tmpとかreturn_valみたいなものは良くない。
+
+```python
+# Bad
+return_val = return_val + v[i] ** 2
+
+# Good
+sum_squares = sumsquares + v[i] ** 2 # 2乗の合計とわかる。
+```
+
+### tmpが悪いわけではない。
+
+本当に一時的（しかも生存期間が短い）場合はいい。
+
+他の関数に渡したり、何度も書き換えられたりするのは良くないという意味。
+
+### イテレーターの場合。
+
+`for i in members`のようなイテレータ（ループ変数）としてi, jなどを使う場合はこれでもいい。
+
+しかし、`for i_member in members`や`for im im members`のほうがわかりやすい。
+
+### 抽象的な名前より具体的な名前。
+
+無理にまとめなくていい。直行する概念なら分ける。
+
+### 名前に情報を追加する。
+
+単位を追加する
+
+```python
+# Bad
+start
+height
+dihedral
+
+# Good
+start_ps
+height_au
+dihedral_degree
+```
+
+### 注意喚起する。
+
+`unsafeUrl`とか？あんま使わないかな。
+
+### 名前の長さ。
+
+長過ぎるのは避けるべきだが最近はエディタに補完機能がついている。
+
+### 省略形と接頭語。
+
+固有の省略でなければOK
+
+```python
+# Bad
+CT (Cytosine - Thymineを省略したつもり)
+
+# Good
+str_atom (原子の文字)
+rdf (動径分布関数)
+```
+
+### 不必要な単語は捨てる。
+
+情報が失われないならいい。
+
+```python
+# Bad
+ConvertToString
+
+# Good
+ToString
+```
+
+### 名前のフォーマット。
+
+```python
+class CalcRdf:
+		NUMSTEPS = 10000
+		num_atom = []
+  	
+```
+
+クラス名はキャメルケース、定数は大文字、変数は小文字のアンダースコア区切り。
+
+ローカル変数(val_)とグローバル変数(val)を区別するのも手。
+
+```python
+def SomeFunc(atom_):
+  	atom_ = ....
+    
+atom = SomeFunc(dmpc_atoms)
+```
+
+
+
+## 3章｜誤解されない名前をつける
+
+### 他の名前と間違えられることはないか？
+
+filterという単語は曖昧。**select**なのか**exclude**なのか
+
+文字数はlength -> max_length -> max_charsがよい。
+
+### 境界はmax, minでわかりやすく
+
+**max**, **min**は境界を含む（以上以下）
+
+### 範囲指定
+
+**first**, **last**は含んでいることがわかりやすい（stopなどは避ける）。
+
+**begin**, **end**が未満を示すイディオム（曖昧だが）。
+
+### 期待に合わせる
+
+getは軽量計算、時間がかかるものは**compute**にするとか
+
+実験途中のidはtemplate, reuseではなく**inherit(継承、受け継ぐ)**という語句がある。ex) inherit_from_experiment
+
+
+
+## 4章｜美しさ
+
+読みやすい＝美しい
+
+### 一貫性のある改行位置
+
+一貫性をもたせ(謎の改行をしない)、コメントも揃える
+
+```python
+# Good
+dmpc_atom_list = [dmpc,  #resname[str]
+                  N1,    #atomname[str]
+                  10000  #timesteps[int]
+                 	]
+
+chl1_atom_list = [chl1,  #resname[str]
+                  OAB,   #atomname[str]
+                  10000  #timesteps[int]
+                 	]
+
+# Very Good
+# atomlist = (resname, atomname, timesteps)
+#							[str]		 [str] 		 [int]
+
+dmpc_atom_list = [dmpc, N1,  10000]
+chl1_atom_list = [chl1, OAB, 10000]
+```
+
+### 同じことが何度も出てくるならヘルパーメソッドを使う。
+
+### 縦に揃える
+
+インデントや空白を使う
+
+```python
+# Good
+segments = MDAnalysis.select_atoms()
+residues = MDAnalysis.select_atoms()
+atoms    = MDAnalysi.select_atoms()
+ids 		 = MDAnalysis.select_atoms()
+```
+
+こうすることで、3行目のtypoにも気づきやすい。
+
+並びも一貫性のあるものにする。原子のあとに分子がきたらおかしいし一連のコードでは同じ並びを使うべきである。
+
+### 宣言も意味のあるブロックにまとめる。
+
+
+
+## 5章｜コメントすべきこと
+
+コメントすべきでないこともある。
+
+### <u>すぐ</u>わかることは書かない
+
+```python
+# Bad
+
+# 動径分布関数の計算をする関数
+def CalcRdf():
+		# 結果を入れるリストの定義
+    result = []
+```
+
+```python
+# Good
+
+# 標準入力から力スペース区切りの数値をintにしてリストへ
+num_atom = list(map(int, input().split()))
+```
+
+### 名前の酷さをコメントで補わない
+
+なら名前を変える
+
+**優れた名前 > ひどい名前 + 優れたコメント**の法則
+
+### 自分の考えは記録する
+
+```python
+# Good
+
+# append()を使うと遅かったのでstackを使った
+# N1'原子は検索から漏れる
+# 乱数発生ルーチンの最適化が必要
+```
+
+### バグも入れる
+
+以下はよく使う略語
+
+```python
+# TODO : 後でやる
+# FIXME: 既知の不具合
+# HACK : きれいじゃない解決策
+# XXX  : 危険な不具合
+
+# Good
+
+# TODO : Deal with other picture format like .png
+```
+
+### 定数にコメント
+
+定数は生まれた背景があるはず。値を決めたときの考えを記載する。
+
+```python
+NUM_PROCESS = 2 # a node has 2 gpus.
+```
+
+### 質問されそうなことは書いておく+ハマりそうな罠も書いておく
+
+ユーザーが気づく前に教えてあげる優しさ。
+
+```python
+# Good
+
+# append()を使うと遅かったのでvstack()を使った
+# map()の戻り値はリストではないためlist()が必要
+```
+

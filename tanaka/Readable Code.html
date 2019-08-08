@@ -1,0 +1,539 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. リーダブルコード &mdash; VARIDATO 2.0.0 ドキュメント</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="prev" title="1. Hiroki Tanaka" href="../intro/tanaka.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VARIDATO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">3. Linux commands (nessesary)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">1. Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">2. Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">3. Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">4. LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">5. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">6. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">7. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">8. FFTW</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">4. Lab trip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. リーダブルコード</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.1. 1章｜理解しやすいコード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.1.1. コードは他人が最短時間で理解できなければならない。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.1.2. 短ければいいと言うわけではない。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">2.2. 2章｜名前に情報を詰め込む</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">2.2.1. 明確な名前をつける</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">2.2.2. 汎用的な名前は避ける。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tmp">2.2.3. tmpが悪いわけではない。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">2.2.4. イテレーターの場合。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">2.2.5. 抽象的な名前より具体的な名前。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">2.2.6. 名前に情報を追加する。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">2.2.7. 注意喚起する。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">2.2.8. 名前の長さ。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">2.2.9. 省略形と接頭語。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">2.2.10. 不必要な単語は捨てる。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">2.2.11. 名前のフォーマット。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id16">2.3. 3章｜誤解されない名前をつける</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id17">2.3.1. 他の名前と間違えられることはないか？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-min">2.3.2. 境界はmax, minでわかりやすく</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">2.3.3. 範囲指定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">2.3.4. 期待に合わせる</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id20">2.4. 4章｜美しさ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id21">2.4.1. 一貫性のある改行位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">2.4.2. 同じことが何度も出てくるならヘルパーメソッドを使う。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">2.4.3. 縦に揃える</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">2.4.4. 宣言も意味のあるブロックにまとめる。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id25">2.5. 5章｜コメントすべきこと</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#u-u">2.5.1. <u>すぐ</u>わかることは書かない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">2.5.2. 名前の酷さをコメントで補わない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">2.5.3. 自分の考えは記録する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">2.5.4. バグも入れる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">2.5.5. 定数にコメント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">2.5.6. 質問されそうなことは書いておく+ハマりそうな罠も書いておく</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VARIDATO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>2. リーダブルコード</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tanaka/Readable Code.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2. リーダブルコード<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><img alt="https://www.oreilly.co.jp/books/images/picture_large978-4-87311-565-8.jpeg" src="https://www.oreilly.co.jp/books/images/picture_large978-4-87311-565-8.jpeg" /></p>
+<p>新人プログラマーが読むべき本に<a class="reference external" href="https://www.amazon.co.jp/%E3%83%AA%E3%83%BC%E3%83%80%E3%83%96%E3%83%AB%E3%82%B3%E3%83%BC%E3%83%89-%E2%80%95%E3%82%88%E3%82%8A%E8%89%AF%E3%81%84%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E3%81%9F%E3%82%81%E3%81%AE%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%A7%E5%AE%9F%E8%B7%B5%E7%9A%84%E3%81%AA%E3%83%86%E3%82%AF%E3%83%8B%E3%83%83%E3%82%AF-Theory-practice-Boswell/dp/4873115655">リーダブルコード</a>があり、読みやすくわかりやすいコードを書くためにどうしたらいいかといったtipsが書いてある本である。</p>
+<p>このページでは、本の内容を（剽窃にならない程度に）簡潔にまとめていこうと思う。</p>
+<p>また、本書ではサンプルコードはCで書かれているが、pythonだったらどうなるか、ということにも重視してまとめたいと思う。</p>
+<p>本書の章番号とホームページの章番号を一致させたいと思ったが、無理そうだ。</p>
+<div class="section" id="id2">
+<h2>2.1. 1章｜理解しやすいコード<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id3">
+<h3>2.1.1. コードは他人が最短時間で理解できなければならない。<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下のコードは、<code class="docutils literal notranslate"><span class="pre">exponent</span></code>の符号により、戻り値を変えるpythonプログラムである。(mantissa = 仮数)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">mantissa</span> <span class="o">*</span> <span class="n">exponent</span> <span class="k">if</span> <span class="n">exponent</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">mantissa</span> <span class="o">/</span> <span class="n">exponent</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
+		<span class="k">return</span> <span class="n">mantissa</span> <span class="o">*</span> <span class="n">exponent</span>
+<span class="k">else</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">mantissa</span> <span class="o">/</span> <span class="n">exponent</span>
+</pre></div>
+</div>
+<p>上のほうが短く記述できるが、下のほうが安心感がある。</p>
+</div>
+<div class="section" id="id4">
+<h3>2.1.2. 短ければいいと言うわけではない。<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>コメントがあると長くはなるがわかりやすくなる。</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>2.2. 2章｜名前に情報を詰め込む<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id6">
+<h3>2.2.1. 明確な名前をつける<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="k">def</span> <span class="nf">GetPage</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+
+<span class="c1"># Good</span>
+<span class="k">def</span> <span class="nf">FetchPage</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">DownloadPage</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+</pre></div>
+</div>
+<p>getのような単語は避ける。ローカルからなのかデータベースからなのかインターネットからなのかわからない。</p>
+<p>Sizeも、<strong>Height</strong>か<strong>Numnodes</strong>か<strong>MemoryBytes</strong>とするとわかりやすい。</p>
+</div>
+<div class="section" id="id7">
+<h3>2.2.2. 汎用的な名前は避ける。<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>tmpとかreturn_valみたいなものは良くない。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="n">return_val</span> <span class="o">=</span> <span class="n">return_val</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="c1"># Good</span>
+<span class="n">sum_squares</span> <span class="o">=</span> <span class="n">sumsquares</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1"># 2乗の合計とわかる。</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="tmp">
+<h3>2.2.3. tmpが悪いわけではない。<a class="headerlink" href="#tmp" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>本当に一時的（しかも生存期間が短い）場合はいい。</p>
+<p>他の関数に渡したり、何度も書き換えられたりするのは良くないという意味。</p>
+</div>
+<div class="section" id="id8">
+<h3>2.2.4. イテレーターの場合。<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">members</span></code>のようなイテレータ（ループ変数）としてi, jなどを使う場合はこれでもいい。</p>
+<p>しかし、<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i_member</span> <span class="pre">in</span> <span class="pre">members</span></code>や<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">im</span> <span class="pre">im</span> <span class="pre">members</span></code>のほうがわかりやすい。</p>
+</div>
+<div class="section" id="id9">
+<h3>2.2.5. 抽象的な名前より具体的な名前。<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>無理にまとめなくていい。直行する概念なら分ける。</p>
+</div>
+<div class="section" id="id10">
+<h3>2.2.6. 名前に情報を追加する。<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>単位を追加する</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="n">start</span>
+<span class="n">height</span>
+<span class="n">dihedral</span>
+
+<span class="c1"># Good</span>
+<span class="n">start_ps</span>
+<span class="n">height_au</span>
+<span class="n">dihedral_degree</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>2.2.7. 注意喚起する。<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">unsafeUrl</span></code>とか？あんま使わないかな。</p>
+</div>
+<div class="section" id="id12">
+<h3>2.2.8. 名前の長さ。<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>長過ぎるのは避けるべきだが最近はエディタに補完機能がついている。</p>
+</div>
+<div class="section" id="id13">
+<h3>2.2.9. 省略形と接頭語。<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>固有の省略でなければOK</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Bad
+CT (Cytosine - Thymineを省略したつもり)
+
+# Good
+str_atom (原子の文字)
+rdf (動径分布関数)
+</pre></div>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>2.2.10. 不必要な単語は捨てる。<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>情報が失われないならいい。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="n">ConvertToString</span>
+
+<span class="c1"># Good</span>
+<span class="n">ToString</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id15">
+<h3>2.2.11. 名前のフォーマット。<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CalcRdf</span><span class="p">:</span>
+		<span class="n">NUMSTEPS</span> <span class="o">=</span> <span class="mi">10000</span>
+		<span class="n">num_atom</span> <span class="o">=</span> <span class="p">[]</span>
+  	
+</pre></div>
+</div>
+<p>クラス名はキャメルケース、定数は大文字、変数は小文字のアンダースコア区切り。</p>
+<p>ローカル変数(val_)とグローバル変数(val)を区別するのも手。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">SomeFunc</span><span class="p">(</span><span class="n">atom_</span><span class="p">):</span>
+  	<span class="n">atom_</span> <span class="o">=</span> <span class="o">....</span>
+    
+<span class="n">atom</span> <span class="o">=</span> <span class="n">SomeFunc</span><span class="p">(</span><span class="n">dmpc_atoms</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>2.3. 3章｜誤解されない名前をつける<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id17">
+<h3>2.3.1. 他の名前と間違えられることはないか？<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>filterという単語は曖昧。<strong>select</strong>なのか<strong>exclude</strong>なのか</p>
+<p>文字数はlength -&gt; max_length -&gt; max_charsがよい。</p>
+</div>
+<div class="section" id="max-min">
+<h3>2.3.2. 境界はmax, minでわかりやすく<a class="headerlink" href="#max-min" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>max</strong>, <strong>min</strong>は境界を含む（以上以下）</p>
+</div>
+<div class="section" id="id18">
+<h3>2.3.3. 範囲指定<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><strong>first</strong>, <strong>last</strong>は含んでいることがわかりやすい（stopなどは避ける）。</p>
+<p><strong>begin</strong>, <strong>end</strong>が未満を示すイディオム（曖昧だが）。</p>
+</div>
+<div class="section" id="id19">
+<h3>2.3.4. 期待に合わせる<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>getは軽量計算、時間がかかるものは<strong>compute</strong>にするとか</p>
+<p>実験途中のidはtemplate, reuseではなく**inherit(継承、受け継ぐ)**という語句がある。ex) inherit_from_experiment</p>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>2.4. 4章｜美しさ<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>読みやすい＝美しい</p>
+<div class="section" id="id21">
+<h3>2.4.1. 一貫性のある改行位置<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>一貫性をもたせ(謎の改行をしない)、コメントも揃える</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good</span>
+<span class="n">dmpc_atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">dmpc</span><span class="p">,</span>  <span class="c1">#resname[str]</span>
+                  <span class="n">N1</span><span class="p">,</span>    <span class="c1">#atomname[str]</span>
+                  <span class="mi">10000</span>  <span class="c1">#timesteps[int]</span>
+                 	<span class="p">]</span>
+
+<span class="n">chl1_atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">chl1</span><span class="p">,</span>  <span class="c1">#resname[str]</span>
+                  <span class="n">OAB</span><span class="p">,</span>   <span class="c1">#atomname[str]</span>
+                  <span class="mi">10000</span>  <span class="c1">#timesteps[int]</span>
+                 	<span class="p">]</span>
+
+<span class="c1"># Very Good</span>
+<span class="c1"># atomlist = (resname, atomname, timesteps)</span>
+<span class="c1">#							[str]		 [str] 		 [int]</span>
+
+<span class="n">dmpc_atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">dmpc</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span>  <span class="mi">10000</span><span class="p">]</span>
+<span class="n">chl1_atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">chl1</span><span class="p">,</span> <span class="n">OAB</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>2.4.2. 同じことが何度も出てくるならヘルパーメソッドを使う。<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id23">
+<h3>2.4.3. 縦に揃える<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>インデントや空白を使う</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good</span>
+<span class="n">segments</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
+<span class="n">residues</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
+<span class="n">atoms</span>    <span class="o">=</span> <span class="n">MDAnalysi</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
+<span class="n">ids</span> 		 <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>こうすることで、3行目のtypoにも気づきやすい。</p>
+<p>並びも一貫性のあるものにする。原子のあとに分子がきたらおかしいし一連のコードでは同じ並びを使うべきである。</p>
+</div>
+<div class="section" id="id24">
+<h3>2.4.4. 宣言も意味のあるブロックにまとめる。<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>2.5. 5章｜コメントすべきこと<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コメントすべきでないこともある。</p>
+<div class="section" id="u-u">
+<h3>2.5.1. <u>すぐ</u>わかることは書かない<a class="headerlink" href="#u-u" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+
+<span class="c1"># 動径分布関数の計算をする関数</span>
+<span class="k">def</span> <span class="nf">CalcRdf</span><span class="p">():</span>
+		<span class="c1"># 結果を入れるリストの定義</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good</span>
+
+<span class="c1"># 標準入力から力スペース区切りの数値をintにしてリストへ</span>
+<span class="n">num_atom</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id26">
+<h3>2.5.2. 名前の酷さをコメントで補わない<a class="headerlink" href="#id26" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>なら名前を変える</p>
+<p><strong>優れた名前 &gt; ひどい名前 + 優れたコメント</strong>の法則</p>
+</div>
+<div class="section" id="id27">
+<h3>2.5.3. 自分の考えは記録する<a class="headerlink" href="#id27" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good</span>
+
+<span class="c1"># append()を使うと遅かったのでstackを使った</span>
+<span class="c1"># N1&#39;原子は検索から漏れる</span>
+<span class="c1"># 乱数発生ルーチンの最適化が必要</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id28">
+<h3>2.5.4. バグも入れる<a class="headerlink" href="#id28" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下はよく使う略語</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># TODO : 後でやる</span>
+<span class="c1"># FIXME: 既知の不具合</span>
+<span class="c1"># HACK : きれいじゃない解決策</span>
+<span class="c1"># XXX  : 危険な不具合</span>
+
+<span class="c1"># Good</span>
+
+<span class="c1"># TODO : Deal with other picture format like .png</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id29">
+<h3>2.5.5. 定数にコメント<a class="headerlink" href="#id29" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>定数は生まれた背景があるはず。値を決めたときの考えを記載する。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">NUM_PROCESS</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># a node has 2 gpus.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id30">
+<h3>2.5.6. 質問されそうなことは書いておく+ハマりそうな罠も書いておく<a class="headerlink" href="#id30" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ユーザーが気づく前に教えてあげる優しさ。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good</span>
+
+<span class="c1"># append()を使うと遅かったのでvstack()を使った</span>
+<span class="c1"># map()の戻り値はリストではないためlist()が必要</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../intro/tanaka.html" class="btn btn-neutral float-left" title="1. Hiroki Tanaka" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, htanaka, stsurumaki, hishikawa
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
