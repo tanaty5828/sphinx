@@ -12,8 +12,6 @@ Welcome to VARIDATO's documentation!
 
 パソコンなんて使ったことないよ〜って人のためのチュートリアルページです！
 
-（開発中）
-
 バグがあったら田中まで。
 
 .. image:: ../logo2.png
