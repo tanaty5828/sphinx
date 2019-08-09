@@ -24,9 +24,9 @@ return mantissa * exponent if exponent >= 0 else mantissa / exponent
 
 ```python
 if (exponent >= 0):
-		return mantissa * exponent
+    return mantissa * exponent
 else:
-		return mantissa / exponent
+    return mantissa / exponent
 ```
 
 上のほうが短く記述できるが、下のほうが安心感がある。
@@ -63,7 +63,7 @@ tmpとかreturn_valみたいなものは良くない。
 return_val = return_val + v[i] ** 2
 
 # Good
-sum_squares = sumsquares + v[i] ** 2 # 2乗の合計とわかる。
+sum_squares = sum_squares + v[i] ** 2 # 2乗の合計とわかる。
 ```
 
 ### tmpが悪いわけではない。
@@ -135,9 +135,9 @@ ToString
 
 ```python
 class CalcRdf:
-		NUMSTEPS = 10000
-		num_atom = []
-  	
+    NUMSTEPS = 10000
+    num_atom = []
+
 ```
 
 クラス名はキャメルケース、定数は大文字、変数は小文字のアンダースコア区切り。
@@ -146,8 +146,8 @@ class CalcRdf:
 
 ```python
 def SomeFunc(atom_):
-  	atom_ = ....
-    
+    atom_ = ....
+
 atom = SomeFunc(dmpc_atoms)
 ```
 
@@ -201,7 +201,7 @@ chl1_atom_list = [chl1,  #resname[str]
 
 # Very Good
 # atomlist = (resname, atomname, timesteps)
-#							[str]		 [str] 		 [int]
+#             [str]    [str]     [int]
 
 dmpc_atom_list = [dmpc, N1,  10000]
 chl1_atom_list = [chl1, OAB, 10000]
@@ -218,7 +218,7 @@ chl1_atom_list = [chl1, OAB, 10000]
 segments = MDAnalysis.select_atoms()
 residues = MDAnalysis.select_atoms()
 atoms    = MDAnalysi.select_atoms()
-ids 		 = MDAnalysis.select_atoms()
+ids      = MDAnalysis.select_atoms()
 ```
 
 こうすることで、3行目のtypoにも気づきやすい。
@@ -240,7 +240,7 @@ ids 		 = MDAnalysis.select_atoms()
 
 # 動径分布関数の計算をする関数
 def CalcRdf():
-		# 結果を入れるリストの定義
+    # 結果を入れるリストの定義
     result = []
 ```
 
@@ -300,4 +300,213 @@ NUM_PROCESS = 2 # a node has 2 gpus.
 # append()を使うと遅かったのでvstack()を使った
 # map()の戻り値はリストではないためlist()が必要
 ```
+
+### 全体像をコメントしろ
+
+まとまりごとにコメントがあるといちいち関数内部を見なくていいため楽。
+
+
+
+## 6章｜コメントは正確で完結に
+
+### 短いコメント is good
+
+### 曖昧な代名詞は良くない
+
+それ、これなどはさける
+
+### 歯切れのいい文章
+
+〜かどうかで処理を変える　->　〜していなかったらxxする
+
+### 関数の動作を正確に
+
+行数をかぞえる　->　改行文字をかぞえる（個人的にはこの書き方はどうかと思うが）
+
+"DMPC"の数をかぞえる　->　"DMPC"の文字を含む行数をカウント
+
+### 実例を提示
+
+ややこしい実例をみせるといい
+
+### コードの意図
+
+逆順にループ　->　原子番号の大きい方からループ
+
+### 名前付き引数
+
+```python
+def Calc_Rg(residue_, timestep_):
+    .......
+    
+# Bad
+rg_dmpc = Calc_Rg("DMPC", u.coord.timesteps)
+
+# Good
+rg_dmpc = Calc_Rg(residue_ = "DMPC", timestep_ =  u.coord.timesteps)
+```
+
+pythonの機能であり、渡す引数を指定しながら渡せる。
+
+C++やJavaでは使えないことに注意。（インラインコメントを使えばできるが。）
+
+### 情報密度の高い言葉
+
+dihedralのヒストグラムを総面積が1になるようにして返す　-> 規格化する。
+
+
+
+## 7章｜制御フローを読みやすくする
+
+### 条件式
+
+`if length >= 10:` or `if 10 <= length:`
+
+前者のほうが読みやすいのは、
+
+- 左辺：調査対象であり、変化しやすい
+- 右辺：比較対象であり、変化しにくい
+
+からである。
+
+日本語でも、「もし長さが10より大きければ」は自然だが「もし10より長さが大きければ」は伝わりにくい。
+
+### if / elseブロック
+
+なるべく条件式に否定形を使わない ex) `if length != length_dna:`
+
+単純な条件から先に書く。
+
+否定の条件であっても注意を引きつけるなら先に書く。
+
+```python
+if atoms not in residue:
+    # print error log
+else:
+    # Do calculation
+```
+
+### 三項演算子
+
+単純な場合はOK
+
+```python
+calc_status = "OK" if timesteps_fs > 0 else "NG"
+```
+
+これは、timesteps_fsの符号によってcalc_statusの文字が変わることがわかるが、冒頭の様に
+
+```python
+return mantissa * exponent if exponent >= 0 else mantissa / exponent
+```
+
+とかはわかりにくいと思う。単純に2つの値から1つを選ぶ時だけにする。
+
+### do / whileはやめる
+
+pythonにはdo{処理}while{条件}はない。(Perlなどはある。)無理やり書くならこんな感じ？
+
+```python
+while True: # 無限ループ
+    print("do infty!")
+    if timestep_fs == 10000:
+        break
+```
+
+この書き方は、ループの条件が上部に来ない(whileを読んだだけだとわからない)のでよくない。
+
+### 関数から早く返す
+
+意味がわからない。`try…except`や`with`を使えってこと？
+
+### `goto`を使わない。
+
+pythonにはない
+
+### ネストは浅く
+
+早めにif文から抜ける(`continue`の利用)
+
+### 実行の流れを終えるか考える
+
+
+
+## 8章｜巨大な式を分割する
+
+### 説明変数の利用
+
+式を表す変数（説明変数）の利用
+
+```python
+# Bad
+if line.split()[0].strip() == "coordinate"
+
+# Good
+setting_keyword = line.split()[0].strip()
+if setting_keyword = "coordinate"
+```
+
+### 要約変数の利用
+
+```python
+# Bad
+if u.select_atoms("resname DNA and namd P") == u.select_atoms("resname RNA and namd P"):
+    ....
+
+# Good
+atom_match = u.select_atoms("resname DNA and namd P") == u.select_atoms("resname RNA and namd P")
+if atom_match:
+    ....
+```
+
+原子が一致していたら〜するというのがわかりやすくなる。
+
+### ドモルガンの法則
+
+論理式はド・モルガンの法則が使える。（そんな複雑な条件式あるか？）
+
+### 短絡評価
+
+かしこい書き方は後でわかりにくくなるぞ
+
+### 複雑なロジック
+
+重なっているものは、重ならないものから考えたほうが楽なときもある。（余事象）
+
+### 巨大な式の分割
+
+### （C++）マクロの利用
+
+
+
+## 9章｜変数と読みやすさ
+
+### 役に立たない一時変数の削除
+
+```python
+# Bad
+now = datatime.datatime.now()
+time_ps = now
+
+# Good
+time_ps = datatime.datatime.now()
+```
+
+
+
+### 中間結果も捨てる
+
+### 制御フロー変数はいらない
+
+### 変数のスコープを縮める
+
+やたらめったらグローバル変数にしてもしゃーない
+
+深いネストで変数定義しない（変数定義は左端をあわせる）
+
+全部上の方で定義しろって意味ではない。
+
+### 変数は1度だけ代入する
+
+定数をうまくつかって！
 

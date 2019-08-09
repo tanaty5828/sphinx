@@ -152,6 +152,47 @@
 <li class="toctree-l3"><a class="reference internal" href="#id28">2.5.4. バグも入れる</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id29">2.5.5. 定数にコメント</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id30">2.5.6. 質問されそうなことは書いておく+ハマりそうな罠も書いておく</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">2.5.7. 全体像をコメントしろ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id32">2.6. 6章｜コメントは正確で完結に</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#is-good">2.6.1. 短いコメント is good</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">2.6.2. 曖昧な代名詞は良くない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">2.6.3. 歯切れのいい文章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">2.6.4. 関数の動作を正確に</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">2.6.5. 実例を提示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">2.6.6. コードの意図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38">2.6.7. 名前付き引数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">2.6.8. 情報密度の高い言葉</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id40">2.7. 7章｜制御フローを読みやすくする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id41">2.7.1. 条件式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-else">2.7.2. if / elseブロック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">2.7.3. 三項演算子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-while">2.7.4. do / whileはやめる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43">2.7.5. 関数から早く返す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#goto">2.7.6. <code class="docutils literal notranslate"><span class="pre">goto</span></code>を使わない。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">2.7.7. ネストは浅く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id45">2.7.8. 実行の流れを終えるか考える</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id46">2.8. 8章｜巨大な式を分割する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id47">2.8.1. 説明変数の利用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">2.8.2. 要約変数の利用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">2.8.3. ドモルガンの法則</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id50">2.8.4. 短絡評価</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id51">2.8.5. 複雑なロジック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id52">2.8.6. 巨大な式の分割</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c">2.8.7. （C++）マクロの利用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id53">2.9. 9章｜変数と読みやすさ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id54">2.9.1. 役に立たない一時変数の削除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id55">2.9.2. 中間結果も捨てる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id56">2.9.3. 制御フロー変数はいらない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id57">2.9.4. 変数のスコープを縮める</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id58">2.9.5. 変数は1度だけ代入する</a></li>
 </ul>
 </li>
 </ul>
@@ -236,9 +277,9 @@
 </pre></div>
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">exponent</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">):</span>
-		<span class="k">return</span> <span class="n">mantissa</span> <span class="o">*</span> <span class="n">exponent</span>
+    <span class="k">return</span> <span class="n">mantissa</span> <span class="o">*</span> <span class="n">exponent</span>
 <span class="k">else</span><span class="p">:</span>
-		<span class="k">return</span> <span class="n">mantissa</span> <span class="o">/</span> <span class="n">exponent</span>
+    <span class="k">return</span> <span class="n">mantissa</span> <span class="o">/</span> <span class="n">exponent</span>
 </pre></div>
 </div>
 <p>上のほうが短く記述できるが、下のほうが安心感がある。</p>
@@ -270,7 +311,7 @@
 <span class="n">return_val</span> <span class="o">=</span> <span class="n">return_val</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
 
 <span class="c1"># Good</span>
-<span class="n">sum_squares</span> <span class="o">=</span> <span class="n">sumsquares</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1"># 2乗の合計とわかる。</span>
+<span class="n">sum_squares</span> <span class="o">=</span> <span class="n">sum_squares</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="c1"># 2乗の合計とわかる。</span>
 </pre></div>
 </div>
 </div>
@@ -337,16 +378,15 @@ rdf (動径分布関数)
 <div class="section" id="id15">
 <h3>2.2.11. 名前のフォーマット。<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CalcRdf</span><span class="p">:</span>
-		<span class="n">NUMSTEPS</span> <span class="o">=</span> <span class="mi">10000</span>
-		<span class="n">num_atom</span> <span class="o">=</span> <span class="p">[]</span>
-  	
+    <span class="n">NUMSTEPS</span> <span class="o">=</span> <span class="mi">10000</span>
+    <span class="n">num_atom</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
 <p>クラス名はキャメルケース、定数は大文字、変数は小文字のアンダースコア区切り。</p>
 <p>ローカル変数(val_)とグローバル変数(val)を区別するのも手。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">SomeFunc</span><span class="p">(</span><span class="n">atom_</span><span class="p">):</span>
-  	<span class="n">atom_</span> <span class="o">=</span> <span class="o">....</span>
-    
+    <span class="n">atom_</span> <span class="o">=</span> <span class="o">....</span>
+
 <span class="n">atom</span> <span class="o">=</span> <span class="n">SomeFunc</span><span class="p">(</span><span class="n">dmpc_atoms</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -393,7 +433,7 @@ rdf (動径分布関数)
 
 <span class="c1"># Very Good</span>
 <span class="c1"># atomlist = (resname, atomname, timesteps)</span>
-<span class="c1">#							[str]		 [str] 		 [int]</span>
+<span class="c1">#             [str]    [str]     [int]</span>
 
 <span class="n">dmpc_atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">dmpc</span><span class="p">,</span> <span class="n">N1</span><span class="p">,</span>  <span class="mi">10000</span><span class="p">]</span>
 <span class="n">chl1_atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">chl1</span><span class="p">,</span> <span class="n">OAB</span><span class="p">,</span> <span class="mi">10000</span><span class="p">]</span>
@@ -410,7 +450,7 @@ rdf (動径分布関数)
 <span class="n">segments</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
 <span class="n">residues</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
 <span class="n">atoms</span>    <span class="o">=</span> <span class="n">MDAnalysi</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
-<span class="n">ids</span> 		 <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
+<span class="n">ids</span>      <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>こうすることで、3行目のtypoにも気づきやすい。</p>
@@ -429,7 +469,7 @@ rdf (動径分布関数)
 
 <span class="c1"># 動径分布関数の計算をする関数</span>
 <span class="k">def</span> <span class="nf">CalcRdf</span><span class="p">():</span>
-		<span class="c1"># 結果を入れるリストの定義</span>
+    <span class="c1"># 結果を入れるリストの定義</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 </pre></div>
 </div>
@@ -485,6 +525,197 @@ rdf (動径分布関数)
 <span class="c1"># map()の戻り値はリストではないためlist()が必要</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="id31">
+<h3>2.5.7. 全体像をコメントしろ<a class="headerlink" href="#id31" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>まとまりごとにコメントがあるといちいち関数内部を見なくていいため楽。</p>
+</div>
+</div>
+<div class="section" id="id32">
+<h2>2.6. 6章｜コメントは正確で完結に<a class="headerlink" href="#id32" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="is-good">
+<h3>2.6.1. 短いコメント is good<a class="headerlink" href="#is-good" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id33">
+<h3>2.6.2. 曖昧な代名詞は良くない<a class="headerlink" href="#id33" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>それ、これなどはさける</p>
+</div>
+<div class="section" id="id34">
+<h3>2.6.3. 歯切れのいい文章<a class="headerlink" href="#id34" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>〜かどうかで処理を変える　-&gt;　〜していなかったらxxする</p>
+</div>
+<div class="section" id="id35">
+<h3>2.6.4. 関数の動作を正確に<a class="headerlink" href="#id35" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>行数をかぞえる　-&gt;　改行文字をかぞえる（個人的にはこの書き方はどうかと思うが）</p>
+<p>&quot;DMPC&quot;の数をかぞえる　-&gt;　&quot;DMPC&quot;の文字を含む行数をカウント</p>
+</div>
+<div class="section" id="id36">
+<h3>2.6.5. 実例を提示<a class="headerlink" href="#id36" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ややこしい実例をみせるといい</p>
+</div>
+<div class="section" id="id37">
+<h3>2.6.6. コードの意図<a class="headerlink" href="#id37" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>逆順にループ　-&gt;　原子番号の大きい方からループ</p>
+</div>
+<div class="section" id="id38">
+<h3>2.6.7. 名前付き引数<a class="headerlink" href="#id38" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Calc_Rg</span><span class="p">(</span><span class="n">residue_</span><span class="p">,</span> <span class="n">timestep_</span><span class="p">):</span>
+    <span class="o">.......</span>
+    
+<span class="c1"># Bad</span>
+<span class="n">rg_dmpc</span> <span class="o">=</span> <span class="n">Calc_Rg</span><span class="p">(</span><span class="s2">&quot;DMPC&quot;</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">coord</span><span class="o">.</span><span class="n">timesteps</span><span class="p">)</span>
+
+<span class="c1"># Good</span>
+<span class="n">rg_dmpc</span> <span class="o">=</span> <span class="n">Calc_Rg</span><span class="p">(</span><span class="n">residue_</span> <span class="o">=</span> <span class="s2">&quot;DMPC&quot;</span><span class="p">,</span> <span class="n">timestep_</span> <span class="o">=</span>  <span class="n">u</span><span class="o">.</span><span class="n">coord</span><span class="o">.</span><span class="n">timesteps</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>pythonの機能であり、渡す引数を指定しながら渡せる。</p>
+<p>C++やJavaでは使えないことに注意。（インラインコメントを使えばできるが。）</p>
+</div>
+<div class="section" id="id39">
+<h3>2.6.8. 情報密度の高い言葉<a class="headerlink" href="#id39" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>dihedralのヒストグラムを総面積が1になるようにして返す　-&gt; 規格化する。</p>
+</div>
+</div>
+<div class="section" id="id40">
+<h2>2.7. 7章｜制御フローを読みやすくする<a class="headerlink" href="#id40" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id41">
+<h3>2.7.1. 条件式<a class="headerlink" href="#id41" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">length</span> <span class="pre">&gt;=</span> <span class="pre">10:</span></code> or <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">10</span> <span class="pre">&lt;=</span> <span class="pre">length:</span></code></p>
+<p>前者のほうが読みやすいのは、</p>
+<ul class="simple">
+<li><p>左辺：調査対象であり、変化しやすい</p></li>
+<li><p>右辺：比較対象であり、変化しにくい</p></li>
+</ul>
+<p>からである。</p>
+<p>日本語でも、「もし長さが10より大きければ」は自然だが「もし10より長さが大きければ」は伝わりにくい。</p>
+</div>
+<div class="section" id="if-else">
+<h3>2.7.2. if / elseブロック<a class="headerlink" href="#if-else" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>なるべく条件式に否定形を使わない ex) <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">length</span> <span class="pre">!=</span> <span class="pre">length_dna:</span></code></p>
+<p>単純な条件から先に書く。</p>
+<p>否定の条件であっても注意を引きつけるなら先に書く。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">atoms</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">residue</span><span class="p">:</span>
+    <span class="c1"># print error log</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Do calculation</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id42">
+<h3>2.7.3. 三項演算子<a class="headerlink" href="#id42" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>単純な場合はOK</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">calc_status</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span> <span class="k">if</span> <span class="n">timesteps_fs</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;NG&quot;</span>
+</pre></div>
+</div>
+<p>これは、timesteps_fsの符号によってcalc_statusの文字が変わることがわかるが、冒頭の様に</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">mantissa</span> <span class="o">*</span> <span class="n">exponent</span> <span class="k">if</span> <span class="n">exponent</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">mantissa</span> <span class="o">/</span> <span class="n">exponent</span>
+</pre></div>
+</div>
+<p>とかはわかりにくいと思う。単純に2つの値から1つを選ぶ時だけにする。</p>
+</div>
+<div class="section" id="do-while">
+<h3>2.7.4. do / whileはやめる<a class="headerlink" href="#do-while" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>pythonにはdo{処理}while{条件}はない。(Perlなどはある。)無理やり書くならこんな感じ？</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span> <span class="c1"># 無限ループ</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;do infty!&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">timestep_fs</span> <span class="o">==</span> <span class="mi">10000</span><span class="p">:</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+<p>この書き方は、ループの条件が上部に来ない(whileを読んだだけだとわからない)のでよくない。</p>
+</div>
+<div class="section" id="id43">
+<h3>2.7.5. 関数から早く返す<a class="headerlink" href="#id43" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>意味がわからない。<code class="docutils literal notranslate"><span class="pre">try…except</span></code>や<code class="docutils literal notranslate"><span class="pre">with</span></code>を使えってこと？</p>
+</div>
+<div class="section" id="goto">
+<h3>2.7.6. <code class="docutils literal notranslate"><span class="pre">goto</span></code>を使わない。<a class="headerlink" href="#goto" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>pythonにはない</p>
+</div>
+<div class="section" id="id44">
+<h3>2.7.7. ネストは浅く<a class="headerlink" href="#id44" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>早めにif文から抜ける(<code class="docutils literal notranslate"><span class="pre">continue</span></code>の利用)</p>
+</div>
+<div class="section" id="id45">
+<h3>2.7.8. 実行の流れを終えるか考える<a class="headerlink" href="#id45" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id46">
+<h2>2.8. 8章｜巨大な式を分割する<a class="headerlink" href="#id46" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id47">
+<h3>2.8.1. 説明変数の利用<a class="headerlink" href="#id47" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>式を表す変数（説明変数）の利用</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;coordinate&quot;</span>
+
+<span class="c1"># Good</span>
+<span class="n">setting_keyword</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">setting_keyword</span> <span class="o">=</span> <span class="s2">&quot;coordinate&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id48">
+<h3>2.8.2. 要約変数の利用<a class="headerlink" href="#id48" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="k">if</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resname DNA and namd P&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resname RNA and namd P&quot;</span><span class="p">):</span>
+    <span class="o">....</span>
+
+<span class="c1"># Good</span>
+<span class="n">atom_match</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resname DNA and namd P&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;resname RNA and namd P&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">atom_match</span><span class="p">:</span>
+    <span class="o">....</span>
+</pre></div>
+</div>
+<p>原子が一致していたら〜するというのがわかりやすくなる。</p>
+</div>
+<div class="section" id="id49">
+<h3>2.8.3. ドモルガンの法則<a class="headerlink" href="#id49" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>論理式はド・モルガンの法則が使える。（そんな複雑な条件式あるか？）</p>
+</div>
+<div class="section" id="id50">
+<h3>2.8.4. 短絡評価<a class="headerlink" href="#id50" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>かしこい書き方は後でわかりにくくなるぞ</p>
+</div>
+<div class="section" id="id51">
+<h3>2.8.5. 複雑なロジック<a class="headerlink" href="#id51" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>重なっているものは、重ならないものから考えたほうが楽なときもある。（余事象）</p>
+</div>
+<div class="section" id="id52">
+<h3>2.8.6. 巨大な式の分割<a class="headerlink" href="#id52" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="c">
+<h3>2.8.7. （C++）マクロの利用<a class="headerlink" href="#c" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id53">
+<h2>2.9. 9章｜変数と読みやすさ<a class="headerlink" href="#id53" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id54">
+<h3>2.9.1. 役に立たない一時変数の削除<a class="headerlink" href="#id54" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datatime</span><span class="o">.</span><span class="n">datatime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">time_ps</span> <span class="o">=</span> <span class="n">now</span>
+
+<span class="c1"># Good</span>
+<span class="n">time_ps</span> <span class="o">=</span> <span class="n">datatime</span><span class="o">.</span><span class="n">datatime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id55">
+<h3>2.9.2. 中間結果も捨てる<a class="headerlink" href="#id55" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id56">
+<h3>2.9.3. 制御フロー変数はいらない<a class="headerlink" href="#id56" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id57">
+<h3>2.9.4. 変数のスコープを縮める<a class="headerlink" href="#id57" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>やたらめったらグローバル変数にしてもしゃーない</p>
+<p>深いネストで変数定義しない（変数定義は左端をあわせる）</p>
+<p>全部上の方で定義しろって意味ではない。</p>
+</div>
+<div class="section" id="id58">
+<h3>2.9.5. 変数は1度だけ代入する<a class="headerlink" href="#id58" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>定数をうまくつかって！</p>
 </div>
 </div>
 </div>
