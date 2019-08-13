@@ -112,11 +112,11 @@ dihedral_degree
 
 ```python
 # Bad
-CT(Cytosine - Thymineを省略したつもり)
+CT # (Cytosine - Thymineを省略したつもり)
 
 # Good
-str_atom(原子の文字)
-rdf(動径分布関数)
+str_atom # (原子の文字)
+rdf # (動径分布関数)
 ```
 
 ### 不必要な単語は捨てる。
