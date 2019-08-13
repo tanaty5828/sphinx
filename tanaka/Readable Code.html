@@ -195,6 +195,33 @@
 <li class="toctree-l3"><a class="reference internal" href="#id57">2.9.5. 変数は1度だけ代入する</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#id58">2.10. 10章｜無関係の下位問題を抽出する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id59">2.10.1. 基本的な例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id60">2.10.2. ユーティリティコード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id61">2.10.3. その他汎用コード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id62">2.10.4. プロジェクトに特化した機能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id63">2.10.5. 既存のインターフェースを簡潔にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id64">2.10.6. 必要に応じてインターフェースを整える</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id65">2.10.7. やりすぎに注意</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id66">2.11. 11章｜一度に1つのことを</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id67">2.11.1. デフォルト値</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id68">2.12. 12章｜コードに思いを込める</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id69">2.12.1. ロジックを明確に説明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id70">2.12.2. ライブラリを詳しく知る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id71">2.12.3. 解決策を口に出しながらコーディング</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id72">2.13. 13章｜短いコードを書く</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id73">2.13.1. いらない機能に悩まされない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id74">2.13.2. 質問と要求の分割</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id75">2.13.3. 小さいコードを保つ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id76">2.13.4. 身近なライブラリに親しむ</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -356,11 +383,11 @@
 <h3>2.2.9. 省略形と接頭語。<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>固有の省略でなければOK</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span># Bad
-CT (Cytosine - Thymineを省略したつもり)
+CT(Cytosine - Thymineを省略したつもり)
 
 # Good
-str_atom (原子の文字)
-rdf (動径分布関数)
+str_atom(原子の文字)
+rdf(動径分布関数)
 </pre></div>
 </div>
 </div>
@@ -411,7 +438,7 @@ rdf (動径分布関数)
 <div class="section" id="id18">
 <h3>2.3.4. 期待に合わせる<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>getは軽量計算、時間がかかるものは<strong>compute</strong>にするとか</p>
-<p>実験途中のidはtemplate, reuseではなく**inherit(継承、受け継ぐ)**という語句がある。ex) inherit_from_experiment</p>
+<p>実験途中のidはtemplate, reuseではなく <strong>inherit(継承、受け継ぐ)</strong> という語句がある。ex) inherit_from_experiment</p>
 </div>
 </div>
 <div class="section" id="id19">
@@ -475,7 +502,7 @@ rdf (動径分布関数)
 </div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good</span>
 
-<span class="c1"># 標準入力から力スペース区切りの数値をintにしてリストへ</span>
+<span class="c1"># 標準入力からスペース区切りの数値をintにしてリストへ</span>
 <span class="n">num_atom</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 </pre></div>
 </div>
@@ -595,7 +622,8 @@ rdf (動径分布関数)
 <p>なるべく条件式に否定形を使わない ex) <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">length</span> <span class="pre">!=</span> <span class="pre">length_dna:</span></code></p>
 <p>単純な条件から先に書く。</p>
 <p>否定の条件であっても注意を引きつけるなら先に書く。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">atoms</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">residue</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Good</span>
+<span class="k">if</span> <span class="n">atoms</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">residue</span><span class="p">:</span>
     <span class="c1"># print error log</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="c1"># Do calculation</span>
@@ -617,7 +645,8 @@ rdf (動径分布関数)
 <div class="section" id="do-while">
 <h3>2.7.4. do / whileはやめる<a class="headerlink" href="#do-while" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>pythonにはdo{処理}while{条件}はない。(Perlなどはある。)無理やり書くならこんな感じ？</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="bp">True</span><span class="p">:</span> <span class="c1"># 無限ループ</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bad</span>
+<span class="k">while</span> <span class="bp">True</span><span class="p">:</span> <span class="c1"># 無限ループ</span>
     <span class="k">print</span><span class="p">(</span><span class="s2">&quot;do infty!&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">timestep_fs</span> <span class="o">==</span> <span class="mi">10000</span><span class="p">:</span>
         <span class="k">break</span>
@@ -716,6 +745,114 @@ rdf (動径分布関数)
 <div class="section" id="id57">
 <h3>2.9.5. 変数は1度だけ代入する<a class="headerlink" href="#id57" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>定数をうまくつかって！</p>
+</div>
+</div>
+<div class="section" id="id58">
+<h2>2.10. 10章｜無関係の下位問題を抽出する<a class="headerlink" href="#id58" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id59">
+<h3>2.10.1. 基本的な例<a class="headerlink" href="#id59" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>例えば、動径分布関数を計算するプログラムは</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Calc_Rdf</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">ts_</span> <span class="ow">in</span> <span class="n">timesteps_</span><span class="p">:</span>
+        <span class="c1"># 原子の位置を取得</span>
+        <span class="c1"># 原子間の距離を求める</span>
+    <span class="c1"># 距離のヒストグラムを作成</span>
+    <span class="c1"># 正規化</span>
+    <span class="c1"># plotのためのデータを作成</span>
+    <span class="c1"># アウトプットファイルを出力</span>
+</pre></div>
+</div>
+<p>おおよそ、こんな感じで計算がされるだろう。</p>
+<p>しかし、原子間距離を求める部分や距離のヒストグラムを求める部分は別の関数にしたほうがわかりやすいだろう。</p>
+<p><strong>特に、コード量が多い（自己完結している）部分は別関数にすると良い。</strong></p>
+<p>再利用でき、個別にテストできるからだ。</p>
+</div>
+<div class="section" id="id60">
+<h3>2.10.2. ユーティリティコード<a class="headerlink" href="#id60" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>c++にはファイルの中身をすべて読み込む関数がない。pythonはいろいろ用意されているのであんまりないかな。</p>
+</div>
+<div class="section" id="id61">
+<h3>2.10.3. その他汎用コード<a class="headerlink" href="#id61" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>きれいに<code class="docutils literal notranslate"><span class="pre">print</span></code>する（中央揃えするなど）というコードは、別関数にしておくといい。後でデバッグする時に、ここだけ変えればいいから。</p>
+<p>このような汎用コードは、簡単に共有できるような特別なディレクトリにまとめておくといい。(<code class="docutils literal notranslate"><span class="pre">util/</span></code>)</p>
+</div>
+<div class="section" id="id62">
+<h3>2.10.4. プロジェクトに特化した機能<a class="headerlink" href="#id62" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">dmpc</span> <span class="pre">=</span> <span class="pre">u.select_atoms(&quot;resname</span> <span class="pre">{}</span> <span class="pre">and</span> <span class="pre">name</span> <span class="pre">{}&quot;.format(&quot;dmpc&quot;,</span> <span class="pre">&quot;P&quot;))</span></code>などはいいが、コード量が多いときは関数化する。</p>
+<p>（原子選択、タイムステップ全体の位置をnp.arrayにするなど）</p>
+</div>
+<div class="section" id="id63">
+<h3>2.10.5. 既存のインターフェースを簡潔にする<a class="headerlink" href="#id63" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id64">
+<h3>2.10.6. 必要に応じてインターフェースを整える<a class="headerlink" href="#id64" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id65">
+<h3>2.10.7. やりすぎに注意<a class="headerlink" href="#id65" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>2〜3行のコードに分解すると逆にわかりづらくなるよ。</p>
+</div>
+</div>
+<div class="section" id="id66">
+<h2>2.11. 11章｜一度に1つのことを<a class="headerlink" href="#id66" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>コードは一つずつタスクを行うべきだ</p>
+<div class="section" id="id67">
+<h3>2.11.1. デフォルト値<a class="headerlink" href="#id67" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>pythonの関数にはデフォルト値を設定できる。これを利用して値があったら書き換えるなどする。</p>
+<p>if文が連続すると様々な場合を見る必要があるため、大変</p>
+</div>
+</div>
+<div class="section" id="id68">
+<h2>2.12. 12章｜コードに思いを込める<a class="headerlink" href="#id68" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id69">
+<h3>2.12.1. ロジックを明確に説明<a class="headerlink" href="#id69" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id70">
+<h3>2.12.2. ライブラリを詳しく知る<a class="headerlink" href="#id70" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id71">
+<h3>2.12.3. 解決策を口に出しながらコーディング<a class="headerlink" href="#id71" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+</div>
+<div class="section" id="id72">
+<h2>2.13. 13章｜短いコードを書く<a class="headerlink" href="#id72" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id73">
+<h3>2.13.1. いらない機能に悩まされない<a class="headerlink" href="#id73" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id74">
+<h3>2.13.2. 質問と要求の分割<a class="headerlink" href="#id74" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id75">
+<h3>2.13.3. 小さいコードを保つ<a class="headerlink" href="#id75" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id76">
+<h3>2.13.4. 身近なライブラリに親しむ<a class="headerlink" href="#id76" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>pythonでは、<code class="docutils literal notranslate"><span class="pre">enumerate</span></code>関数を使えば、<code class="docutils literal notranslate"><span class="pre">for</span></code>文がとてもシンプルになる。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Mirai&#39;</span><span class="p">,</span><span class="s1">&#39;Tech&#39;</span><span class="p">,</span><span class="s1">&#39;Denshi&#39;</span><span class="p">]</span>
+
+<span class="c1"># Bad</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
+    
+<span class="c1"># Good</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>また、リスト（タプル）から重複を取り除く<code class="docutils literal notranslate"><span class="pre">set</span></code>があるし、</p>
+<p>リストの中でのインデックスを取得する<code class="docutils literal notranslate"><span class="pre">index()</span></code>メソッドがある。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">atom_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;N1&quot;</span><span class="p">,</span> <span class="s2">&quot;P1&quot;</span><span class="p">,</span> <span class="s2">&quot;O1&quot;</span><span class="p">,</span> <span class="s2">&quot;O2&quot;</span><span class="p">]</span>
+
+<span class="c1"># Bad</span>
+<span class="k">for</span> <span class="n">atom_i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">atom_list</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">atom_i</span> <span class="o">=</span> <span class="s2">&quot;O1&quot;</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">atom_i</span><span class="p">)</span>
+        
+<span class="c1"># Good</span>
+<span class="k">print</span><span class="p">(</span><span class="n">atom_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;O1&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

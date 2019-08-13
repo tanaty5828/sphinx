@@ -112,11 +112,11 @@ dihedral_degree
 
 ```python
 # Bad
-CT (Cytosine - Thymineを省略したつもり)
+CT(Cytosine - Thymineを省略したつもり)
 
 # Good
-str_atom (原子の文字)
-rdf (動径分布関数)
+str_atom(原子の文字)
+rdf(動径分布関数)
 ```
 
 ### 不必要な単語は捨てる。
@@ -175,7 +175,7 @@ filterという単語は曖昧。**select**なのか**exclude**なのか
 
 getは軽量計算、時間がかかるものは**compute**にするとか
 
-実験途中のidはtemplate, reuseではなく**inherit(継承、受け継ぐ)**という語句がある。ex) inherit_from_experiment
+実験途中のidはtemplate, reuseではなく **inherit(継承、受け継ぐ)** という語句がある。ex) inherit_from_experiment
 
 
 
@@ -247,7 +247,7 @@ def CalcRdf():
 ```python
 # Good
 
-# 標準入力から力スペース区切りの数値をintにしてリストへ
+# 標準入力からスペース区切りの数値をintにしてリストへ
 num_atom = list(map(int, input().split()))
 ```
 
@@ -380,6 +380,7 @@ dihedralのヒストグラムを総面積が1になるようにして返す　->
 否定の条件であっても注意を引きつけるなら先に書く。
 
 ```python
+# Good
 if atoms not in residue:
     # print error log
 else:
@@ -407,6 +408,7 @@ return mantissa * exponent if exponent >= 0 else mantissa / exponent
 pythonにはdo{処理}while{条件}はない。(Perlなどはある。)無理やり書くならこんな感じ？
 
 ```python
+# Bad
 while True: # 無限ループ
     print("do infty!")
     if timestep_fs == 10000:
@@ -509,4 +511,121 @@ time_ps = datatime.datatime.now()
 ### 変数は1度だけ代入する
 
 定数をうまくつかって！
+
+
+
+## 10章｜無関係の下位問題を抽出する
+
+### 基本的な例
+
+例えば、動径分布関数を計算するプログラムは
+
+```python
+def Calc_Rdf():
+    for ts_ in timesteps_:
+        # 原子の位置を取得
+        # 原子間の距離を求める
+    # 距離のヒストグラムを作成
+    # 正規化
+    # plotのためのデータを作成
+    # アウトプットファイルを出力
+```
+
+おおよそ、こんな感じで計算がされるだろう。
+
+しかし、原子間距離を求める部分や距離のヒストグラムを求める部分は別の関数にしたほうがわかりやすいだろう。
+
+**特に、コード量が多い（自己完結している）部分は別関数にすると良い。**
+
+再利用でき、個別にテストできるからだ。
+
+### ユーティリティコード
+
+c++にはファイルの中身をすべて読み込む関数がない。pythonはいろいろ用意されているのであんまりないかな。
+
+### その他汎用コード
+
+きれいに`print`する（中央揃えするなど）というコードは、別関数にしておくといい。後でデバッグする時に、ここだけ変えればいいから。
+
+このような汎用コードは、簡単に共有できるような特別なディレクトリにまとめておくといい。(`util/`)
+
+### プロジェクトに特化した機能
+
+`dmpc = u.select_atoms("resname {} and name {}".format("dmpc", "P"))`などはいいが、コード量が多いときは関数化する。
+
+（原子選択、タイムステップ全体の位置をnp.arrayにするなど）
+
+### 既存のインターフェースを簡潔にする
+
+### 必要に応じてインターフェースを整える
+
+### やりすぎに注意
+
+2〜3行のコードに分解すると逆にわかりづらくなるよ。
+
+
+
+## 11章｜一度に1つのことを
+
+コードは一つずつタスクを行うべきだ
+
+### デフォルト値
+
+pythonの関数にはデフォルト値を設定できる。これを利用して値があったら書き換えるなどする。
+
+if文が連続すると様々な場合を見る必要があるため、大変
+
+
+
+## 12章｜コードに思いを込める
+
+### ロジックを明確に説明
+
+### ライブラリを詳しく知る
+
+### 解決策を口に出しながらコーディング
+
+
+
+## 13章｜短いコードを書く
+
+### いらない機能に悩まされない
+
+### 質問と要求の分割
+
+### 小さいコードを保つ
+
+### 身近なライブラリに親しむ
+
+pythonでは、`enumerate`関数を使えば、`for`文がとてもシンプルになる。
+
+```python
+names = ['Mirai','Tech','Denshi']
+
+# Bad
+index = 0
+for name in names:
+    print(index,name)
+    index += 1
+    
+# Good
+for index, name in enumerate(names,start=1):
+    print(index, name)
+```
+
+また、リスト（タプル）から重複を取り除く`set`があるし、
+
+リストの中でのインデックスを取得する`index()`メソッドがある。
+
+```python
+atom_list = ["N1", "P1", "O1", "O2"]
+
+# Bad
+for atom_i, _ in enumerate(atom_list):
+    if atom_i = "O1":
+        print(atom_i)
+        
+# Good
+print(atom_list.index("O1"))
+```
 
