@@ -350,7 +350,7 @@
 <div class="section" id="id7">
 <h3>2.2.4. イテレーターの場合。<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">members</span></code>のようなイテレータ（ループ変数）としてi, jなどを使う場合はこれでもいい。</p>
-<p>しかし、<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i_member</span> <span class="pre">in</span> <span class="pre">members</span></code>や<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">im</span> <span class="pre">im</span> <span class="pre">members</span></code>のほうがわかりやすい。</p>
+<p>しかし、<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">i_member</span> <span class="pre">in</span> <span class="pre">members</span></code>や<code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">in</span> <span class="pre">im</span> <span class="pre">members</span></code>のほうがわかりやすい。</p>
 </div>
 <div class="section" id="id8">
 <h3>2.2.5. 抽象的な名前より具体的な名前。<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -588,7 +588,7 @@ rdf(動径分布関数)
 <h3>2.6.7. 名前付き引数<a class="headerlink" href="#id37" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Calc_Rg</span><span class="p">(</span><span class="n">residue_</span><span class="p">,</span> <span class="n">timestep_</span><span class="p">):</span>
     <span class="o">.......</span>
-    
+
 <span class="c1"># Bad</span>
 <span class="n">rg_dmpc</span> <span class="o">=</span> <span class="n">Calc_Rg</span><span class="p">(</span><span class="s2">&quot;DMPC&quot;</span><span class="p">,</span> <span class="n">u</span><span class="o">.</span><span class="n">coord</span><span class="o">.</span><span class="n">timesteps</span><span class="p">)</span>
 
@@ -834,7 +834,7 @@ rdf(動径分布関数)
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
     <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
     <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
-    
+
 <span class="c1"># Good</span>
 <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -848,7 +848,7 @@ rdf(動径分布関数)
 <span class="k">for</span> <span class="n">atom_i</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">atom_list</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">atom_i</span> <span class="o">=</span> <span class="s2">&quot;O1&quot;</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="n">atom_i</span><span class="p">)</span>
-        
+
 <span class="c1"># Good</span>
 <span class="k">print</span><span class="p">(</span><span class="n">atom_list</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;O1&quot;</span><span class="p">))</span>
 </pre></div>

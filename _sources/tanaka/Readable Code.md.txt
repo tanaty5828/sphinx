@@ -76,7 +76,7 @@ sum_squares = sum_squares + v[i] ** 2 # 2乗の合計とわかる。
 
 `for i in members`のようなイテレータ（ループ変数）としてi, jなどを使う場合はこれでもいい。
 
-しかし、`for i_member in members`や`for im im members`のほうがわかりやすい。
+しかし、`for i_member in members`や`for in im members`のほうがわかりやすい。
 
 ### 抽象的な名前より具体的な名前。
 
@@ -338,7 +338,7 @@ NUM_PROCESS = 2 # a node has 2 gpus.
 ```python
 def Calc_Rg(residue_, timestep_):
     .......
-    
+
 # Bad
 rg_dmpc = Calc_Rg("DMPC", u.coord.timesteps)
 
@@ -607,7 +607,7 @@ index = 0
 for name in names:
     print(index,name)
     index += 1
-    
+
 # Good
 for index, name in enumerate(names,start=1):
     print(index, name)
@@ -624,7 +624,7 @@ atom_list = ["N1", "P1", "O1", "O2"]
 for atom_i, _ in enumerate(atom_list):
     if atom_i = "O1":
         print(atom_i)
-        
+
 # Good
 print(atom_list.index("O1"))
 ```
