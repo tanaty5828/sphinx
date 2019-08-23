@@ -97,3 +97,15 @@ vmd structure.psf trajectory.xtc
 vmd structure.psf trajectory.dcd
 ```
 
+
+
+## 個人PC(mac)からssh先の`vmd`を起動する場合
+
+mac限定だと思われる
+
+1. `XQuartz`を終了
+2. sshしていない(ローカルで)`defaults write org.macosforge.xquartz.X11 enable_iglx -bool true`を実行
+3. `ssh`してリモートマシンへ接続
+4. vmdが起動するはず。(影の描写には非対応？)
+
+当然だが、ネットの速度に依存してレスポンスが変わるため自宅Wi-Fiではやや反応が悪いか？

@@ -108,6 +108,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#lammps">6.2.3. Lammpsの計算結果の場合</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#pc-mac-sshvmd">6.3. 個人PC(mac)からssh先の<code class="docutils literal notranslate"><span class="pre">vmd</span></code>を起動する場合</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">7. Discovery Studio</a></li>
@@ -261,6 +262,17 @@ sudo make install
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="pc-mac-sshvmd">
+<h2>6.3. 個人PC(mac)からssh先の<code class="docutils literal notranslate"><span class="pre">vmd</span></code>を起動する場合<a class="headerlink" href="#pc-mac-sshvmd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>mac限定だと思われる</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">XQuartz</span></code>を終了</p></li>
+<li><p>sshしていない(ローカルで)<code class="docutils literal notranslate"><span class="pre">defaults</span> <span class="pre">write</span> <span class="pre">org.macosforge.xquartz.X11</span> <span class="pre">enable_iglx</span> <span class="pre">-bool</span> <span class="pre">true</span></code>を実行</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span></code>してリモートマシンへ接続</p></li>
+<li><p>vmdが起動するはず。(影の描写には非対応？)</p></li>
+</ol>
+<p>当然だが、ネットの速度に依存してレスポンスが変わるため自宅Wi-Fiではやや反応が悪いか？</p>
 </div>
 </div>
 
