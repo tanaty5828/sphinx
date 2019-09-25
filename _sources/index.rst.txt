@@ -60,6 +60,13 @@ Welcome to VALIDATO's documentation!
 
 .. toctree::
    :maxdepth: 2
+   :caption: Python Room
+   :numbered:
+
+   /python/matplotlib
+
+.. toctree::
+   :maxdepth: 2
    :caption: Hiroki Tanaka
    :numbered:
 

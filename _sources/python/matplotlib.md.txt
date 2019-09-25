@@ -1,0 +1,100 @@
+# matplotlib
+
+gnuplot同様に、グラフのプロットができる**python**のライブラリ。
+
+ただ、学習コストが高い（難しい）ため備忘録もかねてここに使い方を記す。
+
+
+
+## 便利なpythonスクリプト
+
+以下は田中が作成したすぐにグラフのプロットができるスクリプトである。
+
+```python
+import matplotlib.pyplot as plt
+import argparse
+import numpy as np
+import os
+
+
+plt.rcParams["font.family"] = "Spica Neue"  # 全体のフォントを設定
+plt.rcParams["xtick.direction"] = "in"  # x軸の目盛線を内向きへ
+plt.rcParams["ytick.direction"] = "in"  # y軸の目盛線を内向きへ
+plt.rcParams["xtick.minor.visible"] = True  # x軸補助目盛りの追加
+plt.rcParams["ytick.minor.visible"] = True  # y軸補助目盛りの追加
+plt.rcParams["xtick.major.width"] = 1.5  # x軸主目盛り線の線幅
+plt.rcParams["ytick.major.width"] = 1.5  # y軸主目盛り線の線幅
+plt.rcParams["xtick.minor.width"] = 1.0  # x軸補助目盛り線の線幅
+plt.rcParams["ytick.minor.width"] = 1.0  # y軸補助目盛り線の線幅
+plt.rcParams["xtick.major.size"] = 10  # x軸主目盛り線の長さ
+plt.rcParams["ytick.major.size"] = 10  # y軸主目盛り線の長さ
+plt.rcParams["xtick.minor.size"] = 5  # x軸補助目盛り線の長さ
+plt.rcParams["ytick.minor.size"] = 5  # y軸補助目盛り線の長さ
+plt.rcParams["font.size"] = 14  # フォントの大きさ
+plt.rcParams["axes.linewidth"] = 1.5  # 囲みの太さ
+
+plt.rcParams["legend.markerscale"] = 2
+plt.rcParams["legend.fancybox"] = False
+plt.rcParams["legend.framealpha"] = 1
+plt.rcParams["legend.edgecolor"] = 'black'
+
+plt.rcParams['axes.grid'] = True
+plt.rcParams['grid.linestyle'] = '--'
+# plt.rcParams['grid.linewidth'] = 0.3
+
+# plt.figure(dpi=200)                 # size of figure, resolution
+#
+parser = argparse.ArgumentParser(description="Fast plot like gnuplot!")
+parser.add_argument("i_files", help="are ploted file.", nargs="*")
+args = parser.parse_args()
+
+plot_files = []
+
+# check file
+for i_file in args.i_files:
+    if os.path.exists(i_file):
+        plot_files.append(np.loadtxt(f"{i_file}"))
+    else:
+        print(f"Error : {i_file} can't find.")
+        os.sys.exit()
+# plot_setting
+fig = plt.figure(figsize=(16, 9))
+plt.subplots_adjust(wspace=0.3, hspace=0.3)
+ax = fig.add_subplot(1, 1, 1)
+
+for j_filename, j_file in zip(args.i_files, plot_files):
+    ax.plot(j_file[:, 0], j_file[:, 1], label=f"{j_filename}")
+
+fig.legend()
+fig.tight_layout()
+plt.show()
+
+```
+
+これを`~/pymodules/fplot.py`などとして保存し、エイリアスを当てておくと便利。
+
+(以下を`~/.bashrc`に追記)
+
+```bash
+alias fplot='python ~/pymodules/fplot.py'
+```
+
+編集が終わったら`source ~/.bashrc`を忘れずに
+
+こうすると、
+
+```bash
+fplot <plotしたいファイル名(複数OK)>
+```
+
+で簡易的にプロットができるようになる。
+
+（例）
+
+```bash
+fplot RZ_C11_POPC.dat RZ_C11_POPI.dat 
+```
+
+![](./Figure_1.png)
+
+となる。
