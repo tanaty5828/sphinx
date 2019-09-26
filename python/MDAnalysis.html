@@ -1,0 +1,561 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. MDAnalysis &mdash; VALIDATO 3.0.1 ドキュメント</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/varidate_logo_ico.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="1. Hiroki Tanaka" href="../intro/tanaka.html" />
+    <link rel="prev" title="1. matplotlib" href="matplotlib.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> VALIDATO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">3. Linux commands (nessesary)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">1. Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">2. Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">3. Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">4. LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">5. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">6. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">7. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">8. FFTW</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">4. Lab trip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Room</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="matplotlib.html">1. matplotlib</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. MDAnalysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 環境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. 注意</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#how-to-use-this-tutorial">3. 1.How to use this tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#have-you-installed-mdanalysis">3.1. 1.1.Have you installed MDAnalysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#preparation">4. 3.Preparation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python-interpreter-ipython">4.1. 3.1.Python interpreter : ipython</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ipythontab">4.1.1. ipythonを使うとtabキー補完が便利になるよっていう話</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ipythoncommand">4.1.1.1. コマンドについての説明がほしいときはipython上で<code class="docutils literal notranslate"><span class="pre">command?</span></code>とする。</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tab">4.1.1.2. tabキー補完が優秀</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numpy-matplotlib">4.1.1.3. 数値計算、グラフの即時プロットのために<code class="docutils literal notranslate"><span class="pre">numpy</span></code>,<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>をインポートしておくと良い</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-mdanalysis">4.2. 3.2.Loading MDAnalysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.2.1. ライブラリ（モジュール）のインポート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.2.2. サンプルファイル（のインポート）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#basic">5. 4.Basic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#universe-and-atomgroup">5.1. 4.1.Universe and AtomGroup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#universeobject">5.1.1. <code class="docutils literal notranslate"><span class="pre">Universe</span></code>object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#atomobject">5.1.2. <code class="docutils literal notranslate"><span class="pre">Atom</span></code>object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#residueobject">5.1.3. <code class="docutils literal notranslate"><span class="pre">residue</span></code>object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#segmentobject">5.1.4. <code class="docutils literal notranslate"><span class="pre">segment</span></code>object</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#working-with-atomgroup">6. 5.Working with AtomGroup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#important-methods-and-attributes-of-atomgroup">6.1. 5.1.Important methods and attributes of AtomGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exersice">6.2. 5.2.Exersice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#processing-atomgroup">6.3. 5.3.Processing AtomGroup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">6.4. 参考</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#trajectory-analysis">7. 6.Trajectory analysis</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">2. Readable Code</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">VALIDATO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>2. MDAnalysis</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/python/MDAnalysis.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mdanalysis">
+<h1>2. MDAnalysis<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>MD（分子動力学）の解析ツール（Pythonライブラリ）は<strong>MDTraj</strong>なども存在するが、
+チュートリアルがありしっかりしていそうだったためこちらも紹介する。
+また、チュートリアルが英語しかなくMDを始めたての学生は苦労すると思ったので、
+日本語訳と解説をつけていく。
+ここでは1~6章を解説する.</p>
+<div class="section" id="id1">
+<h2>2.1. 環境<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><p>Python 3.6.6 :: Anaconda, Inc</p></li>
+<li><p>MDAnalysis 0.19.0</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>2.2. 注意<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>最近筆者の環境ではnumpyとMDAnalysisの相性が悪く、こちらのインポート時にエラーがでるようになってしまった。
+（インポート時のエラーでプログラム自体は正常に動いた）
+一応numpyのバージョンを下げることでエラーは出なくなった。
+Anacondaの利用者は以下を実行。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install <span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.15.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="how-to-use-this-tutorial">
+<h1>3. 1.How to use this tutorial<a class="headerlink" href="#how-to-use-this-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="have-you-installed-mdanalysis">
+<h2>3.1. 1.1.Have you installed MDAnalysis<a class="headerlink" href="#have-you-installed-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id3">
+<h3>3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>適当なPythonのファイルに以下の内容を書き込み、実行してみる</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
+<span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">MDAnalysis</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Universe with <span class="m">3341</span> atoms&gt;
+<span class="m">0</span>.19.0
+</pre></div>
+</div>
+<p>上のように表示されていればMDAnalysisはインストール済みであり、次の章に進める。</p>
+<p>何も表示されないorエラーが出る場合には、MDAnalysisはインストールされていないため
+<a class="reference external" href="https://www.mdanalysis.org/MDAnalysisTutorial/installation.html#chapter-installing-mdanalysis">Installing MDAnalysis</a>
+を参考にインストールする。
+このインストールセクションが2章に相当するため、2章は省略。</p>
+</div>
+</div>
+</div>
+<div class="section" id="preparation">
+<h1>4. 3.Preparation<a class="headerlink" href="#preparation" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="python-interpreter-ipython">
+<h2>4.1. 3.1.Python interpreter : ipython<a class="headerlink" href="#python-interpreter-ipython" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="ipythontab">
+<h3>4.1.1. ipythonを使うとtabキー補完が便利になるよっていう話<a class="headerlink" href="#ipythontab" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Pythonを使うときは、多くの人がプログラムを.pyファイルに書き込み、</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python test.py
+</pre></div>
+</div>
+<p>として実行している人が多いと思うが、実はPythonには対話型で実行できる機能も備えており、</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python
+
+&gt;&gt;&gt;print<span class="o">(</span><span class="s1">&#39;Hello&#39;</span><span class="o">)</span>
+Hello
+</pre></div>
+</div>
+<p>というふうにも実行できる。
+この対話型シェルを大幅に拡張したものが<code class="docutils literal notranslate"><span class="pre">ipython</span></code>であり、特にtabキーでの補完がすごい。</p>
+<div class="section" id="ipythoncommand">
+<h4>4.1.1.1. コマンドについての説明がほしいときはipython上で<code class="docutils literal notranslate"><span class="pre">command?</span></code>とする。<a class="headerlink" href="#ipythoncommand" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ipython
+In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: print?
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Docstring</span><span class="p">:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">Prints</span> <span class="n">the</span> <span class="n">values</span> <span class="n">to</span> <span class="n">a</span> <span class="n">stream</span><span class="p">,</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="n">by</span> <span class="n">default</span><span class="o">.</span>
+<span class="n">Optional</span> <span class="n">keyword</span> <span class="n">arguments</span><span class="p">:</span>
+<span class="n">file</span><span class="p">:</span>  <span class="n">a</span> <span class="n">file</span><span class="o">-</span><span class="n">like</span> <span class="nb">object</span> <span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="n">defaults</span> <span class="n">to</span> <span class="n">the</span> <span class="n">current</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span>
+<span class="n">sep</span><span class="p">:</span>   <span class="n">string</span> <span class="n">inserted</span> <span class="n">between</span> <span class="n">values</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">space</span><span class="o">.</span>
+<span class="n">end</span><span class="p">:</span>   <span class="n">string</span> <span class="n">appended</span> <span class="n">after</span> <span class="n">the</span> <span class="n">last</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">newline</span><span class="o">.</span>
+<span class="n">flush</span><span class="p">:</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">forcibly</span> <span class="n">flush</span> <span class="n">the</span> <span class="n">stream</span><span class="o">.</span>
+<span class="n">Type</span><span class="p">:</span>      <span class="n">builtin_function_or_method</span>
+</pre></div>
+</div>
+<p>と、かなり詳しい説明が出る。</p>
+</div>
+<div class="section" id="tab">
+<h4>4.1.1.2. tabキー補完が優秀<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MD</span> <span class="o">&lt;</span><span class="n">tabキー入力</span><span class="o">&gt;</span>
+<span class="kn">import</span> <span class="nn">MDAnalysis</span>
+
+<span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="o">.&lt;</span><span class="n">tabキー入力</span><span class="o">&gt;</span>
+<span class="c1">###使えるもの一覧が出る</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="numpy-matplotlib">
+<h4>4.1.1.3. 数値計算、グラフの即時プロットのために<code class="docutils literal notranslate"><span class="pre">numpy</span></code>,<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>をインポートしておくと良い<a class="headerlink" href="#numpy-matplotlib" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>ipythonを</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ipython --matplotlib
+</pre></div>
+</div>
+<p>として起動するか、ipythonの中で、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+<p>とする。（npは任意の名前で良い）</p>
+</div>
+</div>
+</div>
+<div class="section" id="loading-mdanalysis">
+<h2>4.2. 3.2.Loading MDAnalysis<a class="headerlink" href="#loading-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h3>4.2.1. ライブラリ（モジュール）のインポート<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>.pyファイルに書く場合でも、対話型の場合でもMDAnalysisのインポートは</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
+</pre></div>
+</div>
+<p>のみでいい。
+（ただしMDAnalysis.analysis.rmsのようなサブモジュールは自動でインポートされないため、明示的にインポートする必要がある。）</p>
+</div>
+<div class="section" id="id5">
+<h3>4.2.2. サンプルファイル（のインポート）<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>またMDAnalysisをインポートすると、サンプルファイルであるアデニル酸キナーゼのコンフォメーション変化のトラジェクトリも同時に読み込まれる。以降のチュートリアルではこのアデニル酸キナーゼを使って解析を進める。
+ここではトラジェクトリファイル（CHARMM　DCD　format）とトポロジーファイル（CHARMM　PSF　format）が読み込まれる。
+以下のように読み込むといい</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="basic">
+<h1>5. 4.Basic<a class="headerlink" href="#basic" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="universe-and-atomgroup">
+<h2>5.1. 4.1.Universe and AtomGroup<a class="headerlink" href="#universe-and-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>MDAnalysisはオブジェクト指向であり、系は<code class="docutils literal notranslate"><span class="pre">Atom</span></code>オブジェクトを形成する。これはトポロジーとトラジェクトリを読み込むことで作ることができる。</p>
+<div class="section" id="universeobject">
+<h3>5.1.1. <code class="docutils literal notranslate"><span class="pre">Universe</span></code>object<a class="headerlink" href="#universeobject" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ファイルの読み込み時に用いる。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">u</span><span class="p">)</span>
+
+<span class="c1">##output</span>
+<span class="o">&lt;</span><span class="n">Unuverse</span> <span class="k">with</span> <span class="mi">3341</span> <span class="n">atoms</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>また、自分のトラジェクトリファイルを複数読み込む場合などは、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s2">&quot;test.psf&quot;</span><span class="p">,</span> <span class="s2">&quot;../test1.dcd&quot;</span><span class="p">,</span> <span class="s2">&quot;../test2.dcd&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>などとすればいい。</p>
+</div>
+<div class="section" id="atomobject">
+<h3>5.1.2. <code class="docutils literal notranslate"><span class="pre">Atom</span></code>object<a class="headerlink" href="#atomobject" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>こうして読み込むと原子の情報はAtom属性に格納される。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+<span class="c1">##output</span>
+<span class="o">&lt;</span><span class="n">AtomGroup</span> <span class="k">with</span> <span class="mi">3341</span> <span class="n">atoms</span><span class="o">&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">5</span><span class="p">]))</span>
+<span class="c1">##output</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">1</span><span class="p">:</span> <span class="n">N</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">56</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">2</span><span class="p">:</span> <span class="n">HT1</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">3</span><span class="p">:</span> <span class="n">HT2</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">4</span><span class="p">:</span> <span class="n">HT3</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
+ <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">5</span><span class="p">:</span> <span class="n">CA</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">22</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">]</span>
+<span class="c1">##全原子リストのうちの上から5個が出力される。</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="residueobject">
+<h3>5.1.3. <code class="docutils literal notranslate"><span class="pre">residue</span></code>object<a class="headerlink" href="#residueobject" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>もちろん原子はいずれかの分子に属するため、atomは<code class="docutils literal notranslate"><span class="pre">ResidueGruop</span></code>の中にある。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">130</span><span class="p">]</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
+<span class="c1">##output</span>
+<span class="o">&lt;</span><span class="n">ResidueGroup</span> <span class="k">with</span> <span class="mi">3</span> <span class="n">residues</span><span class="o">&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">residues</span><span class="p">))</span>
+<span class="c1">##output</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Residue</span> <span class="n">LEU</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Residue</span> <span class="n">GLY</span><span class="p">,</span> <span class="mi">7</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Residue</span> <span class="n">ALA</span><span class="p">,</span> <span class="mi">8</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="segmentobject">
+<h3>5.1.4. <code class="docutils literal notranslate"><span class="pre">segment</span></code>object<a class="headerlink" href="#segmentobject" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>更に大きなグループとして<code class="docutils literal notranslate"><span class="pre">segmentGroup</span></code>があり、これは例えばタンパク質や高分子のモノマーに対応している。
+さらにこれらは「Segment ID(segids)」をあわせて持っている。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span>
+<span class="c1">##output</span>
+<span class="o">&lt;</span><span class="n">SegmentGroup</span> <span class="k">with</span> <span class="mi">1</span> <span class="n">segment</span><span class="o">&gt;</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segments</span><span class="p">))</span>
+<span class="c1">##output</span>
+<span class="p">[</span><span class="o">&lt;</span><span class="n">Segment</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="working-with-atomgroup">
+<h1>6. 5.Working with AtomGroup<a class="headerlink" href="#working-with-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>先ほど説明した３つのグループはルールをもとに自動的に生成されるobjectであるが、
+自分が自由に作成できるobjectとして<code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>がある。</p>
+<p>またここでの出力結果はnumpy.ndarrayで出力されることがほとんどなので、前もってインポートしておくと良い。</p>
+<p>使い方の例として、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CA</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein and name CA&quot;</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">CA</span><span class="o">.</span><span class="n">positions</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="c1">##output</span>
+<span class="p">(</span><span class="mf">214.3</span><span class="p">)</span>
+<span class="c1">#214原子の座標（x:0, y:1, z:2 に対応）があるよって情報が得られた。</span>
+</pre></div>
+</div>
+<p>などとできる。</p>
+<div class="section" id="important-methods-and-attributes-of-atomgroup">
+<h2>6.1. 5.1.Important methods and attributes of AtomGroup<a class="headerlink" href="#important-methods-and-attributes-of-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>上の<code class="docutils literal notranslate"><span class="pre">positions</span></code>のように、出力できる重要な例として。</p>
+<ul class="simple">
+<li><p>center_of_mass( )  :　系の重心</p></li>
+<li><p>centor_of_geometry( ) : 重心</p></li>
+<li><p>total_mass( ) : 質量</p></li>
+<li><p>total_chargre( ) : 電荷</p></li>
+<li><p>radius_of_gyration( ) : 慣性半径</p></li>
+<li><p>principal_axis( ) : 使ったこと無いのでわかりません</p></li>
+</ul>
+<p>などがある。</p>
+</div>
+<div class="section" id="exersice">
+<h2>6.2. 5.2.Exersice<a class="headerlink" href="#exersice" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>省略</p>
+</div>
+<div class="section" id="processing-atomgroup">
+<h2>6.3. 5.3.Processing AtomGroup<a class="headerlink" href="#processing-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>特定のatomgroupを別ファイルに書き出す方法が述べられているが、~~使えない~~使わないので割愛。</p>
+</div>
+<div class="section" id="id6">
+<h2>6.4. 参考<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>次回は6章以降を解説する予定である。</p>
+<p>（原文）<a class="reference external" href="https://www.mdanalysis.org/MDAnalysisTutorial/index.html">MDAnalysis Tutorial</a></p>
+</div>
+</div>
+<div class="section" id="trajectory-analysis">
+<h1>7. 6.Trajectory analysis<a class="headerlink" href="#trajectory-analysis" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>はpdbのような座標情報と原子の結合のようなトポロジーを結びつけるものであり、ここから様々な解析ができる。
+ここでは簡易的な解析法について説明する。</p>
+<p>トラジェクトリーのフレーム数は</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>で出力できる。</p>
+<p>また、基本的にある物理量の各タイムステップでの値を取り出したい場合は、以下のように<code class="docutils literal notranslate"><span class="pre">Universe.trajectory</span></code>をイテレーション（反復）する。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result_rg</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>こうすることで<code class="docutils literal notranslate"><span class="pre">result_rg</span></code>のリストの中にタンパク質の慣性半径の値が保存される。
+また、pythonの復習だが、以下のように内包表記を用いることでコードは短くなる。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="n">result_rg</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>さらに、以下のようにすれば、タイムステップと慣性半径の値をまとめたリストができるため、
+gnuplotなどでプロットできるデータが生まれる。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result_rg</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
+    <span class="n">result_rg</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="p">,</span><span class="n">protein</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../intro/tanaka.html" class="btn btn-neutral float-right" title="1. Hiroki Tanaka" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="matplotlib.html" class="btn btn-neutral float-left" title="1. matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, htanaka, stsurumaki, hishikawa
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
