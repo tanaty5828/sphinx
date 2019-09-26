@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. MDAnalysis tutorial &mdash; VALIDATO 3.0.1 ドキュメント</title>
+  <title>2. MDAnalysis &mdash; VALIDATO 3.0.1 ドキュメント</title>
   
 
   
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="1. Hiroki Tanaka" href="../intro/tanaka.html" />
+    <link rel="next" title="3. MDAnalysis tutorial" href="MDAnalysis_tutorial.html" />
     <link rel="prev" title="1. matplotlib" href="matplotlib.html" /> 
 </head>
 
@@ -114,48 +114,15 @@
 <p class="caption"><span class="caption-text">Python Room</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="matplotlib.html">1. matplotlib</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. MDAnalysis tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 環境</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. 注意</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#how-to-use-this-tutorial">2.3. 1.How to use this tutorial</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#have-you-installed-mdanalysis">2.3.1. 1.1.Have you installed MDAnalysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#mdanalysis">2.3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. MDAnalysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 注意</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. 結合距離や結合角度の分布</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-do">2.2.1. How to do</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#preparation">2.4. 3.Preparation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#python-interpreter-ipython">2.4.1. 3.1.Python interpreter : ipython</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ipythontab">2.4.1.1. ipythonを使うとtabキー補完が便利になるよっていう話</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#loading-mdanalysis">2.4.2. 3.2.Loading MDAnalysis</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">2.4.2.1. ライブラリ（モジュール）のインポート</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">2.4.2.2. サンプルファイル（のインポート）</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#basic">2.5. 4.Basic</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#universe-and-atomgroup">2.5.1. 4.1.Universe and AtomGroup</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#universeobject">2.5.1.1. <code class="docutils literal notranslate"><span class="pre">Universe</span></code>object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#atomobject">2.5.1.2. <code class="docutils literal notranslate"><span class="pre">Atom</span></code>object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#residueobject">2.5.1.3. <code class="docutils literal notranslate"><span class="pre">residue</span></code>object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#segmentobject">2.5.1.4. <code class="docutils literal notranslate"><span class="pre">segment</span></code>object</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#working-with-atomgroup">2.6. 5.Working with AtomGroup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#important-methods-and-attributes-of-atomgroup">2.6.1. 5.1.Important methods and attributes of AtomGroup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#exersice">2.6.2. 5.2.Exersice</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#processing-atomgroup">2.6.3. 5.3.Processing AtomGroup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">2.6.4. 参考</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#trajectory-analysis">2.7. 6.Trajectory analysis</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
 <ul>
@@ -206,7 +173,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. MDAnalysis tutorial</li>
+      <li>2. MDAnalysis</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -225,281 +192,155 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mdanalysis-tutorial">
-<h1>2. MDAnalysis tutorial<a class="headerlink" href="#mdanalysis-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p>MD（分子動力学）の解析ツール（Pythonライブラリ）は<strong>MDTraj</strong>なども存在するが、
-チュートリアルがありしっかりしていそうだったためこちらも紹介する。
-また、チュートリアルが英語しかなくMDを始めたての学生は苦労すると思ったので、
-日本語訳と解説をつけていく。
-ここでは1~6章を解説する.</p>
+  <div class="section" id="mdanalysis">
+<h1>2. MDAnalysis<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>pythonでMDのトラジェクトリ解析ができるとても便利なライブラリ。筆者が使っている粗視化も解析可能。</p>
+<p>岡崎研究室の標準装備にしてほしいぐらい。</p>
+<p>日本語のチュートリアルも用意したので、ここでは便利な使い方を述べようと思う。</p>
 <div class="section" id="id1">
-<h2>2.1. 環境<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><p>Python 3.6.6 :: Anaconda, Inc</p></li>
-<li><p>MDAnalysis 0.19.0</p></li>
-</ul>
-</div>
-<div class="section" id="id2">
-<h2>2.2. 注意<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>最近筆者の環境ではnumpyとMDAnalysisの相性が悪く、こちらのインポート時にエラーがでるようになってしまった。
-（インポート時のエラーでプログラム自体は正常に動いた）
-一応numpyのバージョンを下げることでエラーは出なくなった。
-Anacondaの利用者は以下を実行。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install <span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.15.0
-</pre></div>
-</div>
-</div>
-<div class="section" id="how-to-use-this-tutorial">
-<h2>2.3. 1.How to use this tutorial<a class="headerlink" href="#how-to-use-this-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="have-you-installed-mdanalysis">
-<h3>2.3.1. 1.1.Have you installed MDAnalysis<a class="headerlink" href="#have-you-installed-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="mdanalysis">
-<h4>2.3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>適当なPythonのファイルに以下の内容を書き込み、実行してみる</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
+<h2>2.1. 注意<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>以下特に記載しない限り、<code class="docutils literal notranslate"><span class="pre">MDAnalysis.tests.datafiles</span></code>を解析することとする。</p>
+<p>つまり、以下のように読み込みを行った。各自自分のトラジェクトリに書き換えてほしい。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="kn">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">))</span>
-<span class="k">print</span><span class="p">(</span><span class="n">MDAnalysis</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;Universe with <span class="m">3341</span> atoms&gt;
-<span class="m">0</span>.19.0
-</pre></div>
-</div>
-<p>上のように表示されていればMDAnalysisはインストール済みであり、次の章に進める。</p>
-<p>何も表示されないorエラーが出る場合には、MDAnalysisはインストールされていないため
-<a class="reference external" href="https://www.mdanalysis.org/MDAnalysisTutorial/installation.html#chapter-installing-mdanalysis">Installing MDAnalysis</a>
-を参考にインストールする。
-このインストールセクションが2章に相当するため、2章は省略。</p>
-</div>
-</div>
-</div>
-<div class="section" id="preparation">
-<h2>2.4. 3.Preparation<a class="headerlink" href="#preparation" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="python-interpreter-ipython">
-<h3>2.4.1. 3.1.Python interpreter : ipython<a class="headerlink" href="#python-interpreter-ipython" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="ipythontab">
-<h4>2.4.1.1. ipythonを使うとtabキー補完が便利になるよっていう話<a class="headerlink" href="#ipythontab" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>Pythonを使うときは、多くの人がプログラムを.pyファイルに書き込み、</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python test.py
-</pre></div>
-</div>
-<p>として実行している人が多いと思うが、実はPythonには対話型で実行できる機能も備えており、</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python
-
-&gt;&gt;&gt;print<span class="o">(</span><span class="s1">&#39;Hello&#39;</span><span class="o">)</span>
-Hello
-</pre></div>
-</div>
-<p>というふうにも実行できる。
-この対話型シェルを大幅に拡張したものが<code class="docutils literal notranslate"><span class="pre">ipython</span></code>であり、特にtabキーでの補完がすごい。</p>
-<div class="section" id="ipythoncommand">
-<h5>2.4.1.1.1. コマンドについての説明がほしいときはipython上で<code class="docutils literal notranslate"><span class="pre">command?</span></code>とする。<a class="headerlink" href="#ipythoncommand" title="このヘッドラインへのパーマリンク">¶</a></h5>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ipython
-In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: print?
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Docstring</span><span class="p">:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">Prints</span> <span class="n">the</span> <span class="n">values</span> <span class="n">to</span> <span class="n">a</span> <span class="n">stream</span><span class="p">,</span> <span class="ow">or</span> <span class="n">to</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="n">by</span> <span class="n">default</span><span class="o">.</span>
-<span class="n">Optional</span> <span class="n">keyword</span> <span class="n">arguments</span><span class="p">:</span>
-<span class="n">file</span><span class="p">:</span>  <span class="n">a</span> <span class="n">file</span><span class="o">-</span><span class="n">like</span> <span class="nb">object</span> <span class="p">(</span><span class="n">stream</span><span class="p">);</span> <span class="n">defaults</span> <span class="n">to</span> <span class="n">the</span> <span class="n">current</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span>
-<span class="n">sep</span><span class="p">:</span>   <span class="n">string</span> <span class="n">inserted</span> <span class="n">between</span> <span class="n">values</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">space</span><span class="o">.</span>
-<span class="n">end</span><span class="p">:</span>   <span class="n">string</span> <span class="n">appended</span> <span class="n">after</span> <span class="n">the</span> <span class="n">last</span> <span class="n">value</span><span class="p">,</span> <span class="n">default</span> <span class="n">a</span> <span class="n">newline</span><span class="o">.</span>
-<span class="n">flush</span><span class="p">:</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">forcibly</span> <span class="n">flush</span> <span class="n">the</span> <span class="n">stream</span><span class="o">.</span>
-<span class="n">Type</span><span class="p">:</span>      <span class="n">builtin_function_or_method</span>
-</pre></div>
-</div>
-<p>と、かなり詳しい説明が出る。</p>
-</div>
-<div class="section" id="tab">
-<h5>2.4.1.1.2. tabキー補完が優秀<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h5>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MD</span> <span class="o">&lt;</span><span class="n">tabキー入力</span><span class="o">&gt;</span>
-<span class="kn">import</span> <span class="nn">MDAnalysis</span>
-
-<span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="o">.&lt;</span><span class="n">tabキー入力</span><span class="o">&gt;</span>
-<span class="c1">###使えるもの一覧が出る</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="section" id="numpy-matplotlib">
-<h5>2.4.1.1.3. 数値計算、グラフの即時プロットのために<code class="docutils literal notranslate"><span class="pre">numpy</span></code>,<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>をインポートしておくと良い<a class="headerlink" href="#numpy-matplotlib" title="このヘッドラインへのパーマリンク">¶</a></h5>
-<p>ipythonを</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ipython --matplotlib
-</pre></div>
-</div>
-<p>として起動するか、ipythonの中で、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-</pre></div>
-</div>
-<p>とする。（npは任意の名前で良い）</p>
-</div>
-</div>
-</div>
-<div class="section" id="loading-mdanalysis">
-<h3>2.4.2. 3.2.Loading MDAnalysis<a class="headerlink" href="#loading-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="id3">
-<h4>2.4.2.1. ライブラリ（モジュール）のインポート<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>.pyファイルに書く場合でも、対話型の場合でもMDAnalysisのインポートは</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
-</pre></div>
-</div>
-<p>のみでいい。
-（ただしMDAnalysis.analysis.rmsのようなサブモジュールは自動でインポートされないため、明示的にインポートする必要がある。）</p>
-</div>
-<div class="section" id="id4">
-<h4>2.4.2.2. サンプルファイル（のインポート）<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>またMDAnalysisをインポートすると、サンプルファイルであるアデニル酸キナーゼのコンフォメーション変化のトラジェクトリも同時に読み込まれる。以降のチュートリアルではこのアデニル酸キナーゼを使って解析を進める。
-ここではトラジェクトリファイル（CHARMM　DCD　format）とトポロジーファイル（CHARMM　PSF　format）が読み込まれる。
-以下のように読み込むといい</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="basic">
-<h2>2.5. 4.Basic<a class="headerlink" href="#basic" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="universe-and-atomgroup">
-<h3>2.5.1. 4.1.Universe and AtomGroup<a class="headerlink" href="#universe-and-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>MDAnalysisはオブジェクト指向であり、系は<code class="docutils literal notranslate"><span class="pre">Atom</span></code>オブジェクトを形成する。これはトポロジーとトラジェクトリを読み込むことで作ることができる。</p>
-<div class="section" id="universeobject">
-<h4>2.5.1.1. <code class="docutils literal notranslate"><span class="pre">Universe</span></code>object<a class="headerlink" href="#universeobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>ファイルの読み込み時に用いる。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
-<span class="n">u</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">u</span><span class="p">)</span>
-
-<span class="c1">##output</span>
-<span class="o">&lt;</span><span class="n">Unuverse</span> <span class="k">with</span> <span class="mi">3341</span> <span class="n">atoms</span><span class="o">&gt;</span>
-</pre></div>
-</div>
-<p>また、自分のトラジェクトリファイルを複数読み込む場合などは、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="s2">&quot;test.psf&quot;</span><span class="p">,</span> <span class="s2">&quot;../test1.dcd&quot;</span><span class="p">,</span> <span class="s2">&quot;../test2.dcd&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>などとすればいい。</p>
-</div>
-<div class="section" id="atomobject">
-<h4>2.5.1.2. <code class="docutils literal notranslate"><span class="pre">Atom</span></code>object<a class="headerlink" href="#atomobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>こうして読み込むと原子の情報はAtom属性に格納される。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="c1">##output</span>
-<span class="o">&lt;</span><span class="n">AtomGroup</span> <span class="k">with</span> <span class="mi">3341</span> <span class="n">atoms</span><span class="o">&gt;</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">5</span><span class="p">]))</span>
-<span class="c1">##output</span>
-<span class="p">[</span><span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">1</span><span class="p">:</span> <span class="n">N</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">56</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
- <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">2</span><span class="p">:</span> <span class="n">HT1</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
- <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">3</span><span class="p">:</span> <span class="n">HT2</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
- <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">4</span><span class="p">:</span> <span class="n">HT3</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
- <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">5</span><span class="p">:</span> <span class="n">CA</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">22</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">]</span>
-<span class="c1">##全原子リストのうちの上から5個が出力される。</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="residueobject">
-<h4>2.5.1.3. <code class="docutils literal notranslate"><span class="pre">residue</span></code>object<a class="headerlink" href="#residueobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>もちろん原子はいずれかの分子に属するため、atomは<code class="docutils literal notranslate"><span class="pre">ResidueGruop</span></code>の中にある。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">130</span><span class="p">]</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
-<span class="c1">##output</span>
-<span class="o">&lt;</span><span class="n">ResidueGroup</span> <span class="k">with</span> <span class="mi">3</span> <span class="n">residues</span><span class="o">&gt;</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">residues</span><span class="p">))</span>
-<span class="c1">##output</span>
-<span class="p">[</span><span class="o">&lt;</span><span class="n">Residue</span> <span class="n">LEU</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Residue</span> <span class="n">GLY</span><span class="p">,</span> <span class="mi">7</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Residue</span> <span class="n">ALA</span><span class="p">,</span> <span class="mi">8</span><span class="o">&gt;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="segmentobject">
-<h4>2.5.1.4. <code class="docutils literal notranslate"><span class="pre">segment</span></code>object<a class="headerlink" href="#segmentobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>更に大きなグループとして<code class="docutils literal notranslate"><span class="pre">segmentGroup</span></code>があり、これは例えばタンパク質や高分子のモノマーに対応している。
-さらにこれらは「Segment ID(segids)」をあわせて持っている。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span>
-<span class="c1">##output</span>
-<span class="o">&lt;</span><span class="n">SegmentGroup</span> <span class="k">with</span> <span class="mi">1</span> <span class="n">segment</span><span class="o">&gt;</span>
-
-<span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segments</span><span class="p">))</span>
-<span class="c1">##output</span>
-<span class="p">[</span><span class="o">&lt;</span><span class="n">Segment</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="working-with-atomgroup">
-<h2>2.6. 5.Working with AtomGroup<a class="headerlink" href="#working-with-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>先ほど説明した３つのグループはルールをもとに自動的に生成されるobjectであるが、
-自分が自由に作成できるobjectとして<code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>がある。</p>
-<p>またここでの出力結果はnumpy.ndarrayで出力されることがほとんどなので、前もってインポートしておくと良い。</p>
-<p>使い方の例として、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CA</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein and name CA&quot;</span><span class="p">)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">CA</span><span class="o">.</span><span class="n">positions</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1">##output</span>
-<span class="p">(</span><span class="mf">214.3</span><span class="p">)</span>
-<span class="c1">#214原子の座標（x:0, y:1, z:2 に対応）があるよって情報が得られた。</span>
-</pre></div>
-</div>
-<p>などとできる。</p>
-<div class="section" id="important-methods-and-attributes-of-atomgroup">
-<h3>2.6.1. 5.1.Important methods and attributes of AtomGroup<a class="headerlink" href="#important-methods-and-attributes-of-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>上の<code class="docutils literal notranslate"><span class="pre">positions</span></code>のように、出力できる重要な例として。</p>
+<div class="section" id="id2">
+<h2>2.2. 結合距離や結合角度の分布<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li><p>center_of_mass( )  :　系の重心</p></li>
-<li><p>centor_of_geometry( ) : 重心</p></li>
-<li><p>total_mass( ) : 質量</p></li>
-<li><p>total_chargre( ) : 電荷</p></li>
-<li><p>radius_of_gyration( ) : 慣性半径</p></li>
-<li><p>principal_axis( ) : 使ったこと無いのでわかりません</p></li>
+<li><p>Bond</p></li>
+<li><p>Angle</p></li>
+<li><p>Dihedral</p></li>
+<li><p>Improper</p></li>
 </ul>
-<p>などがある。</p>
-</div>
-<div class="section" id="exersice">
-<h3>2.6.2. 5.2.Exersice<a class="headerlink" href="#exersice" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>省略</p>
-</div>
-<div class="section" id="processing-atomgroup">
-<h3>2.6.3. 5.3.Processing AtomGroup<a class="headerlink" href="#processing-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>特定のatomgroupを別ファイルに書き出す方法が述べられているが、~~使えない~~使わないので割愛。</p>
-</div>
-<div class="section" id="id5">
-<h3>2.6.4. 参考<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次回は6章以降を解説する予定である。</p>
-<p>（原文）<a class="reference external" href="https://www.mdanalysis.org/MDAnalysisTutorial/index.html">MDAnalysis Tutorial</a></p>
-</div>
-</div>
-<div class="section" id="trajectory-analysis">
-<h2>2.7. 6.Trajectory analysis<a class="headerlink" href="#trajectory-analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>はpdbのような座標情報と原子の結合のようなトポロジーを結びつけるものであり、ここから様々な解析ができる。
-ここでは簡易的な解析法について説明する。</p>
-<p>トラジェクトリーのフレーム数は</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">))</span>
+<p>のようなものの分布を取りたいことがよくある。</p>
+<p>以前までは原子の座標を元に計算していたが、便利な方法があった。</p>
+<p>この方法は、結合の情報があるファイル(<code class="docutils literal notranslate"><span class="pre">.psf,</span> <span class="pre">.top</span></code>)のようなファイルを読み込んでいる必要がある。</p>
+<p>（全原子の人は大丈夫だが、粗視化の方は<code class="docutils literal notranslate"><span class="pre">psf</span></code>ファイルがないことがあるので注意。</p>
+<div class="section" id="how-to-do">
+<h3>2.2.1. How to do<a class="headerlink" href="#how-to-do" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>bondの情報は、<code class="docutils literal notranslate"><span class="pre">u.bonds</span></code>にあるため、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">9</span><span class="p">]:</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.9920841</span> <span class="p">,</span> <span class="mf">1.04387783</span><span class="p">,</span> <span class="mf">1.05986122</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mf">1.48551149</span><span class="p">,</span> <span class="mf">1.23613035</span><span class="p">,</span>
+       <span class="mf">1.27404232</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>で出力できる。</p>
-<p>また、基本的にある物理量の各タイムステップでの値を取り出したい場合は、以下のように<code class="docutils literal notranslate"><span class="pre">Universe.trajectory</span></code>をイテレーション（反復）する。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result_rg</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
-    <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">protein</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">())</span>
+<p>とするだけですべての値が帰ってくる。</p>
+<p><code class="docutils literal notranslate"><span class="pre">u.bonds.types()</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">types</span><span class="p">()</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">11</span><span class="p">]:</span>
+<span class="p">[(</span><span class="s1">&#39;56&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;56&#39;</span><span class="p">,</span> <span class="s1">&#39;22&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;22&#39;</span><span class="p">,</span> <span class="s1">&#39;20&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;23&#39;</span><span class="p">),</span>
+ <span class="p">(</span><span class="s1">&#39;23&#39;</span><span class="p">,</span> <span class="s1">&#39;81&#39;</span><span class="p">),</span>
+	<span class="o">...</span>
 </pre></div>
 </div>
-<p>こうすることで<code class="docutils literal notranslate"><span class="pre">result_rg</span></code>のリストの中にタンパク質の慣性半径の値が保存される。
-また、pythonの復習だが、以下のように内包表記を用いることでコードは短くなる。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
-<span class="n">result_rg</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">]</span>
+<p>とすると、このような('56', '2')間に結合がある、('56', '22'))間に結合がある、、、ということがわかる。</p>
+<p>（ここはトポロジーファイルによるが、筆者の環境では('BPY1', 'BPY2')のように原子名で帰ってきた。）</p>
+<p>このままでは系のすべての原子の結合距離が帰ってきているだけなので、扱いにくいが<strong>特定の結合のみを選択できる</strong>方法がある。</p>
+<p>それが<code class="docutils literal notranslate"><span class="pre">u.bonds.select_bonds()</span></code>であり、以下のようにすると系内の('56', '2')の結合がリストアップされる</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">select_bonds</span><span class="p">((</span><span class="s2">&quot;56&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">))</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">14</span><span class="p">]:</span>
+<span class="o">&lt;</span><span class="n">TopologyGroup</span> <span class="n">containing</span> <span class="mi">57</span> <span class="n">bonds</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>さらに、以下のようにすれば、タイムステップと慣性半径の値をまとめたリストができるため、
-gnuplotなどでプロットできるデータが生まれる。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result_rg</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">protein</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">:</span>
-    <span class="n">result_rg</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="p">,</span><span class="n">protein</span><span class="o">.</span><span class="n">radius_of_gyration</span><span class="p">()))</span>
+<p>これで内の('56', '2')の結合は全部で57個あることがわかる。</p>
+<p>これらをある変数に入れれば、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>￼
+bond_56_2 = u.bonds.select_bonds((&quot;56&quot;, &quot;2&quot;))
+bond_56_2.value()
+
+Out[15]:
+array([0.9920841 , 1.04387783, 1.05986122, 1.02430087, 1.00244858,
+       1.08620145, 1.12806992, 1.07843619, 1.08142101, 1.01416071,
+       1.05287512, 1.04886808, 0.99766399, 1.00003621, 1.02626758,
+       1.07063078, 1.0252231 , 1.04982561, 1.02731704, 1.04538002,
+       0.97738312, 1.04356518, 1.03284141, 1.02616466, 1.00372859,
+       1.04293945, 1.07048629, 1.06736889, 0.98279084, 1.03083272,
+       1.00475292, 1.0364446 , 1.05372188, 1.0539615 , 1.07159869,
+       0.99642071, 1.01829042, 1.02883738, 1.08943846, 1.06097044,
+       1.05503523, 1.0580378 , 1.05361057, 1.09457956, 1.01966215,
+       1.01909983, 1.05836955, 1.03081077, 1.01146875, 1.06153019,
+       1.04555022, 1.10118977, 1.01986004, 1.00225317, 1.05128511,
+       1.06324096, 1.07451991])
 </pre></div>
+</div>
+<p>と57個の値がわかる。</p>
+<p>平均値は<code class="docutils literal notranslate"><span class="pre">np.mean</span></code>関数、分散には<code class="docutils literal notranslate"><span class="pre">np.var</span></code>関数を使えばいいので、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.value())}&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.value())}&quot;</span><span class="p">)</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span>
+<span class="n">ave</span> <span class="o">=</span> <span class="mf">1.0415366866943487</span>
+<span class="n">var</span> <span class="o">=</span>  <span class="mf">0.0009741406409815192</span>
+</pre></div>
+</div>
+<p>と出力できる。</p>
+<p>これは0フレーム目の値であるため、実際はトラジェクトリ全体の値を取ることが多い。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bond_56_2</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">select_bonds</span><span class="p">((</span><span class="s2">&quot;56&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">))</span> <span class="c1"># 56_2結合を変数bond_56_2へ</span>
+<span class="n">bond_56_2_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">bond_56_2</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">ts</span> <span class="ow">in</span> <span class="n">u</span><span class="o">.</span><span class="n">trajectory</span><span class="p">]</span>
+<span class="c1"># bond_56_2_valuesリストに値だけを取り出して全フレーム入れている。</span>
+
+<span class="n">bond_56_2_values</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">25</span><span class="p">]:</span>
+<span class="p">[</span><span class="n">array</span><span class="p">([</span><span class="mf">0.9920841</span> <span class="p">,</span> <span class="mf">1.04387783</span><span class="p">,</span> <span class="mf">1.05986122</span><span class="p">,</span> <span class="mf">1.02430087</span><span class="p">,</span> <span class="mf">1.00244858</span><span class="p">,</span>
+        <span class="mf">1.08620145</span><span class="p">,</span> <span class="mf">1.12806992</span><span class="p">,</span> <span class="mf">1.07843619</span><span class="p">,</span> <span class="mf">1.08142101</span><span class="p">,</span> <span class="mf">1.01416071</span><span class="p">,</span>
+        <span class="mf">1.05287512</span><span class="p">,</span> <span class="mf">1.04886808</span><span class="p">,</span> <span class="mf">0.99766399</span><span class="p">,</span> <span class="mf">1.00003621</span><span class="p">,</span> <span class="mf">1.02626758</span><span class="p">,</span>
+        <span class="mf">1.07063078</span><span class="p">,</span> <span class="mf">1.0252231</span> <span class="p">,</span> <span class="mf">1.04982561</span><span class="p">,</span> <span class="mf">1.02731704</span><span class="p">,</span> <span class="mf">1.04538002</span><span class="p">,</span>
+        <span class="mf">0.97738312</span><span class="p">,</span> <span class="mf">1.04356518</span><span class="p">,</span> <span class="mf">1.03284141</span><span class="p">,</span> <span class="mf">1.02616466</span><span class="p">,</span> <span class="mf">1.00372859</span><span class="p">,</span>
+        <span class="mf">1.04293945</span><span class="p">,</span> <span class="mf">1.07048629</span><span class="p">,</span> <span class="mf">1.06736889</span><span class="p">,</span> <span class="mf">0.98279084</span><span class="p">,</span> <span class="mf">1.03083272</span><span class="p">,</span>
+        <span class="mf">1.00475292</span><span class="p">,</span> <span class="mf">1.0364446</span> <span class="p">,</span> <span class="mf">1.05372188</span><span class="p">,</span> <span class="mf">1.0539615</span> <span class="p">,</span> <span class="mf">1.07159869</span><span class="p">,</span>
+        <span class="mf">0.99642071</span><span class="p">,</span> <span class="mf">1.01829042</span><span class="p">,</span> <span class="mf">1.02883738</span><span class="p">,</span> <span class="mf">1.08943846</span><span class="p">,</span> <span class="mf">1.06097044</span><span class="p">,</span>
+        <span class="mf">1.05503523</span><span class="p">,</span> <span class="mf">1.0580378</span> <span class="p">,</span> <span class="mf">1.05361057</span><span class="p">,</span> <span class="mf">1.09457956</span><span class="p">,</span> <span class="mf">1.01966215</span><span class="p">,</span>
+        <span class="mf">1.01909983</span><span class="p">,</span> <span class="mf">1.05836955</span><span class="p">,</span> <span class="mf">1.03081077</span><span class="p">,</span> <span class="mf">1.01146875</span><span class="p">,</span> <span class="mf">1.06153019</span><span class="p">,</span>
+        <span class="mf">1.04555022</span><span class="p">,</span> <span class="mf">1.10118977</span><span class="p">,</span> <span class="mf">1.01986004</span><span class="p">,</span> <span class="mf">1.00225317</span><span class="p">,</span> <span class="mf">1.05128511</span><span class="p">,</span>
+        <span class="mf">1.06324096</span><span class="p">,</span> <span class="mf">1.07451991</span><span class="p">]),</span>
+ <span class="n">array</span><span class="p">([</span><span class="mf">1.08883816</span><span class="p">,</span> <span class="mf">1.04437935</span><span class="p">,</span> <span class="mf">1.06883167</span><span class="p">,</span> <span class="mf">1.01673048</span><span class="p">,</span> <span class="mf">1.08687382</span><span class="p">,</span>
+        <span class="mf">1.01842423</span><span class="p">,</span> <span class="mf">1.13626199</span><span class="p">,</span> <span class="mf">1.04560706</span><span class="p">,</span> <span class="mf">1.04277412</span><span class="p">,</span> <span class="mf">1.00181378</span><span class="p">,</span>
+        <span class="mf">1.04469295</span><span class="p">,</span> <span class="mf">1.0692042</span> <span class="p">,</span> <span class="mf">1.00445204</span><span class="p">,</span> <span class="mf">0.99508404</span><span class="p">,</span> <span class="mf">1.01103037</span><span class="p">,</span>
+        <span class="mf">1.10395406</span><span class="p">,</span> <span class="mf">1.04308044</span><span class="p">,</span> <span class="mf">1.08105294</span><span class="p">,</span> <span class="mf">1.07861188</span><span class="p">,</span> <span class="mf">1.07887897</span><span class="p">,</span>
+        <span class="mf">1.03391751</span><span class="p">,</span> <span class="mf">0.96557905</span><span class="p">,</span> <span class="mf">1.06104523</span><span class="p">,</span> <span class="mf">1.07031299</span><span class="p">,</span> <span class="mf">1.02165913</span><span class="p">,</span>
+        <span class="mf">1.03979031</span><span class="p">,</span> <span class="mf">1.0329544</span> <span class="p">,</span> <span class="mf">1.02129176</span><span class="p">,</span> <span class="mf">1.03410283</span><span class="p">,</span> <span class="mf">1.02463884</span><span class="p">,</span>
+        <span class="mf">1.0498579</span> <span class="p">,</span> <span class="mf">1.02403606</span><span class="p">,</span> <span class="mf">1.05884195</span><span class="p">,</span> <span class="mf">1.05968398</span><span class="p">,</span> <span class="mf">1.05825425</span><span class="p">,</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bond_56_2_values</span></code>リストにフレームごとの結合距離が入っているのがわかる。</p>
+<p>平均や分散の<code class="docutils literal notranslate"><span class="pre">np.mean</span></code>関数、<code class="docutils literal notranslate"><span class="pre">np.var</span></code>関数は入れ子になったリストでも計算できるので、</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.values())}&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.values())}&quot;</span><span class="p">)</span>
+
+<span class="n">Out</span><span class="p">[</span><span class="mi">30</span><span class="p">]:</span>
+<span class="n">ave</span> <span class="o">=</span> <span class="mf">1.0415366866943487</span>
+<span class="n">var</span> <span class="o">=</span> <span class="mf">0.0009741406409815192</span>
+</pre></div>
+</div>
+<p>とできる。</p>
+<p>あとはヒストグラムを作り、グラフのプロットができればいい。</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ヒストグラム作成</span>
+<span class="n">hist_vals</span><span class="p">,</span> <span class="n">hist_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">bond_56_2_values</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">hist_bins</span> <span class="o">=</span> <span class="p">[(</span><span class="n">hist_bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">hist_bins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hist_bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="c1"># プロット</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hist_bins</span><span class="p">,</span> <span class="n">hist_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><img alt="../_images/fig_bond.png" src="../_images/fig_bond.png" /></p>
 </div>
 </div>
 </div>
@@ -512,7 +353,7 @@ gnuplotなどでプロットできるデータが生まれる。</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../intro/tanaka.html" class="btn btn-neutral float-right" title="1. Hiroki Tanaka" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="MDAnalysis_tutorial.html" class="btn btn-neutral float-right" title="3. MDAnalysis tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="matplotlib.html" class="btn btn-neutral float-left" title="1. matplotlib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

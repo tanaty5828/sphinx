@@ -1,301 +1,193 @@
-# MDAnalysis tutorial
+# MDAnalysis
 
-MD（分子動力学）の解析ツール（Pythonライブラリ）は**MDTraj**なども存在するが、
-チュートリアルがありしっかりしていそうだったためこちらも紹介する。
-また、チュートリアルが英語しかなくMDを始めたての学生は苦労すると思ったので、
-日本語訳と解説をつけていく。
-ここでは1~6章を解説する.
+pythonでMDのトラジェクトリ解析ができるとても便利なライブラリ。筆者が使っている粗視化も解析可能。
 
-### 環境
+岡崎研究室の標準装備にしてほしいぐらい。
 
- - Python 3.6.6 :: Anaconda, Inc
- - MDAnalysis 0.19.0
+日本語のチュートリアルも用意したので、ここでは便利な使い方を述べようと思う。
+
+
 
 ### 注意
-最近筆者の環境ではnumpyとMDAnalysisの相性が悪く、こちらのインポート時にエラーがでるようになってしまった。
-（インポート時のエラーでプログラム自体は正常に動いた）
-一応numpyのバージョンを下げることでエラーは出なくなった。
-Anacondaの利用者は以下を実行。
 
-```bash
-conda install numpy=1.15.0
-```
+以下特に記載しない限り、`MDAnalysis.tests.datafiles`を解析することとする。
 
-## 1.How to use this tutorial
-
-### 1.1.Have you installed MDAnalysis
-
-##### チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる
-
-適当なPythonのファイルに以下の内容を書き込み、実行してみる
+つまり、以下のように読み込みを行った。各自自分のトラジェクトリに書き換えてほしい。
 
 ```python
-import MDAnalysis
+import MDAnalysis as mda
 from MDAnalysis.tests.datafiles import PSF, DCD
 
-print(MDAnalysis.Universe(PSF, DCD))
-print(MDAnalysis.__version__)
+u = mda.Universe(PSF, DCD)
 ```
 
-```bash
-<Universe with 3341 atoms>
-0.19.0
-```
 
-上のように表示されていればMDAnalysisはインストール済みであり、次の章に進める。
 
-何も表示されないorエラーが出る場合には、MDAnalysisはインストールされていないため
-[Installing MDAnalysis](https://www.mdanalysis.org/MDAnalysisTutorial/installation.html#chapter-installing-mdanalysis)
-を参考にインストールする。
-このインストールセクションが2章に相当するため、2章は省略。
 
-## 3.Preparation
 
-### 3.1.Python interpreter : ipython
+## 結合距離や結合角度の分布
 
-##### ipythonを使うとtabキー補完が便利になるよっていう話
+- Bond
+- Angle
+- Dihedral
+- Improper
 
-Pythonを使うときは、多くの人がプログラムを.pyファイルに書き込み、
+のようなものの分布を取りたいことがよくある。
 
-```bash
-$ python test.py
-```
+以前までは原子の座標を元に計算していたが、便利な方法があった。
 
-として実行している人が多いと思うが、実はPythonには対話型で実行できる機能も備えており、
+この方法は、結合の情報があるファイル(`.psf, .top`)のようなファイルを読み込んでいる必要がある。
 
-```bash
-$ python
+（全原子の人は大丈夫だが、粗視化の方は`psf`ファイルがないことがあるので注意。
 
->>>print('Hello')
-Hello
-```
 
-というふうにも実行できる。
-この対話型シェルを大幅に拡張したものが`ipython`であり、特にtabキーでの補完がすごい。
 
-###### コマンドについての説明がほしいときはipython上で`command?`とする。
+### How to do
 
-```bash
-$ ipython
-In [1]: print?
-```
-
-```
-Docstring:
-print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
-
-Prints the values to a stream, or to sys.stdout by default.
-Optional keyword arguments:
-file:  a file-like object (stream); defaults to the current sys.stdout.
-sep:   string inserted between values, default a space.
-end:   string appended after the last value, default a newline.
-flush: whether to forcibly flush the stream.
-Type:      builtin_function_or_method
-```
-
-と、かなり詳しい説明が出る。
-
-###### tabキー補完が優秀
+bondの情報は、`u.bonds`にあるため、
 
 ```python
-import MD <tabキー入力>
-import MDAnalysis
+u.bonds.values()
 
-MDAnalysis.Universe.<tabキー入力>
-###使えるもの一覧が出る
+Out[9]:
+array([0.9920841 , 1.04387783, 1.05986122, ..., 1.48551149, 1.23613035,
+       1.27404232])
 ```
 
-###### 数値計算、グラフの即時プロットのために`numpy`,`matplotlib`をインポートしておくと良い
+とするだけですべての値が帰ってくる。
 
-ipythonを
-
-```bash
-$ ipython --matplotlib
-```
-
-として起動するか、ipythonの中で、
+`u.bonds.types()`
 
 ```python
-import numpy as np
+u.bonds.types()
+
+Out[11]:
+[('56', '2'),
+ ('56', '22'),
+ ('22', '6'),
+ ('22', '23'),
+ ('22', '20'),
+ ('23', '3'),
+ ('23', '23'),
+ ('23', '81'),
+	...
 ```
 
-とする。（npは任意の名前で良い）
+とすると、このような('56', '2')間に結合がある、('56', '22'))間に結合がある、、、ということがわかる。
 
-### 3.2.Loading MDAnalysis
+（ここはトポロジーファイルによるが、筆者の環境では('BPY1', 'BPY2')のように原子名で帰ってきた。）
 
-###### ライブラリ（モジュール）のインポート
 
-.pyファイルに書く場合でも、対話型の場合でもMDAnalysisのインポートは
+
+このままでは系のすべての原子の結合距離が帰ってきているだけなので、扱いにくいが**特定の結合のみを選択できる**方法がある。
+
+それが`u.bonds.select_bonds()`であり、以下のようにすると系内の('56', '2')の結合がリストアップされる
 
 ```python
-import MDAnalysis
+u.bonds.select_bonds(("56", "2"))
+
+Out[14]:
+<TopologyGroup containing 57 bonds>
 ```
 
-のみでいい。
-（ただしMDAnalysis.analysis.rmsのようなサブモジュールは自動でインポートされないため、明示的にインポートする必要がある。）
+これで内の('56', '2')の結合は全部で57個あることがわかる。
 
-###### サンプルファイル（のインポート）
-
-またMDAnalysisをインポートすると、サンプルファイルであるアデニル酸キナーゼのコンフォメーション変化のトラジェクトリも同時に読み込まれる。以降のチュートリアルではこのアデニル酸キナーゼを使って解析を進める。
-ここではトラジェクトリファイル（CHARMM　DCD　format）とトポロジーファイル（CHARMM　PSF　format）が読み込まれる。
-以下のように読み込むといい
+これらをある変数に入れれば、
 
 ```python
-from MDAnalysis.tests.datafiles import PSF, DCD
+￼
+bond_56_2 = u.bonds.select_bonds(("56", "2"))
+bond_56_2.value()
+
+Out[15]:
+array([0.9920841 , 1.04387783, 1.05986122, 1.02430087, 1.00244858,
+       1.08620145, 1.12806992, 1.07843619, 1.08142101, 1.01416071,
+       1.05287512, 1.04886808, 0.99766399, 1.00003621, 1.02626758,
+       1.07063078, 1.0252231 , 1.04982561, 1.02731704, 1.04538002,
+       0.97738312, 1.04356518, 1.03284141, 1.02616466, 1.00372859,
+       1.04293945, 1.07048629, 1.06736889, 0.98279084, 1.03083272,
+       1.00475292, 1.0364446 , 1.05372188, 1.0539615 , 1.07159869,
+       0.99642071, 1.01829042, 1.02883738, 1.08943846, 1.06097044,
+       1.05503523, 1.0580378 , 1.05361057, 1.09457956, 1.01966215,
+       1.01909983, 1.05836955, 1.03081077, 1.01146875, 1.06153019,
+       1.04555022, 1.10118977, 1.01986004, 1.00225317, 1.05128511,
+       1.06324096, 1.07451991])
 ```
 
-## 4.Basic
+と57個の値がわかる。
 
-### 4.1.Universe and AtomGroup
-
-MDAnalysisはオブジェクト指向であり、系は`Atom`オブジェクトを形成する。これはトポロジーとトラジェクトリを読み込むことで作ることができる。
-
-#### `Universe`object
-ファイルの読み込み時に用いる。
+平均値は`np.mean`関数、分散には`np.var`関数を使えばいいので、
 
 ```python
+print (f"ave = {np.mean(bond_56_2.value())}")
+print (f"var =  {np.var(bond_56_2.value())}")
 
-u = MDAnalysis.Universe(PSF, DCD)
-print (u)
-
-##output
-<Unuverse with 3341 atoms>
+Out[21]:
+ave = 1.0415366866943487
+var =  0.0009741406409815192
 ```
-また、自分のトラジェクトリファイルを複数読み込む場合などは、
+
+と出力できる。
+
+これは0フレーム目の値であるため、実際はトラジェクトリ全体の値を取ることが多い。
 
 ```python
-u = MDAnalysis.Universe("test.psf", "../test1.dcd", "../test2.dcd")
+bond_56_2 = u.bonds.select_bonds(("56", "2")) # 56_2結合を変数bond_56_2へ
+bond_56_2_values = [bond_56_2.values() for ts in u.trajectory]
+# bond_56_2_valuesリストに値だけを取り出して全フレーム入れている。
+
+bond_56_2_values
+
+Out[25]:
+[array([0.9920841 , 1.04387783, 1.05986122, 1.02430087, 1.00244858,
+        1.08620145, 1.12806992, 1.07843619, 1.08142101, 1.01416071,
+        1.05287512, 1.04886808, 0.99766399, 1.00003621, 1.02626758,
+        1.07063078, 1.0252231 , 1.04982561, 1.02731704, 1.04538002,
+        0.97738312, 1.04356518, 1.03284141, 1.02616466, 1.00372859,
+        1.04293945, 1.07048629, 1.06736889, 0.98279084, 1.03083272,
+        1.00475292, 1.0364446 , 1.05372188, 1.0539615 , 1.07159869,
+        0.99642071, 1.01829042, 1.02883738, 1.08943846, 1.06097044,
+        1.05503523, 1.0580378 , 1.05361057, 1.09457956, 1.01966215,
+        1.01909983, 1.05836955, 1.03081077, 1.01146875, 1.06153019,
+        1.04555022, 1.10118977, 1.01986004, 1.00225317, 1.05128511,
+        1.06324096, 1.07451991]),
+ array([1.08883816, 1.04437935, 1.06883167, 1.01673048, 1.08687382,
+        1.01842423, 1.13626199, 1.04560706, 1.04277412, 1.00181378,
+        1.04469295, 1.0692042 , 1.00445204, 0.99508404, 1.01103037,
+        1.10395406, 1.04308044, 1.08105294, 1.07861188, 1.07887897,
+        1.03391751, 0.96557905, 1.06104523, 1.07031299, 1.02165913,
+        1.03979031, 1.0329544 , 1.02129176, 1.03410283, 1.02463884,
+        1.0498579 , 1.02403606, 1.05884195, 1.05968398, 1.05825425,
 ```
 
-などとすればいい。
+`bond_56_2_values`リストにフレームごとの結合距離が入っているのがわかる。
 
-#### `Atom`object
-
-こうして読み込むと原子の情報はAtom属性に格納される。
+平均や分散の`np.mean`関数、`np.var`関数は入れ子になったリストでも計算できるので、
 
 ```python
-print (u.atoms)
-##output
-<AtomGroup with 3341 atoms>
+print (f"ave = {np.mean(bond_56_2.values())}")
+print (f"var =  {np.var(bond_56_2.values())}")
 
-print(list (u.atoms[:5]))
-##output
-[<Atom 1: N of type 56 of resname MET, resid 1 and segid 4AKE>,
- <Atom 2: HT1 of type 2 of resname MET, resid 1 and segid 4AKE>,
- <Atom 3: HT2 of type 2 of resname MET, resid 1 and segid 4AKE>,
- <Atom 4: HT3 of type 2 of resname MET, resid 1 and segid 4AKE>,
- <Atom 5: CA of type 22 of resname MET, resid 1 and segid 4AKE>]
-##全原子リストのうちの上から5個が出力される。
+Out[30]:
+ave = 1.0415366866943487
+var = 0.0009741406409815192
 ```
 
-#### `residue`object
+とできる。
 
-もちろん原子はいずれかの分子に属するため、atomは`ResidueGruop`の中にある。
+あとはヒストグラムを作り、グラフのプロットができればいい。
 
 ```python
-print(u.atoms[100:130].residues)
-##output
-<ResidueGroup with 3 residues>
+# ヒストグラム作成
+hist_vals, hist_bins = np.histogram(bond_56_2_values, range=(0.5, 1.5), bins=100, density=True)
+hist_bins = [(hist_bins[i] + hist_bins[i+1] ) / 2. for i in range(0, len(hist_bins)-1)]
 
-print(list(u.atoms.residues))
-##output
-[<Residue LEU, 6>, <Residue GLY, 7>, <Residue ALA, 8>]
+# プロット
+fig = plt.figure(figsize=(16,9))
+ax = fig.add_subplot(111)
+ax.plot(hist_bins, hist_vals)
+plt.show()
 ```
 
-#### `segment`object
-更に大きなグループとして`segmentGroup`があり、これは例えばタンパク質や高分子のモノマーに対応している。
-さらにこれらは「Segment ID(segids)」をあわせて持っている。
+![](./fig_bond.png)
 
-```python
-print(u.atoms.segments)
-##output
-<SegmentGroup with 1 segment>
-
-print(list(u.atoms.segments))
-##output
-[<Segment 4AKE>]
-```
-
-## 5.Working with AtomGroup
-
-先ほど説明した３つのグループはルールをもとに自動的に生成されるobjectであるが、
-自分が自由に作成できるobjectとして`AtomGroup`がある。
-
-またここでの出力結果はnumpy.ndarrayで出力されることがほとんどなので、前もってインポートしておくと良い。
-
-使い方の例として、
-
-```python
-CA = u.select_atoms("protein and name CA")
-r = CA.positions
-print (r.shape)
-##output
-(214.3)
-#214原子の座標（x:0, y:1, z:2 に対応）があるよって情報が得られた。
-```
-などとできる。
-
-### 5.1.Important methods and attributes of AtomGroup
-
-上の`positions`のように、出力できる重要な例として。
-
- - center_of_mass( )  :　系の重心
- - centor_of_geometry( ) : 重心
- - total_mass( ) : 質量
- - total_chargre( ) : 電荷
- - radius_of_gyration( ) : 慣性半径
- - principal_axis( ) : 使ったこと無いのでわかりません
-
-などがある。
-
-### 5.2.Exersice
-
-省略
-
-### 5.3.Processing AtomGroup
-
-特定のatomgroupを別ファイルに書き出す方法が述べられているが、~~使えない~~使わないので割愛。
-
-### 参考
-次回は6章以降を解説する予定である。
-
-（原文）[MDAnalysis Tutorial](https://www.mdanalysis.org/MDAnalysisTutorial/index.html)
-
-## 6.Trajectory analysis
-`MDAnalysis.Universe`はpdbのような座標情報と原子の結合のようなトポロジーを結びつけるものであり、ここから様々な解析ができる。
-ここでは簡易的な解析法について説明する。
-
-トラジェクトリーのフレーム数は
-
-```python
-print(len(u.trajectory))
-```
-
-で出力できる。
-
-また、基本的にある物理量の各タイムステップでの値を取り出したい場合は、以下のように`Universe.trajectory`をイテレーション（反復）する。
-
-```python
-result_rg = []
-protein = u.select_atoms("protein")
-for ts in u.trajectory:
-    result.append(protein.radius_of_gyration())
-```
-
-こうすることで`result_rg`のリストの中にタンパク質の慣性半径の値が保存される。
-また、pythonの復習だが、以下のように内包表記を用いることでコードは短くなる。
-
-```python
-protein = u.select_atoms("protein")
-result_rg = [i.radius_of_gyration() for i in u.trajectory]
-```
-
-さらに、以下のようにすれば、タイムステップと慣性半径の値をまとめたリストができるため、
-gnuplotなどでプロットできるデータが生まれる。
-
-```python
-result_rg = []
-protein = u.select_atoms("protein")
-for ts in u.trajectory:
-    result_rg.append((u.trajectory.time, ,protein.radius_of_gyration()))
-```
