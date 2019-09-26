@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. MDAnalysis &mdash; VALIDATO 3.0.1 ドキュメント</title>
+  <title>2. MDAnalysis tutorial &mdash; VALIDATO 3.0.1 ドキュメント</title>
   
 
   
@@ -114,14 +114,14 @@
 <p class="caption"><span class="caption-text">Python Room</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="matplotlib.html">1. matplotlib</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. MDAnalysis</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. MDAnalysis tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 環境</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">2.2. 注意</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#how-to-use-this-tutorial">3. 1.How to use this tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#have-you-installed-mdanalysis">3.1. 1.1.Have you installed MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mdanalysis">3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる</a></li>
 </ul>
 </li>
 </ul>
@@ -137,8 +137,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#loading-mdanalysis">4.2. 3.2.Loading MDAnalysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">4.2.1. ライブラリ（モジュール）のインポート</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">4.2.2. サンプルファイル（のインポート）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">4.2.1. ライブラリ（モジュール）のインポート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">4.2.2. サンプルファイル（のインポート）</a></li>
 </ul>
 </li>
 </ul>
@@ -157,7 +157,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#important-methods-and-attributes-of-atomgroup">6.1. 5.1.Important methods and attributes of AtomGroup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#exersice">6.2. 5.2.Exersice</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#processing-atomgroup">6.3. 5.3.Processing AtomGroup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">6.4. 参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">6.4. 参考</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#trajectory-analysis">7. 6.Trajectory analysis</a></li>
@@ -211,7 +211,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. MDAnalysis</li>
+      <li>2. MDAnalysis tutorial</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -230,8 +230,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mdanalysis">
-<h1>2. MDAnalysis<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h1>
+  <div class="section" id="mdanalysis-tutorial">
+<h1>2. MDAnalysis tutorial<a class="headerlink" href="#mdanalysis-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>MD（分子動力学）の解析ツール（Pythonライブラリ）は<strong>MDTraj</strong>なども存在するが、
 チュートリアルがありしっかりしていそうだったためこちらも紹介する。
 また、チュートリアルが英語しかなくMDを始めたての学生は苦労すると思ったので、
@@ -259,8 +259,8 @@ Anacondaの利用者は以下を実行。</p>
 <h1>3. 1.How to use this tutorial<a class="headerlink" href="#how-to-use-this-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="have-you-installed-mdanalysis">
 <h2>3.1. 1.1.Have you installed MDAnalysis<a class="headerlink" href="#have-you-installed-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id3">
-<h3>3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="mdanalysis">
+<h3>3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>適当なPythonのファイルに以下の内容を書き込み、実行してみる</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
@@ -326,7 +326,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <span class="kn">import</span> <span class="nn">MDAnalysis</span>
 
 <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="o">.&lt;</span><span class="n">tabキー入力</span><span class="o">&gt;</span>
-<span class="c1">###使えるもの一覧が出る</span>
+<span class="c1">####使えるもの一覧が出る</span>
 </pre></div>
 </div>
 </div>
@@ -346,8 +346,8 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 <div class="section" id="loading-mdanalysis">
 <h2>4.2. 3.2.Loading MDAnalysis<a class="headerlink" href="#loading-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id4">
-<h3>4.2.1. ライブラリ（モジュール）のインポート<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id3">
+<h3>4.2.1. ライブラリ（モジュール）のインポート<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>.pyファイルに書く場合でも、対話型の場合でもMDAnalysisのインポートは</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
 </pre></div>
@@ -355,8 +355,8 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <p>のみでいい。
 （ただしMDAnalysis.analysis.rmsのようなサブモジュールは自動でインポートされないため、明示的にインポートする必要がある。）</p>
 </div>
-<div class="section" id="id5">
-<h3>4.2.2. サンプルファイル（のインポート）<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id4">
+<h3>4.2.2. サンプルファイル（のインポート）<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>またMDAnalysisをインポートすると、サンプルファイルであるアデニル酸キナーゼのコンフォメーション変化のトラジェクトリも同時に読み込まれる。以降のチュートリアルではこのアデニル酸キナーゼを使って解析を進める。
 ここではトラジェクトリファイル（CHARMM　DCD　format）とトポロジーファイル（CHARMM　PSF　format）が読み込まれる。
 以下のように読み込むといい</p>
@@ -378,7 +378,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <span class="n">u</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
 <span class="k">print</span> <span class="p">(</span><span class="n">u</span><span class="p">)</span>
 
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="o">&lt;</span><span class="n">Unuverse</span> <span class="k">with</span> <span class="mi">3341</span> <span class="n">atoms</span><span class="o">&gt;</span>
 </pre></div>
 </div>
@@ -392,17 +392,17 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <h3>5.1.2. <code class="docutils literal notranslate"><span class="pre">Atom</span></code>object<a class="headerlink" href="#atomobject" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>こうして読み込むと原子の情報はAtom属性に格納される。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="o">&lt;</span><span class="n">AtomGroup</span> <span class="k">with</span> <span class="mi">3341</span> <span class="n">atoms</span><span class="o">&gt;</span>
 
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[:</span><span class="mi">5</span><span class="p">]))</span>
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="p">[</span><span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">1</span><span class="p">:</span> <span class="n">N</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">56</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">2</span><span class="p">:</span> <span class="n">HT1</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">3</span><span class="p">:</span> <span class="n">HT2</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">4</span><span class="p">:</span> <span class="n">HT3</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">2</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">,</span>
  <span class="o">&lt;</span><span class="n">Atom</span> <span class="mi">5</span><span class="p">:</span> <span class="n">CA</span> <span class="n">of</span> <span class="nb">type</span> <span class="mi">22</span> <span class="n">of</span> <span class="n">resname</span> <span class="n">MET</span><span class="p">,</span> <span class="n">resid</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">segid</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">]</span>
-<span class="c1">##全原子リストのうちの上から5個が出力される。</span>
+<span class="c1">###全原子リストのうちの上から5個が出力される。</span>
 </pre></div>
 </div>
 </div>
@@ -410,11 +410,11 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <h3>5.1.3. <code class="docutils literal notranslate"><span class="pre">residue</span></code>object<a class="headerlink" href="#residueobject" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>もちろん原子はいずれかの分子に属するため、atomは<code class="docutils literal notranslate"><span class="pre">ResidueGruop</span></code>の中にある。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">130</span><span class="p">]</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="o">&lt;</span><span class="n">ResidueGroup</span> <span class="k">with</span> <span class="mi">3</span> <span class="n">residues</span><span class="o">&gt;</span>
 
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">residues</span><span class="p">))</span>
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="p">[</span><span class="o">&lt;</span><span class="n">Residue</span> <span class="n">LEU</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Residue</span> <span class="n">GLY</span><span class="p">,</span> <span class="mi">7</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">Residue</span> <span class="n">ALA</span><span class="p">,</span> <span class="mi">8</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -424,11 +424,11 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <p>更に大きなグループとして<code class="docutils literal notranslate"><span class="pre">segmentGroup</span></code>があり、これは例えばタンパク質や高分子のモノマーに対応している。
 さらにこれらは「Segment ID(segids)」をあわせて持っている。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span>
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="o">&lt;</span><span class="n">SegmentGroup</span> <span class="k">with</span> <span class="mi">1</span> <span class="n">segment</span><span class="o">&gt;</span>
 
 <span class="k">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segments</span><span class="p">))</span>
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="p">[</span><span class="o">&lt;</span><span class="n">Segment</span> <span class="mi">4</span><span class="n">AKE</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -444,7 +444,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CA</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">select_atoms</span><span class="p">(</span><span class="s2">&quot;protein and name CA&quot;</span><span class="p">)</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">CA</span><span class="o">.</span><span class="n">positions</span>
 <span class="k">print</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="c1">##output</span>
+<span class="c1">###output</span>
 <span class="p">(</span><span class="mf">214.3</span><span class="p">)</span>
 <span class="c1">#214原子の座標（x:0, y:1, z:2 に対応）があるよって情報が得られた。</span>
 </pre></div>
@@ -471,8 +471,8 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <h2>6.3. 5.3.Processing AtomGroup<a class="headerlink" href="#processing-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>特定のatomgroupを別ファイルに書き出す方法が述べられているが、~~使えない~~使わないので割愛。</p>
 </div>
-<div class="section" id="id6">
-<h2>6.4. 参考<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id5">
+<h2>6.4. 参考<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>次回は6章以降を解説する予定である。</p>
 <p>（原文）<a class="reference external" href="https://www.mdanalysis.org/MDAnalysisTutorial/index.html">MDAnalysis Tutorial</a></p>
 </div>

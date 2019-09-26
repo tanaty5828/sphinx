@@ -1,4 +1,4 @@
-# MDAnalysis
+# MDAnalysis tutorial
 
 MD（分子動力学）の解析ツール（Pythonライブラリ）は**MDTraj**なども存在するが、
 チュートリアルがありしっかりしていそうだったためこちらも紹介する。
@@ -6,12 +6,12 @@ MD（分子動力学）の解析ツール（Pythonライブラリ）は**MDTraj*
 日本語訳と解説をつけていく。
 ここでは1~6章を解説する.
 
-## 環境
+### 環境
 
  - Python 3.6.6 :: Anaconda, Inc
  - MDAnalysis 0.19.0
 
-## 注意
+### 注意
 最近筆者の環境ではnumpyとMDAnalysisの相性が悪く、こちらのインポート時にエラーがでるようになってしまった。
 （インポート時のエラーでプログラム自体は正常に動いた）
 一応numpyのバージョンを下げることでエラーは出なくなった。
@@ -23,9 +23,9 @@ conda install numpy=1.15.0
 
 # 1.How to use this tutorial
 
-## 1.1.Have you installed MDAnalysis
+### 1.1.Have you installed MDAnalysis
 
-#### チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる
+##### チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる
 
 適当なPythonのファイルに以下の内容を書き込み、実行してみる
 
@@ -51,9 +51,9 @@ print(MDAnalysis.__version__)
 
 # 3.Preparation
 
-## 3.1.Python interpreter : ipython
+### 3.1.Python interpreter : ipython
 
-#### ipythonを使うとtabキー補完が便利になるよっていう話
+##### ipythonを使うとtabキー補完が便利になるよっていう話
 
 Pythonを使うときは、多くの人がプログラムを.pyファイルに書き込み、
 
@@ -73,7 +73,7 @@ Hello
 というふうにも実行できる。
 この対話型シェルを大幅に拡張したものが`ipython`であり、特にtabキーでの補完がすごい。
 
-##### コマンドについての説明がほしいときはipython上で`command?`とする。
+###### コマンドについての説明がほしいときはipython上で`command?`とする。
 
 ```bash
 $ ipython
@@ -95,17 +95,17 @@ Type:      builtin_function_or_method
 
 と、かなり詳しい説明が出る。
 
-##### tabキー補完が優秀
+###### tabキー補完が優秀
 
 ```python
 import MD <tabキー入力>
 import MDAnalysis
 
 MDAnalysis.Universe.<tabキー入力>
-###使えるもの一覧が出る
+####使えるもの一覧が出る
 ```
 
-##### 数値計算、グラフの即時プロットのために`numpy`,`matplotlib`をインポートしておくと良い
+###### 数値計算、グラフの即時プロットのために`numpy`,`matplotlib`をインポートしておくと良い
 
 ipythonを
 
@@ -121,9 +121,9 @@ import numpy as np
 
 とする。（npは任意の名前で良い）
 
-## 3.2.Loading MDAnalysis
+### 3.2.Loading MDAnalysis
 
-##### ライブラリ（モジュール）のインポート
+###### ライブラリ（モジュール）のインポート
 
 .pyファイルに書く場合でも、対話型の場合でもMDAnalysisのインポートは
 
@@ -134,7 +134,7 @@ import MDAnalysis
 のみでいい。
 （ただしMDAnalysis.analysis.rmsのようなサブモジュールは自動でインポートされないため、明示的にインポートする必要がある。）
 
-##### サンプルファイル（のインポート）
+###### サンプルファイル（のインポート）
 
 またMDAnalysisをインポートすると、サンプルファイルであるアデニル酸キナーゼのコンフォメーション変化のトラジェクトリも同時に読み込まれる。以降のチュートリアルではこのアデニル酸キナーゼを使って解析を進める。
 ここではトラジェクトリファイル（CHARMM　DCD　format）とトポロジーファイル（CHARMM　PSF　format）が読み込まれる。
@@ -146,11 +146,11 @@ from MDAnalysis.tests.datafiles import PSF, DCD
 
 # 4.Basic
 
-## 4.1.Universe and AtomGroup
+### 4.1.Universe and AtomGroup
 
 MDAnalysisはオブジェクト指向であり、系は`Atom`オブジェクトを形成する。これはトポロジーとトラジェクトリを読み込むことで作ることができる。
 
-### `Universe`object
+#### `Universe`object
 ファイルの読み込み時に用いる。
 
 ```python
@@ -158,7 +158,7 @@ MDAnalysisはオブジェクト指向であり、系は`Atom`オブジェクト�
 u = MDAnalysis.Universe(PSF, DCD)
 print (u)
 
-##output
+###output
 <Unuverse with 3341 atoms>
 ```
 また、自分のトラジェクトリファイルを複数読み込む場合などは、
@@ -169,50 +169,50 @@ u = MDAnalysis.Universe("test.psf", "../test1.dcd", "../test2.dcd")
 
 などとすればいい。
 
-### `Atom`object
+#### `Atom`object
 
 こうして読み込むと原子の情報はAtom属性に格納される。
 
 ```python
 print (u.atoms)
-##output
+###output
 <AtomGroup with 3341 atoms>
 
 print(list (u.atoms[:5]))
-##output
+###output
 [<Atom 1: N of type 56 of resname MET, resid 1 and segid 4AKE>,
  <Atom 2: HT1 of type 2 of resname MET, resid 1 and segid 4AKE>,
  <Atom 3: HT2 of type 2 of resname MET, resid 1 and segid 4AKE>,
  <Atom 4: HT3 of type 2 of resname MET, resid 1 and segid 4AKE>,
  <Atom 5: CA of type 22 of resname MET, resid 1 and segid 4AKE>]
-##全原子リストのうちの上から5個が出力される。
+###全原子リストのうちの上から5個が出力される。
 ```
 
-### `residue`object
+#### `residue`object
 
 もちろん原子はいずれかの分子に属するため、atomは`ResidueGruop`の中にある。
 
 ```python
 print(u.atoms[100:130].residues)
-##output
+###output
 <ResidueGroup with 3 residues>
 
 print(list(u.atoms.residues))
-##output
+###output
 [<Residue LEU, 6>, <Residue GLY, 7>, <Residue ALA, 8>]
 ```
 
-### `segment`object
+#### `segment`object
 更に大きなグループとして`segmentGroup`があり、これは例えばタンパク質や高分子のモノマーに対応している。
 さらにこれらは「Segment ID(segids)」をあわせて持っている。
 
 ```python
 print(u.atoms.segments)
-##output
+###output
 <SegmentGroup with 1 segment>
 
 print(list(u.atoms.segments))
-##output
+###output
 [<Segment 4AKE>]
 ```
 
@@ -229,13 +229,13 @@ print(list(u.atoms.segments))
 CA = u.select_atoms("protein and name CA")
 r = CA.positions
 print (r.shape)
-##output
+###output
 (214.3)
 #214原子の座標（x:0, y:1, z:2 に対応）があるよって情報が得られた。
 ```
 などとできる。
 
-## 5.1.Important methods and attributes of AtomGroup
+### 5.1.Important methods and attributes of AtomGroup
 
 上の`positions`のように、出力できる重要な例として。
 
@@ -248,15 +248,15 @@ print (r.shape)
 
 などがある。
 
-## 5.2.Exersice
+### 5.2.Exersice
 
 省略
 
-## 5.3.Processing AtomGroup
+### 5.3.Processing AtomGroup
 
 特定のatomgroupを別ファイルに書き出す方法が述べられているが、~~使えない~~使わないので割愛。
 
-## 参考
+### 参考
 次回は6章以降を解説する予定である。
 
 （原文）[MDAnalysis Tutorial](https://www.mdanalysis.org/MDAnalysisTutorial/index.html)
