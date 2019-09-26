@@ -21,7 +21,7 @@ Anacondaの利用者は以下を実行。
 conda install numpy=1.15.0
 ```
 
-# 1.How to use this tutorial
+## 1.How to use this tutorial
 
 ### 1.1.Have you installed MDAnalysis
 
@@ -49,7 +49,7 @@ print(MDAnalysis.__version__)
 を参考にインストールする。
 このインストールセクションが2章に相当するため、2章は省略。
 
-# 3.Preparation
+## 3.Preparation
 
 ### 3.1.Python interpreter : ipython
 
@@ -102,7 +102,7 @@ import MD <tabキー入力>
 import MDAnalysis
 
 MDAnalysis.Universe.<tabキー入力>
-####使えるもの一覧が出る
+###使えるもの一覧が出る
 ```
 
 ###### 数値計算、グラフの即時プロットのために`numpy`,`matplotlib`をインポートしておくと良い
@@ -144,7 +144,7 @@ import MDAnalysis
 from MDAnalysis.tests.datafiles import PSF, DCD
 ```
 
-# 4.Basic
+## 4.Basic
 
 ### 4.1.Universe and AtomGroup
 
@@ -158,7 +158,7 @@ MDAnalysisはオブジェクト指向であり、系は`Atom`オブジェクト�
 u = MDAnalysis.Universe(PSF, DCD)
 print (u)
 
-###output
+##output
 <Unuverse with 3341 atoms>
 ```
 また、自分のトラジェクトリファイルを複数読み込む場合などは、
@@ -175,17 +175,17 @@ u = MDAnalysis.Universe("test.psf", "../test1.dcd", "../test2.dcd")
 
 ```python
 print (u.atoms)
-###output
+##output
 <AtomGroup with 3341 atoms>
 
 print(list (u.atoms[:5]))
-###output
+##output
 [<Atom 1: N of type 56 of resname MET, resid 1 and segid 4AKE>,
  <Atom 2: HT1 of type 2 of resname MET, resid 1 and segid 4AKE>,
  <Atom 3: HT2 of type 2 of resname MET, resid 1 and segid 4AKE>,
  <Atom 4: HT3 of type 2 of resname MET, resid 1 and segid 4AKE>,
  <Atom 5: CA of type 22 of resname MET, resid 1 and segid 4AKE>]
-###全原子リストのうちの上から5個が出力される。
+##全原子リストのうちの上から5個が出力される。
 ```
 
 #### `residue`object
@@ -194,11 +194,11 @@ print(list (u.atoms[:5]))
 
 ```python
 print(u.atoms[100:130].residues)
-###output
+##output
 <ResidueGroup with 3 residues>
 
 print(list(u.atoms.residues))
-###output
+##output
 [<Residue LEU, 6>, <Residue GLY, 7>, <Residue ALA, 8>]
 ```
 
@@ -208,15 +208,15 @@ print(list(u.atoms.residues))
 
 ```python
 print(u.atoms.segments)
-###output
+##output
 <SegmentGroup with 1 segment>
 
 print(list(u.atoms.segments))
-###output
+##output
 [<Segment 4AKE>]
 ```
 
-# 5.Working with AtomGroup
+## 5.Working with AtomGroup
 
 先ほど説明した３つのグループはルールをもとに自動的に生成されるobjectであるが、
 自分が自由に作成できるobjectとして`AtomGroup`がある。
@@ -229,7 +229,7 @@ print(list(u.atoms.segments))
 CA = u.select_atoms("protein and name CA")
 r = CA.positions
 print (r.shape)
-###output
+##output
 (214.3)
 #214原子の座標（x:0, y:1, z:2 に対応）があるよって情報が得られた。
 ```
@@ -261,7 +261,7 @@ print (r.shape)
 
 （原文）[MDAnalysis Tutorial](https://www.mdanalysis.org/MDAnalysisTutorial/index.html)
 
-# 6.Trajectory analysis
+## 6.Trajectory analysis
 `MDAnalysis.Universe`はpdbのような座標情報と原子の結合のようなトポロジーを結びつけるものであり、ここから様々な解析ができる。
 ここでは簡易的な解析法について説明する。
 
