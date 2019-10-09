@@ -21,7 +21,7 @@ tar xvf lammps-11Aug17.tar.gz #2019現在。数字は異なる可能性あり。
 cd lammps-11Aug17/lib/colvars
 make -f Makefile.g++
 cd ../../src
-make yes-kspace yes-opt yes-rigid yes-xtc yes-misc yes-user-colvars yes-user-cg-cmm yes-user-misc yes-user-cgsdk yes-user-cgdna # 別途必要なモジュールがあれば指定する。
+make yes-molecule yes-kspace yes-opt yes-rigid yes-xtc yes-misc yes-user-colvars yes-user-cg-cmm yes-user-misc yes-user-cgsdk yes-user-cgdna # 別途必要なモジュールがあれば指定する。
 vi MAKE/Makefile.mpi
 ```
 
