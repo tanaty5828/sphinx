@@ -16,23 +16,3 @@
 
 <img src="https://img.shields.io/badge/-Tesla-CC0000.svg?logo=tesla&style=flat"><img src="https://img.shields.io/badge/-YouTube-FF0000.svg?logo=youtube&style=flat"><img src="https://img.shields.io/badge/-Apple-999999.svg?logo=apple&style=flat"><img src="https://img.shields.io/badge/-Qiita-55C500.svg?logo=qiita&style=flat"><img src="https://img.shields.io/badge/-Amazon-FF9900.svg?logo=amazon&style=flat">
 
-```eval_rst
-
-.. raw:: html
-
-<script src="DXMEffect.js"></script>
-<script>
-  const elements = document.querySelectorAll('.dxm-effect');
-  [].forEach.call(elements, function (el) {
-      const dxmEffect = new DXMEffect(el, {
-      speed: 30,
-      delay: 100,
-      })
-      dxmEffect.init()
-  })
-</script>
-
-<p class="dxm-effect">The quick brown fox
-jumps over the lazy dog.</p>
-
-```
