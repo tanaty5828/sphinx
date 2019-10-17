@@ -440,23 +440,22 @@ CT-CT, CT-CM, CT-W, CM-CM, CM-W, W-Wの6個のパラメーターが必要。
 
   - 粗視化の場合は PARFILE= "par_CG.prm"、TOPFILE= "top_CG.prm"と先ほど編集した2つのファイルを指定する。
 
-    筆者の環境では何故か`~/CGparam/par_CG.prm`とか`/home/tanaka/CGparam/par_CG.prm`のようなパス付き指定ができず、毎回解析実行ディレクトリに2つのファイルを持ってくる必要があったが、これはシンボリックリンクを貼ることで誤魔化している。
-
-    ```bash
-    ln -s ~/CGparam/par_CG.prm
+    ``` eval_rst
+    
+    .. warning::
+        
+        筆者の環境では何故か ``~/CGparam/par_CG.prm`` とか ``/home/tanaka/CGparam/par_CG.prm`` のようなパス付き指定ができず、毎回解析実行ディレクトリに2つのファイルを持ってくる必要があったが、これはシンボリックリンクを貼ることで誤魔化している。ただし、シンボリックリンクを削除すると元ファイルも消える恐れがある。取り扱い注意。
+        
+        シンボリックリンクの貼り方 ``ln -s ~/CGparam/par_CG.prm``
     ```
-```
 
-    ただし、シンボリックリンクを削除すると元ファイルも消える恐れがある。取り扱い注意。
+    
 
 - SYSTEM
-
   - `CONV_PDB_CRD`した時のような系の情報が必要となる。
-
 - DATA_FORM_TRJ
 
   - トラジェクトリの形式を指定する。基本的にはDCDかXTCだろう。
-
 - ANALYZ_FILE
 
   - 解析するトラジェクトリを指定する。
@@ -479,8 +478,8 @@ CT-CT, CT-CM, CT-W, CM-CM, CM-W, W-Wの6個のパラメーターが必要。
     ./centering_pr600 ! ## file name & step number & interval
              10000    1
     <<
-    ```
-    
+```
+
     のように記述する。
 
 - ANALYZ_NAME

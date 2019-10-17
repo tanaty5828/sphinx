@@ -567,50 +567,50 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <li><p>FFは力場。粗視化ならCG、CHARMM36ならCHARMM</p></li>
 <li><p>全原子の場合はPARFILEとPSFを指定する必要がある。PARFILEは計算に使ったパラメーターファイルでいいが複数指定ができないためあらかじめ1つのファイルにマージしておく必要がある。</p></li>
 <li><p>粗視化の場合は PARFILE= &quot;par_CG.prm&quot;、TOPFILE= &quot;top_CG.prm&quot;と先ほど編集した2つのファイルを指定する。</p>
-<p>筆者の環境では何故か<code class="docutils literal notranslate"><span class="pre">~/CGparam/par_CG.prm</span></code>とか<code class="docutils literal notranslate"><span class="pre">/home/tanaka/CGparam/par_CG.prm</span></code>のようなパス付き指定ができず、毎回解析実行ディレクトリに2つのファイルを持ってくる必要があったが、これはシンボリックリンクを貼ることで誤魔化している。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ln -s ~/CGparam/par_CG.prm
-</pre></div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>筆者の環境では何故か <code class="docutils literal notranslate"><span class="pre">~/CGparam/par_CG.prm</span></code> とか <code class="docutils literal notranslate"><span class="pre">/home/tanaka/CGparam/par_CG.prm</span></code> のようなパス付き指定ができず、毎回解析実行ディレクトリに2つのファイルを持ってくる必要があったが、これはシンボリックリンクを貼ることで誤魔化している。ただし、シンボリックリンクを削除すると元ファイルも消える恐れがある。取り扱い注意。</p>
+<p>シンボリックリンクの貼り方 <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">~/CGparam/par_CG.prm</span></code></p>
 </div>
 </li>
 </ul>
 </li>
+<li><p>SYSTEM</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CONV_PDB_CRD</span></code>した時のような系の情報が必要となる。</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-    ただし、シンボリックリンクを削除すると元ファイルも消える恐れがある。取り扱い注意。
-
-- SYSTEM
-
-  - `CONV_PDB_CRD`した時のような系の情報が必要となる。
-
-- DATA_FORM_TRJ
-
-  - トラジェクトリの形式を指定する。基本的にはDCDかXTCだろう。
-
-- ANALYZ_FILE
-
-  - 解析するトラジェクトリを指定する。
-    上から、解析するファイル数、解析ファイル名（拡張子は除く）、フレーム数とstride数である。
-    もし、トラジェクトリが複数になっている場合は
+</li>
+<li><p>DATA_FORM_TRJ</p>
+<ul class="simple">
+<li><p>トラジェクトリの形式を指定する。基本的にはDCDかXTCだろう。</p></li>
+</ul>
+</li>
+<li><p>ANALYZ_FILE</p>
+<ul class="simple">
+<li><p>解析するトラジェクトリを指定する。
+上から、解析するファイル数、解析ファイル名（拡張子は除く）、フレーム数とstride数である。
+もし、トラジェクトリが複数になっている場合は</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    &gt;&gt; ANALYZ_FILE
+             6                ! number of files
+    ./centering_pr100 ! ## file name &amp; step number &amp; interval
+             10000    1
+    ./centering_pr200 ! ## file name &amp; step number &amp; interval
+             10000    1
+    ./centering_pr300 ! ## file name &amp; step number &amp; interval
+             10000    1
+    ./centering_pr400 ! ## file name &amp; step number &amp; interval
+             10000    1
+    ./centering_pr500 ! ## file name &amp; step number &amp; interval
+             10000    1
+    ./centering_pr600 ! ## file name &amp; step number &amp; interval
+             10000    1
+    &lt;&lt;
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; ANALYZ_FILE
-         6                ! number of files
-./centering_pr100 ! ## file name &amp; step number &amp; interval
-         10000    1
-./centering_pr200 ! ## file name &amp; step number &amp; interval
-         10000    1
-./centering_pr300 ! ## file name &amp; step number &amp; interval
-         10000    1
-./centering_pr400 ! ## file name &amp; step number &amp; interval
-         10000    1
-./centering_pr500 ! ## file name &amp; step number &amp; interval
-         10000    1
-./centering_pr600 ! ## file name &amp; step number &amp; interval
-         10000    1
-&lt;&lt;
-```
-
-のように記述する。
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>のように記述する。
 </pre></div>
 </div>
 <ul class="simple">
