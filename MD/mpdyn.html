@@ -256,7 +256,7 @@ make -f Makefile.molfile.gnu -j <span class="m">4</span> <span class="c1"># 解�
 <p>と表示されればインストールには成功している。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>`` MPDyn `` はintelコンパイラでもコンパイルでき、 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-f</span> <span class="pre">Makefile.intel</span></code> とするだけである。しかし筆者の環境ではintelコンパイラを使うと不安定になるため上記の方法を使用すること。</p>
+<p>MPDynはintelコンパイラでもコンパイルでき、 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-f</span> <span class="pre">Makefile.intel</span></code> とするだけである。しかし筆者の環境ではintelコンパイラを使うと不安定になるため上記の方法を使用すること。</p>
 </div>
 </div>
 </div>
@@ -322,13 +322,16 @@ ATOM      <span class="m">5</span>  1N   POPC    <span class="m">3</span>      -
 ATOM      <span class="m">6</span>  1P   POPC    <span class="m">3</span>      -4.198   <span class="m">1</span>.022  <span class="m">19</span>.272  <span class="m">1</span>.00  <span class="m">0</span>.00      MEMB
 </pre></div>
 </div>
-<p>と行にPOPCのみが含まれる行のみを抜き出すことができるので、これをリダイレクトする(<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>)とファイルに書き込む事ができるので、</p>
+<p>と行にPOPCのみが含まれる行のみを抜き出すことができる。これをリダイレクトする(<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>)とファイルに書き込む事ができるので、</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat initial.pdb <span class="p">|</span> grep POPC &gt; ordered_initial.pdb
 </pre></div>
 </div>
 <p>とすると<code class="docutils literal notranslate"><span class="pre">ordered_initial.pdb</span></code>に書き込まれる。</p>
-<p>注意点として、<code class="docutils literal notranslate"><span class="pre">&gt;</span></code>は上書き、<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>はファイルがあれば書き足すと動作が違う。</p>
-<p>２種類目の分子からは<code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>を使う。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>注意点として、<cite>&gt;`は上書き、</cite>&gt;&gt;`はファイルがあれば書き足すと動作が違う。</p>
+<p>２種類目の分子からは``&gt;&gt;``を使う。</p>
+</div>
 <p>つまり、</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat initial.pdb <span class="p">|</span> grep POPC &gt; ordered_initial.pdb
 cat initial.pdb <span class="p">|</span> grep POPI &gt;&gt; ordered_initial.pdb
