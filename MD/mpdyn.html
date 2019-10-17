@@ -277,7 +277,7 @@ make -f Makefile.molfile.gnu -j <span class="m">4</span> <span class="c1"># 解�
 </div>
 <div class="section" id="analy">
 <h3>5.2.2. <code class="docutils literal notranslate"><span class="pre">./Analy</span></code><a class="headerlink" href="#analy" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>MPDynで解析したアウトプットは<code class="docutils literal notranslate"><span class="pre">実行ディレクトリ/Analy</span></code>に保存されていくために先に<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">Analy</span></code>しておこう</p>
+<p>MPDynで解析したアウトプットは<code class="docutils literal notranslate"><span class="pre">実行ディレクトリ/Analy</span></code>に保存されていくために先に<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">Analy</span></code>しておこう。</p>
 </div>
 <div class="section" id="crd">
 <h3>5.2.3. CRDファイル<a class="headerlink" href="#crd" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -357,16 +357,16 @@ cat initial.pdb <span class="p">|</span> grep TIP3 &gt;&gt; ordered_initial.pdb
 </ul>
 <p>これらに答えて行けばいい。</p>
 <p>例）</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> Name of PDB file ?
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> Name of PDB file ?
 mod.pdb
  number of molecular species ?
-<span class="m">3</span>
+3
  name of molecules ? write all in one line with space inbetween
 POPC POPI TIP3
  number of molecules ? write all in one line.
-<span class="m">64</span> <span class="m">64</span> <span class="m">1707</span>
+64 64 1707
  number of atoms per molecule ? write all in one line.
-<span class="m">16</span> <span class="m">18</span> <span class="m">1</span>
+16 18 1
 </pre></div>
 </div>
 <p>下3つの質問は先ほど並び変えた分子の順番通りにすること。</p>
@@ -402,8 +402,12 @@ BOND 3 11  11 12  12 13  13 14  14 15  15 16
 </pre></div>
 </div>
 <p>を分子ごとに追加する。</p>
-<p><strong>小ネタ</strong></p>
-<p>解析で使う場合、bondやangleの情報は必要としないので、</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>解析で使う場合、bondやangleの情報は必要としないので、NUMBOND = 0とし、</p>
+<p>BONDの記述をすべて消してもいい。（というか、下手にbond, angleを入れるとそのパラメーターが必要になりめんどくさい）</p>
+</div>
+<p>例</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; POPC  ! palmitoyl oleyl PC
 NUMATOM= 16
 NUMBOND= 0
@@ -427,7 +431,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 &lt;&lt;
 </pre></div>
 </div>
-<p>としてもいい。（というか、下手にbond, angleを入れるとそのパラメーターが必要になりめんどくさい）</p>
+<p>としてもいい。</p>
 </div>
 <div class="section" id="par-cg-prm">
 <h3>5.2.5. par_CG.prm<a class="headerlink" href="#par-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>

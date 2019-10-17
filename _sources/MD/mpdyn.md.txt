@@ -94,7 +94,7 @@ At line 291 of file Read_Condition.f90 (unit = 2, file = '��=��')
 
 ### `./Analy`
 
-MPDynで解析したアウトプットは`実行ディレクトリ/Analy`に保存されていくために先に`mkdir Analy`しておこう
+MPDynで解析したアウトプットは`実行ディレクトリ/Analy`に保存されていくために先に`mkdir Analy`しておこう。
 
 
 
@@ -208,7 +208,7 @@ animate write pdb mod.pdb
 
 例）
 
-```bash
+```
  Name of PDB file ?
 mod.pdb
  number of molecular species ?
@@ -259,9 +259,20 @@ BOND 3 11  11 12  12 13  13 14  14 15  15 16
 
 を分子ごとに追加する。
 
-**小ネタ**
 
-解析で使う場合、bondやangleの情報は必要としないので、
+
+```eval_rst
+
+.. note::
+    
+    解析で使う場合、bondやangleの情報は必要としないので、NUMBOND = 0とし、
+    
+    BONDの記述をすべて消してもいい。（というか、下手にbond, angleを入れるとそのパラメーターが必要になりめんどくさい）
+
+
+```
+
+例
 
 ```
 >> POPC  ! palmitoyl oleyl PC
@@ -287,9 +298,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <<
 ```
 
-としてもいい。（というか、下手にbond, angleを入れるとそのパラメーターが必要になりめんどくさい）
-
-
+としてもいい。
 
 ### par_CG.prm
 
