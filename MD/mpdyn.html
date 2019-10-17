@@ -329,8 +329,8 @@ ATOM      <span class="m">6</span>  1P   POPC    <span class="m">3</span>      -
 <p>とすると<code class="docutils literal notranslate"><span class="pre">ordered_initial.pdb</span></code>に書き込まれる。</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>注意点として、<cite>&gt;`は上書き、</cite>&gt;&gt;`はファイルがあれば書き足すと動作が違う。</p>
-<p>２種類目の分子からは``&gt;&gt;``を使う。</p>
+<p>注意点として、 <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> は上書き、 <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> はファイルがあれば書き足すと動作が違う。</p>
+<p>２種類目の分子からは <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> を使う。</p>
 </div>
 <p>つまり、</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat initial.pdb <span class="p">|</span> grep POPC &gt; ordered_initial.pdb
