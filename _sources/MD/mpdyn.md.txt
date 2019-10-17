@@ -203,11 +203,16 @@ animate write pdb mod.pdb
 
 
 
--  Name of PDB file ? : 変換するpdbファイルの名前
--  number of molecular species ? : 分子の種類が何個あるか（整数）
--  name of molecules ? write all in one line with space inbetween : 分子の名前をスペース区切りで
--  number of molecules ? write all in one line. : 各分子の分子数。
--  number of atoms per molecule ? write all in one line. : １分子あたりの原子数。
+-  Name of PDB file ?
+   -  変換するpdbファイルの名前
+-  number of molecular species ?
+   -  分子の種類が何個あるか（整数）
+-  name of molecules ? write all in one line with space inbetween
+   -  分子の名前をスペース区切りで
+-  number of molecules ? write all in one line
+   -  各分子の分子数。
+-  number of atoms per molecule ? write all in one line. 
+   -  １分子あたりの原子数。
 
 これらに答えて行けばいい。
 
