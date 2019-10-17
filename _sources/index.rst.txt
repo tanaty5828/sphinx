@@ -43,6 +43,7 @@ Welcome to VALIDATO's documentation!
    /MD/gromacs
    /MD/namd
    /MD/lammps
+   /MD/mpdyn
    /Gnuplot/Gnuplot_01
    /MD/vmd
    /MD/Discovery_studio
