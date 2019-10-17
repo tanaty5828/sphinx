@@ -56,9 +56,13 @@ At line 291 of file Read_Condition.f90 (unit = 2, file = '��=��')
 
 
 
-#### 補足
+```eval_rst
 
-`MPDyn`はintelコンパイラでもコンパイルでき、`make -f Makefile.intel`とするだけである。しかし筆者の環境ではintelコンパイラを使うと不安定になるため上記の方法を使用すること。
+.. warning::
+    
+    `` MPDyn `` はintelコンパイラでもコンパイルでき、 ``make -f Makefile.intel`` とするだけである。しかし筆者の環境ではintelコンパイラを使うと不安定になるため上記の方法を使用すること。
+    
+```
 
 
 
@@ -321,6 +325,7 @@ CT-CT, CT-CM, CT-W, CM-CM, CM-W, W-Wの6個のパラメーターが必要。
     これも解析で使う場合、パラメーターの値は正しくなくていいため
     
     CT   CT   LJ9-6    0.0   0.0     2.0   15.0
+    
     CT   CM   LJ9-6    0.0   0.0    2.0   15.0
     
     というふうに追加するのが楽。
