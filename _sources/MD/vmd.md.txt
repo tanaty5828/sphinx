@@ -109,3 +109,121 @@ mac限定だと思われる
 4. vmdが起動するはず。(影の描写には非対応？)
 
 当然だが、ネットの速度に依存してレスポンスが変わるため自宅Wi-Fiではやや反応が悪いか？
+
+
+
+## きれいなスナップショットの作り方
+
+### 環境
+
+- VMD for LINUXAMD64, version 1.9.2 (December 29, 2014)
+- NVIDIA Corporation GM107GL Quadro K620 (rev a2)
+
+
+
+### 想定している系
+
+- 水ー脂質膜のような系
+- コレステロール入りの脂質膜
+- PEG修飾リン脂質膜など
+    - 高分子鎖などはこの方法だと暗くなってしまう可能性あり
+
+
+
+### 設定
+
+#### Grafics -->> Colors...
+
+
+| Categorise |   Names    | Colors  |
+| :--------: | :--------: | :-----: |
+|  Display   | Background | 8 White |
+
+
+にして背景を白色にしておく。
+上に印刷したりスライドに載せるときは背景を白色にしておくといい。
+（ディスプレイ上で見るときは黒が見やすいのだが）
+
+#### Graphics -->> Representations...
+
+##### 分子種ごとに表示を分ける
+
+`Create Rep`を押して分子種の数だけ項目を作り、
+`Selected Atoms`で種類の指定をする。
+例として
+
+- `resname DMPC`(分子名がDMPCのもの)
+- `same residue as resname DMPC and z > 10`(z>10の範囲にあるDMPC分子のみ)
+- `water`(水)
+
+といった指定ができるため活用してください。
+作った分子種に対して以下の設定（①〜③）をそれぞれ行う。
+
+##### ①色の指定
+
+`Coloring Method`で色の指定ができる。
+様々な指定ができるが、`ColorID`を選び右隣のリストから色を直接指定するのが一番きれいになる。
+時間がない人は`Name`のままでもいいかな？
+
+##### ②マテリアルの指定
+
+`Material`の欄で描画素材の変更ができる。
+個人的には`AOShiny`がおすすめ。明るすぎると思う場合は`Edgy`など選択肢となるか？
+
+##### ③描画タイプの指定
+
+`Drawing Method`で分子のタイプが指定できる。
+デフォルトの`Lines`は細すぎるため、`Licorice`がおすすめ。
+特に注目したい分子がある場合は`VDW`がいいが、多用し過ぎると醜くなる。
+
+系に水が含まれる場合は水の設定を以下のようにするといい。
+
+**水の設定**
+
+|       項目       |                設定値                |
+| :--------------: | :----------------------------------: |
+| Coloring Method  | colorID(10 syanか22 cyan3がおすすめ) |
+|  Drawing Method  |              QuickSurf               |
+|     Material     |             Transparent              |
+|    Resolusion    |                 1.60                 |
+|   Radius Scale   |                 1.6                  |
+| Density Isovalue |                 3.7                  |
+|       Grid       |                 0.8                  |
+|     Surface      |                 Max                  |
+
+#### Display
+
+- Perspective -->> Orthographicに変更
+- Depth Cueing -->> チェックがついている場合は外す
+- Axes -->> Offに（軸が消える）
+- Rendermode -->> GLSL
+- Display Settings
+    - Shadows -->> On
+    - Amb. Occl. -->> On
+    - AO Ambient -->> 0.90
+    - AO Direct -->> 0.60
+
+と設定する。
+
+#### Extensions -->> Tk console
+
+VMD上で使えるコンソールだが、よく使うものとして、
+
+- `pbc box -center origin` (周期境界の箱を表示)
+- `color Display Background white` (背景を黒色に)
+- `rotate x by 90` (x軸周りに90°回転)
+
+などがある。詳しくは公式サイトを参照
+
+#### File -->> Render 
+いよいよ画像ファイルとして保存するが、以下のような設定をおすすめする。
+
+|              項目               |            設定値             |
+| :-----------------------------: | :---------------------------: |
+| Render the current scane using: |           Tachylon            |
+|            Filename             |         好きなように          |
+|         Render Command:         | どこかに`-res 2000`を書き込む |
+
+として`Start Rendering`すれば画像の書き出しが始まる。
+生成される画像は`.tga`なので`convert -density 2000 vmd.tga vmd.png`とし
+変換するといい。
