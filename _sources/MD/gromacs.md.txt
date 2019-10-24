@@ -47,6 +47,14 @@ make check
 sudo make install
 ```
 
+```eval_rst
+
+.. info::
+
+    PCにグラッフィクボードが刺さっている場合、 ``-DGPU=off`` のプレフィックスを追加してcmakeすると行けることがある(20191024)。
+
+```
+
 "cmake"や"make"のコマンドではある程度時間がかかります。
 
 ここまででエラーがでなければ、さらにVim等で"~/.bashrc"を開き(`vim ~/.bashrc`),次のように書き加える。
