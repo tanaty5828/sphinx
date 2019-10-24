@@ -67,6 +67,7 @@ Welcome to VALIDATO's documentation!
    /python/matplotlib
    /python/MDAnalysis
    /python/MDAnalysis_tutorial
+   /python/anaconda
 
 .. toctree::
    :maxdepth: 2

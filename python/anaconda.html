@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Anaconda &mdash; VALIDATO 4.0.1 ドキュメント</title>
+  <title>4. Anaconda &mdash; VALIDATO 4.0.1 ドキュメント</title>
   
 
   
@@ -37,7 +37,9 @@
   <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" /> 
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="1. Hiroki Tanaka" href="../intro/tanaka.html" />
+    <link rel="prev" title="3. MDAnalysis tutorial" href="MDAnalysis_tutorial.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -111,10 +113,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">4. Lab trip</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Python Room</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="matplotlib.html">1. matplotlib</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MDAnalysis.html">2. MDAnalysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">4. Anaconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pip">4.1. pipと混ぜない</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installconda">4.2. installしたいパッケージがcondaになかったら？</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">4.2.1. よく探す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conda">4.2.2. conda用のパッケージを自分でビルドする。</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
 <ul>
@@ -165,7 +176,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Anaconda</li>
+      <li>4. Anaconda</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -185,22 +196,22 @@
            <div itemprop="articleBody">
             
   <div class="section" id="anaconda">
-<h1>Anaconda<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>4. Anaconda<a class="headerlink" href="#anaconda" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>pythonのパッケージマネージャー。</p>
 <div class="section" id="pip">
-<h2>pipと混ぜない<a class="headerlink" href="#pip" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.1. pipと混ぜない<a class="headerlink" href="#pip" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>pythonのパッケージマネージャーは<code class="docutils literal notranslate"><span class="pre">pip</span></code>と<code class="docutils literal notranslate"><span class="pre">conda(anaconda)</span></code>の2種類があるが、</p>
 <p>両方を混ぜて使用すると予期しないバグが発生する。</p>
 <p>どちらかに統一するべき（筆者はconda統一）</p>
 </div>
 <div class="section" id="installconda">
-<h2>installしたいパッケージがcondaになかったら？<a class="headerlink" href="#installconda" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.2. installしたいパッケージがcondaになかったら？<a class="headerlink" href="#installconda" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>解決策を列挙する。上からためそう</p>
 <div class="section" id="id1">
-<h3>よく探す<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.1. よく探す<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 </div>
 <div class="section" id="conda">
-<h3>conda用のパッケージを自分でビルドする。<a class="headerlink" href="#conda" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.2. conda用のパッケージを自分でビルドする。<a class="headerlink" href="#conda" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>例）sphinx_markdown_tablesについて</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">sphinx_markdown_tables</span></code>としてもパッケージがなく、</p>
 <p><a class="reference external" href="https://pypi.org/project/sphinx-markdown-tables/">PyPiのサイトにはあるとき</a>、</p>
@@ -219,6 +230,15 @@ $ conda install --use-local &lt;パッケージ名&gt;
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../intro/tanaka.html" class="btn btn-neutral float-right" title="1. Hiroki Tanaka" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MDAnalysis_tutorial.html" class="btn btn-neutral float-left" title="3. MDAnalysis tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
