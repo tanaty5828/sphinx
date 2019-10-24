@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>7. VMD &mdash; VALIDATO 3.0.1 ドキュメント</title>
+  <title>7. VMD &mdash; VALIDATO 4.0.1 ドキュメント</title>
   
 
   
@@ -110,6 +110,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#pc-mac-sshvmd">7.3. 個人PC(mac)からssh先の<code class="docutils literal notranslate"><span class="pre">vmd</span></code>を起動する場合</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">7.4. きれいなスナップショットの作り方</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">7.4.1. 環境</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">7.4.2. 想定している系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">7.4.3. 設定</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#grafics-colors">7.4.3.1. Grafics --&gt;&gt; Colors...</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#graphics-representations">7.4.3.2. Graphics --&gt;&gt; Representations...</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display">7.4.3.3. Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extensions-tk-console">7.4.3.4. Extensions --&gt;&gt; Tk console</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#file-render">7.4.3.5. File --&gt;&gt; Render</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">8. Discovery Studio</a></li>
@@ -280,6 +293,184 @@ sudo make install
 <li><p>vmdが起動するはず。(影の描写には非対応？)</p></li>
 </ol>
 <p>当然だが、ネットの速度に依存してレスポンスが変わるため自宅Wi-Fiではやや反応が悪いか？</p>
+</div>
+<div class="section" id="id3">
+<h2>7.4. きれいなスナップショットの作り方<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h3>7.4.1. 環境<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>VMD for LINUXAMD64, version 1.9.2 (December 29, 2014)</p></li>
+<li><p>NVIDIA Corporation GM107GL Quadro K620 (rev a2)</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>7.4.2. 想定している系<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><p>水ー脂質膜のような系</p></li>
+<li><p>コレステロール入りの脂質膜</p></li>
+<li><p>PEG修飾リン脂質膜など</p>
+<ul>
+<li><p>高分子鎖などはこの方法だと暗くなってしまう可能性あり</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>7.4.3. 設定<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="grafics-colors">
+<h4>7.4.3.1. Grafics --&gt;&gt; Colors...<a class="headerlink" href="#grafics-colors" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Categorise</th>
+<th align="center">Names</th>
+<th align="center">Colors</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Display</td>
+<td align="center">Background</td>
+<td align="center">8 White</td>
+</tr>
+</tbody>
+</table><p>にして背景を白色にしておく。
+上に印刷したりスライドに載せるときは背景を白色にしておくといい。
+（ディスプレイ上で見るときは黒が見やすいのだが）</p>
+</div>
+<div class="section" id="graphics-representations">
+<h4>7.4.3.2. Graphics --&gt;&gt; Representations...<a class="headerlink" href="#graphics-representations" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id7">
+<h5>7.4.3.2.1. 分子種ごとに表示を分ける<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">Rep</span></code>を押して分子種の数だけ項目を作り、
+<code class="docutils literal notranslate"><span class="pre">Selected</span> <span class="pre">Atoms</span></code>で種類の指定をする。
+例として</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">resname</span> <span class="pre">DMPC</span></code>(分子名がDMPCのもの)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">same</span> <span class="pre">residue</span> <span class="pre">as</span> <span class="pre">resname</span> <span class="pre">DMPC</span> <span class="pre">and</span> <span class="pre">z</span> <span class="pre">&gt;</span> <span class="pre">10</span></code>(z&gt;10の範囲にあるDMPC分子のみ)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">water</span></code>(水)</p></li>
+</ul>
+<p>といった指定ができるため活用してください。
+作った分子種に対して以下の設定（①〜③）をそれぞれ行う。</p>
+</div>
+<div class="section" id="id8">
+<h5>7.4.3.2.2. ①色の指定<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">Coloring</span> <span class="pre">Method</span></code>で色の指定ができる。
+様々な指定ができるが、<code class="docutils literal notranslate"><span class="pre">ColorID</span></code>を選び右隣のリストから色を直接指定するのが一番きれいになる。
+時間がない人は<code class="docutils literal notranslate"><span class="pre">Name</span></code>のままでもいいかな？</p>
+</div>
+<div class="section" id="id9">
+<h5>7.4.3.2.3. ②マテリアルの指定<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">Material</span></code>の欄で描画素材の変更ができる。
+個人的には<code class="docutils literal notranslate"><span class="pre">AOShiny</span></code>がおすすめ。明るすぎると思う場合は<code class="docutils literal notranslate"><span class="pre">Edgy</span></code>など選択肢となるか？</p>
+</div>
+<div class="section" id="id10">
+<h5>7.4.3.2.4. ③描画タイプの指定<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">Drawing</span> <span class="pre">Method</span></code>で分子のタイプが指定できる。
+デフォルトの<code class="docutils literal notranslate"><span class="pre">Lines</span></code>は細すぎるため、<code class="docutils literal notranslate"><span class="pre">Licorice</span></code>がおすすめ。
+特に注目したい分子がある場合は<code class="docutils literal notranslate"><span class="pre">VDW</span></code>がいいが、多用し過ぎると醜くなる。</p>
+<p>系に水が含まれる場合は水の設定を以下のようにするといい。</p>
+<p><strong>水の設定</strong></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">項目</th>
+<th align="center">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Coloring Method</td>
+<td align="center">colorID(10 syanか22 cyan3がおすすめ)</td>
+</tr>
+<tr>
+<td align="center">Drawing Method</td>
+<td align="center">QuickSurf</td>
+</tr>
+<tr>
+<td align="center">Material</td>
+<td align="center">Transparent</td>
+</tr>
+<tr>
+<td align="center">Resolusion</td>
+<td align="center">1.60</td>
+</tr>
+<tr>
+<td align="center">Radius Scale</td>
+<td align="center">1.6</td>
+</tr>
+<tr>
+<td align="center">Density Isovalue</td>
+<td align="center">3.7</td>
+</tr>
+<tr>
+<td align="center">Grid</td>
+<td align="center">0.8</td>
+</tr>
+<tr>
+<td align="center">Surface</td>
+<td align="center">Max</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="display">
+<h4>7.4.3.3. Display<a class="headerlink" href="#display" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<ul class="simple">
+<li><p>Perspective --&gt;&gt; Orthographicに変更</p></li>
+<li><p>Depth Cueing --&gt;&gt; チェックがついている場合は外す</p></li>
+<li><p>Axes --&gt;&gt; Offに（軸が消える）</p></li>
+<li><p>Rendermode --&gt;&gt; GLSL</p></li>
+<li><p>Display Settings</p>
+<ul>
+<li><p>Shadows --&gt;&gt; On</p></li>
+<li><p>Amb. Occl. --&gt;&gt; On</p></li>
+<li><p>AO Ambient --&gt;&gt; 0.90</p></li>
+<li><p>AO Direct --&gt;&gt; 0.60</p></li>
+</ul>
+</li>
+</ul>
+<p>と設定する。</p>
+</div>
+<div class="section" id="extensions-tk-console">
+<h4>7.4.3.4. Extensions --&gt;&gt; Tk console<a class="headerlink" href="#extensions-tk-console" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>VMD上で使えるコンソールだが、よく使うものとして、</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pbc</span> <span class="pre">box</span> <span class="pre">-center</span> <span class="pre">origin</span></code> (周期境界の箱を表示)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span> <span class="pre">Display</span> <span class="pre">Background</span> <span class="pre">white</span></code> (背景を黒色に)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rotate</span> <span class="pre">x</span> <span class="pre">by</span> <span class="pre">90</span></code> (x軸周りに90°回転)</p></li>
+</ul>
+<p>などがある。詳しくは公式サイトを参照</p>
+</div>
+<div class="section" id="file-render">
+<h4>7.4.3.5. File --&gt;&gt; Render<a class="headerlink" href="#file-render" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>いよいよ画像ファイルとして保存するが、以下のような設定をおすすめする。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">項目</th>
+<th align="center">設定値</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Render the current scane using:</td>
+<td align="center">Tachylon</td>
+</tr>
+<tr>
+<td align="center">Filename</td>
+<td align="center">好きなように</td>
+</tr>
+<tr>
+<td align="center">Render Command:</td>
+<td align="center">どこかに<code>-res 2000</code>を書き込む</td>
+</tr>
+</tbody>
+</table><p>として<code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">Rendering</span></code>すれば画像の書き出しが始まる。
+生成される画像は<code class="docutils literal notranslate"><span class="pre">.tga</span></code>なので<code class="docutils literal notranslate"><span class="pre">convert</span> <span class="pre">-density</span> <span class="pre">2000</span> <span class="pre">vmd.tga</span> <span class="pre">vmd.png</span></code>とし
+変換するといい。</p>
+</div>
+</div>
 </div>
 </div>
 
