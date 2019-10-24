@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Namd &mdash; VALIDATO 4.0.1 ドキュメント</title>
+  <title>3. Namd &mdash; VALIDATO 3.0.1 ドキュメント</title>
   
 
   
@@ -345,7 +345,6 @@ module unload cuda/8.0
 module load cuda/6.5
 module load intel-mpi/2018.4.274
 
-
 <span class="nv">PATH</span><span class="o">=</span>/home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/:<span class="nv">$PATH</span>
 <span class="nb">echo</span> <span class="s2">&quot;group main&quot;</span> &gt; list
 cat <span class="nv">$PBS_NODEFILE</span> <span class="p">|</span> sort -u <span class="p">|</span> sed <span class="s1">&#39;s/^/host /g&#39;</span> &gt;&gt; list
@@ -417,7 +416,6 @@ temperature	    $temperature
 #NOTE:WHEN CONT. A SIM. MAKE FIRST TIMESTEP THE LAST TIMESTEP OF THE LAST DCD FILE#
 firsttimestep      0
 
-
 #############################################################
 ## SIMULATION PARAMETERS                                   ##
 #############################################################
@@ -485,7 +483,6 @@ dcdfreq              1000
 xstFreq             500
 outputEnergies      500
 outputPressure      500
-
 
 #############################################################
 ## EXECUTION SCRIPT                                        ##
