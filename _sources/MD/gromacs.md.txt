@@ -49,7 +49,7 @@ sudo make install
 
 ```eval_rst
 
-.. info::
+.. note::
 
     PCにグラッフィクボードが刺さっている場合、 ``-DGPU=off`` のプレフィックスを追加してcmakeすると行けることがある(20191024)。
 
