@@ -229,7 +229,11 @@ sudo make install
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>PCにグラッフィクボードが刺さっている場合、 <code class="docutils literal notranslate"><span class="pre">-DGMX_GPU=off</span></code> のプレフィックスを追加してcmakeすると行けることがある(20191024)。</p>
+<p>PCにグラッフィクボードが刺さっている場合はcmake時に、<code class="docutils literal notranslate"><span class="pre">-DGMX_GPU=off</span></code> のオプションを追加してcmakeすると行けることがある(20191024)。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>スパコン等を使用してMPI並列計算をしたい場合は、<a href="#id3"><span class="problematic" id="id4">``</span></a>-DGMX_MPI=on``のオプションを追加する必要がある。</p>
 </div>
 <p>&quot;cmake&quot;や&quot;make&quot;のコマンドではある程度時間がかかります。</p>
 <p>ここまででエラーがでなければ、さらにVim等で&quot;~/.bashrc&quot;を開き(<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bashrc</span></code>),次のように書き加える。</p>
