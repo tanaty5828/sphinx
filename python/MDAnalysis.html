@@ -253,23 +253,22 @@
 </div>
 <p>これで内の('56', '2')の結合は全部で57個あることがわかる。</p>
 <p>これらをある変数に入れれば、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>￼
-bond_56_2 = u.bonds.select_bonds((&quot;56&quot;, &quot;2&quot;))
-bond_56_2.value()
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bond_56_2</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">select_bonds</span><span class="p">((</span><span class="s2">&quot;56&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">))</span>
+<span class="n">bond_56_2</span><span class="o">.</span><span class="n">value</span><span class="p">()</span>
 
-Out[15]:
-array([0.9920841 , 1.04387783, 1.05986122, 1.02430087, 1.00244858,
-       1.08620145, 1.12806992, 1.07843619, 1.08142101, 1.01416071,
-       1.05287512, 1.04886808, 0.99766399, 1.00003621, 1.02626758,
-       1.07063078, 1.0252231 , 1.04982561, 1.02731704, 1.04538002,
-       0.97738312, 1.04356518, 1.03284141, 1.02616466, 1.00372859,
-       1.04293945, 1.07048629, 1.06736889, 0.98279084, 1.03083272,
-       1.00475292, 1.0364446 , 1.05372188, 1.0539615 , 1.07159869,
-       0.99642071, 1.01829042, 1.02883738, 1.08943846, 1.06097044,
-       1.05503523, 1.0580378 , 1.05361057, 1.09457956, 1.01966215,
-       1.01909983, 1.05836955, 1.03081077, 1.01146875, 1.06153019,
-       1.04555022, 1.10118977, 1.01986004, 1.00225317, 1.05128511,
-       1.06324096, 1.07451991])
+<span class="n">Out</span><span class="p">[</span><span class="mi">15</span><span class="p">]:</span>
+<span class="n">array</span><span class="p">([</span><span class="mf">0.9920841</span> <span class="p">,</span> <span class="mf">1.04387783</span><span class="p">,</span> <span class="mf">1.05986122</span><span class="p">,</span> <span class="mf">1.02430087</span><span class="p">,</span> <span class="mf">1.00244858</span><span class="p">,</span>
+       <span class="mf">1.08620145</span><span class="p">,</span> <span class="mf">1.12806992</span><span class="p">,</span> <span class="mf">1.07843619</span><span class="p">,</span> <span class="mf">1.08142101</span><span class="p">,</span> <span class="mf">1.01416071</span><span class="p">,</span>
+       <span class="mf">1.05287512</span><span class="p">,</span> <span class="mf">1.04886808</span><span class="p">,</span> <span class="mf">0.99766399</span><span class="p">,</span> <span class="mf">1.00003621</span><span class="p">,</span> <span class="mf">1.02626758</span><span class="p">,</span>
+       <span class="mf">1.07063078</span><span class="p">,</span> <span class="mf">1.0252231</span> <span class="p">,</span> <span class="mf">1.04982561</span><span class="p">,</span> <span class="mf">1.02731704</span><span class="p">,</span> <span class="mf">1.04538002</span><span class="p">,</span>
+       <span class="mf">0.97738312</span><span class="p">,</span> <span class="mf">1.04356518</span><span class="p">,</span> <span class="mf">1.03284141</span><span class="p">,</span> <span class="mf">1.02616466</span><span class="p">,</span> <span class="mf">1.00372859</span><span class="p">,</span>
+       <span class="mf">1.04293945</span><span class="p">,</span> <span class="mf">1.07048629</span><span class="p">,</span> <span class="mf">1.06736889</span><span class="p">,</span> <span class="mf">0.98279084</span><span class="p">,</span> <span class="mf">1.03083272</span><span class="p">,</span>
+       <span class="mf">1.00475292</span><span class="p">,</span> <span class="mf">1.0364446</span> <span class="p">,</span> <span class="mf">1.05372188</span><span class="p">,</span> <span class="mf">1.0539615</span> <span class="p">,</span> <span class="mf">1.07159869</span><span class="p">,</span>
+       <span class="mf">0.99642071</span><span class="p">,</span> <span class="mf">1.01829042</span><span class="p">,</span> <span class="mf">1.02883738</span><span class="p">,</span> <span class="mf">1.08943846</span><span class="p">,</span> <span class="mf">1.06097044</span><span class="p">,</span>
+       <span class="mf">1.05503523</span><span class="p">,</span> <span class="mf">1.0580378</span> <span class="p">,</span> <span class="mf">1.05361057</span><span class="p">,</span> <span class="mf">1.09457956</span><span class="p">,</span> <span class="mf">1.01966215</span><span class="p">,</span>
+       <span class="mf">1.01909983</span><span class="p">,</span> <span class="mf">1.05836955</span><span class="p">,</span> <span class="mf">1.03081077</span><span class="p">,</span> <span class="mf">1.01146875</span><span class="p">,</span> <span class="mf">1.06153019</span><span class="p">,</span>
+       <span class="mf">1.04555022</span><span class="p">,</span> <span class="mf">1.10118977</span><span class="p">,</span> <span class="mf">1.01986004</span><span class="p">,</span> <span class="mf">1.00225317</span><span class="p">,</span> <span class="mf">1.05128511</span><span class="p">,</span>
+       <span class="mf">1.06324096</span><span class="p">,</span> <span class="mf">1.07451991</span><span class="p">])</span>
 </pre></div>
 </div>
 <p>と57個の値がわかる。</p>

@@ -87,7 +87,6 @@ Out[14]:
 これらをある変数に入れれば、
 
 ```python
-￼
 bond_56_2 = u.bonds.select_bonds(("56", "2"))
 bond_56_2.value()
 
