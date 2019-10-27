@@ -46,9 +46,6 @@ u = mda.Universe(PSF, DCD)
 
 bondの情報は、`u.bonds`にあるため、
 
-```python
-```
-
 とするだけですべての値が帰ってくる。
 
 `u.bonds.types()`
