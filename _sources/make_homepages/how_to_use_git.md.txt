@@ -30,7 +30,7 @@ gitはオリジナルを編集せずに自分だけで編集ができ、後で�
 
 
 
-### リモートリポジトリをpull（上図１）
+### リモートリポジトリをclone（上図１）
 
 わかりやすく言うと、ネットワーク上にあるファイルを持ってくるだけです。
 
@@ -93,15 +93,19 @@ git push https://github.com/tanaty5828/varidato_source hishikawa #送る。"hish
 
 [プルリクエストの作成](https://backlog.com/ja/git-tutorial/pull-request/06/)を参考に、送っていただければすぐに反映します。
 
-### ローカルにあるものを消す。
+### 新しい編集
 
-push が一通り終わったら作業したものは消して、また編集したいときには
+自分の更新から時間が経っていると、リモートの更新がローカルに反映されてないことがあります。
+
+その時は、`fetch`と`pull`を利用しリモートの更新をダウンロードします。
 
 ```shell
-git clone https://github.com/tanaty5828/varidato_source #データのダウンロード
+cd ~/Document/web/varidato_source/ #varidato_source/まで戻る。
+git fetch -p # 更新を確認。リモートの更新情報が表示される。
+git pull origin master # リモートで更新されたデータをダウンロード
 ```
 
-から始めるといいです。
+こうして、また新しいブランチを作る->編集する の流れを繰り返します。
 
 
 ## テキストの記載法
