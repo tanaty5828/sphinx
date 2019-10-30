@@ -266,7 +266,7 @@ gmx --version
 </div>
 <div class="section" id="command-line-reference">
 <h2>2.3. Command-line reference<a class="headerlink" href="#command-line-reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>gromacsの実行バイナリ<code class="docutils literal notranslate"><span class="pre">gmx</span></code>には様々な実行バイナリがあり、ex)<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code>それぞれで必要なオプションが覚えられなかったのでここにまとめる。</p>
+<p>gromacsの実行バイナリ<code class="docutils literal notranslate"><span class="pre">gmx</span></code>には様々な実行コマンドがあり、それぞれで必要なオプションが覚えられなかったのでここにまとめる。</p>
 <div class="section" id="gmx-mdrun">
 <h3>2.3.1. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span></code><a class="headerlink" href="#gmx-mdrun" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>実際にMD計算を実行するコマンドである。</p>
@@ -452,7 +452,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 </tbody>
 </table><div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>使用できる力場は <code class="docutils literal notranslate"><span class="pre">/gmx-install/share/gromacs/top/</span></code> に[力場.ff]を追加すると使えるようになる。</p>
+<p>使用できる力場は <code class="docutils literal notranslate"><span class="pre">/gmx-install/share/gromacs/top/</span></code> に[力場.ff]というディレクトリを追加すると使えるようになる。</p>
 <p>charmm36なども自分で追加する必要がある。（探すのが難しかった）</p>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">-ff</span></code>や<code class="docutils literal notranslate"><span class="pre">-water</span></code>は指定しなくても、その後対話形式で聞かれる。</p>
@@ -483,6 +483,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 </tr>
 </tbody>
 </table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">energy</span> <span class="pre">-f</span> <span class="pre">1_npt_equil.edr</span> <span class="pre">-o</span> <span class="pre">1_npt_equil.cone</span> <span class="pre">-xvg</span> <span class="pre">none</span></code></p>
+<p>コマンド実行後に出力する物理量を選択する。</p>
 </div>
 <div class="section" id="gmx-trjconv">
 <h3>2.3.7. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code><a class="headerlink" href="#gmx-trjconv" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -535,7 +536,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 <li><p>続いてタンパク質（溶質）の重心の位置をセンタリングする</p></li>
 <li><p>必要に応じて回転操作を行う</p></li>
 </ol>
-<p>の順に変換を行うと、最も普遍的に問題なく処理を行うことができるようだ。これらの変換操作を一度に行うことはできない様子。<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code>によるトラジェクトリ変換にはリファレンス構造を必要とし、<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code>の<code class="docutils literal notranslate"><span class="pre">-s</span></code>に続くオプションで指定する。通常<code class="docutils literal notranslate"><span class="pre">tpr</span></code>形式が最も都合が良い。このとき、<strong>途切れた状態で保存されている<code class="docutils literal notranslate"><span class="pre">tpr</span></code>形式を<code class="docutils literal notranslate"><span class="pre">-s</span></code>入力に使うと表示がおかしくなるので十分に注意する</strong>。したがって、<code class="docutils literal notranslate"><span class="pre">-s</span></code>に入れるリファレンス構造は、ト<u>ポロジーを作ってエネルギー最小化を始める前の<code class="docutils literal notranslate"><span class="pre">tpr</span></code>ファイル</u>が最も都合が良い。</p>
+<p>の順に変換を行うと、最も普遍的に問題なく処理を行うことができるようだ。これらの変換操作を一度に行うことはできない様子。<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code>によるトラジェクトリ変換にはリファレンス構造を必要とし、<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code>の<code class="docutils literal notranslate"><span class="pre">-s</span></code>に続くオプションで指定する。通常<code class="docutils literal notranslate"><span class="pre">tpr</span></code>形式が最も都合が良い。このとき、<strong>途切れた状態で保存されている<code class="docutils literal notranslate"><span class="pre">tpr</span></code>形式を<code class="docutils literal notranslate"><span class="pre">-s</span></code>入力に使うと表示がおかしくなるので十分に注意する</strong>。したがって、<code class="docutils literal notranslate"><span class="pre">-s</span></code>に入れるリファレンス構造は、<u>トポロジーを作ってエネルギー最小化を始める前の<code class="docutils literal notranslate"><span class="pre">tpr</span></code>ファイル</u>が最も都合が良い。</p>
 <p>ex)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmx trjconv -f input.trr -o output1.trr -s minimize.tpr -n in.ndx -pbc whole
 gmx trjconv -f output1.trr -o output2.trr -s minimize.tpr -n in.ndx -pbc cluster
