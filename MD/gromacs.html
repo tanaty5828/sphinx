@@ -104,6 +104,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#gmx-grompp">2.3.2. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gmx-solvate">2.3.3. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">solvate</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gmx-genion">2.3.4. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gmx-pdb2gmx">2.3.5. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">pdb2gmx</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gmx-energy">2.3.6. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">energy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gmx-trjconv">2.3.7. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#pbc">2.3.7.1. -pbc</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -411,9 +417,127 @@ gmx --version
 <p>neutralとconcの両方を指定する必要がある。</p>
 </div>
 <p>ex)</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr
 gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -neutral
 </pre></div>
+</div>
+</div>
+<div class="section" id="gmx-pdb2gmx">
+<h3>2.3.5. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">pdb2gmx</span></code><a class="headerlink" href="#gmx-pdb2gmx" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>構造のpdbファイルをgroファイルに変換するコマンド</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Options</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-f</code></td>
+<td align="center">変換したいpdbファイル[.pdb]</td>
+</tr>
+<tr>
+<td align="center"><code>-ff</code></td>
+<td align="center">力場名[str]</td>
+</tr>
+<tr>
+<td align="center"><code>-water</code></td>
+<td align="center">水の名前[str]</td>
+</tr>
+<tr>
+<td align="center"><code>-o</code></td>
+<td align="center">アウトプットのgroファイル名[.tpr]</td>
+</tr>
+</tbody>
+</table><p><code class="docutils literal notranslate"><span class="pre">-ff</span></code>や<code class="docutils literal notranslate"><span class="pre">-water</span></code>は指定しなくても、その後対話形式で聞かれる。</p>
+<p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">pdb2gmx</span> <span class="pre">-f</span> <span class="pre">1AKI_clean.pdb</span> <span class="pre">-o</span> <span class="pre">1AKI_processed.gro</span></code></p>
+</div>
+<div class="section" id="gmx-energy">
+<h3>2.3.6. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">energy</span></code><a class="headerlink" href="#gmx-energy" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>計算のアウトプットのedrファイル(バイナリ)をgnuplotなどで表示できるようにするコマンド。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Options</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-f</code></td>
+<td align="center">インプットのエネルギーファイル[.edr]</td>
+</tr>
+<tr>
+<td align="center"><code>-xvg</code></td>
+<td align="center">出力フォーマット(noneにするとデータのみが並ぶ)</td>
+</tr>
+<tr>
+<td align="center"><code>-o</code></td>
+<td align="center">アウトプットのxvgファイル名[.xvg]</td>
+</tr>
+</tbody>
+</table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">energy</span> <span class="pre">-f</span> <span class="pre">1_npt_equil.edr</span> <span class="pre">-o</span> <span class="pre">1_npt_equil.cone</span> <span class="pre">-xvg</span> <span class="pre">none</span></code></p>
+</div>
+<div class="section" id="gmx-trjconv">
+<h3>2.3.7. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code><a class="headerlink" href="#gmx-trjconv" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>書き出されたトラジェクトリに様々な処理をするコマンド。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Options</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-f</code></td>
+<td align="center">インプットのトラジェクトリファイル[.trr]</td>
+</tr>
+<tr>
+<td align="center"><code>-s</code></td>
+<td align="center">初期構造ファイル[.gro, .tpr]<br />-pbc molを使用する場合は.tprが必須</td>
+</tr>
+<tr>
+<td align="center"><code>-n</code></td>
+<td align="center">インデックスファイル[.ndx]</td>
+</tr>
+<tr>
+<td align="center"><code>-b</code></td>
+<td align="center">読み込むファイルの開始時間(ps)</td>
+</tr>
+<tr>
+<td align="center"><code>-e</code></td>
+<td align="center">読み込むファイルの終了時間(ps)</td>
+</tr>
+<tr>
+<td align="center"><code>-pbc</code></td>
+<td align="center">周期境界の取り扱い<br />[mol, res, atom, nojump, cluster, whole]</td>
+</tr>
+<tr>
+<td align="center"><code>-o</code></td>
+<td align="center">アウトプットのファイル名[.gro, .trr]</td>
+</tr>
+</tbody>
+</table><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>では.groも.trrも指定できる。</p>
+<p>コマンドの実行後にサブセットを指定できる。これにより、系から水を除いたトラジェクトリなどが書き出せる。</p>
+<div class="section" id="pbc">
+<h4>2.3.7.1. -pbc<a class="headerlink" href="#pbc" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>田中が色々試した結果、トラジェクトリの変換操作は、</p>
+<ol class="simple">
+<li><p>PBCによる途切れを全体的に修正する（whole）</p></li>
+<li><p>さらにそのトラジェクトリをclusterごとに集める</p></li>
+<li><p>続いてタンパク質（溶質）の重心の位置をセンタリングする</p></li>
+<li><p>必要に応じて回転操作を行う</p></li>
+</ol>
+<p>の順に変換を行うと、最も普遍的に問題なく処理を行うことができるようだ。これらの変換操作を一度に行うことはできない様子。<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code>によるトラジェクトリ変換にはリファレンス構造を必要とし、<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code>の<code class="docutils literal notranslate"><span class="pre">-s</span></code>に続くオプションで指定する。通常<code class="docutils literal notranslate"><span class="pre">tpr</span></code>形式が最も都合が良い。このとき、<strong>途切れた状態で保存されている<code class="docutils literal notranslate"><span class="pre">tpr</span></code>形式を<code class="docutils literal notranslate"><span class="pre">-s</span></code>入力に使うと表示がおかしくなるので十分に注意する</strong>。したがって、<code class="docutils literal notranslate"><span class="pre">-s</span></code>に入れるリファレンス構造は、ト<u>ポロジーを作ってエネルギー最小化を始める前の<code class="docutils literal notranslate"><span class="pre">tpr</span></code>ファイル</u>が最も都合が良い。</p>
+<p>ex)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmx trjconv -f input.trr -o output1.trr -s minimize.tpr -n in.ndx -pbc whole
+gmx trjconv -f output1.trr -o output2.trr -s minimize.tpr -n in.ndx -pbc cluster
+gmx trjconv -f output2.trr -o output3.trr -s minimize.tpr -n in.ndx -pbc mol -ur compact -center
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-pbc</span> <span class="pre">cluster</span></code>するとクラスタリングしたいグループを選ばされる。各自溶質を選ぶといいだろう。</p>
 </div>
 </div>
 </div>

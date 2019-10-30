@@ -176,8 +176,89 @@ ex) `gmx solvate -cp 1bna.aa.newbox.gro -cs tip3p.gro -o 1bna.aa.solvate.gro -p 
 
 ex) 
 
-```shell
+```bash
 gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr
 gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -neutral
 ```
+
+
+
+### `gmx pdb2gmx`
+
+構造のpdbファイルをgroファイルに変換するコマンド
+
+| Options  |            Description            |
+| :------: | :-------------------------------: |
+|   `-f`   |    変換したいpdbファイル[.pdb]    |
+|  `-ff`   |            力場名[str]            |
+| `-water` |           水の名前[str]           |
+|   `-o`   | アウトプットのgroファイル名[.tpr] |
+
+```eval_rst
+
+.. info::
+    使用できる力場は `` /gmx-install/share/gromacs/top/ `` に[力場.ff]を追加すると使えるようになる。
+    
+    charmm36なども自分で追加する必要がある。（探すのが難しかった）
+    
+```
+
+`-ff`や`-water`は指定しなくても、その後対話形式で聞かれる。
+
+ex) `gmx pdb2gmx -f 1AKI_clean.pdb -o 1AKI_processed.gro`
+
+
+
+### `gmx energy`
+
+計算のアウトプットのedrファイル(バイナリ)をgnuplotなどで表示できるようにするコマンド。
+
+| Options |                  Description                   |
+| :-----: | :--------------------------------------------: |
+|  `-f`   |      インプットのエネルギーファイル[.edr]      |
+| `-xvg`  | 出力フォーマット(noneにするとデータのみが並ぶ) |
+|  `-o`   |       アウトプットのxvgファイル名[.xvg]        |
+
+ex) `gmx energy -f 1_npt_equil.edr -o 1_npt_equil.cone -xvg none`
+
+
+
+### `gmx trjconv`
+
+書き出されたトラジェクトリに様々な処理をするコマンド。
+
+| Options |                         Description                          |
+| :-----: | :----------------------------------------------------------: |
+|  `-f`   |           インプットのトラジェクトリファイル[.trr]           |
+|  `-s`   | 初期構造ファイル[.gro, .tpr]<br />-pbc molを使用する場合は.tprが必須 |
+|  `-n`   |                  インデックスファイル[.ndx]                  |
+|  `-b`   |                読み込むファイルの開始時間(ps)                |
+|  `-e`   |                読み込むファイルの終了時間(ps)                |
+| `-pbc`  | 周期境界の取り扱い<br />[mol, res, atom, nojump, cluster, whole] |
+|  `-o`   |             アウトプットのファイル名[.gro, .trr]             |
+
+`-o`では.groも.trrも指定できる。
+
+コマンドの実行後にサブセットを指定できる。これにより、系から水を除いたトラジェクトリなどが書き出せる。
+
+#### -pbc
+
+田中が色々試した結果、トラジェクトリの変換操作は、
+
+1.  PBCによる途切れを全体的に修正する（whole）
+2.  さらにそのトラジェクトリをclusterごとに集める
+3.  続いてタンパク質（溶質）の重心の位置をセンタリングする
+4.  必要に応じて回転操作を行う
+
+の順に変換を行うと、最も普遍的に問題なく処理を行うことができるようだ。これらの変換操作を一度に行うことはできない様子。`gmx trjconv`によるトラジェクトリ変換にはリファレンス構造を必要とし、`gmx trjconv`の`-s`に続くオプションで指定する。通常`tpr`形式が最も都合が良い。このとき、**途切れた状態で保存されている`tpr`形式を`-s`入力に使うと表示がおかしくなるので十分に注意する**。したがって、`-s`に入れるリファレンス構造は、ト<u>ポロジーを作ってエネルギー最小化を始める前の`tpr`ファイル</u>が最も都合が良い。
+
+ex)
+
+```bash
+gmx trjconv -f input.trr -o output1.trr -s minimize.tpr -n in.ndx -pbc whole
+gmx trjconv -f output1.trr -o output2.trr -s minimize.tpr -n in.ndx -pbc cluster
+gmx trjconv -f output2.trr -o output3.trr -s minimize.tpr -n in.ndx -pbc mol -ur compact -center
+```
+
+`-pbc cluster`するとクラスタリングしたいグループを選ばされる。各自溶質を選ぶといいだろう。
 
