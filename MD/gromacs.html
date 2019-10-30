@@ -450,7 +450,12 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 <td align="center">アウトプットのgroファイル名[.tpr]</td>
 </tr>
 </tbody>
-</table><p><code class="docutils literal notranslate"><span class="pre">-ff</span></code>や<code class="docutils literal notranslate"><span class="pre">-water</span></code>は指定しなくても、その後対話形式で聞かれる。</p>
+</table><div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>使用できる力場は `` /gmx-install/share/gromacs/top/ `` に[力場.ff]を追加すると使えるようになる。</p>
+<p>charmm36なども自分で追加する必要がある。（探すのが難しかった）</p>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">-ff</span></code>や<code class="docutils literal notranslate"><span class="pre">-water</span></code>は指定しなくても、その後対話形式で聞かれる。</p>
 <p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">pdb2gmx</span> <span class="pre">-f</span> <span class="pre">1AKI_clean.pdb</span> <span class="pre">-o</span> <span class="pre">1AKI_processed.gro</span></code></p>
 </div>
 <div class="section" id="gmx-energy">

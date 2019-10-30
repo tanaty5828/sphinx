@@ -196,7 +196,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 
 ```eval_rst
 
-.. info::
+.. note::
     使用できる力場は `` /gmx-install/share/gromacs/top/ `` に[力場.ff]を追加すると使えるようになる。
     
     charmm36なども自分で追加する必要がある。（探すのが難しかった）
