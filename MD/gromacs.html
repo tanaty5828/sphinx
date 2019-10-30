@@ -99,6 +99,13 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Gromacs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 概要</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">2.2. インストール方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-reference">2.3. Command-line reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gmx-mdrun">2.3.1. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gmx-grompp">2.3.2. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gmx-solvate">2.3.3. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">solvate</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gmx-genion">2.3.4. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="namd.html">3. Namd</a></li>
@@ -250,6 +257,157 @@ gmx --version
 </pre></div>
 </div>
 <p>と打ち、gromacsのバージョンが正しく表示されていれば、インストール完了です。</p>
+</div>
+<div class="section" id="command-line-reference">
+<h2>2.3. Command-line reference<a class="headerlink" href="#command-line-reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>gromacsの実行バイナリ<code class="docutils literal notranslate"><span class="pre">gmx</span></code>には様々な実行バイナリがあり、ex)<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code>それぞれで必要なオプションが覚えられなかったのでここにまとめる。</p>
+<div class="section" id="gmx-mdrun">
+<h3>2.3.1. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span></code><a class="headerlink" href="#gmx-mdrun" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>実際にMD計算を実行するコマンドである。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Options</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-deffnm</code></td>
+<td align="center">デフォルトのファイル名。[str]</td>
+</tr>
+<tr>
+<td align="center"><code>-nb gpu</code></td>
+<td align="center">GPUで計算する。<br />(GPU=onでのコンパイルが必要)</td>
+</tr>
+<tr>
+<td align="center"><code>-v</code></td>
+<td align="center">標準出力へログを出す。</td>
+</tr>
+</tbody>
+</table><p>ex)<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span> <span class="pre">-deffnm</span> <span class="pre">1_100ns</span></code></p>
+</div>
+<div class="section" id="gmx-grompp">
+<h3>2.3.2. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code><a class="headerlink" href="#gmx-grompp" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>MDのインプットなどを一つのバイナリ(.tpr)としてまとめるコマンド。(the gromacs preprocessor)</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Options</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-f</code></td>
+<td align="center">MDのインプットを指定[.mdp]</td>
+</tr>
+<tr>
+<td align="center"><code>-c</code></td>
+<td align="center">作成した/前回の結果の構造ファイル[.gro]</td>
+</tr>
+<tr>
+<td align="center"><code>-t</code></td>
+<td align="center">MD計算を引き継ぐ場合[.cpt]</td>
+</tr>
+<tr>
+<td align="center"><code>-p</code></td>
+<td align="center">トポロジーファイル[.top]</td>
+</tr>
+<tr>
+<td align="center"><code>-n</code></td>
+<td align="center">インデックスファイル[.ndx]</td>
+</tr>
+<tr>
+<td align="center"><code>-o</code></td>
+<td align="center">アウトプットのtprファイル名[.tpr]</td>
+</tr>
+</tbody>
+</table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span> <span class="pre">-f</span> <span class="pre">DNA_npt.mdp</span> <span class="pre">-c</span> <span class="pre">1_npt_equil.gro</span> <span class="pre">-t</span> <span class="pre">1_npt_equil.cpt</span> <span class="pre">-p</span> <span class="pre">topol.top</span> <span class="pre">-n</span> <span class="pre">index.ndx</span> <span class="pre">-o</span> <span class="pre">2_100ns.tpr</span></code></p>
+</div>
+<div class="section" id="gmx-solvate">
+<h3>2.3.3. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">solvate</span></code><a class="headerlink" href="#gmx-solvate" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ol class="simple">
+<li><p>周期境界の箱を作成し、(<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">editconf</span></code>でもできる。)</p></li>
+<li><p>系を水などで満たす。</p></li>
+</ol>
+<p>コマンドである。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Options</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-cp</code></td>
+<td align="center">水で満たす系(溶質)の構造ファイル[.gro]</td>
+</tr>
+<tr>
+<td align="center"><code>-cs</code></td>
+<td align="center">溶媒の構造ファイル<br />TIP3Pは3点モデルなのでspc216.groでOK[.gro]</td>
+</tr>
+<tr>
+<td align="center"><code>-p</code></td>
+<td align="center">トポロジーファイル[.top]</td>
+</tr>
+<tr>
+<td align="center"><code>-box</code></td>
+<td align="center">ボックスサイズ(nm) [real real real]</td>
+</tr>
+<tr>
+<td align="center"><code>-o</code></td>
+<td align="center">アウトプットのgroファイル名[.tpr]</td>
+</tr>
+</tbody>
+</table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">solvate</span> <span class="pre">-cp</span> <span class="pre">1bna.aa.newbox.gro</span> <span class="pre">-cs</span> <span class="pre">tip3p.gro</span> <span class="pre">-o</span> <span class="pre">1bna.aa.solvate.gro</span> <span class="pre">-p</span> <span class="pre">topol.top</span></code></p>
+</div>
+<div class="section" id="gmx-genion">
+<h3>2.3.4. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span></code><a class="headerlink" href="#gmx-genion" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>系の水とイオンを交換し、指定した濃度にするコマンド。</p>
+<p>実際は<code class="docutils literal notranslate"><span class="pre">ions.mdp</span></code>から<code class="docutils literal notranslate"><span class="pre">ions.tpr</span></code>を作成し、これを用いて<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span></code>する。</p>
+<p><a class="reference download internal" download="" href="../_downloads/65178672fbb7fea2da6f4faf2fdf13d0/ions.mdp"><code class="xref download docutils literal notranslate"><span class="pre">ions.mdp</span></code></a></p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Options</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><code>-s</code></td>
+<td align="center">イオンを入れるインプット[.tpr]</td>
+</tr>
+<tr>
+<td align="center"><code>-p</code></td>
+<td align="center">トポロジーファイル[.top]</td>
+</tr>
+<tr>
+<td align="center"><code>-pname</code></td>
+<td align="center">陽イオンの名前[str]</td>
+</tr>
+<tr>
+<td align="center"><code>-nname</code></td>
+<td align="center">陰イオンの名前[str]</td>
+</tr>
+<tr>
+<td align="center"><code>-neutral</code></td>
+<td align="center">系が中性になるように<br />カウンターイオンを追加</td>
+</tr>
+<tr>
+<td align="center"><code>-conc</code></td>
+<td align="center">系の濃度(mol/liter)[real]</td>
+</tr>
+<tr>
+<td align="center"><code>-o</code></td>
+<td align="center">アウトプットのgroファイル名[.tpr]</td>
+</tr>
+</tbody>
+</table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span> <span class="pre">-f</span> <span class="pre">ions.mdp</span> <span class="pre">-c</span> <span class="pre">1AKI_solv.gro</span> <span class="pre">-p</span> <span class="pre">topol.top</span> <span class="pre">-o</span> <span class="pre">ions.tpr</span></code></p>
+<p>​      <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span> <span class="pre">-s</span> <span class="pre">ions.tpr</span> <span class="pre">-o</span> <span class="pre">1AKI_solv_ions.gro</span> <span class="pre">-p</span> <span class="pre">topol.top</span> <span class="pre">-pname</span> <span class="pre">NA</span> <span class="pre">-nname</span> <span class="pre">CL</span> <span class="pre">-neutral</span></code></p>
+</div>
 </div>
 </div>
 

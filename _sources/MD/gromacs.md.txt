@@ -82,3 +82,99 @@ gmx --version
 ```
 
 と打ち、gromacsのバージョンが正しく表示されていれば、インストール完了です。
+
+
+
+## Command-line reference
+
+gromacsの実行バイナリ`gmx`には様々な実行バイナリがあり、ex)`gmx grompp`それぞれで必要なオプションが覚えられなかったのでここにまとめる。
+
+
+
+### `gmx mdrun`
+
+実際にMD計算を実行するコマンドである。
+
+|  Options  |                    Description                    |
+| :-------: | :-----------------------------------------------: |
+| `-deffnm` |           デフォルトのファイル名。[str]           |
+| `-nb gpu` | GPUで計算する。<br />(GPU=onでのコンパイルが必要) |
+|   `-v`    |              標準出力へログを出す。               |
+
+ex)`gmx mdrun -deffnm 1_100ns`
+
+
+
+### `gmx grompp`
+
+MDのインプットなどを一つのバイナリ(.tpr)としてまとめるコマンド。(the gromacs preprocessor)
+
+| Options |               Description               |
+| :-----: | :-------------------------------------: |
+|  `-f`   |       MDのインプットを指定[.mdp]        |
+|  `-c`   | 作成した/前回の結果の構造ファイル[.gro] |
+|  `-t`   |       MD計算を引き継ぐ場合[.cpt]        |
+|  `-p`   |        トポロジーファイル[.top]         |
+|  `-n`   |       インデックスファイル[.ndx]        |
+|  `-o`   |    アウトプットのtprファイル名[.tpr]    |
+
+ex) `gmx grompp -f DNA_npt.mdp -c 1_npt_equil.gro -t 1_npt_equil.cpt -p topol.top -n index.ndx -o 2_100ns.tpr`
+
+
+
+### `gmx solvate`
+
+1. 周期境界の箱を作成し、(`gmx editconf`でもできる。)
+2. 系を水などで満たす。
+
+コマンドである。
+
+| Options |                         Description                          |
+| :-----: | :----------------------------------------------------------: |
+|  `-cp`  |            水で満たす系(溶質)の構造ファイル[.gro]            |
+|  `-cs`  | 溶媒の構造ファイル<br />TIP3Pは3点モデルなのでspc216.groでOK[.gro] |
+|  `-p`   |                   トポロジーファイル[.top]                   |
+| `-box`  |             ボックスサイズ(nm) [real real real]              |
+|  `-o`   |              アウトプットのgroファイル名[.tpr]               |
+
+ex) `gmx solvate -cp 1bna.aa.newbox.gro -cs tip3p.gro -o 1bna.aa.solvate.gro -p topol.top`
+
+
+
+### `gmx genion`
+
+系の水とイオンを交換し、指定した濃度にするコマンド。
+
+実際は`ions.mdp`から`ions.tpr`を作成し、これを用いて`gmx genion`する。
+
+```eval_rst
+
+:download:`ions.mdp <./ions.mdp>`
+
+```
+
+
+
+|  Options   |                   Description                    |
+| :--------: | :----------------------------------------------: |
+|    `-s`    |          イオンを入れるインプット[.tpr]          |
+|    `-p`    |             トポロジーファイル[.top]             |
+|  `-pname`  |               陽イオンの名前[str]                |
+|  `-nname`  |               陰イオンの名前[str]                |
+| `-neutral` | 系が中性になるように<br />カウンターイオンを追加 |
+|  `-conc`   |            系の濃度(mol/liter)[real]             |
+|    `-o`    |        アウトプットのgroファイル名[.tpr]         |
+
+```eval_rst
+
+.. warning;;
+    カウンターイオン＋特定の濃度になるようにイオンを入れる場合は、
+    
+    neutralとconcの両方を指定する必要がある。
+    
+```
+
+ex) `gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr`
+
+​      `gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -neutral`
+
