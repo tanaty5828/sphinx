@@ -405,8 +405,16 @@ gmx --version
 <td align="center">アウトプットのgroファイル名[.tpr]</td>
 </tr>
 </tbody>
-</table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span> <span class="pre">-f</span> <span class="pre">ions.mdp</span> <span class="pre">-c</span> <span class="pre">1AKI_solv.gro</span> <span class="pre">-p</span> <span class="pre">topol.top</span> <span class="pre">-o</span> <span class="pre">ions.tpr</span></code></p>
-<p>​      <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span> <span class="pre">-s</span> <span class="pre">ions.tpr</span> <span class="pre">-o</span> <span class="pre">1AKI_solv_ions.gro</span> <span class="pre">-p</span> <span class="pre">topol.top</span> <span class="pre">-pname</span> <span class="pre">NA</span> <span class="pre">-nname</span> <span class="pre">CL</span> <span class="pre">-neutral</span></code></p>
+</table><div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>カウンターイオン＋特定の濃度になるようにイオンを入れる場合は、</p>
+<p>neutralとconcの両方を指定する必要がある。</p>
+</div>
+<p>ex)</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr
+gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -neutral
+</pre></div>
+</div>
 </div>
 </div>
 </div>

@@ -167,14 +167,17 @@ ex) `gmx solvate -cp 1bna.aa.newbox.gro -cs tip3p.gro -o 1bna.aa.solvate.gro -p 
 
 ```eval_rst
 
-.. warning;;
+.. warning::
     カウンターイオン＋特定の濃度になるようにイオンを入れる場合は、
     
     neutralとconcの両方を指定する必要がある。
     
 ```
 
-ex) `gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr`
+ex) 
 
-​      `gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -neutral`
+```shell
+gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr
+gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -neutral
+```
 
