@@ -12,6 +12,6 @@ Welocome to Okazaki-Lab !!
 
 バグがあったら田中まで。
 
-.. image:: ./logo2.png
+.. image:: ./output.gif
     :align: left
 
