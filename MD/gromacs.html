@@ -98,7 +98,13 @@
 <li class="toctree-l1"><a class="reference internal" href="mdsoft.html">1. Molecular Dynamics Software</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">2. Gromacs</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. インストール方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2.2. インストール方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#gpu">2.2.1. GPU版のインストール</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.2.1.1. 東大物性研の場合</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#command-line-reference">2.3. Command-line reference</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gmx-mdrun">2.3.1. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gmx-grompp">2.3.2. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code></a></li>
@@ -263,6 +269,75 @@ gmx --version
 </pre></div>
 </div>
 <p>と打ち、gromacsのバージョンが正しく表示されていれば、インストール完了です。</p>
+<div class="section" id="gpu">
+<h3>2.2.1. GPU版のインストール<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>gromacsはGPUによる高速計算に対応している。グラフィックボードが刺さっているスパコンではこれを利用すると計算が早くなるため(できるなら)ばちこり利用しよう。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>gromacs2019にはGPUに関するバグがあるらしいので、理由がない限り2018版の利用を推奨</p>
+</div>
+<div class="section" id="id3">
+<h4>2.2.1.1. 東大物性研の場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>GPU版gromacsのインストールでは、</p>
+<ul class="simple">
+<li><p>gromacs</p></li>
+<li><p>C, C++コンパイラ(gnu)</p></li>
+<li><p>CUDA</p></li>
+<li><p>cmake</p></li>
+<li><p>intelコンパイラ</p></li>
+</ul>
+<p>これらすべての依存関係を満たす必要がある。</p>
+<p>田中が、gromacs2018-8を東大物性研にインストール成功したときのそれぞれのバージョンは、</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">module</th>
+<th align="center">version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">mpt</td>
+<td align="center">2.16</td>
+</tr>
+<tr>
+<td align="center">cuda</td>
+<td align="center">8.0</td>
+</tr>
+<tr>
+<td align="center">cmake</td>
+<td align="center">3.10.2</td>
+</tr>
+<tr>
+<td align="center">gnu</td>
+<td align="center">4.9.4</td>
+</tr>
+<tr>
+<td align="center">intel</td>
+<td align="center">16.0.8.266</td>
+</tr>
+</tbody>
+</table><p>で成功した。</p>
+<p>実際にインストールするときは一度すべてのモジュールを消して、ロードしたほうがいいだろう。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module purge <span class="c1"># moduleの初期化</span>
+module load mpt/2.16
+module load cuda/8.0
+module load cmake/3.10.2
+module load gnu/4.9.4
+module load intel/16.0.8.266
+</pre></div>
+</div>
+<p>あとは上と同様にインストールをすればいいが、cmakeのオプションは</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on -DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>on -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-2018.8/gmx_install/ -DGMX_MPI<span class="o">=</span>on -DGMX_GPU<span class="o">=</span>on
+</pre></div>
+</div>
+<p>と<code class="docutils literal notranslate"><span class="pre">-DGMX_GPU=on</span></code>を追加する。</p>
+<p>makeなどに時間がかなりかかったが、インストールは成功した。</p>
+<p>計算もできている。</p>
+<p>ちなみに、<strong>ジョブスクリプトでもモジュールをロードする必要がある</strong>ため注意。</p>
+<p>東大物性研ではジョブスクリプト中で<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">/etc/profile.d/modules.sh</span> </code>の記述がないとmoduleコマンドが使えない。</p>
+</div>
+</div>
 </div>
 <div class="section" id="command-line-reference">
 <h2>2.3. Command-line reference<a class="headerlink" href="#command-line-reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
