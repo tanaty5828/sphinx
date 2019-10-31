@@ -14,7 +14,7 @@ Welcome to VALIDATO's documentation!
 
 バグがあったら田中まで。
 
-.. image:: ../logo2.png
+.. image:: /welcome/output.gif
     :align: center
 
 
