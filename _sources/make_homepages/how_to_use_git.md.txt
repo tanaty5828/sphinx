@@ -61,13 +61,13 @@ git checkout ishikawa #ブランチの移動
 
 `varidato_source/`の中身は、内容ごとにディレクトリがわけられています。
 
-編集のテスト用に`MD/`というディレクトリがあるので(現在はない)これに入り、
+編集のテスト用に`make_homepages/sandbox.md`というファイルがあるのでここに入り、
 
-中にある`gromacs.rst`を編集してみましょう。
+中にある`sandbox.md`を編集してみましょう。
 
 ```shell
-cd MD
-vi gromacs.rst
+cd make_homepages
+vi sandbox.md
 #適当に編集…
 ```
 

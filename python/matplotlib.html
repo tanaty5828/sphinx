@@ -39,7 +39,7 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="2. MDAnalysis" href="MDAnalysis.html" />
-    <link rel="prev" title="4. Lab trip" href="../trip/trip.html" /> 
+    <link rel="prev" title="26. Lab trip" href="../trip/trip.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -110,7 +110,29 @@
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">4. Lab trip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. 見出し</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#h1">5. 見出しh1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id2">6. リスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id3">7. 番号付きリスト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id4">8. 空行、改行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id5">9. インライン表示</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id6">10. コードの挿入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id7">11. リンクの挿入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id8">12. 引用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id9">13. 画像の挿入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id10">14. 画像の挿入（サイズ指定）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id11">15. テーブルの挿入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id12">16. 文字色</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id13">17. 太字</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id14">18. 斜体</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id15">19. 打ち消し線</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id16">20. 水平線</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id17">21. 注釈</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id18">22. マークダウンのエスケープ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#rst">23. 注釈、警告(rst記法)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id19">24. その他</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html#id20">25. 参考にした、参考になるサイト</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">26. Lab trip</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Python Room</span></p>
 <ul class="current">
@@ -197,104 +219,13 @@
 <div class="section" id="python">
 <h2>1.1. 便利なpythonスクリプト<a class="headerlink" href="#python" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下は田中が作成したすぐにグラフのプロットができるスクリプトである。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">argparse</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.family&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Spica Neue&quot;</span>      <span class="c1">#全体のフォントを設定</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.direction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;in&quot;</span>               <span class="c1">#x軸の目盛線を内向きへ</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.direction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;in&quot;</span>               <span class="c1">#y軸の目盛線を内向きへ</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.minor.visible&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>           <span class="c1">#x軸補助目盛りの追加</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.minor.visible&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>           <span class="c1">#y軸補助目盛りの追加</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.major.width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>              <span class="c1">#x軸主目盛り線の線幅</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.major.width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>              <span class="c1">#y軸主目盛り線の線幅</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.minor.width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>              <span class="c1">#x軸補助目盛り線の線幅</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.minor.width&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>              <span class="c1">#y軸補助目盛り線の線幅</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.major.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>                <span class="c1">#x軸主目盛り線の長さ</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.major.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>                <span class="c1">#y軸主目盛り線の長さ</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;xtick.minor.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>                 <span class="c1">#x軸補助目盛り線の長さ</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;ytick.minor.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>                 <span class="c1">#y軸補助目盛り線の長さ</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;font.size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>                       <span class="c1">#フォントの大きさ</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;axes.linewidth&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.5</span>                 <span class="c1">#囲みの太さ</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.markerscale&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.fancybox&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.framealpha&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;legend.edgecolor&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.grid&#39;</span><span class="p">]</span><span class="o">=</span><span class="bp">True</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;grid.linestyle&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;--&#39;</span>
-<span class="c1"># plt.rcParams[&#39;grid.linewidth&#39;] = 0.3</span>
-
-<span class="c1"># plt.figure(dpi=200)                 # size of figure, resolution</span>
-<span class="c1">#</span>
-<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Fast plot like gnuplot!&quot;</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;i_files&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;are ploted file.&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s2">&quot;*&quot;</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-xr&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;x_range ex) -10:10, :100&quot;</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-yr&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;y_range ex) -10:10, :100&quot;</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-e&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;plot every # ex) 50&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;-pn&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&quot;picture name : ex) dihedral1&quot;</span><span class="p">)</span>
-<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
-
-<span class="n">plot_every</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">e</span><span class="p">)</span>
-<span class="n">plot_files</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># check file</span>
-<span class="k">for</span> <span class="n">i_file</span> <span class="ow">in</span> <span class="n">args</span><span class="o">.</span><span class="n">i_files</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">i_file</span><span class="p">):</span>
-        <span class="n">plot_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{i_file}&quot;</span><span class="p">))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Error : {i_file} can&#39;t find.&quot;</span><span class="p">)</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-<span class="c1"># plot_setting</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">9</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">wspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">hspace</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">j_filename</span><span class="p">,</span> <span class="n">j_file</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">i_files</span><span class="p">,</span><span class="n">plot_files</span><span class="p">):</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">j_file</span><span class="p">[::</span><span class="n">plot_every</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">j_file</span><span class="p">[::</span><span class="n">plot_every</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">f</span><span class="s2">&quot;{j_filename}&quot;</span><span class="p">)</span>
-
-<span class="c1"># xrange set</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">x_ran</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">xr</span>
-    <span class="c1"># print(int(x_ran.split(&quot;:&quot;)[1]))</span>
-<span class="c1">## start</span>
-    <span class="k">if</span> <span class="n">x_ran</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;:&quot;</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">left</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x_ran</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="k">elif</span> <span class="n">x_ran</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;:&quot;</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">right</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x_ran</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x_ran</span> <span class="o">=</span> <span class="n">x_ran</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">left</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x_ran</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">right</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x_ran</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="c1"># yrange set</span>
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">y_ran</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">yr</span>
-<span class="c1">## start</span>
-    <span class="k">if</span> <span class="n">y_ran</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;:&quot;</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y_ran</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="k">elif</span> <span class="n">y_ran</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;:&quot;</span><span class="p">:</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">top</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y_ran</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">y_ran</span> <span class="o">=</span> <span class="n">y_ran</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y_ran</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">top</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">y_ran</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="c1"># save picture</span>
-<span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">pn</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;{args.pn}.png&quot;</span><span class="p">)</span>
+<p>git からダウンロードできるようにしたので、適当なディレクトリ（ホームディレクトリを推奨）に移動し、</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+git clone https://github.com/tanaty5828/pymodules.git
 </pre></div>
 </div>
-<p>これを<code class="docutils literal notranslate"><span class="pre">~/pymodules/fplot.py</span></code>などとして保存し、エイリアスを当てておくと便利。</p>
+<p>とすると、<code class="docutils literal notranslate"><span class="pre">~/pymodules/</span></code>に様々なpythonスクリプトがダウンロードされる。</p>
+<p>これにエイリアスを当てると便利。</p>
 <p>(以下を<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>に追記)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">fplot</span><span class="o">=</span><span class="s1">&#39;python ~/pymodules/fplot.py&#39;</span>
 </pre></div>
@@ -311,6 +242,7 @@
 </div>
 <p><img alt="../_images/Figure_1.png" src="../_images/Figure_1.png" /></p>
 <p>となる。</p>
+<p>様々なオプションが利用できるので、<code class="docutils literal notranslate"><span class="pre">fplot</span> <span class="pre">-h</span></code>とするとその詳細が見られる。</p>
 </div>
 </div>
 
@@ -325,7 +257,7 @@
         <a href="MDAnalysis.html" class="btn btn-neutral float-right" title="2. MDAnalysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../trip/trip.html" class="btn btn-neutral float-left" title="4. Lab trip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../trip/trip.html" class="btn btn-neutral float-left" title="26. Lab trip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

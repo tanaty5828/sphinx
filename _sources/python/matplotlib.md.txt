@@ -10,107 +10,18 @@ gnuplot同様に、グラフのプロットができる**python**のライブラ
 
 以下は田中が作成したすぐにグラフのプロットができるスクリプトである。
 
-```python
-import matplotlib.pyplot as plt
-import argparse
-import numpy as np
-import os
+git からダウンロードできるようにしたので、適当なディレクトリ（ホームディレクトリを推奨）に移動し、
 
-
-plt.rcParams["font.family"] = "Spica Neue"      #全体のフォントを設定
-plt.rcParams["xtick.direction"] = "in"               #x軸の目盛線を内向きへ
-plt.rcParams["ytick.direction"] = "in"               #y軸の目盛線を内向きへ
-plt.rcParams["xtick.minor.visible"] = True           #x軸補助目盛りの追加
-plt.rcParams["ytick.minor.visible"] = True           #y軸補助目盛りの追加
-plt.rcParams["xtick.major.width"] = 1.5              #x軸主目盛り線の線幅
-plt.rcParams["ytick.major.width"] = 1.5              #y軸主目盛り線の線幅
-plt.rcParams["xtick.minor.width"] = 1.0              #x軸補助目盛り線の線幅
-plt.rcParams["ytick.minor.width"] = 1.0              #y軸補助目盛り線の線幅
-plt.rcParams["xtick.major.size"] = 10                #x軸主目盛り線の長さ
-plt.rcParams["ytick.major.size"] = 10                #y軸主目盛り線の長さ
-plt.rcParams["xtick.minor.size"] = 5                 #x軸補助目盛り線の長さ
-plt.rcParams["ytick.minor.size"] = 5                 #y軸補助目盛り線の長さ
-plt.rcParams["font.size"] = 14                       #フォントの大きさ
-plt.rcParams["axes.linewidth"] = 1.5                 #囲みの太さ
-
-plt.rcParams["legend.markerscale"] = 2
-plt.rcParams["legend.fancybox"] = False
-plt.rcParams["legend.framealpha"] = 1
-plt.rcParams["legend.edgecolor"] = 'black'
-
-plt.rcParams['axes.grid']=True
-plt.rcParams['grid.linestyle']='--'
-# plt.rcParams['grid.linewidth'] = 0.3
-
-# plt.figure(dpi=200)                 # size of figure, resolution
-#
-parser = argparse.ArgumentParser(description="Fast plot like gnuplot!")
-parser.add_argument("i_files", help="are ploted file.", nargs="*")
-parser.add_argument("-xr", help="x_range ex) -10:10, :100")
-parser.add_argument("-yr", help="y_range ex) -10:10, :100")
-parser.add_argument("-e", help="plot every # ex) 50", default=1)
-parser.add_argument("-pn", help="picture name : ex) dihedral1")
-args = parser.parse_args()
-
-plot_every = int(args.e)
-plot_files = []
-
-# check file
-for i_file in args.i_files:
-    if os.path.exists(i_file):
-        plot_files.append(np.loadtxt(f"{i_file}"))
-    else:
-        print(f"Error : {i_file} can't find.")
-        os.sys.exit()
-# plot_setting
-fig = plt.figure(figsize=(16,9))
-plt.subplots_adjust(wspace=0.3, hspace=0.3)
-ax = fig.add_subplot(1,1,1)
-
-for j_filename, j_file in zip(args.i_files,plot_files):
-    ax.plot(j_file[::plot_every, 0], j_file[::plot_every, 1], label=f"{j_filename}")
-
-# xrange set
-try:
-    x_ran = args.xr
-    # print(int(x_ran.split(":")[1]))
-## start
-    if x_ran[-1] == ":":
-        ax.set_xlim(left = int(x_ran.split(":")[0]))
-    elif x_ran[0] == ":":
-        ax.set_xlim(right = int(x_ran.split(":")[1]))
-    else:
-        x_ran = x_ran.split(":")
-        ax.set_xlim(left = int(x_ran[0]), right = int(x_ran[1]))
-except:
-    pass
-
-# yrange set
-try:
-    y_ran = args.yr
-## start
-    if y_ran[-1] == ":":
-        ax.set_ylim(bottom = int(y_ran.split(":")[0]))
-    elif y_ran[0] == ":":
-        ax.set_ylim(top = int(y_ran.split(":")[1]))
-    else:
-        y_ran = y_ran.split(":")
-        ax.set_ylim(bottom = int(y_ran[0]), top = int(y_ran[1]))
-except:
-    pass
-
-ax.legend(loc="best")
-fig.tight_layout()
-
-# save picture
-if args.pn == None:
-    plt.show()
-else:
-    plt.savefig(f"{args.pn}.png")
-
+```shell
+cd ~
+git clone https://github.com/tanaty5828/pymodules.git
 ```
 
-これを`~/pymodules/fplot.py`などとして保存し、エイリアスを当てておくと便利。
+とすると、`~/pymodules/`に様々なpythonスクリプトがダウンロードされる。
+
+
+
+これにエイリアスを当てると便利。
 
 (以下を`~/.bashrc`に追記)
 
@@ -137,3 +48,5 @@ fplot RZ_C11_POPC.dat RZ_C11_POPI.dat
 ![](./Figure_1.png)
 
 となる。
+
+様々なオプションが利用できるので、`fplot -h`とするとその詳細が見られる。

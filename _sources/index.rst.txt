@@ -57,6 +57,7 @@ Welcome to VALIDATO's documentation!
    /slack/insto
    /device/main
    /make_homepages/how_to_use_git
+   /make_homepages/sandbox
    /trip/trip
 
 .. toctree::
