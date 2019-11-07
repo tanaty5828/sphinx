@@ -6,7 +6,7 @@
 Welcome to SIEGE !!
 ====================================
 
-Siege  - **S**\ imulation basics **i**\ n **e**\ nclosed **g**\ roup okazaki for **e**\ veryday use.
+Siege  - \ **S**\ imulation basics\ **i**\ n\ **e**\ nclosed \ **g**\ roup okazaki for \ **e**\ veryday use.
 
 岡崎研究室のページヘようこそ！！
 
