@@ -6,6 +6,8 @@
 Welcome to SIEGE !!
 ====================================
 
+Siege  - **S**imulation basics **i**n **e**nclosed **g**roup okazaki for **e**veryday use.
+
 岡崎研究室のページヘようこそ！！
 
 このページは、岡崎研究室に配属されたけど
