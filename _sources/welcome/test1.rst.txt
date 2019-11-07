@@ -8,8 +8,6 @@ Welocome to Okazaki-Lab !!
 
 パソコンなんて使ったことないよ〜って人のためのチュートリアルページです！
 
-（開発中）
-
 バグがあったら田中まで。
 
 .. image:: ./output.gif

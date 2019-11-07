@@ -1,9 +1,9 @@
-.. VARIDATO documentation master file, created by
+.. SIEGE documentation master file, created by
    sphinx-quickstart on Fri May 24 13:06:13 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to VALIDATO's documentation!
+Welcome to SIEGE !!
 ====================================
 
 岡崎研究室のページヘようこそ！！
@@ -13,10 +13,6 @@ Welcome to VALIDATO's documentation!
 パソコンなんて使ったことないよ〜って人のためのチュートリアルページです！
 
 バグがあったら田中まで。
-
-.. image:: /welcome/output.gif
-    :align: center
-
 
 .. toctree::
    :maxdepth: 2
