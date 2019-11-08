@@ -38,7 +38,7 @@ gitはオリジナルを編集せずに自分だけで編集ができ、後で�
 
 ```shell
 cd ~/Document/web/ #ディレクトリの移動
-git clone https://github.com/tanaty5828/varidato_source #データのダウンロード
+git clone https://github.com/tanaty5828/siege_source #データのダウンロード
 ```
 
 
@@ -50,7 +50,7 @@ git clone https://github.com/tanaty5828/varidato_source #データのダウン�
 わかりやすく言うと、変更するからオリジナルを残してね〜という意味になります。
 
 ```shell
-cd varidato_source #ディレクトリの移動
+cd siege_source #ディレクトリの移動
 git branch ishikawa #ブランチの作成、名前は自由です。
 git checkout ishikawa #ブランチの移動
 ```
@@ -59,7 +59,7 @@ git checkout ishikawa #ブランチの移動
 
 ### 編集をする（上図３）
 
-`varidato_source/`の中身は、内容ごとにディレクトリがわけられています。
+`siege_source/`の中身は、内容ごとにディレクトリがわけられています。
 
 編集のテスト用に`make_homepages/sandbox.md`というファイルがあるのでここに入り、
 
@@ -78,10 +78,10 @@ vi sandbox.md
 ここまでの編集をネットに送ります。
 
 ```shell
-cd ~/Document/web/varidato_source/ #varidato_source/まで戻る。
+cd ~/Document/web/siege_source/ #siege_source/まで戻る。
 git add . #変更履歴の保存
 git commit -m "test" #どのような変更を行ったかのメモ
-git push https://github.com/tanaty5828/varidato_source hishikawa #送る。"hishikawa"はブランチを分けたときの名前にする。
+git push https://github.com/tanaty5828/siege_source hishikawa #送る。"hishikawa"はブランチを分けたときの名前にする。
 ## githubのUsernameとpasswordを入力
 ```
 
@@ -100,7 +100,7 @@ git push https://github.com/tanaty5828/varidato_source hishikawa #送る。"hish
 その時は、`fetch`と`pull`を利用しリモートの更新をダウンロードします。
 
 ```shell
-cd ~/Document/web/varidato_source/ #varidato_source/まで戻る。
+cd ~/Document/web/siege_source/ #siege_source/まで戻る。
 git fetch -p # 更新を確認。リモートの更新情報が表示される。
 git pull origin master # リモートで更新されたデータをダウンロード
 ```
@@ -131,7 +131,7 @@ git pull origin master # リモートで更新されたデータをダウンロ�
 
 ```shell
 .
-└── varidato_source
+└── siege_source
     ├── device
     ├── linux
     ├── make_homepages

@@ -233,7 +233,7 @@
 <p>わかりやすく言うと、ネットワーク上にあるファイルを持ってくるだけです。</p>
 <p>今回は、<code class="docutils literal notranslate"><span class="pre">~/Document/web</span></code>で作業しますが、実際はどこでも構いません。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/ <span class="c1">#ディレクトリの移動</span>
-git clone https://github.com/tanaty5828/varidato_source <span class="c1">#データのダウンロード</span>
+git clone https://github.com/tanaty5828/siege_source <span class="c1">#データのダウンロード</span>
 </pre></div>
 </div>
 </div>
@@ -241,7 +241,7 @@ git clone https://github.com/tanaty5828/varidato_source <span class="c1">#デー
 <h3>3.2.2. ブランチを分ける（上図２）<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>このままではオリジナルが変更されてしまうので、ブランチを分けます。</p>
 <p>わかりやすく言うと、変更するからオリジナルを残してね〜という意味になります。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> varidato_source <span class="c1">#ディレクトリの移動</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> siege_source <span class="c1">#ディレクトリの移動</span>
 git branch ishikawa <span class="c1">#ブランチの作成、名前は自由です。</span>
 git checkout ishikawa <span class="c1">#ブランチの移動</span>
 </pre></div>
@@ -249,7 +249,7 @@ git checkout ishikawa <span class="c1">#ブランチの移動</span>
 </div>
 <div class="section" id="id4">
 <h3>3.2.3. 編集をする（上図３）<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">varidato_source/</span></code>の中身は、内容ごとにディレクトリがわけられています。</p>
+<p><code class="docutils literal notranslate"><span class="pre">siege_source/</span></code>の中身は、内容ごとにディレクトリがわけられています。</p>
 <p>編集のテスト用に<code class="docutils literal notranslate"><span class="pre">make_homepages/sandbox.md</span></code>というファイルがあるのでここに入り、</p>
 <p>中にある<code class="docutils literal notranslate"><span class="pre">sandbox.md</span></code>を編集してみましょう。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> make_homepages
@@ -261,10 +261,10 @@ vi sandbox.md
 <div class="section" id="push-4">
 <h3>3.2.4. pushする（上図４）<a class="headerlink" href="#push-4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ここまでの編集をネットに送ります。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/varidato_source/ <span class="c1">#varidato_source/まで戻る。</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/siege_source/ <span class="c1">#siege_source/まで戻る。</span>
 git add . <span class="c1">#変更履歴の保存</span>
 git commit -m <span class="s2">&quot;test&quot;</span> <span class="c1">#どのような変更を行ったかのメモ</span>
-git push https://github.com/tanaty5828/varidato_source hishikawa <span class="c1">#送る。&quot;hishikawa&quot;はブランチを分けたときの名前にする。</span>
+git push https://github.com/tanaty5828/siege_source hishikawa <span class="c1">#送る。&quot;hishikawa&quot;はブランチを分けたときの名前にする。</span>
 <span class="c1">## githubのUsernameとpasswordを入力</span>
 </pre></div>
 </div>
@@ -278,7 +278,7 @@ git push https://github.com/tanaty5828/varidato_source hishikawa <span class="c1
 <h3>3.2.6. 新しい編集<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>自分の更新から時間が経っていると、リモートの更新がローカルに反映されてないことがあります。</p>
 <p>その時は、<code class="docutils literal notranslate"><span class="pre">fetch</span></code>と<code class="docutils literal notranslate"><span class="pre">pull</span></code>を利用しリモートの更新をダウンロードします。</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/varidato_source/ <span class="c1">#varidato_source/まで戻る。</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/Document/web/siege_source/ <span class="c1">#siege_source/まで戻る。</span>
 git fetch -p <span class="c1"># 更新を確認。リモートの更新情報が表示される。</span>
 git pull origin master <span class="c1"># リモートで更新されたデータをダウンロード</span>
 </pre></div>
@@ -305,7 +305,7 @@ git pull origin master <span class="c1"># リモートで更新されたデー�
 <div class="section" id="id7">
 <h2>3.4. ディレクトリの構成<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.
-└── varidato_source
+└── siege_source
     ├── device
     ├── linux
     ├── make_homepages
