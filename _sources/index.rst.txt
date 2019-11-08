@@ -41,6 +41,7 @@ ________________________________________________________________________________
    /linux/linux1
    /linux/linuxq1
    /linux/linuxcommand
+   /linux/vim_0
 
 .. toctree::
    :maxdepth: 2
