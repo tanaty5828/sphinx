@@ -103,9 +103,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">4.4. 使い方</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">4.4.1. 最低限</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">4.4.1. 超初心者</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id6">4.4.1.1. モード</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#id7">4.4.1.2. キーバインド</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">4.4.2. 初心者</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id9">4.4.2.1. キーバインド</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">4.4.2.2. キーバインド（カーソルの移動に関して）</a></li>
 </ul>
 </li>
 </ul>
@@ -263,14 +268,14 @@ brew install vim
 <div class="section" id="id4">
 <h2>4.4. 使い方<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サンプルのテキストファイルを用意したので、各自適当な場所にダウンロードしてほしい。</p>
-<p><code class="xref download docutils literal notranslate"><span class="pre">sample.dat</span></code></p>
+<p><a class="reference download internal" download="" href="../_downloads/2cffdf78bdea6f8eb83d38c451f9a379/sample.dat"><code class="xref download docutils literal notranslate"><span class="pre">sample.dat</span></code></a></p>
 <p>viを起動するためには、<code class="docutils literal notranslate"><span class="pre">sample.dat</span></code>があるディレクトリに行って、</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi sample.dat
 </pre></div>
 </div>
 <p>で起動できる。</p>
 <div class="section" id="id5">
-<h3>4.4.1. 最低限<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.4.1. 超初心者<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id6">
 <h4>4.4.1.1. モード<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>vimにはモードという概念があります。</p>
@@ -279,7 +284,14 @@ brew install vim
 <li><p>文字入力用の<strong>インサートモード</strong></p></li>
 </ul>
 <p>初心者は自分がどちらのモードにいるかわからなくなりがちです。
-わからなくなったら<u><strong>esc</strong></u>を連打するとノーマルモードに戻ることができます。</p>
+わからなくなったら<strong>esc</strong>を連打するとノーマルモードに戻ることができます。</p>
+<p>手順は、</p>
+<ol class="simple">
+<li><p>（ノーマルモードで）編集したい場所まで移動</p></li>
+<li><p><strong>i</strong>を押下してインサートモードに入り、文章を編集</p></li>
+<li><p><strong>esc</strong>を押下してノーマルモードに戻る。</p></li>
+</ol>
+<p>これを繰り返して文章を編集していきます。</p>
 </div>
 <div class="section" id="id7">
 <h4>4.4.1.2. キーバインド<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -292,23 +304,81 @@ brew install vim
 </thead>
 <tbody>
 <tr>
-<td align="center"><strong><u>i</u></strong></td>
+<td align="center"><strong>i</strong></td>
 <td align="center">インサートモードに入る</td>
 </tr>
 <tr>
-<td align="center"><strong><u>:wq</u></strong></td>
+<td align="center"><strong>:wq</strong></td>
 <td align="center">ファイルを保存して終了する</td>
 </tr>
 <tr>
-<td align="center"><strong><u>:q!</u></strong></td>
+<td align="center"><strong>:q!</strong></td>
 <td align="center">ファイルを保存せず終了する</td>
 </tr>
 <tr>
-<td align="center"><strong><u>esc</u></strong></td>
-<td align="center">困ったら連打するとノーマルモードになる。</td>
+<td align="center"><strong>esc</strong></td>
+<td align="center">困ったら連打するとノーマルモードになる。<br />インサートモードを抜ける</td>
 </tr>
 </tbody>
 </table><p>とりあえずこれらを利用することで、テキストの編集や保存ができると思います。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>4.4.2. 初心者<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>超初心者のキーバインドを覚えたら、次はコピペや移動などを覚えよう。</p>
+<div class="section" id="id9">
+<h4>4.4.2.1. キーバインド<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>dd</strong></td>
+<td align="center">１行切り取り</td>
+</tr>
+<tr>
+<td align="center"><strong>yy</strong></td>
+<td align="center">１行コピー</td>
+</tr>
+<tr>
+<td align="center"><strong>p</strong></td>
+<td align="center">コピーしたものを貼り付け</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id10">
+<h4>4.4.2.2. キーバインド（カーソルの移動に関して）<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>k</strong></td>
+<td align="center">↑</td>
+</tr>
+<tr>
+<td align="center"><strong>j</strong></td>
+<td align="center">↓</td>
+</tr>
+<tr>
+<td align="center"><strong>h</strong></td>
+<td align="center">→</td>
+</tr>
+<tr>
+<td align="center"><strong>l</strong></td>
+<td align="center">←</td>
+</tr>
+</tbody>
+</table><p><img alt="../_images/vim_move.png" src="../_images/vim_move.png" /></p>
+<p>おそらく最近のvimでは、矢印キーを使っても移動は可能です。しかし、この移動法を覚えることで入力速度は格段に向上します。ある程度文字入力ができるようになったら、矢印を使わずに移動の練習をしてみてください。</p>
 </div>
 </div>
 </div>
