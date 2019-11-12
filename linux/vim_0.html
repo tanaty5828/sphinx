@@ -135,7 +135,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#id19">4.4.5.5. チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#phantasm">4.4.6. Phantasm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#phantasm">4.4.6. Phantasm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">4.4.6.1. インストール</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id23">4.4.6.2. プラグイン</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id24">4.4.6.3. .vimrc</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -663,6 +668,132 @@ brew install vim
 <p>これ以上のカスタマイズは通常のvimでは不可能だろう。しかし、プラグインを導入することでさらなるカスタマイズが可能になる。</p>
 <p>(参考図)</p>
 <p><img alt="../_images/vim_custom.png" src="../_images/vim_custom.png" /></p>
+<p>ただし、いろいろ理解しておくこともあるため、注意も必要である。</p>
+<div class="section" id="id20">
+<h4>4.4.6.1. インストール<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>お手持ちの環境で、<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">--version</span></code>とするといろいろ表示されるが、<code class="docutils literal notranslate"><span class="pre">-python</span></code>や<code class="docutils literal notranslate"><span class="pre">-python3</span></code>となっているだろうか？</p>
+<p>これは、pythonなどを無効にしてインストールしたという意味である。これから導入するプラグインは、これらが有効であるという前提のものが多い。このため、先にvimのインストールをし直しておく。</p>
+<div class="section" id="id21">
+<h5>4.4.6.1.1. linux<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+sudo yum install https://centos7.iuscommunity.org/ius-release.rpm <span class="c1"># リポジトリ追加</span>
+sudo yum install openssl-devel readline-devel zlib-devel <span class="c1"># リポジトリ追加</span>
+
+sudo yum install perl-ExtUtils-Embed <span class="c1"># パッケージの追加</span>
+sudo yum install lua-devel ncurses-devel <span class="c1"># パッケージの追加</span>
+sudo yum install python-devel python36u python36u-libs python36u-devel python36u-pip <span class="c1"># パッケージの追加</span>
+sudo yum install vim python cmake go mono rust
+curl -sL https://rpm.nodesource.com/setup_11.x <span class="p">|</span> bash - <span class="c1"># nodejsのみ別途インストール</span>
+sudo yum install nodejs
+
+sudo yum remove vim-enhanced <span class="c1"># 古いvimを消す</span>
+
+<span class="nb">cd</span> /tmp
+git clone https://github.com/vim/vim
+<span class="nb">cd</span> vim
+
+sudo ./configure <span class="se">\</span>
+   --enable-fail-if-missing <span class="se">\</span>
+   --with-features<span class="o">=</span>huge <span class="se">\</span>
+   --disable-selinux <span class="se">\</span>
+   --enable-luainterp <span class="se">\</span>
+   --enable-perlinterp <span class="se">\</span>
+   --enable-pythoninterp<span class="o">=</span>dynamic <span class="se">\</span>
+   --with-python-config-dir<span class="o">=</span>/usr/lib64/python2.7/config <span class="se">\</span>
+   --enable-python3interp<span class="o">=</span>dynamic <span class="se">\</span>
+   --with-python3-config-dir<span class="o">=</span>/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu <span class="se">\</span>
+   --enable-cscope <span class="se">\</span>
+   --enable-fontset <span class="se">\</span>
+   --enable-multibyte <span class="se">\</span>
+   <span class="nv">vi_cv_path_python3</span><span class="o">=</span>/usr/bin/python3.6
+
+sudo make
+sudo make install
+</pre></div>
+</div>
+<p>これで、vimがインストールされたはずだ。</p>
+<p><code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">--version</span></code>としたときに</p>
+<ul class="simple">
+<li><p>python</p></li>
+<li><p>python3</p></li>
+<li><p>lua</p></li>
+</ul>
+<p>これら3つが+になっていることを確認してほしい。</p>
+</div>
+<div class="section" id="id22">
+<h5>4.4.6.1.2. mac<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew update
+brew install vim python cmake go mono node rust
+</pre></div>
+</div>
+<p>だけでいけると思う。</p>
+<p>これで、vimがインストールされたはずだ。</p>
+<p><code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">--version</span></code>としたときに</p>
+<ul class="simple">
+<li><p>python</p></li>
+<li><p>python3</p></li>
+<li><p>lua</p></li>
+</ul>
+<p>これら3つが+になっていることを確認してほしい。</p>
+</div>
+</div>
+<div class="section" id="id23">
+<h4>4.4.6.2. プラグイン<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>CentOSがyum(CentOS8からはdnf)でパッケージをインストールできるように、vimにもプラグインを追加できるマネージャーがある。</p>
+<p>代表的なものは、</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/junegunn/vim-plug">vim-plug</a></p></li>
+<li><p><a class="reference external" href="https://github.com/VundleVim/Vundle.vim">Vundle</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tpope/vim-pathogen">vim-pathogen</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Shougo/neobundle.vim">NeoBundle</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Shougo/dein.vim">dein.vim</a></p></li>
+</ul>
+<p>などである。ネットで検索するとNeoBundleなどの記事が多く見つかると思うが、NeoBundleは作者がdein.vimに乗り換えるようアナウンスしている。</p>
+<p>ここでは軽くて記述が楽なvim-plugを使うことにする。</p>
+<div class="section" id="vim-plug">
+<h5>4.4.6.2.1. vim-plugの使い方<a class="headerlink" href="#vim-plug" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p>vimrcへ追記する必要がある
+<code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">plug#begin()</span></code>
+と
+<code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">plug#end()</span></code>
+の間に
+<code class="docutils literal notranslate"><span class="pre">Plug</span> <span class="pre">~</span></code>のようにプラグインを追加していくシステムのようです。
+例えばこんな感じ</p>
+<div class="highlight-vim:.vimrc notranslate"><div class="highlight"><pre><span></span>call plug#begin()
+Plug &#39;tpope/vim-sensible&#39;
+call plug#end()
+</pre></div>
+</div>
+<p>.vimrcを保存して終了</p>
+<p>.vimrcに記述しただけではプラグインが反映されないので、Installする必要があります。
+どうするかというと、、、</p>
+<p>vimを起動しコマンドで
+<code class="docutils literal notranslate"><span class="pre">:PlugInstall</span></code>
+と叩くと各プラグインのインストールが開始します。</p>
+<p>これで正常終了した感じで表示されればプラグインの機能が使えるようになります。</p>
+</div>
+</div>
+<div class="section" id="id24">
+<h4>4.4.6.3. .vimrc<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>筆者の<code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>は以下のようにダウンロード出来る。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+mv .vimrc .vimrc_backup <span class="c1"># 現在の.vimrcをバックアップ</span>
+wget https://raw.githubusercontent.com/tanaty5828/dotfiles/master/.vimrc
+</pre></div>
+</div>
+<p>このあと、以下のコマンドを実行する必要がある。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/.vim/plugged/YouCompleteMe/
+/usr/bin/python3.6 ./Install.py -all
+vi +PlugInstall +qall
+</pre></div>
+</div>
+<p>おそらく最強のvimが完成するだろう</p>
+<div class="section" id="id25">
+<h5>4.4.6.3.1. 注意<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<p>この.vimrcではアイコンや特殊文字を使うため、ターミナルフォントにそれらが使えるものを指定したほうがいい。筆者が独自に合成したフォントは以下。</p>
+<p><code class="xref download docutils literal notranslate"><span class="pre">RictyDiminishedDiscordRegular</span></code></p>
+</div>
+</div>
 </div>
 </div>
 </div>

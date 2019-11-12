@@ -6,7 +6,7 @@
   * これからプログラムを書く方
   * これからvimを使い始めようという人
   * vimにが使いづらいと思っている人
-* **期待される成果** 
+* **期待される成果**
   * vimが少しでも好きになる
   * vim教に入信できる
   * emacs, VSCodeを捨てることができる。
@@ -236,7 +236,7 @@ vimには数多いコマンドがある。ここでは知っておくと便利�
 .. warning::
 
     しかしこれらの設定は、vimを終了すると失われる。
-    
+
 ```
 
 これらの設定をデフォルトにするためには、ホームディレクトリに`.vimrc`というファイルを配置し、そこに設定を書き込むことで毎回反映される。
@@ -387,3 +387,164 @@ vimで文字を置換する基本のコマンドは、`:s/置換前/置換後/`�
 (参考図)
 
 ![](./vim_custom.png)
+
+
+
+ただし、いろいろ理解しておくこともあるため、注意も必要である。
+
+
+
+#### インストール
+
+お手持ちの環境で、`vim --version`とするといろいろ表示されるが、`-python`や`-python3`となっているだろうか？
+
+これは、pythonなどを無効にしてインストールしたという意味である。これから導入するプラグインは、これらが有効であるという前提のものが多い。このため、先にvimのインストールをし直しておく。
+
+##### linux
+
+```bash
+cd ~
+sudo yum install https://centos7.iuscommunity.org/ius-release.rpm # リポジトリ追加
+sudo yum install openssl-devel readline-devel zlib-devel # リポジトリ追加
+
+sudo yum install perl-ExtUtils-Embed # パッケージの追加
+sudo yum install lua-devel ncurses-devel # パッケージの追加
+sudo yum install python-devel python36u python36u-libs python36u-devel python36u-pip # パッケージの追加
+sudo yum install vim python cmake go mono rust
+curl -sL https://rpm.nodesource.com/setup_11.x | bash - # nodejsのみ別途インストール
+sudo yum install nodejs
+
+sudo yum remove vim-enhanced # 古いvimを消す
+
+cd /tmp
+git clone https://github.com/vim/vim
+cd vim
+
+sudo ./configure \
+   --enable-fail-if-missing \
+   --with-features=huge \
+   --disable-selinux \
+   --enable-luainterp \
+   --enable-perlinterp \
+   --enable-pythoninterp=dynamic \
+   --with-python-config-dir=/usr/lib64/python2.7/config \
+   --enable-python3interp=dynamic \
+   --with-python3-config-dir=/usr/lib64/python3.6/config-3.6m-x86_64-linux-gnu \
+   --enable-cscope \
+   --enable-fontset \
+   --enable-multibyte \
+   vi_cv_path_python3=/usr/bin/python3.6
+
+sudo make
+sudo make install
+```
+
+これで、vimがインストールされたはずだ。
+
+`vim --version`としたときに
+
+- python
+- python3
+- lua
+
+これら3つが+になっていることを確認してほしい。
+
+
+
+##### mac
+
+```bash
+brew update
+brew install vim python cmake go mono node rust
+```
+
+だけでいけると思う。
+
+
+
+これで、vimがインストールされたはずだ。
+
+`vim --version`としたときに
+
+- python
+- python3
+- lua
+
+これら3つが+になっていることを確認してほしい。
+
+
+
+#### プラグイン
+
+CentOSがyum(CentOS8からはdnf)でパッケージをインストールできるように、vimにもプラグインを追加できるマネージャーがある。
+
+代表的なものは、
+
+- [vim-plug](https://github.com/junegunn/vim-plug)
+- [Vundle](https://github.com/VundleVim/Vundle.vim)
+- [vim-pathogen](https://github.com/tpope/vim-pathogen)
+- [NeoBundle](https://github.com/Shougo/neobundle.vim)
+- [dein.vim](https://github.com/Shougo/dein.vim)
+
+などである。ネットで検索するとNeoBundleなどの記事が多く見つかると思うが、NeoBundleは作者がdein.vimに乗り換えるようアナウンスしている。
+
+ここでは軽くて記述が楽なvim-plugを使うことにする。
+
+
+
+##### vim-plugの使い方
+
+vimrcへ追記する必要がある
+`call plug#begin()`
+と
+`call plug#end()`
+の間に
+`Plug ~`のようにプラグインを追加していくシステムのようです。
+例えばこんな感じ
+
+```vim:.vimrc
+call plug#begin()
+Plug 'tpope/vim-sensible'
+call plug#end()
+```
+.vimrcを保存して終了
+
+.vimrcに記述しただけではプラグインが反映されないので、Installする必要があります。
+どうするかというと、、、
+
+vimを起動しコマンドで
+`:PlugInstall`
+と叩くと各プラグインのインストールが開始します。
+
+これで正常終了した感じで表示されればプラグインの機能が使えるようになります。
+
+
+
+#### .vimrc
+
+筆者の`.vimrc`は以下のようにダウンロード出来る。
+
+```bash
+cd ~
+mv .vimrc .vimrc_backup # 現在の.vimrcをバックアップ
+wget https://raw.githubusercontent.com/tanaty5828/dotfiles/master/.vimrc
+```
+
+このあと、以下のコマンドを実行する必要がある。
+
+```bash
+cd ~/.vim/plugged/YouCompleteMe/
+/usr/bin/python3.6 ./Install.py -all
+vi +PlugInstall +qall
+```
+
+おそらく最強のvimが完成するだろう
+
+##### 注意
+
+この.vimrcではアイコンや特殊文字を使うため、ターミナルフォントにそれらが使えるものを指定したほうがいい。筆者が独自に合成したフォントは以下。
+
+```eval_rst
+:download:`RictyDiminishedDiscordRegular <./RictyDimRegPow.ttf>`
+```
+
