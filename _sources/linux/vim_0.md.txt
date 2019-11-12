@@ -366,6 +366,20 @@ vimで文字を置換する基本のコマンドは、`:s/置換前/置換後/`�
 - \>\>: インデントを追加。
 - \<\<: インデントを削除。
 
+#### チェックリスト
+
+```eval_rst
+.. raw:: html
+
+   <input type="checkbox" value="true">文字の置換が自由自在</input>
+   <br>
+   <input type="checkbox" value="true">画面分割ができる</input>
+   <br>
+   <input type="checkbox" value="true">スクロールが得意である。</input>
+   <br>
+   <br>
+```
+
 ### Phantasm
 
 これ以上のカスタマイズは通常のvimでは不可能だろう。しかし、プラグインを導入することでさらなるカスタマイズが可能になる。
@@ -373,4 +387,3 @@ vimで文字を置換する基本のコマンドは、`:s/置換前/置換後/`�
 (参考図)
 
 ![](./vim_custom.png)
-
