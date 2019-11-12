@@ -105,9 +105,11 @@ vimにはモードという概念があります。
 .. raw:: html
 
    <input type="checkbox" value="true">vimの起動ができる</input>
+   <input type="checkbox" value="true">インサートモードに入れる</input>
+   <input type="checkbox" value="true">ファイルを保存してvimを終了できる</input>
+   <input type="checkbox" value="true">インサートモードかノーマルモードへ移行できる</input>
+   
 ```
-
-
 
 ### 初心者
 
