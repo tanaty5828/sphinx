@@ -112,7 +112,7 @@ vimにはモードという概念があります。
    <br>
    <input type="checkbox" value="true">インサートモードかノーマルモードへ移行できる</input>
    <br>
-   
+   <br>
 ```
 
 
@@ -160,6 +160,7 @@ u, Ctrl+rはwordの元に戻す、やり直しみたいなものです。
    <input type="checkbox" value="true">矢印キーを使わずに移動ができる。</input>
    <br>
   <input type="checkbox" value="true">元に戻したり進めたりでしる</input>
+   <br>
    <br>
 ```
 
