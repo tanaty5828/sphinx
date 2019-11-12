@@ -502,7 +502,7 @@ vimrcへ追記する必要がある
 `Plug ~`のようにプラグインを追加していくシステムのようです。
 例えばこんな感じ
 
-```vim:.vimrc
+```
 call plug#begin()
 Plug 'tpope/vim-sensible'
 call plug#end()
