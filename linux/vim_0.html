@@ -124,6 +124,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#hard">4.4.4. Hard</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#vim">4.4.4.1. vimの設定</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#vimrc">4.4.4.2. .vimrc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">4.4.4.3. チェックリスト</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#lunatic">4.4.5. Lunatic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id15">4.4.5.1. 文字置換</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">4.4.5.2. </a></li>
 </ul>
 </li>
 </ul>
@@ -287,6 +293,16 @@ brew install vim
 </pre></div>
 </div>
 <p>で起動できる。</p>
+<p>またレベル別に</p>
+<ul class="simple">
+<li><p>Beginner</p></li>
+<li><p>Easy</p></li>
+<li><p>Normal</p></li>
+<li><p>Hard</p></li>
+<li><p>Lunatic</p></li>
+<li><p>Phantasm</p></li>
+</ul>
+<p>の6レベルを用意した。初心者はBeginnerからはじめてほしい。</p>
 <div class="section" id="beginner">
 <h3>4.4.1. Beginner<a class="headerlink" href="#beginner" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id5">
@@ -577,6 +593,29 @@ brew install vim
 <span class="nb">set</span> <span class="n">t_Co</span><span class="o">=</span><span class="mi">257</span> <span class="s2">&quot; iTerm2など既に256色環境なら無くても良い</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="id14">
+<h4>4.4.4.3. チェックリスト<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<input type="checkbox" value="true">.vimrcを編集した</input>
+<br>
+<input type="checkbox" value="true">自分の好みの設定を追加した</input>
+<br>
+<br></div>
+</div>
+<div class="section" id="lunatic">
+<h3>4.4.5. Lunatic<a class="headerlink" href="#lunatic" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id15">
+<h4>4.4.5.1. 文字置換<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>vimで文字を置換する基本のコマンドは、<code class="docutils literal notranslate"><span class="pre">:s/置換前/置換後/</span></code>である。試しに、サンプルファイルのvimという文字をvim_tsuyoiに置換してみよう。</p>
+<p>この方法では、カーソルのある行の一番はじめのvimという文字が置換される。</p>
+<p>しかし、文章全体で置換したいことも多いだろう。その場合は、<code class="docutils literal notranslate"><span class="pre">:%s/置換前/置換後/</span></code>である。(sの前に%を追加)</p>
+<p>文頭のvimが置換されただろう。実は、何も設定しないと1行に付き1回しか置換を行わない。行に含まれるすべての文字を置換するには、<code class="docutils literal notranslate"><span class="pre">:s/置換前/置換後/g</span></code>である。(最後に/gを追加)</p>
+<p>まとめると、文章内すべての文字を置換するためには、</p>
+<p><code class="docutils literal notranslate"><span class="pre">:%s/置換前/置換後/g</span></code></p>
+<p>である。</p>
+</div>
+<div class="section" id="id16">
+<h4>4.4.5.2. <a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
 </div>
 </div>
 </div>
