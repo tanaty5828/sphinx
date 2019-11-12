@@ -68,7 +68,7 @@ vi sample.dat
 
 
 
-### 超初心者
+### Beginner
 
 #### モード
 
@@ -117,7 +117,7 @@ vimにはモードという概念があります。
 
 
 
-### 初心者
+### Easy
 
 超初心者のキーバインドを覚えたら、次はコピペや移動などを覚えよう。
 
@@ -139,8 +139,8 @@ u, Ctrl+rはwordの元に戻す、やり直しみたいなものです。
 | :---: | :--: |
 | **k** |  ↑   |
 | **j** |  ↓   |
-| **h** |  →   |
-| **l** |  ←   |
+| **l** |  →   |
+| **h** |  ←   |
 
 ![](./vim_move.png)
 
@@ -159,14 +159,144 @@ u, Ctrl+rはwordの元に戻す、やり直しみたいなものです。
    <br>
    <input type="checkbox" value="true">矢印キーを使わずに移動ができる。</input>
    <br>
-  <input type="checkbox" value="true">元に戻したり進めたりでしる</input>
+  <input type="checkbox" value="true">元に戻したり進めたりできる</input>
    <br>
    <br>
 ```
 
 
 
-### 中級者
+### Normal
 
 移動もできるし、コピへなどもマスターしたあなたへ
+
+vimには数多いコマンドがある。ここでは知っておくと便利ものを紹介する。ポイントは、無理に覚えようとせず何度もここに戻ってきて確認することである。
+
+#### キーバインド（文字操作）
+
+|         Key         |                     動作                     |
+| :-----------------: | :------------------------------------------: |
+|        **x**        |                  1文字削除                   |
+|        **o**        | 次行を新規行として挿入してインサートモードへ |
+| **/検索したい文字** |             文書内から文字を検索             |
+|        **n**        |        （検索後に）次の検索候補へ移動        |
+
+`/検索したい文字`は頻繁に使うことになるだろう。文字を入力し終えたらEnterキーも忘れずに
+
+#### キーバインド（移動）
+
+|  Key   |        動作        |
+| :----: | :----------------: |
+| **w**  |  次の単語の先頭へ  |
+| **b**  |  前の単語の先頭へ  |
+| **gg** |  ファイルの先頭へ  |
+| **G**  | ファイルの最終行へ |
+
+
+#### チェックリスト
+
+```eval_rst
+.. raw:: html
+
+   <input type="checkbox" value="true">検索ができる</input>
+   <br>
+   <input type="checkbox" value="true">検索候補を移動できる</input>
+   <br>
+   <input type="checkbox" value="true">単語ごとの移動ができる</input>
+   <br>
+   <input type="checkbox" value="true">ファイルの先頭、末尾に移動できる</input>
+   <br>
+   <br>
+```
+
+### Hard
+
+#### vimの設定
+
+これまで、様々なコマンドやキーバインドを覚えてもらいました。しかし、なんでこんな使いづらくてダサいものを使っているのか不思議に思った人も多いだろう。
+
+しかしvimは様々なカスタマイズが可能である。
+
+試しに、ノーマルモードで`:set number`と入力して（エンターを押して）みよう。
+
+左に行番号が表示されただろうか。
+
+また、`set cursorline`と入力することで現在居る行にアンダーラインを表示できる。
+
+```eval_rst
+.. warning::
+
+    しかしこれらの設定は、vimを終了すると失われる。
+    
+```
+
+これらの設定をデフォルトにするためには、ホームディレクトリに`.vimrc`というファイルを配置し、そこに設定を書き込むことで毎回反映される。
+
+#### .vimrc
+
+.vimrcファイルを開くには、`vi ~/.vimrc`とする。試しに、以下を書き込んでみよう。
+
+```
+set number
+set cursorline
+```
+
+書き込んで保存したあと、他のファイルをサンプルファイルを開いて見よう。行番号とカーソルラインが表示されているはずだ。
+
+以下、筆者がデフォルトとしている設定である。コピペして追加してもいいが、時間があるならそれぞれどんな効果があるか調べて見よう。
+
+```
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8
+set ambiwidth=double " □や○文字が崩れる問題を解決
+set bomb
+set binary
+set ttyfast
+set backspace=indent,eol,start
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent " 改行時に前の行のインデントを継続する
+set smartindent " 改行時に前の行の構文をチェックし次の行のインデントを増減する
+set shiftwidth=4 " smartindentで増減する幅
+set expandtab
+set splitright
+set splitbelow
+set hidden
+set hlsearch
+set whichwrap=b,s,h,l,<,>,[,],~ " カーソルの左右移動で行末から次の行の行頭への移動が可能になる
+set cursorline " カーソルラインをハイライト
+set showmatch " 括弧の対応関係を一瞬表示する
+set matchtime=1 " 0.1秒だけ
+set incsearch
+set ignorecase
+set smartcase
+set nobackup
+set noswapfile
+set fileformats=unix,dos,mac
+set ruler
+set number
+set wildmenu " コマンドモードの補完
+set history=5000 " 保存するコマンド履歴の数
+set gcr=a:blinkon0
+set scrolloff=3
+set laststatus=2
+set showmode " 現在のモードを表示
+set showcmd " 打ったコマンドをステータスラインの下に表示
+set modeline
+set modelines=10
+set pumheight=10    "if value is 0 , show menu all
+set title
+set titleold="Terminal"
+set titlestring=%F
+set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+set autoread
+set noerrorbells visualbell t_vb=
+set clipboard+=unnamed,autoselect
+set mouse=a
+set whichwrap=b,s,h,l,<,>,[,]
+set t_Co=257 " iTerm2など既に256色環境なら無くても良い
+
+```
 

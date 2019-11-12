@@ -103,19 +103,29 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">4.4. 使い方</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">4.4.1. 超初心者</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id6">4.4.1.1. モード</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">4.4.1.2. キーバインド</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id8">4.4.1.3. チェックリスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#beginner">4.4.1. Beginner</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.4.1.1. モード</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">4.4.1.2. キーバインド</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">4.4.1.3. チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">4.4.2. 初心者</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id10">4.4.2.1. キーバインド</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id11">4.4.2.2. キーバインド（カーソルの移動に関して）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id12">4.4.2.3. チェックリスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#easy">4.4.2. Easy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id8">4.4.2.1. キーバインド</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">4.4.2.2. キーバインド（カーソルの移動に関して）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">4.4.2.3. チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">4.4.3. 中級者</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#normal">4.4.3. Normal</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id11">4.4.3.1. キーバインド（文字操作）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">4.4.3.2. キーバインド（移動）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">4.4.3.3. チェックリスト</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#hard">4.4.4. Hard</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#vim">4.4.4.1. vimの設定</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vimrc">4.4.4.2. .vimrc</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -277,10 +287,10 @@ brew install vim
 </pre></div>
 </div>
 <p>で起動できる。</p>
+<div class="section" id="beginner">
+<h3>4.4.1. Beginner<a class="headerlink" href="#beginner" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id5">
-<h3>4.4.1. 超初心者<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="section" id="id6">
-<h4>4.4.1.1. モード<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>4.4.1.1. モード<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>vimにはモードという概念があります。</p>
 <ul class="simple">
 <li><p>カーソルの移動や保存等を行う<strong>ノーマルモード</strong></p></li>
@@ -296,8 +306,8 @@ brew install vim
 </ol>
 <p>これを繰り返して文章を編集していきます。</p>
 </div>
-<div class="section" id="id7">
-<h4>4.4.1.2. キーバインド<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id6">
+<h4>4.4.1.2. キーバインド<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -325,8 +335,8 @@ brew install vim
 </tbody>
 </table><p>とりあえずこれらを利用することで、テキストの編集や保存ができると思います。</p>
 </div>
-<div class="section" id="id8">
-<h4>4.4.1.3. チェックリスト<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id7">
+<h4>4.4.1.3. チェックリスト<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <input type="checkbox" value="true">vimの起動ができる</input>
 <br>
 <input type="checkbox" value="true">インサートモードに入れる</input>
@@ -337,11 +347,11 @@ brew install vim
 <br>
 <br></div>
 </div>
-<div class="section" id="id9">
-<h3>4.4.2. 初心者<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="easy">
+<h3>4.4.2. Easy<a class="headerlink" href="#easy" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>超初心者のキーバインドを覚えたら、次はコピペや移動などを覚えよう。</p>
-<div class="section" id="id10">
-<h4>4.4.2.1. キーバインド<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id8">
+<h4>4.4.2.1. キーバインド<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -373,8 +383,8 @@ brew install vim
 </tbody>
 </table><p>u, Ctrl+rはwordの元に戻す、やり直しみたいなものです。</p>
 </div>
-<div class="section" id="id11">
-<h4>4.4.2.2. キーバインド（カーソルの移動に関して）<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id9">
+<h4>4.4.2.2. キーバインド（カーソルの移動に関して）<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -392,19 +402,19 @@ brew install vim
 <td align="center">↓</td>
 </tr>
 <tr>
-<td align="center"><strong>h</strong></td>
+<td align="center"><strong>l</strong></td>
 <td align="center">→</td>
 </tr>
 <tr>
-<td align="center"><strong>l</strong></td>
+<td align="center"><strong>h</strong></td>
 <td align="center">←</td>
 </tr>
 </tbody>
 </table><p><img alt="../_images/vim_move.png" src="../_images/vim_move.png" /></p>
 <p>おそらく最近のvimでは、矢印キーを使っても移動は可能です。しかし、この移動法を覚えることで入力速度は格段に向上します。ある程度文字入力ができるようになったら、矢印を使わずに移動の練習をしてみてください。</p>
 </div>
-<div class="section" id="id12">
-<h4>4.4.2.3. チェックリスト<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="section" id="id10">
+<h4>4.4.2.3. チェックリスト<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
  <input type="checkbox" value="true">1行コピーができる</input>
  <br>
  <input type="checkbox" value="true">コピーしたものを貼り付けられる</input>
@@ -413,13 +423,161 @@ brew install vim
  <br>
  <input type="checkbox" value="true">矢印キーを使わずに移動ができる。</input>
  <br>
-<input type="checkbox" value="true">元に戻したり進めたりでしる</input>
+<input type="checkbox" value="true">元に戻したり進めたりできる</input>
  <br>
  <br></div>
 </div>
-<div class="section" id="id13">
-<h3>4.4.3. 中級者<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="normal">
+<h3>4.4.3. Normal<a class="headerlink" href="#normal" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>移動もできるし、コピへなどもマスターしたあなたへ</p>
+<p>vimには数多いコマンドがある。ここでは知っておくと便利ものを紹介する。ポイントは、無理に覚えようとせず何度もここに戻ってきて確認することである。</p>
+<div class="section" id="id11">
+<h4>4.4.3.1. キーバインド（文字操作）<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>x</strong></td>
+<td align="center">1文字削除</td>
+</tr>
+<tr>
+<td align="center"><strong>o</strong></td>
+<td align="center">次行を新規行として挿入してインサートモードへ</td>
+</tr>
+<tr>
+<td align="center"><strong>/検索したい文字</strong></td>
+<td align="center">文書内から文字を検索</td>
+</tr>
+<tr>
+<td align="center"><strong>n</strong></td>
+<td align="center">（検索後に）次の検索候補へ移動</td>
+</tr>
+</tbody>
+</table><p><code class="docutils literal notranslate"><span class="pre">/検索したい文字</span></code>は頻繁に使うことになるだろう。文字を入力し終えたらEnterキーも忘れずに</p>
+</div>
+<div class="section" id="id12">
+<h4>4.4.3.2. キーバインド（移動）<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">Key</th>
+<th align="center">動作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>w</strong></td>
+<td align="center">次の単語の先頭へ</td>
+</tr>
+<tr>
+<td align="center"><strong>b</strong></td>
+<td align="center">前の単語の先頭へ</td>
+</tr>
+<tr>
+<td align="center"><strong>gg</strong></td>
+<td align="center">ファイルの先頭へ</td>
+</tr>
+<tr>
+<td align="center"><strong>G</strong></td>
+<td align="center">ファイルの最終行へ</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id13">
+<h4>4.4.3.3. チェックリスト<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<input type="checkbox" value="true">検索ができる</input>
+<br>
+<input type="checkbox" value="true">検索候補を移動できる</input>
+<br>
+<input type="checkbox" value="true">単語ごとの移動ができる</input>
+<br>
+<input type="checkbox" value="true">ファイルの先頭、末尾に移動できる</input>
+<br>
+<br></div>
+</div>
+<div class="section" id="hard">
+<h3>4.4.4. Hard<a class="headerlink" href="#hard" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="vim">
+<h4>4.4.4.1. vimの設定<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>これまで、様々なコマンドやキーバインドを覚えてもらいました。しかし、なんでこんな使いづらくてダサいものを使っているのか不思議に思った人も多いだろう。</p>
+<p>しかしvimは様々なカスタマイズが可能である。</p>
+<p>試しに、ノーマルモードで<code class="docutils literal notranslate"><span class="pre">:set</span> <span class="pre">number</span></code>と入力して（エンターを押して）みよう。</p>
+<p>左に行番号が表示されただろうか。</p>
+<p>また、<code class="docutils literal notranslate"><span class="pre">set</span> <span class="pre">cursorline</span></code>と入力することで現在居る行にアンダーラインを表示できる。</p>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>しかしこれらの設定は、vimを終了すると失われる。</p>
+</div>
+<p>これらの設定をデフォルトにするためには、ホームディレクトリに<code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>というファイルを配置し、そこに設定を書き込むことで毎回反映される。</p>
+</div>
+<div class="section" id="vimrc">
+<h4>4.4.4.2. .vimrc<a class="headerlink" href="#vimrc" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>.vimrcファイルを開くには、<code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">~/.vimrc</span></code>とする。試しに、以下を書き込んでみよう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">number</span>
+<span class="nb">set</span> <span class="n">cursorline</span>
+</pre></div>
+</div>
+<p>書き込んで保存したあと、他のファイルをサンプルファイルを開いて見よう。行番号とカーソルラインが表示されているはずだ。</p>
+<p>以下、筆者がデフォルトとしている設定である。コピペして追加してもいいが、時間があるならそれぞれどんな効果があるか調べて見よう。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">encoding</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<span class="nb">set</span> <span class="n">fileencoding</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<span class="nb">set</span> <span class="n">fileencodings</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+<span class="nb">set</span> <span class="n">ambiwidth</span><span class="o">=</span><span class="n">double</span> <span class="s2">&quot; □や○文字が崩れる問題を解決</span>
+<span class="nb">set</span> <span class="n">bomb</span>
+<span class="nb">set</span> <span class="n">binary</span>
+<span class="nb">set</span> <span class="n">ttyfast</span>
+<span class="nb">set</span> <span class="n">backspace</span><span class="o">=</span><span class="n">indent</span><span class="p">,</span><span class="n">eol</span><span class="p">,</span><span class="n">start</span>
+<span class="nb">set</span> <span class="n">tabstop</span><span class="o">=</span><span class="mi">4</span>
+<span class="nb">set</span> <span class="n">softtabstop</span><span class="o">=</span><span class="mi">4</span>
+<span class="nb">set</span> <span class="n">shiftwidth</span><span class="o">=</span><span class="mi">4</span>
+<span class="nb">set</span> <span class="n">autoindent</span> <span class="s2">&quot; 改行時に前の行のインデントを継続する</span>
+<span class="nb">set</span> <span class="n">smartindent</span> <span class="s2">&quot; 改行時に前の行の構文をチェックし次の行のインデントを増減する</span>
+<span class="nb">set</span> <span class="n">shiftwidth</span><span class="o">=</span><span class="mi">4</span> <span class="s2">&quot; smartindentで増減する幅</span>
+<span class="nb">set</span> <span class="n">expandtab</span>
+<span class="nb">set</span> <span class="n">splitright</span>
+<span class="nb">set</span> <span class="n">splitbelow</span>
+<span class="nb">set</span> <span class="n">hidden</span>
+<span class="nb">set</span> <span class="n">hlsearch</span>
+<span class="nb">set</span> <span class="n">whichwrap</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="o">&lt;</span><span class="p">,</span><span class="o">&gt;</span><span class="p">,[,],</span><span class="o">~</span> <span class="s2">&quot; カーソルの左右移動で行末から次の行の行頭への移動が可能になる</span>
+<span class="nb">set</span> <span class="n">cursorline</span> <span class="s2">&quot; カーソルラインをハイライト</span>
+<span class="nb">set</span> <span class="n">showmatch</span> <span class="s2">&quot; 括弧の対応関係を一瞬表示する</span>
+<span class="nb">set</span> <span class="n">matchtime</span><span class="o">=</span><span class="mi">1</span> <span class="s2">&quot; 0.1秒だけ</span>
+<span class="nb">set</span> <span class="n">incsearch</span>
+<span class="nb">set</span> <span class="n">ignorecase</span>
+<span class="nb">set</span> <span class="n">smartcase</span>
+<span class="nb">set</span> <span class="n">nobackup</span>
+<span class="nb">set</span> <span class="n">noswapfile</span>
+<span class="nb">set</span> <span class="n">fileformats</span><span class="o">=</span><span class="n">unix</span><span class="p">,</span><span class="n">dos</span><span class="p">,</span><span class="n">mac</span>
+<span class="nb">set</span> <span class="n">ruler</span>
+<span class="nb">set</span> <span class="n">number</span>
+<span class="nb">set</span> <span class="n">wildmenu</span> <span class="s2">&quot; コマンドモードの補完</span>
+<span class="nb">set</span> <span class="n">history</span><span class="o">=</span><span class="mi">5000</span> <span class="s2">&quot; 保存するコマンド履歴の数</span>
+<span class="nb">set</span> <span class="n">gcr</span><span class="o">=</span><span class="n">a</span><span class="p">:</span><span class="n">blinkon0</span>
+<span class="nb">set</span> <span class="n">scrolloff</span><span class="o">=</span><span class="mi">3</span>
+<span class="nb">set</span> <span class="n">laststatus</span><span class="o">=</span><span class="mi">2</span>
+<span class="nb">set</span> <span class="n">showmode</span> <span class="s2">&quot; 現在のモードを表示</span>
+<span class="nb">set</span> <span class="n">showcmd</span> <span class="s2">&quot; 打ったコマンドをステータスラインの下に表示</span>
+<span class="nb">set</span> <span class="n">modeline</span>
+<span class="nb">set</span> <span class="n">modelines</span><span class="o">=</span><span class="mi">10</span>
+<span class="nb">set</span> <span class="n">pumheight</span><span class="o">=</span><span class="mi">10</span>    <span class="s2">&quot;if value is 0 , show menu all</span>
+<span class="nb">set</span> <span class="n">title</span>
+<span class="nb">set</span> <span class="n">titleold</span><span class="o">=</span><span class="s2">&quot;Terminal&quot;</span>
+<span class="nb">set</span> <span class="n">titlestring</span><span class="o">=%</span><span class="n">F</span>
+<span class="nb">set</span> <span class="n">statusline</span><span class="o">=%</span><span class="n">F</span><span class="o">%</span><span class="n">m</span><span class="o">%</span><span class="n">r</span><span class="o">%</span><span class="n">h</span><span class="o">%</span><span class="n">w</span><span class="o">%=</span><span class="p">(</span><span class="o">%</span><span class="p">{</span><span class="o">&amp;</span><span class="n">ff</span><span class="p">}</span><span class="o">/%</span><span class="n">Y</span><span class="p">)</span>\ <span class="p">(</span><span class="n">line</span>\ <span class="o">%</span><span class="n">l</span>\<span class="o">/%</span><span class="n">L</span><span class="p">,</span>\ <span class="n">col</span>\ <span class="o">%</span><span class="n">c</span><span class="p">)</span>\
+<span class="nb">set</span> <span class="n">autoread</span>
+<span class="nb">set</span> <span class="n">noerrorbells</span> <span class="n">visualbell</span> <span class="n">t_vb</span><span class="o">=</span>
+<span class="nb">set</span> <span class="n">clipboard</span><span class="o">+=</span><span class="n">unnamed</span><span class="p">,</span><span class="n">autoselect</span>
+<span class="nb">set</span> <span class="n">mouse</span><span class="o">=</span><span class="n">a</span>
+<span class="nb">set</span> <span class="n">whichwrap</span><span class="o">=</span><span class="n">b</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">h</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="o">&lt;</span><span class="p">,</span><span class="o">&gt;</span><span class="p">,[,]</span>
+<span class="nb">set</span> <span class="n">t_Co</span><span class="o">=</span><span class="mi">257</span> <span class="s2">&quot; iTerm2など既に256色環境なら無くても良い</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
