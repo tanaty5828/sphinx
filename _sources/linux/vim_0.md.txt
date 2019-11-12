@@ -545,6 +545,6 @@ vi +PlugInstall +qall
 この.vimrcではアイコンや特殊文字を使うため、ターミナルフォントにそれらが使えるものを指定したほうがいい。筆者が独自に合成したフォントは以下。
 
 ```eval_rst
-:download:`RictyDiminishedDiscordRegular <./RictyDimRegPow.ttf>`
+:download:`RictyDiminishedDiscordRegular <./RictyDimDisRegPow.ttf>`
 ```
 
