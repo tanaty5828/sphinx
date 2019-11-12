@@ -112,7 +112,10 @@ vimにはモードという概念があります。
    <br>
    <input type="checkbox" value="true">インサートモードかノーマルモードへ移行できる</input>
    <br>
+   
 ```
+
+
 
 ### 初心者
 
