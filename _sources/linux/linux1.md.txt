@@ -327,11 +327,17 @@ Windowsでの「新しいフォルダの作成」と同じです。
 
 
 
-## Vim
+## What should I do after reading this page?
 
-ここまではコマンドというものを学習してきました。ここでは`Vim`と呼ばれる、プログラムを書くためのWordみたいなものの説明をします。とはいえあまりに説明が長くなるので、別ページにしようと思います。
+### Linuxのコマンドについてより詳しくなりたい
 
-以下リンク
+```eval_rst
+:doc:`/linux/linuxcommand`
+```
+
+### vi(テキストエディタ)の使い方を知りたい
+
+プログラムを書くためのWordみたいなもの。
 
 ```eval_rst
 :doc:`/linux/vim_0`
