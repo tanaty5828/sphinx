@@ -42,6 +42,7 @@ ________________________________________________________________________________
    /linux/linuxq1
    /linux/linuxcommand
    /linux/vim_0
+   /linux/ssh
 
 .. toctree::
    :maxdepth: 2

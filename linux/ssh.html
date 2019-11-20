@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>5. ssh &mdash; SIEGE 2019.6.1 ドキュメント</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="1. Molecular Dynamics Software" href="../MD/mdsoft.html" />
+    <link rel="prev" title="4. vi" href="vim_0.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SIEGE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="linux1.html">1. Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linuxq1.html">2. Linux Basic Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linuxcommand.html">3. Linux commands (nessesary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vim_0.html">4. vi</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">5. ssh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">5.1. 概要</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.1.1. パスワード認証</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">5.1.2. 公開鍵認証</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">5.2. 使い方</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.2.1. 鍵の生成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">5.2.2. リモートに鍵を配置する</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">5.2.2.1. 公開鍵転送</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">5.2.2.2. <code class="docutils literal notranslate"><span class="pre">.ssh/</span></code>ディレクトリの作成</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">5.2.2.3. 公開鍵を登録</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">5.2.2.4. パーミッションの設定</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">5.2.3. ログインしてみる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config">5.2.4. configの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">5.2.5. 多段ssh</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">1. Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">2. Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">3. Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">4. LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mpdyn.html">5. MPDyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">6. Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">7. VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">8. Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">9. FFTW</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">5. Lab trip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Room</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">1. matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">2. MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">4. Anaconda</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">2. Readable Code</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SIEGE</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>5. ssh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/linux/ssh.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ssh">
+<h1>5. ssh<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>MD計算は膨大な時間がかかるため、各地のスパコンを使うことがあるだろう。</p>
+<p>スパコンへはssh接続を用いてアクセスするが、これが以外に難しい。</p>
+<p>備忘録的にここに使い方をまとめる</p>
+<div class="section" id="id1">
+<h2>5.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>まずsshとは接続方法の一種である。</p>
+<p>またこの認証方式に</p>
+<ul class="simple">
+<li><p>パスワード認証</p></li>
+<li><p>公開鍵認証</p></li>
+</ul>
+<p>が存在するため、ややこしい。</p>
+<div class="section" id="id2">
+<h3>5.1.1. パスワード認証<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><img alt="../_images/ssh_passwd.png" src="../_images/ssh_passwd.png" /></p>
+<p>このように、ユーザー名とパスワードさえあれば認証ができるシステムである。</p>
+</div>
+<div class="section" id="id3">
+<h3>5.1.2. 公開鍵認証<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p><img alt="../_images/ssh_key.png" src="../_images/ssh_key.png" /></p>
+<p>この図の下のように、鍵を所有しかつこの鍵のパスフレーズを知らないと使えない方法である。</p>
+<p>イメージとしては、公開鍵は南京錠で秘密鍵は鍵みたいなものである。</p>
+<p>実際には、スパコンに公開鍵を設置し、秘密鍵を持って行って照合してもらう感じとなる。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>5.2. 使い方<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id5">
+<h3>5.2.1. 鍵の生成<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>輪講中に鍵を生成していると思うが、新しく鍵を作る場合には、<code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">rsa</span></code>コマンドを実行する。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa
+Enter file in which to save the key <span class="o">(</span>/home/tanaka/.ssh/id_rsa<span class="o">)</span>:
+<span class="c1"># 鍵の保存場所を聞かれる。デフォルトで良ければそのままEnter</span>
+Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+<span class="c1"># 鍵のパスフレーズを設定する。</span>
+<span class="c1"># セキュリティの観点から12文字以上の半角英数混合文字を推奨する。</span>
+</pre></div>
+</div>
+<p>これで、<code class="docutils literal notranslate"><span class="pre">~/.ssh/</span></code>の中に</p>
+<ul class="simple">
+<li><p>id_rsa : 秘密鍵</p></li>
+<li><p>id_rsa.pub : 公開鍵</p></li>
+</ul>
+<p>が生成される。</p>
+</div>
+<div class="section" id="id6">
+<h3>5.2.2. リモートに鍵を配置する<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>一回目のログインをするためには管理者に鍵をおいてもらうorパスワードを設定する必要がある。</p>
+<p>リモートにログインできるようになったら、</p>
+<ul class="simple">
+<li><p>公開鍵を転送</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.ssh/</span></code>ディレクトリの作成</p></li>
+<li><p>公開鍵登録</p></li>
+<li><p>パーミッションの設定</p></li>
+</ul>
+<p>をする。</p>
+<div class="section" id="id7">
+<h4>5.2.2.1. 公開鍵転送<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>何らかの方法で公開鍵を転送する。ローカル（鍵を作った側）で、</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -avuPh ~/.ssh/id_rsa.pub remote_server:~/
+</pre></div>
+</div>
+<p>とし、リモートに公開鍵を転送しておく。</p>
+</div>
+<div class="section" id="id8">
+<h4>5.2.2.2. <code class="docutils literal notranslate"><span class="pre">.ssh/</span></code>ディレクトリの作成<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
+$ mkdir .ssh
+</pre></div>
+</div>
+<p>もちろんすでにある場合はそのままで構わない。</p>
+</div>
+<div class="section" id="id9">
+<h4>5.2.2.3. 公開鍵を登録<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>リモートのホームディレクトリに公開鍵(<code class="docutils literal notranslate"><span class="pre">~/id_rsa</span></code>)を転送してあるはずなので、これを登録する。</p>
+<p>これは公開鍵を<code class="docutils literal notranslate"><span class="pre">.ssh/</span></code>内で<code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code>という名前で配置する。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>5.2.2.4. パーミッションの設定<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>sshで接続できないエラーは大体これをやってないことが原因で起こる。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
+$ chmod <span class="m">700</span> ~/.ssh
+$ chmod <span class="m">600</span> ~/.ssh/authorized_key
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>5.2.3. ログインしてみる<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>これで公開鍵認証でログインできるはずである。</p>
+<p>ローカルに戻って、</p>
+<p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">USERNAME&#64;REMOTE_HOST_NAME</span></code>でログインできるはず。(USERNAMEとREMOTE_HOST_NAMEは適宜自分のものに変更してください)</p>
+<p>初めて接続する場合は、Fingerprintに関する注意がでるがyesを選択すればいい。</p>
+<p>パスフレーズを聞かれ、入力しログインできたら成功である。</p>
+</div>
+<div class="section" id="config">
+<h3>5.2.4. configの設定<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>毎度アクセスするのに<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">hogehoge&#64;111.1.1.111</span></code>などを入力するのはめんどくさい。</p>
+<p>このため、<code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>に設定を記述することで楽に接続できる。</p>
+<p>以下サンプル</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ServerAliveInterval</span> <span class="mi">60</span>
+
+<span class="n">Host</span>	<span class="n">server_1</span>
+		<span class="n">Hostname</span>		<span class="mf">111.1</span><span class="o">.</span><span class="mf">1.111</span>
+		<span class="n">User</span> 			<span class="n">USERNAME</span>
+		<span class="n">IdentitiesOnly</span>	<span class="n">yes</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Host</p>
+<ul>
+<li><p>任意の名前</p></li>
+</ul>
+</li>
+<li><p>HostName</p>
+<ul>
+<li><p>リモートのホスト名 or IPアドレス
+リモートがLinux の場合<code class="docutils literal notranslate"><span class="pre">ifconfig</span></code>などで確認できる。</p></li>
+</ul>
+</li>
+<li><p>User</p>
+<ul>
+<li><p>ログインするユーザーネーム</p></li>
+</ul>
+</li>
+<li><p>IdentitiesOnly</p>
+<ul>
+<li><p>yesにしておくといい。</p></li>
+</ul>
+</li>
+</ul>
+<p>これらを設定することで、<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">server_1</span></code>とするだけでsshログインができるようになる。</p>
+</div>
+<div class="section" id="id12">
+<h3>5.2.5. 多段ssh<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>自分のPC --&gt;&gt; サーバーA --&gt;&gt; スパコンのようにあるサーバーを踏み台にしてスパコンにアクセスすることがあるかもしれない。</p>
+<p>その場合も、<code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>を以下のように設定するだけで一発でログインできるようになる。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span>	<span class="n">supakon</span>
+		<span class="n">Hostname</span>		<span class="mf">111.1</span><span class="o">.</span><span class="mf">1.111</span>
+		<span class="n">User</span> 			<span class="n">USERNAME</span>
+		<span class="n">ProxyCommand</span> 	<span class="n">ssh</span> <span class="n">USERNAME</span><span class="nd">@server_A</span> <span class="n">nc</span> <span class="o">%</span><span class="n">h</span> <span class="o">%</span><span class="n">p</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
+		<span class="n">IdentitiesOnly</span>	<span class="n">yes</span>
+</pre></div>
+</div>
+<p>ProxyCommandに、踏み台にするサーバへssh接続するときのコマンドを入力する。</p>
+<p>nc %h %p 2&gt; /dev/nullの部分はおまじないと思ってくれていい。（接続終了後の出力を抑制している。）</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MD/mdsoft.html" class="btn btn-neutral float-right" title="1. Molecular Dynamics Software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="vim_0.html" class="btn btn-neutral float-left" title="4. vi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, htanaka, stsurumaki, hishikawa
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
