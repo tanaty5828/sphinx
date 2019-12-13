@@ -207,7 +207,7 @@
 <h2>2.1. 注意<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下特に記載しない限り、<code class="docutils literal notranslate"><span class="pre">MDAnalysis.tests.datafiles</span></code>を解析することとする。</p>
 <p>つまり、以下のように読み込みを行った。各自自分のトラジェクトリに書き換えてほしい。</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="kn">as</span> <span class="nn">mda</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
 
 <span class="n">u</span> <span class="o">=</span> <span class="n">mda</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
@@ -283,8 +283,8 @@
 </div>
 <p>と57個の値がわかる。</p>
 <p>平均値は<code class="docutils literal notranslate"><span class="pre">np.mean</span></code>関数、分散には<code class="docutils literal notranslate"><span class="pre">np.var</span></code>関数を使えばいいので、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.value())}&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.value())}&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.value())}&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.value())}&quot;</span><span class="p">)</span>
 
 <span class="n">Out</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span>
 <span class="n">ave</span> <span class="o">=</span> <span class="mf">1.0415366866943487</span>
@@ -323,8 +323,8 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">bond_56_2_values</span></code>リストにフレームごとの結合距離が入っているのがわかる。</p>
 <p>平均や分散の<code class="docutils literal notranslate"><span class="pre">np.mean</span></code>関数、<code class="docutils literal notranslate"><span class="pre">np.var</span></code>関数は入れ子になったリストでも計算できるので、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.values())}&quot;</span><span class="p">)</span>
-<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.values())}&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.values())}&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.values())}&quot;</span><span class="p">)</span>
 
 <span class="n">Out</span><span class="p">[</span><span class="mi">30</span><span class="p">]:</span>
 <span class="n">ave</span> <span class="o">=</span> <span class="mf">1.0415366866943487</span>
@@ -334,7 +334,7 @@
 <p>とできる。</p>
 <p>あとはヒストグラムを作り、グラフのプロットができればいい。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ヒストグラム作成</span>
-<span class="n">hist_vals</span><span class="p">,</span> <span class="n">hist_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">bond_56_2_values</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">hist_vals</span><span class="p">,</span> <span class="n">hist_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">bond_56_2_values</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">hist_bins</span> <span class="o">=</span> <span class="p">[(</span><span class="n">hist_bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">hist_bins</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="mf">2.</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">hist_bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
 
 <span class="c1"># プロット</span>

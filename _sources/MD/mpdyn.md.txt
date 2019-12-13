@@ -452,6 +452,7 @@ CT-CT, CT-CM, CT-W, CM-CM, CM-W, W-Wの6個のパラメーターが必要。
     
 
 - SYSTEM
+
   - `CONV_PDB_CRD`した時のような系の情報が必要となる。
 - DATA_FORM_TRJ
 
@@ -480,7 +481,7 @@ CT-CT, CT-CM, CT-W, CM-CM, CM-W, W-Wの6個のパラメーターが必要。
     <<
 ```
 
-    のように記述する。
+のように記述する。
 
 - ANALYZ_NAME
 
