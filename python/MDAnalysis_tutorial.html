@@ -213,7 +213,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>3. MDAnalysis tutorial</li>
+      <li><span class="section-number">3. </span>MDAnalysis tutorial</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -233,21 +233,21 @@
            <div itemprop="articleBody">
             
   <div class="section" id="mdanalysis-tutorial">
-<h1>3. MDAnalysis tutorial<a class="headerlink" href="#mdanalysis-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">3. </span>MDAnalysis tutorial<a class="headerlink" href="#mdanalysis-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>MD（分子動力学）の解析ツール（Pythonライブラリ）は<strong>MDTraj</strong>なども存在するが、
 チュートリアルがありしっかりしていそうだったためこちらも紹介する。
 また、チュートリアルが英語しかなくMDを始めたての学生は苦労すると思ったので、
 日本語訳と解説をつけていく。
 ここでは1~6章を解説する.</p>
 <div class="section" id="id1">
-<h2>3.1. 環境<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.1. </span>環境<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>Python 3.6.6 :: Anaconda, Inc</p></li>
 <li><p>MDAnalysis 0.19.0</p></li>
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>3.2. 注意<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.2. </span>注意<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>最近筆者の環境ではnumpyとMDAnalysisの相性が悪く、こちらのインポート時にエラーがでるようになってしまった。
 （インポート時のエラーでプログラム自体は正常に動いた）
 一応numpyのバージョンを下げることでエラーは出なくなった。
@@ -257,11 +257,11 @@ Anacondaの利用者は以下を実行。</p>
 </div>
 </div>
 <div class="section" id="how-to-use-this-tutorial">
-<h2>3.3. 1.How to use this tutorial<a class="headerlink" href="#how-to-use-this-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.3. </span>1.How to use this tutorial<a class="headerlink" href="#how-to-use-this-tutorial" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="have-you-installed-mdanalysis">
-<h3>3.3.1. 1.1.Have you installed MDAnalysis<a class="headerlink" href="#have-you-installed-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>1.1.Have you installed MDAnalysis<a class="headerlink" href="#have-you-installed-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="mdanalysis">
-<h4>3.3.1.1. チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.3.1.1. </span>チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>適当なPythonのファイルに以下の内容を書き込み、実行してみる</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
 <span class="kn">from</span> <span class="nn">MDAnalysis.tests.datafiles</span> <span class="kn">import</span> <span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span>
@@ -283,11 +283,11 @@ Anacondaの利用者は以下を実行。</p>
 </div>
 </div>
 <div class="section" id="preparation">
-<h2>3.4. 3.Preparation<a class="headerlink" href="#preparation" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.4. </span>3.Preparation<a class="headerlink" href="#preparation" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="python-interpreter-ipython">
-<h3>3.4.1. 3.1.Python interpreter : ipython<a class="headerlink" href="#python-interpreter-ipython" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.4.1. </span>3.1.Python interpreter : ipython<a class="headerlink" href="#python-interpreter-ipython" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="ipythontab">
-<h4>3.4.1.1. ipythonを使うとtabキー補完が便利になるよっていう話<a class="headerlink" href="#ipythontab" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.4.1.1. </span>ipythonを使うとtabキー補完が便利になるよっていう話<a class="headerlink" href="#ipythontab" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>Pythonを使うときは、多くの人がプログラムを.pyファイルに書き込み、</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python test.py
 </pre></div>
@@ -302,7 +302,7 @@ Hello
 <p>というふうにも実行できる。
 この対話型シェルを大幅に拡張したものが<code class="docutils literal notranslate"><span class="pre">ipython</span></code>であり、特にtabキーでの補完がすごい。</p>
 <div class="section" id="ipythoncommand">
-<h5>3.4.1.1.1. コマンドについての説明がほしいときはipython上で<code class="docutils literal notranslate"><span class="pre">command?</span></code>とする。<a class="headerlink" href="#ipythoncommand" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><span class="section-number">3.4.1.1.1. </span>コマンドについての説明がほしいときはipython上で<code class="docutils literal notranslate"><span class="pre">command?</span></code>とする。<a class="headerlink" href="#ipythoncommand" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ipython
 In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: print?
 </pre></div>
@@ -322,7 +322,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <p>と、かなり詳しい説明が出る。</p>
 </div>
 <div class="section" id="tab">
-<h5>3.4.1.1.2. tabキー補完が優秀<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><span class="section-number">3.4.1.1.2. </span>tabキー補完が優秀<a class="headerlink" href="#tab" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MD</span> <span class="o">&lt;</span><span class="n">tabキー入力</span><span class="o">&gt;</span>
 <span class="kn">import</span> <span class="nn">MDAnalysis</span>
 
@@ -332,7 +332,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 </div>
 <div class="section" id="numpy-matplotlib">
-<h5>3.4.1.1.3. 数値計算、グラフの即時プロットのために<code class="docutils literal notranslate"><span class="pre">numpy</span></code>,<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>をインポートしておくと良い<a class="headerlink" href="#numpy-matplotlib" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5><span class="section-number">3.4.1.1.3. </span>数値計算、グラフの即時プロットのために<code class="docutils literal notranslate"><span class="pre">numpy</span></code>,<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>をインポートしておくと良い<a class="headerlink" href="#numpy-matplotlib" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>ipythonを</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ipython --matplotlib
 </pre></div>
@@ -346,9 +346,9 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 </div>
 <div class="section" id="loading-mdanalysis">
-<h3>3.4.2. 3.2.Loading MDAnalysis<a class="headerlink" href="#loading-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.4.2. </span>3.2.Loading MDAnalysis<a class="headerlink" href="#loading-mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id3">
-<h4>3.4.2.1. ライブラリ（モジュール）のインポート<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.4.2.1. </span>ライブラリ（モジュール）のインポート<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>.pyファイルに書く場合でも、対話型の場合でもMDAnalysisのインポートは</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span>
 </pre></div>
@@ -357,7 +357,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 （ただしMDAnalysis.analysis.rmsのようなサブモジュールは自動でインポートされないため、明示的にインポートする必要がある。）</p>
 </div>
 <div class="section" id="id4">
-<h4>3.4.2.2. サンプルファイル（のインポート）<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.4.2.2. </span>サンプルファイル（のインポート）<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>またMDAnalysisをインポートすると、サンプルファイルであるアデニル酸キナーゼのコンフォメーション変化のトラジェクトリも同時に読み込まれる。以降のチュートリアルではこのアデニル酸キナーゼを使って解析を進める。
 ここではトラジェクトリファイル（CHARMM　DCD　format）とトポロジーファイル（CHARMM　PSF　format）が読み込まれる。
 以下のように読み込むといい</p>
@@ -368,12 +368,12 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 </div>
 <div class="section" id="basic">
-<h2>3.5. 4.Basic<a class="headerlink" href="#basic" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.5. </span>4.Basic<a class="headerlink" href="#basic" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="universe-and-atomgroup">
-<h3>3.5.1. 4.1.Universe and AtomGroup<a class="headerlink" href="#universe-and-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.5.1. </span>4.1.Universe and AtomGroup<a class="headerlink" href="#universe-and-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>MDAnalysisはオブジェクト指向であり、系は<code class="docutils literal notranslate"><span class="pre">Atom</span></code>オブジェクトを形成する。これはトポロジーとトラジェクトリを読み込むことで作ることができる。</p>
 <div class="section" id="universeobject">
-<h4>3.5.1.1. <code class="docutils literal notranslate"><span class="pre">Universe</span></code>object<a class="headerlink" href="#universeobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.5.1.1. </span><code class="docutils literal notranslate"><span class="pre">Universe</span></code>object<a class="headerlink" href="#universeobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>ファイルの読み込み時に用いる。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="n">u</span> <span class="o">=</span> <span class="n">MDAnalysis</span><span class="o">.</span><span class="n">Universe</span><span class="p">(</span><span class="n">PSF</span><span class="p">,</span> <span class="n">DCD</span><span class="p">)</span>
@@ -390,7 +390,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <p>などとすればいい。</p>
 </div>
 <div class="section" id="atomobject">
-<h4>3.5.1.2. <code class="docutils literal notranslate"><span class="pre">Atom</span></code>object<a class="headerlink" href="#atomobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.5.1.2. </span><code class="docutils literal notranslate"><span class="pre">Atom</span></code>object<a class="headerlink" href="#atomobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>こうして読み込むと原子の情報はAtom属性に格納される。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
 <span class="c1">##output</span>
@@ -408,7 +408,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 </div>
 <div class="section" id="residueobject">
-<h4>3.5.1.3. <code class="docutils literal notranslate"><span class="pre">residue</span></code>object<a class="headerlink" href="#residueobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.5.1.3. </span><code class="docutils literal notranslate"><span class="pre">residue</span></code>object<a class="headerlink" href="#residueobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>もちろん原子はいずれかの分子に属するため、atomは<code class="docutils literal notranslate"><span class="pre">ResidueGruop</span></code>の中にある。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">130</span><span class="p">]</span><span class="o">.</span><span class="n">residues</span><span class="p">)</span>
 <span class="c1">##output</span>
@@ -421,7 +421,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 </div>
 <div class="section" id="segmentobject">
-<h4>3.5.1.4. <code class="docutils literal notranslate"><span class="pre">segment</span></code>object<a class="headerlink" href="#segmentobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">3.5.1.4. </span><code class="docutils literal notranslate"><span class="pre">segment</span></code>object<a class="headerlink" href="#segmentobject" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>更に大きなグループとして<code class="docutils literal notranslate"><span class="pre">segmentGroup</span></code>があり、これは例えばタンパク質や高分子のモノマーに対応している。
 さらにこれらは「Segment ID(segids)」をあわせて持っている。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span>
@@ -437,7 +437,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 </div>
 <div class="section" id="working-with-atomgroup">
-<h2>3.6. 5.Working with AtomGroup<a class="headerlink" href="#working-with-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.6. </span>5.Working with AtomGroup<a class="headerlink" href="#working-with-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>先ほど説明した３つのグループはルールをもとに自動的に生成されるobjectであるが、
 自分が自由に作成できるobjectとして<code class="docutils literal notranslate"><span class="pre">AtomGroup</span></code>がある。</p>
 <p>またここでの出力結果はnumpy.ndarrayで出力されることがほとんどなので、前もってインポートしておくと良い。</p>
@@ -452,7 +452,7 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 </div>
 <p>などとできる。</p>
 <div class="section" id="important-methods-and-attributes-of-atomgroup">
-<h3>3.6.1. 5.1.Important methods and attributes of AtomGroup<a class="headerlink" href="#important-methods-and-attributes-of-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.6.1. </span>5.1.Important methods and attributes of AtomGroup<a class="headerlink" href="#important-methods-and-attributes-of-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>上の<code class="docutils literal notranslate"><span class="pre">positions</span></code>のように、出力できる重要な例として。</p>
 <ul class="simple">
 <li><p>center_of_mass( )  :　系の重心</p></li>
@@ -465,21 +465,21 @@ In <span class="o">[</span><span class="m">1</span><span class="o">]</span>: pri
 <p>などがある。</p>
 </div>
 <div class="section" id="exersice">
-<h3>3.6.2. 5.2.Exersice<a class="headerlink" href="#exersice" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.6.2. </span>5.2.Exersice<a class="headerlink" href="#exersice" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>省略</p>
 </div>
 <div class="section" id="processing-atomgroup">
-<h3>3.6.3. 5.3.Processing AtomGroup<a class="headerlink" href="#processing-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.6.3. </span>5.3.Processing AtomGroup<a class="headerlink" href="#processing-atomgroup" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>特定のatomgroupを別ファイルに書き出す方法が述べられているが、 ~~使えない~~ 使わないので割愛。</p>
 </div>
 <div class="section" id="id5">
-<h3>3.6.4. 参考<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.6.4. </span>参考<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>次回は6章以降を解説する予定である。</p>
 <p>（原文）<a class="reference external" href="https://www.mdanalysis.org/MDAnalysisTutorial/index.html">MDAnalysis Tutorial</a></p>
 </div>
 </div>
 <div class="section" id="trajectory-analysis">
-<h2>3.7. 6.Trajectory analysis<a class="headerlink" href="#trajectory-analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.7. </span>6.Trajectory analysis<a class="headerlink" href="#trajectory-analysis" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">MDAnalysis.Universe</span></code>はpdbのような座標情報と原子の結合のようなトポロジーを結びつけるものであり、ここから様々な解析ができる。
 ここでは簡易的な解析法について説明する。</p>
 <p>トラジェクトリーのフレーム数は</p>

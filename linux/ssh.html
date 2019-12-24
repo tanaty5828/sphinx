@@ -193,7 +193,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>5. ssh</li>
+      <li><span class="section-number">5. </span>ssh</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -213,12 +213,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="ssh">
-<h1>5. ssh<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">5. </span>ssh<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>MD計算は膨大な時間がかかるため、各地のスパコンを使うことがあるだろう。</p>
 <p>スパコンへはssh接続を用いてアクセスするが、これが以外に難しい。</p>
 <p>備忘録的にここに使い方をまとめる</p>
 <div class="section" id="id1">
-<h2>5.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.1. </span>概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>まずsshとは接続方法の一種である。</p>
 <p>またこの認証方式に</p>
 <ul class="simple">
@@ -227,12 +227,12 @@
 </ul>
 <p>が存在するため、ややこしい。</p>
 <div class="section" id="id2">
-<h3>5.1.1. パスワード認証<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span>パスワード認証<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><img alt="../_images/ssh_passwd.png" src="../_images/ssh_passwd.png" /></p>
 <p>このように、ユーザー名とパスワードさえあれば認証ができるシステムである。</p>
 </div>
 <div class="section" id="id3">
-<h3>5.1.2. 公開鍵認証<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span>公開鍵認証<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><img alt="../_images/ssh_key.png" src="../_images/ssh_key.png" /></p>
 <p>この図の下のように、鍵を所有しかつこの鍵のパスフレーズを知らないと使えない方法である。</p>
 <p>イメージとしては、公開鍵は南京錠で秘密鍵は鍵みたいなものである。</p>
@@ -240,9 +240,9 @@
 </div>
 </div>
 <div class="section" id="id4">
-<h2>5.2. 使い方<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.2. </span>使い方<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id5">
-<h3>5.2.1. 鍵の生成<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>鍵の生成<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>輪講中に鍵を生成していると思うが、新しく鍵を作る場合には、<code class="docutils literal notranslate"><span class="pre">ssh-keygen</span> <span class="pre">-t</span> <span class="pre">rsa</span></code>コマンドを実行する。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa
 Enter file in which to save the key <span class="o">(</span>/home/tanaka/.ssh/id_rsa<span class="o">)</span>:
@@ -260,7 +260,7 @@ Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no pas
 <p>が生成される。</p>
 </div>
 <div class="section" id="id6">
-<h3>5.2.2. リモートに鍵を配置する<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span>リモートに鍵を配置する<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>一回目のログインをするためには管理者に鍵をおいてもらうorパスワードを設定する必要がある。</p>
 <p>リモートにログインできるようになったら、</p>
 <ul class="simple">
@@ -271,7 +271,7 @@ Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no pas
 </ul>
 <p>をする。</p>
 <div class="section" id="id7">
-<h4>5.2.2.1. 公開鍵転送<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">5.2.2.1. </span>公開鍵転送<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>何らかの方法で公開鍵を転送する。ローカル（鍵を作った側）で、</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ rsync -avuPh ~/.ssh/id_rsa.pub remote_server:~/
 </pre></div>
@@ -279,7 +279,7 @@ Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no pas
 <p>とし、リモートに公開鍵を転送しておく。</p>
 </div>
 <div class="section" id="id8">
-<h4>5.2.2.2. <code class="docutils literal notranslate"><span class="pre">.ssh/</span></code>ディレクトリの作成<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">5.2.2.2. </span><code class="docutils literal notranslate"><span class="pre">.ssh/</span></code>ディレクトリの作成<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
 $ mkdir .ssh
 </pre></div>
@@ -287,7 +287,7 @@ $ mkdir .ssh
 <p>もちろんすでにある場合はそのままで構わない。</p>
 </div>
 <div class="section" id="id9">
-<h4>5.2.2.3. 公開鍵を登録<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">5.2.2.3. </span>公開鍵を登録<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>リモートのホームディレクトリに公開鍵(<code class="docutils literal notranslate"><span class="pre">~/id_rsa</span></code>)を転送してあるはずなので、これを登録する。</p>
 <p>これは公開鍵を<code class="docutils literal notranslate"><span class="pre">.ssh/</span></code>内で<code class="docutils literal notranslate"><span class="pre">authorized_keys</span></code>という名前で配置する。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
@@ -295,7 +295,7 @@ $ mkdir .ssh
 </div>
 </div>
 <div class="section" id="id10">
-<h4>5.2.2.4. パーミッションの設定<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">5.2.2.4. </span>パーミッションの設定<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>sshで接続できないエラーは大体これをやってないことが原因で起こる。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~
 $ chmod <span class="m">700</span> ~/.ssh
@@ -305,7 +305,7 @@ $ chmod <span class="m">600</span> ~/.ssh/authorized_key
 </div>
 </div>
 <div class="section" id="id11">
-<h3>5.2.3. ログインしてみる<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>ログインしてみる<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>これで公開鍵認証でログインできるはずである。</p>
 <p>ローカルに戻って、</p>
 <p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">USERNAME&#64;REMOTE_HOST_NAME</span></code>でログインできるはず。(USERNAMEとREMOTE_HOST_NAMEは適宜自分のものに変更してください)</p>
@@ -313,7 +313,7 @@ $ chmod <span class="m">600</span> ~/.ssh/authorized_key
 <p>パスフレーズを聞かれ、入力しログインできたら成功である。</p>
 </div>
 <div class="section" id="config">
-<h3>5.2.4. configの設定<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.4. </span>configの設定<a class="headerlink" href="#config" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>毎度アクセスするのに<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">hogehoge&#64;111.1.1.111</span></code>などを入力するのはめんどくさい。</p>
 <p>このため、<code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>に設定を記述することで楽に接続できる。</p>
 <p>以下サンプル</p>
@@ -351,7 +351,7 @@ $ chmod <span class="m">600</span> ~/.ssh/authorized_key
 <p>これらを設定することで、<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">server_1</span></code>とするだけでsshログインができるようになる。</p>
 </div>
 <div class="section" id="id12">
-<h3>5.2.5. 多段ssh<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.5. </span>多段ssh<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>自分のPC --&gt;&gt; サーバーA --&gt;&gt; スパコンのようにあるサーバーを踏み台にしてスパコンにアクセスすることがあるかもしれない。</p>
 <p>その場合も、<code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>を以下のように設定するだけで一発でログインできるようになる。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Host</span>	<span class="n">supakon</span>

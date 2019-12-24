@@ -195,7 +195,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. Gromacs</li>
+      <li><span class="section-number">2. </span>Gromacs</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -215,13 +215,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="gromacs">
-<h1>2. Gromacs<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2. </span>Gromacs<a class="headerlink" href="#gromacs" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id1">
-<h2>2.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1. </span>概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>GROMACS (Groningen Machine for Chemical Simulations)は、フリーウェアの分子動力学シミュレーションパッケージの一つである。オランダ・フローニンゲン大学で開発され、その後世界中の開発者によって更新され続けている。</p>
 </div>
 <div class="section" id="id2">
-<h2>2.2. インストール方法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2. </span>インストール方法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="http://manual.gromacs.org/documentation/">Download GROMACS</a>にアクセスし、適当なバージョンの項目の「Download」をクリックし、&quot;Source code&quot; の項目からダウンロードする。</p>
 <p>ダウンロードするファイル名は、gromacs-XXX.tar.gz のような名前になっているはず。&quot;XXX&quot;にはバージョンが入る。</p>
 <hr class="docutils" />
@@ -274,14 +274,14 @@ gmx --version
 </div>
 <p>と打ち、gromacsのバージョンが正しく表示されていれば、インストール完了です。</p>
 <div class="section" id="gpu">
-<h3>2.2.1. GPU版のインストール<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.1. </span>GPU版のインストール<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>gromacsはGPUによる高速計算に対応している。グラフィックボードが刺さっているスパコンではこれを利用すると計算が早くなるため(できるなら)ばちこり利用しよう。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
 <p>gromacs2019にはGPUに関するバグがあるらしいので、理由がない限り2018版の利用を推奨</p>
 </div>
 <div class="section" id="id3">
-<h4>2.2.1.1. 東大物性研の場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">2.2.1.1. </span>東大物性研の場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>GPU版gromacsのインストールでは、</p>
 <ul class="simple">
 <li><p>gromacs</p></li>
@@ -344,10 +344,10 @@ module load intel/16.0.8.266
 </div>
 </div>
 <div class="section" id="command-line-reference">
-<h2>2.3. Command-line reference<a class="headerlink" href="#command-line-reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.3. </span>Command-line reference<a class="headerlink" href="#command-line-reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>gromacsの実行バイナリ<code class="docutils literal notranslate"><span class="pre">gmx</span></code>には様々な実行コマンドがあり、それぞれで必要なオプションが覚えられなかったのでここにまとめる。</p>
 <div class="section" id="gmx-mdrun">
-<h3>2.3.1. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span></code><a class="headerlink" href="#gmx-mdrun" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.1. </span><code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span></code><a class="headerlink" href="#gmx-mdrun" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>実際にMD計算を実行するコマンドである。</p>
 <table border="1" class="docutils">
 <thead>
@@ -373,7 +373,7 @@ module load intel/16.0.8.266
 </table><p>ex)<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">mdrun</span> <span class="pre">-deffnm</span> <span class="pre">1_100ns</span></code></p>
 </div>
 <div class="section" id="gmx-grompp">
-<h3>2.3.2. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code><a class="headerlink" href="#gmx-grompp" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.2. </span><code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span></code><a class="headerlink" href="#gmx-grompp" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>MDのインプットなどを一つのバイナリ(.tpr)としてまとめるコマンド。(the gromacs preprocessor)</p>
 <table border="1" class="docutils">
 <thead>
@@ -411,7 +411,7 @@ module load intel/16.0.8.266
 </table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">grompp</span> <span class="pre">-f</span> <span class="pre">DNA_npt.mdp</span> <span class="pre">-c</span> <span class="pre">1_npt_equil.gro</span> <span class="pre">-t</span> <span class="pre">1_npt_equil.cpt</span> <span class="pre">-p</span> <span class="pre">topol.top</span> <span class="pre">-n</span> <span class="pre">index.ndx</span> <span class="pre">-o</span> <span class="pre">2_100ns.tpr</span></code></p>
 </div>
 <div class="section" id="gmx-solvate">
-<h3>2.3.3. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">solvate</span></code><a class="headerlink" href="#gmx-solvate" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.3. </span><code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">solvate</span></code><a class="headerlink" href="#gmx-solvate" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ol class="simple">
 <li><p>周期境界の箱を作成し、(<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">editconf</span></code>でもできる。)</p></li>
 <li><p>系を水などで満たす。</p></li>
@@ -449,7 +449,7 @@ module load intel/16.0.8.266
 </table><p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">solvate</span> <span class="pre">-cp</span> <span class="pre">1bna.aa.newbox.gro</span> <span class="pre">-cs</span> <span class="pre">tip3p.gro</span> <span class="pre">-o</span> <span class="pre">1bna.aa.solvate.gro</span> <span class="pre">-p</span> <span class="pre">topol.top</span></code></p>
 </div>
 <div class="section" id="gmx-genion">
-<h3>2.3.4. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span></code><a class="headerlink" href="#gmx-genion" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.4. </span><code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span></code><a class="headerlink" href="#gmx-genion" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>系の水とイオンを交換し、指定した濃度にするコマンド。</p>
 <p>実際は<code class="docutils literal notranslate"><span class="pre">ions.mdp</span></code>から<code class="docutils literal notranslate"><span class="pre">ions.tpr</span></code>を作成し、これを用いて<code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">genion</span></code>する。</p>
 <p><a class="reference download internal" download="" href="../_downloads/65178672fbb7fea2da6f4faf2fdf13d0/ions.mdp"><code class="xref download docutils literal notranslate"><span class="pre">ions.mdp</span></code></a></p>
@@ -502,7 +502,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 </div>
 </div>
 <div class="section" id="gmx-pdb2gmx">
-<h3>2.3.5. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">pdb2gmx</span></code><a class="headerlink" href="#gmx-pdb2gmx" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.5. </span><code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">pdb2gmx</span></code><a class="headerlink" href="#gmx-pdb2gmx" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>構造のpdbファイルをgroファイルに変換するコマンド</p>
 <table border="1" class="docutils">
 <thead>
@@ -538,7 +538,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 <p>ex) <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">pdb2gmx</span> <span class="pre">-f</span> <span class="pre">1AKI_clean.pdb</span> <span class="pre">-o</span> <span class="pre">1AKI_processed.gro</span></code></p>
 </div>
 <div class="section" id="gmx-energy">
-<h3>2.3.6. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">energy</span></code><a class="headerlink" href="#gmx-energy" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.6. </span><code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">energy</span></code><a class="headerlink" href="#gmx-energy" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>計算のアウトプットのedrファイル(バイナリ)をgnuplotなどで表示できるようにするコマンド。</p>
 <table border="1" class="docutils">
 <thead>
@@ -565,7 +565,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 <p>コマンド実行後に出力する物理量を選択する。</p>
 </div>
 <div class="section" id="gmx-trjconv">
-<h3>2.3.7. <code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code><a class="headerlink" href="#gmx-trjconv" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.3.7. </span><code class="docutils literal notranslate"><span class="pre">gmx</span> <span class="pre">trjconv</span></code><a class="headerlink" href="#gmx-trjconv" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>書き出されたトラジェクトリに様々な処理をするコマンド。</p>
 <table border="1" class="docutils">
 <thead>
@@ -607,7 +607,7 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 </table><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>では.groも.trrも指定できる。</p>
 <p>コマンドの実行後にサブセットを指定できる。これにより、系から水を除いたトラジェクトリなどが書き出せる。</p>
 <div class="section" id="pbc">
-<h4>2.3.7.1. -pbc<a class="headerlink" href="#pbc" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">2.3.7.1. </span>-pbc<a class="headerlink" href="#pbc" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>田中が色々試した結果、トラジェクトリの変換操作は、</p>
 <ol class="simple">
 <li><p>PBCによる途切れを全体的に修正する（whole）</p></li>

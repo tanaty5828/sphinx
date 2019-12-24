@@ -179,7 +179,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>2. MDAnalysis</li>
+      <li><span class="section-number">2. </span>MDAnalysis</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -199,12 +199,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="mdanalysis">
-<h1>2. MDAnalysis<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2. </span>MDAnalysis<a class="headerlink" href="#mdanalysis" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>pythonでMDのトラジェクトリ解析ができるとても便利なライブラリ。筆者が使っている粗視化も解析可能。</p>
 <p>岡崎研究室の標準装備にしてほしいぐらい。</p>
 <p>日本語のチュートリアルも用意したので、ここでは便利な使い方を述べようと思う。</p>
 <div class="section" id="id1">
-<h2>2.1. 注意<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.1. </span>注意<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下特に記載しない限り、<code class="docutils literal notranslate"><span class="pre">MDAnalysis.tests.datafiles</span></code>を解析することとする。</p>
 <p>つまり、以下のように読み込みを行った。各自自分のトラジェクトリに書き換えてほしい。</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">MDAnalysis</span> <span class="k">as</span> <span class="nn">mda</span>
@@ -215,7 +215,7 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h2>2.2. 結合距離や結合角度の分布<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2. </span>結合距離や結合角度の分布<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p>Bond</p></li>
 <li><p>Angle</p></li>
@@ -227,7 +227,7 @@
 <p>この方法は、結合の情報があるファイル(<code class="docutils literal notranslate"><span class="pre">.psf,</span> <span class="pre">.top</span></code>)のようなファイルを読み込んでいる必要がある。</p>
 <p>（全原子の人は大丈夫だが、粗視化の方は<code class="docutils literal notranslate"><span class="pre">psf</span></code>ファイルがないことがあるので注意。）</p>
 <div class="section" id="how-to-do">
-<h3>2.2.1. How to do<a class="headerlink" href="#how-to-do" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">2.2.1. </span>How to do<a class="headerlink" href="#how-to-do" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>bondの情報は、<code class="docutils literal notranslate"><span class="pre">u.bonds</span></code>にあるため、</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">u</span><span class="o">.</span><span class="n">bonds</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
 

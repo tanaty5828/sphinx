@@ -181,7 +181,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>3. Namd</li>
+      <li><span class="section-number">3. </span>Namd</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -201,13 +201,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="namd">
-<h1>3. Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">3. </span>Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id1">
-<h2>3.1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.1. </span>概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NAMD (NAnoscale Molecular Dynamics program)は、フリーウェアの分子動力学シミュレーションパッケージの一つである。Charm++並列プログラミングモデルを用いて書かれ、並列効率の高さで知られており、大規模な系（数百万の原子）をシミュレートするためにしばしば使われている。NAMDはイリノイ大学アーバナ・シャンペーン校のTheoretical and Computational Biophysics Group (TCB) とParallel Programming Laboratory (PPL) との共同研究によって開発されている。</p>
 </div>
 <div class="section" id="singlenode">
-<h2>3.2. インストール方法(Singlenode版)<a class="headerlink" href="#singlenode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.2. </span>インストール方法(Singlenode版)<a class="headerlink" href="#singlenode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>手元のPCや、tgpuなど1ノードで計算する場合はこちら</p>
 <p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD">Download NAMD</a>にアクセスし、「<a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&amp;AccessCode=&amp;ArchiveID=1566">Linux-x86_64-multicore-CUDA</a>」とかいてあるものを選択。</p>
 <p>（上のリンクはバージョン2.13へのリンクだが、より新しい物がリリースされている場合は新しい物でもいい。）</p>
@@ -268,7 +268,7 @@ FATAL ERROR: No simulation config file specified on <span class="nb">command</sp
 <p>このような表示が出れば、インストール及びパスは成功している。</p>
 </div>
 <div class="section" id="multinode">
-<h2>3.3. インストール方法(Multinode版)<a class="headerlink" href="#multinode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.3. </span>インストール方法(Multinode版)<a class="headerlink" href="#multinode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>東大物性研などのノードにまたがった計算がしたければこちら</p>
 <p>手元のPCや、tgpuなど1ノードで計算する場合はこちら</p>
 <p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD">Download NAMD</a>にアクセスし、「Linux-x86_64-ibverbs-smp-CUDA」とかいてあるものを選択。</p>
@@ -327,7 +327,7 @@ FATAL ERROR: No simulation config file specified on <span class="nb">command</sp
 </div>
 <p>このような表示が出れば、インストール及びパスは成功している。</p>
 <div class="section" id="id2">
-<h3>3.3.1. ジョブスクリプトについて<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">3.3.1. </span>ジョブスクリプトについて<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>マルチノードで計算を流すためには、<code class="docutils literal notranslate"><span class="pre">charmrun</span></code>というバイナリが必要だったり<code class="docutils literal notranslate"><span class="pre">nodelist</span></code>を指定したりとめんどくさい。</p>
 <p>そこで、サンプルジョブスクリプトを作っておいたのでコピペして使ってほしい。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -398,7 +398,7 @@ charmrun /home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 ++ppn 
 </div>
 </div>
 <div class="section" id="md-inputfile">
-<h2>3.4. MD計算:inputfileについて<a class="headerlink" href="#md-inputfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">3.4. </span>MD計算:inputfileについて<a class="headerlink" href="#md-inputfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下は自分が水ーリボース系での計算をしたときのインプットファイルである。</p>
 <details>
   <summary>長いので折りたたんでいます（クリックで展開）</summary>

@@ -179,7 +179,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>4. LAMMPS</li>
+      <li><span class="section-number">4. </span>LAMMPS</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -199,10 +199,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="lammps">
-<h1>4. LAMMPS<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">4. </span>LAMMPS<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>篠田グループの粗視化モデルがインストールされているため、粗視化MD計算はこちらで行うことが多い。</p>
 <div class="section" id="id1">
-<h2>4.1. インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">4.1. </span>インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>かなり長くて大変だが、説明しよう。</p>
 <p>以下は田中が東大物性研にインストールした際の手順だが、ほとんど同じはずだ。</p>
 <p><a class="reference external" href="https://lammps.sandia.gov/">LAMMPSのサイト</a>に行き、ダウンロードのページからstableと書いてあるものをダウンロード。</p>
@@ -241,7 +241,7 @@ FFT_LIB = -L/home/tanaka/App/fftw3/lib -lfftw3
 <p>↑のような表示が出ればインストール成功で、(<code class="docutils literal notranslate"><span class="pre">./lmp_mpi</span></code>)という実行バイナリが生成されている。</p>
 <p>インストールできなかった場合、<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean-all</span></code>とすると生まれたゴミを一掃してくれて助かる。</p>
 <div class="section" id="make">
-<h3>4.1.1. <code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">4.1.1. </span><code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>また、東大物性研にインストールする際は、<code class="docutils literal notranslate"><span class="pre">MAKE/makefile.mpi</span></code> を</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CCFLAGS =	-g -O3
 を、
@@ -252,7 +252,7 @@ CCFLAGS =	-g -O3 -restrict
 </div>
 </div>
 <div class="section" id="gpu">
-<h2>4.2. インストール(gpu)<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">4.2. </span>インストール(gpu)<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>パソコンにグラフィックボードが刺さってる場合は、gpu版を使ったほうが計算が劇的に早くなることがある。ただし、コンパイルのミスなどで逆に遅くなることもあるので注意して扱うべき？</p>
 <p>手元の環境ではgpuを使うとかなり早くなる。</p>
 <p>先ほどの続きで、</p>

@@ -199,7 +199,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>5. MPDyn</li>
+      <li><span class="section-number">5. </span>MPDyn</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -219,16 +219,16 @@
            <div itemprop="articleBody">
             
   <div class="section" id="mpdyn">
-<h1>5. MPDyn<a class="headerlink" href="#mpdyn" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">5. </span>MPDyn<a class="headerlink" href="#mpdyn" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>篠田の個人的な汎用プログラムであり、粗視化モデルの開発などもこちらを用いて最初行っていた。並列化効率は高くないので一般的なMDには扱いがよくないが、新しいモデルの開発には扱いが非常に良い。膜系の解析ツールが充実しているため、現在では主にMDのトラジェクトリーの解析プログラムとして利用している。ソースコードはfortran90で書かれており、比較的解読が容易と思われる。</p>
 <div class="section" id="id1">
-<h2>5.1. インストール法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.1. </span>インストール法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="molfile">
-<h3>5.1.1. <code class="docutils literal notranslate"><span class="pre">molfile</span></code><a class="headerlink" href="#molfile" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.1.1. </span><code class="docutils literal notranslate"><span class="pre">molfile</span></code><a class="headerlink" href="#molfile" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>解析でMPDynを使うためには<code class="docutils literal notranslate"><span class="pre">molfile</span></code>なるものが必要であり、これを予めインストールする必要があるのだが昔のこと過ぎてどうやってインストールしたのか忘れた。わかったら追記したいと思う（~~絶対しない~~）</p>
 </div>
 <div class="section" id="id2">
-<h3>5.1.2. <code class="docutils literal notranslate"><span class="pre">MPdyn</span></code><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.1.2. </span><code class="docutils literal notranslate"><span class="pre">MPdyn</span></code><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference external" href="http://simulo.apchem.nagoya-u.ac.jp/personal/wshinoda/MPDyn2/">MPDynのダウンロードページ</a>からMPDynをダウンロードし、<code class="docutils literal notranslate"><span class="pre">~/App/</span></code>にダウンロードした。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/App
 tar xvf MPDyn2.tar.gz
@@ -269,7 +269,7 @@ make -f Makefile.molfile.gnu -j <span class="m">4</span> <span class="c1"># 解�
 </div>
 </div>
 <div class="section" id="id3">
-<h2>5.2. 解析<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.2. </span>解析<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>大まかな手順は以下の通りである。</p>
 <ol class="simple">
 <li><p>MD計算をし、トラジェクトリを書き出す(.xtcでも.dcdでもいい。)</p></li>
@@ -280,17 +280,17 @@ make -f Makefile.molfile.gnu -j <span class="m">4</span> <span class="c1"># 解�
 <li><p><code class="docutils literal notranslate"><span class="pre">input.data</span></code>に解析方法を書く。</p></li>
 </ol>
 <div class="section" id="md">
-<h3>5.2.1. MD計算<a class="headerlink" href="#md" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.1. </span>MD計算<a class="headerlink" href="#md" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">NAMD</span></code>や<code class="docutils literal notranslate"><span class="pre">lammps</span></code>で計算する事が多いか。</p>
 </div>
 <div class="section" id="analy">
-<h3>5.2.2. <code class="docutils literal notranslate"><span class="pre">./Analy</span></code><a class="headerlink" href="#analy" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.2. </span><code class="docutils literal notranslate"><span class="pre">./Analy</span></code><a class="headerlink" href="#analy" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>MPDynで解析したアウトプットは<code class="docutils literal notranslate"><span class="pre">実行ディレクトリ/Analy</span></code>に保存されていくために先に<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">Analy</span></code>しておこう。</p>
 </div>
 <div class="section" id="crd">
-<h3>5.2.3. CRDファイル<a class="headerlink" href="#crd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.3. </span>CRDファイル<a class="headerlink" href="#crd" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id4">
-<h4>5.2.3.1. 手順<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">5.2.3.1. </span>手順<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ol class="simple">
 <li><p>トラジェクトリからpdb生成</p></li>
 <li><p>分子ごとにソート</p></li>
@@ -404,7 +404,7 @@ POPC POPI TIP3
 </div>
 </div>
 <div class="section" id="top-cg-prm">
-<h3>5.2.4. top_CG.prm<a class="headerlink" href="#top-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.4. </span>top_CG.prm<a class="headerlink" href="#top-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>分子のトポロジー（結合順序などを書く）</p>
 <p>フォーマットは中を見てくれればわかると思うが、</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; POPC  ! palmitoyl oleyl PC
@@ -465,7 +465,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <p>としてもいい。</p>
 </div>
 <div class="section" id="par-cg-prm">
-<h3>5.2.5. par_CG.prm<a class="headerlink" href="#par-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.5. </span>par_CG.prm<a class="headerlink" href="#par-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ここに、相互作用パラメーターを追加する必要がある。</p>
 <p>上で書いたように、bondなどを追加しなければ必要なのはnonbond (lj)のパラメーターだけのはず。</p>
 <p>フォーマットは</p>
@@ -493,7 +493,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <p></p>
 </div>
 <div class="section" id="input-data">
-<h3>5.2.6. input.data<a class="headerlink" href="#input-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.6. </span>input.data<a class="headerlink" href="#input-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>やっと解析ができる。MPDynでの解析は解析をするディレクトリに<code class="docutils literal notranslate"><span class="pre">input.data</span></code>を作成し、そこにいろいろ書き込んでいく。</p>
 <p>以下インプットの例</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; JOB_NAME
@@ -625,15 +625,15 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 </ul>
 </div>
 <div class="section" id="id5">
-<h3>5.2.7. 解析完了<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.2.7. </span>解析完了<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>大体1回目は失敗するので出てきたエラーメッセージを元に修正していけばいい。</p>
 </div>
 </div>
 <div class="section" id="id6">
-<h2>5.3. 解析の種類<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.3. </span>解析の種類<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここでは、筆者がよく使った解析について書いていく。とはいえ、usageは公式を見ればわかるので注意点を書いていこうと思う。</p>
 <div class="section" id="rdf-rdfg">
-<h3>5.3.1. RDF / RDFG<a class="headerlink" href="#rdf-rdfg" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.1. </span>RDF / RDFG<a class="headerlink" href="#rdf-rdfg" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>動径分布関数 / 重心の動径分布関数をもとめるメソッドである。NOINTRA= ONにすることで同分子内の原子をカウントしなくなるため、便利である。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -643,7 +643,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <p>MDAnalysisを使おう！</p>
 </div>
 <div class="section" id="rz">
-<h3>5.3.2. RZ<a class="headerlink" href="#rz" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.2. </span>RZ<a class="headerlink" href="#rz" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>各原子の膜垂直軸に沿ってのプロフィールが計算できるメソッドである。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -651,12 +651,12 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 </div>
 </div>
 <div class="section" id="scd">
-<h3>5.3.3. SCD（全原子限定）<a class="headerlink" href="#scd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.3. </span>SCD（全原子限定）<a class="headerlink" href="#scd" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>脂質分子のオーダーパラメーターが計算できる。混ぜものの脂質も可能。</p>
 <p>対応脂質がDPPC/DPhPC/DMPC/TEPCとなるため、それ以外の脂質についてはソースコードを書き換える必要がある。</p>
 </div>
 <div class="section" id="szz">
-<h3>5.3.4. SZZ（粗視化限定）<a class="headerlink" href="#szz" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.4. </span>SZZ（粗視化限定）<a class="headerlink" href="#szz" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>そもそも隠し解析コマンドなので気づかない。</p>
 <p>粗視化MDにおいて脂質分子のオーダーパラメーターが計算できる。混ぜものの脂質も可能。</p>
 <p>対応脂質が少ない。それ以外の脂質についてはソースコードを書き換える必要がある。</p>
