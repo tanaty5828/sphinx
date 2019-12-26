@@ -104,6 +104,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#id2">2.2. インストール方法</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpu">2.2.1. GPU版のインストール</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#id3">2.2.1.1. 東大物性研の場合</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cmake-2019-12-26">2.2.1.2. cmakeオプションについて(2019/12/26)</a></li>
 </ul>
 </li>
 </ul>
@@ -252,10 +253,6 @@ sudo make install
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>PCにグラッフィクボードが刺さっている場合はcmake時に、<code class="docutils literal notranslate"><span class="pre">-DGMX_GPU=off</span></code> のオプションを追加してcmakeすると行けることがある(20191024)。</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
 <p>スパコン等を使用してMPI並列計算をしたい場合は、 <code class="docutils literal notranslate"><span class="pre">-DGMX_MPI=on</span></code> のオプションを追加する必要がある。</p>
 </div>
 <p>&quot;cmake&quot;や&quot;make&quot;のコマンドではある程度時間がかかります。</p>
@@ -323,7 +320,7 @@ gmx --version
 </tbody>
 </table><p>で成功した。</p>
 <p>実際にインストールするときは一度すべてのモジュールを消して、ロードしたほうがいいだろう。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module purge <span class="c1"># moduleの初期化</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>module purge  <span class="c1"># moduleの初期化</span>
 module load mpt/2.16
 module load cuda/8.0
 module load cmake/3.10.2
@@ -338,6 +335,14 @@ module load intel/16.0.8.266
 <p>と<code class="docutils literal notranslate"><span class="pre">-DGMX_GPU=on</span></code>を追加する。</p>
 <p>makeなどに時間がかなりかかったが、インストールは成功した。</p>
 <p>計算もできている。</p>
+</div>
+<div class="section" id="cmake-2019-12-26">
+<h4><span class="section-number">2.2.1.2. </span>cmakeオプションについて(2019/12/26)<a class="headerlink" href="#cmake-2019-12-26" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on -DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>on -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-2018.8/gmx_install/ -DGMX_MPI<span class="o">=</span>on -DGMX_GPU<span class="o">=</span>on -DCMAKE_C_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/g++
+</pre></div>
+</div>
+<p>と、c, c++コンパイラの場所を指定する必要があった。</p>
+<p>上のcmakeが失敗したら試してほしい。</p>
 <p>ちなみに、<strong>ジョブスクリプトでもモジュールをロードする必要がある</strong>ため注意。</p>
 <p>東大物性研ではジョブスクリプト中で<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">/etc/profile.d/modules.sh</span> </code>の記述がないとmoduleコマンドが使えない。</p>
 </div>

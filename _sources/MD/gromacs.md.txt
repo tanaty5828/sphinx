@@ -48,14 +48,6 @@ sudo make install
 ```
 
 ```eval_rst
-
-.. note::
-
-    PCにグラッフィクボードが刺さっている場合はcmake時に、``-DGMX_GPU=off`` のオプションを追加してcmakeすると行けることがある(20191024)。
-
-```
-
-```eval_rst
 .. note::
 
     スパコン等を使用してMPI並列計算をしたい場合は、 ``-DGMX_MPI=on`` のオプションを追加する必要がある。
@@ -128,7 +120,7 @@ GPU版gromacsのインストールでは、
 実際にインストールするときは一度すべてのモジュールを消して、ロードしたほうがいいだろう。
 
 ```bash
-module purge # moduleの初期化
+module purge  # moduleの初期化
 module load mpt/2.16
 module load cuda/8.0
 module load cmake/3.10.2
@@ -147,6 +139,16 @@ cmake ../ -DGMX_BUILD_OWN_FFTW=on -DREGRESSIONTEST_DOWNLOAD=on -DCMAKE_INSTALL_P
 makeなどに時間がかなりかかったが、インストールは成功した。
 
 計算もできている。
+
+#### cmakeオプションについて(2019/12/26)
+
+``` bash
+cmake ../ -DGMX_BUILD_OWN_FFTW=on -DREGRESSIONTEST_DOWNLOAD=on -DCMAKE_INSTALL_PREFIX=${HOME}/App/gromacs-2018.8/gmx_install/ -DGMX_MPI=on -DGMX_GPU=on -DCMAKE_C_COMPILER=/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER=/home/app/gcc/4.9.4/bin/g++
+```
+
+と、c, c++コンパイラの場所を指定する必要があった。
+
+上のcmakeが失敗したら試してほしい。
 
 
 
