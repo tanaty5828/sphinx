@@ -93,8 +93,6 @@ FATAL ERROR: No simulation config file specified on command line.
 
 東大物性研などのノードにまたがった計算がしたければこちら
 
-手元のPCや、tgpuなど1ノードで計算する場合はこちら
-
 [Download NAMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD)にアクセスし、「Linux-x86_64-ibverbs-smp-CUDA」とかいてあるものを選択。
 
 このバージョンならGPU高速化にも対応しているので、東大物性研のaccノードで計算できる。
