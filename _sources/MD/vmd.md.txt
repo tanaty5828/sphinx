@@ -225,6 +225,8 @@ VMD上で使えるコンソールだが、よく使うものとして、
 |            Filename             |         好きなように          |
 |         Render Command:         | どこかに`-res 2000`を書き込む |
 
+![](./vmd_render_setting.png)
+
 として`Start Rendering`すれば画像の書き出しが始まる。
 生成される画像は`.tga`なので`convert -density 2000 vmd.tga vmd.png`とし
 変換するといい。
