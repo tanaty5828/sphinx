@@ -204,6 +204,9 @@ mac限定だと思われる
     - AO Direct -->> 0.60
 
 と設定する。
+
+
+
 ![](./vmd_disp_setting.png)
 
 #### Extensions -->> Tk console
