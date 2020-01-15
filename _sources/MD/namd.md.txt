@@ -85,7 +85,9 @@ FATAL ERROR: No simulation config file specified on command line.
 
 ```
 
-このような表示が出れば、インストール及びパスは成功している。
+このような表示が出れば、インストール及びパスを通すことには成功している。
+
+![](./namd_after_install.png)
 
 
 
