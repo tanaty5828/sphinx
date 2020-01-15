@@ -20,11 +20,11 @@ Linuxドライバーが配信されているが、Ubuntu用の`.deb`パッケー
 
 Addressの欄にはプリンターのipアドレスを入力
 
-![](/home/tanaka/SIEGE/source/device/printer5.png)
+![](./printer5.png)
 
 またSelect from Database...を選び、下の画像のようにOkiのPCL5ドライバーを選択
 
-![](/home/tanaka/SIEGE/source/device/printer6.png)
+![](./printer6.png)
 
 
 
