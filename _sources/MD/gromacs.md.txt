@@ -162,7 +162,7 @@ cmake ../ -DGMX_BUILD_OWN_FFTW=on -DREGRESSIONTEST_DOWNLOAD=on -DCMAKE_INSTALL_P
 
 粗視化の計算をgromacsで行う必要があり、またレプリカ交換のMDを行う必要があった。
 
-レプリカ交換はPlumedというインターフェイスを介して実装されているため、そちらをインストールしてある必要がある。このページを参考にすること。
+レプリカ交換はPlumedというインターフェイスを介して実装されているため、そちらをインストールしてある必要がある。[このページ](<https://tanaty5828.github.io/sphinx/MD/plumed.html>)を参考にすること。
 
 #### 東大物性研の場合
 
