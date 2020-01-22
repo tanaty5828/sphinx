@@ -58,6 +58,7 @@ ________________________________________________________________________________
    /MD/vmd
    /MD/Discovery_studio
    /MD/fftw
+   /MD/plumed
 
 .. toctree::
    :maxdepth: 2
