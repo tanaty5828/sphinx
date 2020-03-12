@@ -117,3 +117,32 @@ packmol < mixture-comment.inp
 ```
 
 とインプットファイルを読み込ませて実行する。数秒でmixture.pdbが作成されているはず。vmdで確認しよう。
+
+
+
+### 方向を固定して配置
+
+#### constrain_rotation
+
+structure...end structureの間に`constrain_rotation 軸 角度 誤差`を入れる。
+
+例えば、z軸に並行に配置したい場合、
+
+`constrain_rotation x 0. 5.`
+`constrain_rotation y 0. 5.`
+
+とする。
+
+
+
+## tips
+
+### seed
+
+packmolは同じ粒子数で実行した場合、配置が完全に同じ系ができてしまう。
+
+粒子数が同じで異なる初期配置を何個か作成したい場合、ランダムシード値を指定することで解決する。
+
+この時、-1を指定すると毎回異なる配置が作成されるため便利。
+
+使い方) インプットの最後に`seed -1`

@@ -118,6 +118,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#structure">11.2.1.4. structure~</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">11.2.2. 方向を固定して配置</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#constrain-rotation">11.2.2.1. constrain_rotation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#tips">11.3. tips</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#seed">11.3.1. seed</a></li>
 </ul>
 </li>
 </ul>
@@ -322,6 +330,27 @@ end structure
 <p>とインプットファイルを読み込ませて実行する。数秒でmixture.pdbが作成されているはず。vmdで確認しよう。</p>
 </div>
 </div>
+</div>
+<div class="section" id="id5">
+<h3><span class="section-number">11.2.2. </span>方向を固定して配置<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="constrain-rotation">
+<h4><span class="section-number">11.2.2.1. </span>constrain_rotation<a class="headerlink" href="#constrain-rotation" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>structure...end structureの間に<code class="docutils literal notranslate"><span class="pre">constrain_rotation</span> <span class="pre">軸</span> <span class="pre">角度</span> <span class="pre">誤差</span></code>を入れる。</p>
+<p>例えば、z軸に並行に配置したい場合、</p>
+<p><code class="docutils literal notranslate"><span class="pre">constrain_rotation</span> <span class="pre">x</span> <span class="pre">0.</span> <span class="pre">5.</span></code>
+<code class="docutils literal notranslate"><span class="pre">constrain_rotation</span> <span class="pre">y</span> <span class="pre">0.</span> <span class="pre">5.</span></code></p>
+<p>とする。</p>
+</div>
+</div>
+</div>
+<div class="section" id="tips">
+<h2><span class="section-number">11.3. </span>tips<a class="headerlink" href="#tips" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="seed">
+<h3><span class="section-number">11.3.1. </span>seed<a class="headerlink" href="#seed" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>packmolは同じ粒子数で実行した場合、配置が完全に同じ系ができてしまう。</p>
+<p>粒子数が同じで異なる初期配置を何個か作成したい場合、ランダムシード値を指定することで解決する。</p>
+<p>この時、-1を指定すると毎回異なる配置が作成されるため便利。</p>
+<p>使い方) インプットの最後に<code class="docutils literal notranslate"><span class="pre">seed</span> <span class="pre">-1</span></code></p>
 </div>
 </div>
 </div>
