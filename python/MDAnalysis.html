@@ -58,6 +58,9 @@
           
 
           
+            
+            <img src="../_static/new_logo_transparent128.png" class="logo" alt="Logo"/>
+          
           </a>
 
           
@@ -113,7 +116,7 @@
 <p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">5. Lab trip</a></li>
@@ -285,8 +288,8 @@
 </div>
 <p>と57個の値がわかる。</p>
 <p>平均値は<code class="docutils literal notranslate"><span class="pre">np.mean</span></code>関数、分散には<code class="docutils literal notranslate"><span class="pre">np.var</span></code>関数を使えばいいので、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.value())}&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.value())}&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ave = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bond_56_2</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;var =  </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">bond_56_2</span><span class="o">.</span><span class="n">value</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">Out</span><span class="p">[</span><span class="mi">21</span><span class="p">]:</span>
 <span class="n">ave</span> <span class="o">=</span> <span class="mf">1.0415366866943487</span>
@@ -325,8 +328,8 @@
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">bond_56_2_values</span></code>リストにフレームごとの結合距離が入っているのがわかる。</p>
 <p>平均や分散の<code class="docutils literal notranslate"><span class="pre">np.mean</span></code>関数、<code class="docutils literal notranslate"><span class="pre">np.var</span></code>関数は入れ子になったリストでも計算できるので、</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ave = {np.mean(bond_56_2.values())}&quot;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;var =  {np.var(bond_56_2.values())}&quot;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ave = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">bond_56_2</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;var =  </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">bond_56_2</span><span class="o">.</span><span class="n">values</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">Out</span><span class="p">[</span><span class="mi">30</span><span class="p">]:</span>
 <span class="n">ave</span> <span class="o">=</span> <span class="mf">1.0415366866943487</span>

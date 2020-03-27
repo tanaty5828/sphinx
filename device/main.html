@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2. Device in Lab &mdash; SIEGE 2020.3.10 ドキュメント</title>
+  <title>2. Device in Lab. &mdash; SIEGE 2020.3.10 ドキュメント</title>
   
 
   
@@ -57,6 +57,9 @@
             <a href="../index.html" class="icon icon-home"> SIEGE
           
 
+          
+            
+            <img src="../_static/new_logo_transparent128.png" class="logo" alt="Logo"/>
           
           </a>
 
@@ -113,12 +116,11 @@
 <p class="caption"><span class="caption-text">Tools</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Device in Lab</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 813号室プリンター</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">2.1.1. 手順</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Device in Lab.</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">2.1. プリンター</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1.1. 816(817?)号室プリンター</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 816(817?)号室プリンター</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
@@ -181,13 +183,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li><span class="section-number">2. </span>Device in Lab</li>
+      <li><span class="section-number">2. </span>Device in Lab.</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/device/main.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/device/main.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -201,40 +203,15 @@
            <div itemprop="articleBody">
             
   <div class="section" id="device-in-lab">
-<h1><span class="section-number">2. </span>Device in Lab<a class="headerlink" href="#device-in-lab" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1><span class="section-number">2. </span>Device in Lab.<a class="headerlink" href="#device-in-lab" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id1">
-<h2><span class="section-number">2.1. </span>813号室プリンター<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Linuxドライバーが配信されているが、Ubuntu用の<code class="docutils literal notranslate"><span class="pre">.deb</span></code>パッケージしか存在しないため既存のドライバーを利用するのが楽。</p>
+<h2><span class="section-number">2.1. </span>プリンター<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id2">
-<h3><span class="section-number">2.1.1. </span>手順<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>設定→Device→プリンターと進み</p>
-<p><img alt="../_images/printer1.png" src="../_images/printer1.png" /></p>
-<p>右上のUnlockをクリック、パスワードを入力することで新しいプリンターの追加ができるようになる。</p>
-<p>下の欄にプリンターのipアドレス(プリンター本体に書いてあることが多い)を入力すると、プリンターの候補が現れるはず。(ipアドレスはなくても追加できる場合がある)</p>
-<p><img alt="../_images/printer2.png" src="../_images/printer2.png" /></p>
-<p>追加したプリンターの歯車アイコン→Printer Detailsと進み</p>
-<p>Addressの欄にはプリンターのipアドレスを入力</p>
-<p><img alt="../_images/printer5.png" src="../_images/printer5.png" /></p>
-<p>またSelect from Database...を選び、下の画像のようにOkiのPCL5ドライバーを選択</p>
-<p><img alt="../_images/printer6.png" src="../_images/printer6.png" /></p>
-<p>また歯車アイコン→Printing Optionsと進み</p>
-<p><img alt="../_images/printer3.png" src="../_images/printer3.png" /></p>
-<p>DuplexerはONにしておく。</p>
-<p><img alt="../_images/printer4.png" src="../_images/printer4.png" /></p>
-<p>(正しくドライバーが設定できていれば以下のような表示になるはず、その時はColorをColor Printerにしたり、Duplex UnitもONにしよう）</p>
-<p><img alt="../_images/printer7.png" src="../_images/printer7.png" /></p>
-<p>また先ほどの</p>
-<p>以上でプリントできるはずだができたなかったら田中まで。</p>
-</div>
-</div>
-<div class="section" id="id3">
-<h2><span class="section-number">2.2. </span>816(817?)号室プリンター<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3><span class="section-number">2.1.1. </span>816(817?)号室プリンター<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>インストールパッケージは、いろいろ配布されているようだが、簡易インストーラを利用するのが一番いいみたい。</p>
-<p><a class="reference external" href="https://support.brother.co.jp/j/b/downloadtop.aspx?c=jp&amp;lang=ja&amp;prod=hl4570cdw">HL-4570のドライバーサイト</a>
-にアクセス</p>
+<p><a class="reference external" href="https://support.brother.co.jp/j/b/downloadtop.aspx?c=jp&amp;lang=ja&amp;prod=hl4570cdw">HL-4570のドライバーサイト</a>  にアクセス</p>
 <p>Linux, <strong>rpm</strong> を選んで、</p>
-<p>ユーティリティソフトから <strong>Linux簡易インストーラ</strong>
-を選択し、適当な場所へダウンロードする。</p>
+<p>ユーティリティソフトから <strong>Linux簡易インストーラ</strong> を選択し、適当な場所へダウンロードする。</p>
 <p>以降は画面の指示に従えばいいが、ここにも書いておく</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ダウンロードディレクトリに移動</span>
 <span class="nb">cd</span> ~/Downloads
@@ -247,9 +224,9 @@ bash linux-???? HL-4570
 </pre></div>
 </div>
 <p>途中の質問にはすべてyes(y)で答えていけばよく、</p>
-<p>最後、プリンターと接続するところで、<em>ipアドレスを指定</em>
-を選択し、ipアドレス <strong>192.168.101.101</strong> を入力。</p>
+<p>最後、プリンターと接続するところで、<strong>ipアドレスを指定</strong> を選択し、ipアドレス <strong>192.168.101.101</strong> を入力。</p>
 <p>プリンターが追加されているはずだ。</p>
+</div>
 </div>
 </div>
 
