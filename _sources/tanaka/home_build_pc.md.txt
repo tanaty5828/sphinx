@@ -48,7 +48,7 @@ cpuはintelのcore-iシリーズとAMDのryzenシリーズがある。近年はA
 
 ### <u>Ryzen 5 3600</u> 
 
-<img src="./images/ryzen3600.jpg" style="zoom:50%;" />
+<img src="./images/ryzen3600.jpg"/>
 
  筆者が選んだcpu。新しい第3世代のcpu。12スレッドと十分すぎる性能。<br />クーラにLEDがついてないのが残念である。
 
