@@ -36,25 +36,25 @@ cpuはintelのcore-iシリーズとAMDのryzenシリーズがある。近年はA
 
 ### Ryzen 5 3500  
 
-![](./images/ryzen3500.jpg)
+<img src="./images/ryzen3500.jpg" style="zoom:25%;" />
 
 とにかく予算を抑えるならこれ。apex, fortnite程度なら余裕で動くと思う。<br />他の重いゲームをしたいなら上位モデルを選ぼう。
 
 ### Ryzen 7 2700
 
-![](./images/ryzen2700.jpg)
+<img src="./images/ryzen2700.jpg" style="zoom:25%;" />
 
 1世代前のCPUだがまだまだ現役で戦えるCPU。<br />在庫限りなのでうまく見つけないと高いかも。<br />7シリーズだからcpuクーラーにLEDがついているのもポイント。
 
 ### <u>Ryzen 5 3600</u> 
 
-![  筆者が選んだcpu。新しい第3世代のcpu。12スレッドと十分すぎる性能。<br />クーラにLEDがついてないのが残念である。](./images/ryzen3600.jpg)
+<img src="./images/ryzen3600.jpg" style="zoom:25%;" />
 
  筆者が選んだcpu。新しい第3世代のcpu。12スレッドと十分すぎる性能。<br />クーラにLEDがついてないのが残念である。
 
 ### Ryzen 7 3700X
 
-![](./images/ryzen3700.jpg)
+<img src="./images/ryzen3700.jpg" style="zoom:25%;" />
 
 より上位のモデル。8コア16スレッドは伊達じゃない。<br />思いタイプのゲーム(FF15)を検討するなら候補に入るか？
 
