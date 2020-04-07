@@ -89,6 +89,7 @@ ________________________________________________________________________________
 
    /intro/tanaka
    /tanaka/Readable Code
+   /tanaka/home_build_pc
 
 Indices and tables
 ==================
