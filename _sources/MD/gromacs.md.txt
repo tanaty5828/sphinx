@@ -91,9 +91,27 @@ gromacsはGPUによる高速計算に対応している。グラフィックボ�
     
 ```
 
+#### tgpu7の場合
 
+tgpu7のCUDAバージョンは8.0であるため、gromacs2018-8がインストールできる最新バージョンである。またデフォルトで入っているcmakeもバージョンが古いため、cmakeも新しいものをインストールする必要がある。
+以下にcmakeのオプションを示す。
 
+```bash
+/home/tanaka/App/cmake-3.10.2/build/bin/cmake ../ \
+-DCMAKE_C_COMPILER=/usr/local/gcc-4.9.4/build/bin/gcc \            
+-DCMAKE_CXX_COMPILER=/usr/local/gcc-4.9.4/build/bin/g++ \             
+-DGMX_BUILD_OWN_FFTW=on \
+-DGMX_SIMD=AVX_256 \
+-DCMAKE_INSTALL_PREFIX=/home/tanaka/App/gromacs-2018.8/gmx_install/ 
+```
 
+とした。(cmake3.10.2は上記の場所にインストールした。)
+
+SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(`-DGMX_SIMD=AVX_256`)。
+このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
+これを修正するためには、**cmake後にできる`build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルの109行目から(`;--enable-avx2;--enable-avx512`)を消去する。**
+
+その後makeするとインストールできた。
 
 #### 東大物性研の場合
 
@@ -133,29 +151,19 @@ module load intel/16.0.8.266
 あとは上と同様にインストールをすればいいが、cmakeのオプションは
 
 ```bash
-cmake ../ -DGMX_BUILD_OWN_FFTW=on -DREGRESSIONTEST_DOWNLOAD=on -DCMAKE_INSTALL_PREFIX=${HOME}/App/gromacs-2018.8/gmx_install/ -DGMX_MPI=on -DGMX_GPU=on
+cmake ../ -DGMX_BUILD_OWN_FFTW=on \
+-DREGRESSIONTEST_DOWNLOAD=on \
+-DCMAKE_INSTALL_PREFIX=${HOME}/App/gromacs-2018.8/gmx_install/ \
+-DGMX_MPI=on \
+-DGMX_GPU=on \
+-DCMAKE_C_COMPILER=/home/app/gcc/4.9.4/bin/gcc \
+-DCMAKE_CXX_COMPILER=/home/app/gcc/4.9.4/bin/g++
 ```
 
-と`-DGMX_GPU=on`を追加する。
-
-makeなどに時間がかなりかかったが、インストールは成功した。
-
-計算もできている。
-
-#### cmakeオプションについて(2019/12/26)
-
-``` bash
-cmake ../ -DGMX_BUILD_OWN_FFTW=on -DREGRESSIONTEST_DOWNLOAD=on -DCMAKE_INSTALL_PREFIX=${HOME}/App/gromacs-2018.8/gmx_install/ -DGMX_MPI=on -DGMX_GPU=on -DCMAKE_C_COMPILER=/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER=/home/app/gcc/4.9.4/bin/g++
-```
-
-と、c, c++コンパイラの場所を指定する必要があった。
-
-上のcmakeが失敗したら試してほしい。
-
-
+と、GPUを有効化(`-DGMX_GPU=on`)し、CとC++のコンパイラの場所を指定(`-DCMAKE_C_COMPILER=/home/app/gcc/4.9.4/bin/gcc \
+-DCMAKE_CXX_COMPILER=/home/app/gcc/4.9.4/bin/g++`)した。
 
 ちなみに、**ジョブスクリプトでもモジュールをロードする必要がある**ため注意。
-
 東大物性研ではジョブスクリプト中で`. /etc/profile.d/modules.sh `の記述がないとmoduleコマンドが使えない。
 
 

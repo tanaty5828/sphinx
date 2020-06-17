@@ -106,8 +106,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#id1">2.1. 概要</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">2.2. インストール方法</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#gpu">2.2.1. GPU版のインストール</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id3">2.2.1.1. 東大物性研の場合</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#cmake-2019-12-26">2.2.1.2. cmakeオプションについて(2019/12/26)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tgpu7">2.2.1.1. tgpu7の場合</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.2.1.2. 東大物性研の場合</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#cg-spica-plumed">2.2.2. CG(Spica)+plumed版</a><ul>
@@ -291,8 +291,26 @@ gmx --version
 <p>数は少ないが、AMDのグラッフィックボード(RADEON)を使う場合、2018.8を使用することをおすすめする。</p>
 <p>これは2018.7までは力場の制御にバグがあることが修正されていなかった（近年になってようやく発見された）ことと、2019.1〜2019.4まではAMD製のGPUがうまく検出されず動作しないバグ、2020.1ではそれは直ったものの動作が非常に不安定になっていることがあるためです。</p>
 </div>
+<div class="section" id="tgpu7">
+<h4><span class="section-number">2.2.1.1. </span>tgpu7の場合<a class="headerlink" href="#tgpu7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>tgpu7のCUDAバージョンは8.0であるため、gromacs2018-8がインストールできる最新バージョンである。またデフォルトで入っているcmakeもバージョンが古いため、cmakeも新しいものをインストールする必要がある。
+以下にcmakeのオプションを示す。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/home/tanaka/App/cmake-3.10.2/build/bin/cmake ../ <span class="se">\</span>
+-DCMAKE_C_COMPILER<span class="o">=</span>/usr/local/gcc-4.9.4/build/bin/gcc <span class="se">\ </span>           
+-DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/local/gcc-4.9.4/build/bin/g++ <span class="se">\ </span>            
+-DGMX_BUILD_OWN_FFTW<span class="o">=</span>on <span class="se">\</span>
+-DGMX_SIMD<span class="o">=</span>AVX_256 <span class="se">\</span>
+-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/home/tanaka/App/gromacs-2018.8/gmx_install/ 
+</pre></div>
+</div>
+<p>とした。(cmake3.10.2は上記の場所にインストールした。)</p>
+<p>SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(<code class="docutils literal notranslate"><span class="pre">-DGMX_SIMD=AVX_256</span></code>)。
+このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
+これを修正するためには、<strong>cmake後にできる<code class="docutils literal notranslate"><span class="pre">build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make</span></code>のファイルの109行目から(<code class="docutils literal notranslate"><span class="pre">;--enable-avx2;--enable-avx512</span></code>)を消去する。</strong></p>
+<p>その後makeするとインストールできた。</p>
+</div>
 <div class="section" id="id3">
-<h4><span class="section-number">2.2.1.1. </span>東大物性研の場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">2.2.1.2. </span>東大物性研の場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>GPU版gromacsのインストールでは、</p>
 <ul class="simple">
 <li><p>gromacs</p></li>
@@ -343,22 +361,18 @@ module load intel/16.0.8.266
 </pre></div>
 </div>
 <p>あとは上と同様にインストールをすればいいが、cmakeのオプションは</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on -DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>on -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-2018.8/gmx_install/ -DGMX_MPI<span class="o">=</span>on -DGMX_GPU<span class="o">=</span>on
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on <span class="se">\</span>
+-DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>on <span class="se">\</span>
+-DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-2018.8/gmx_install/ <span class="se">\</span>
+-DGMX_MPI<span class="o">=</span>on <span class="se">\</span>
+-DGMX_GPU<span class="o">=</span>on <span class="se">\</span>
+-DCMAKE_C_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/gcc <span class="se">\</span>
+-DCMAKE_CXX_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/g++
 </pre></div>
 </div>
-<p>と<code class="docutils literal notranslate"><span class="pre">-DGMX_GPU=on</span></code>を追加する。</p>
-<p>makeなどに時間がかなりかかったが、インストールは成功した。</p>
-<p>計算もできている。</p>
-</div>
-<div class="section" id="cmake-2019-12-26">
-<h4><span class="section-number">2.2.1.2. </span>cmakeオプションについて(2019/12/26)<a class="headerlink" href="#cmake-2019-12-26" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on -DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>on -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-2018.8/gmx_install/ -DGMX_MPI<span class="o">=</span>on -DGMX_GPU<span class="o">=</span>on -DCMAKE_C_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/g++
-</pre></div>
-</div>
-<p>と、c, c++コンパイラの場所を指定する必要があった。</p>
-<p>上のcmakeが失敗したら試してほしい。</p>
-<p>ちなみに、<strong>ジョブスクリプトでもモジュールをロードする必要がある</strong>ため注意。</p>
-<p>東大物性研ではジョブスクリプト中で<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">/etc/profile.d/modules.sh</span> </code>の記述がないとmoduleコマンドが使えない。</p>
+<p>と、GPUを有効化(<code class="docutils literal notranslate"><span class="pre">-DGMX_GPU=on</span></code>)し、CとC++のコンパイラの場所を指定(<code class="docutils literal notranslate"><span class="pre">-DCMAKE_C_COMPILER=/home/app/gcc/4.9.4/bin/gcc</span> <span class="pre">\</span> <span class="pre">-DCMAKE_CXX_COMPILER=/home/app/gcc/4.9.4/bin/g++</span></code>)した。</p>
+<p>ちなみに、<strong>ジョブスクリプトでもモジュールをロードする必要がある</strong>ため注意。
+東大物性研ではジョブスクリプト中で<code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">/etc/profile.d/modules.sh</span> </code>の記述がないとmoduleコマンドが使えない。</p>
 </div>
 </div>
 <div class="section" id="cg-spica-plumed">
