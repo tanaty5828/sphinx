@@ -263,7 +263,7 @@ make -f Makefile.gnu -j <span class="m">4</span> TOOL <span class="c1"># tool類
 <div class="section" id="intel">
 <h4><span class="section-number">5.1.1.2. </span>Intelコンパイラを利用する場合<a class="headerlink" href="#intel" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -f Makefile.intel -j <span class="m">4</span>
-make -f Makefile.gnu -j <span class="m">4</span> TOOL <span class="c1"># tool類の生成(CONV_CRDなど)</span>
+make -f Makefile.intel -j <span class="m">4</span> TOOL <span class="c1"># tool類の生成(CONV_CRDなど)</span>
 </pre></div>
 </div>
 <p>これで、<code class="docutils literal notranslate"><span class="pre">MPDyn2/bin/</span></code>の中に</p>
@@ -313,7 +313,7 @@ mpi-selector-menu
 <span class="c1"># If you set the default openmpi, please relogin the machine.</span>
 module purge
 module load openmpi/2.1.1-intel2017u4 intel/2017u4
-make -j <span class="m">4</span> -f Makefile.intel 
+make -j <span class="m">4</span> -f Makefile.intel
 make -j <span class="m">4</span> -f Makefile.intel MPI
 </pre></div>
 </div>
@@ -550,7 +550,6 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <p>CT   CM   LJ9-6    0.0   0.0    2.0   15.0</p>
 <p>というふうに追加するのが楽。</p>
 </div>
-<p></p>
 </div>
 <div class="section" id="input-data">
 <h3><span class="section-number">5.3.6. </span>input.data<a class="headerlink" href="#input-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
