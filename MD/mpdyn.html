@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="ja" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="ja" > <!--<![endif]-->
+<html class="writer-html5" lang="ja" >
 <head>
   <meta charset="utf-8">
   
@@ -12,6 +11,11 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
@@ -19,7 +23,9 @@
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -32,11 +38,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/my_theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="6. Gnuplotでグラフ作成" href="../Gnuplot/Gnuplot_01.html" />
@@ -80,6 +81,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -106,29 +108,37 @@
 <li class="toctree-l1"><a class="reference internal" href="namd.html">3. Namd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lammps.html">4. LAMMPS</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">5. MPDyn</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">5.1. インストール法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#molfile">5.1.1. <code class="docutils literal notranslate"><span class="pre">molfile</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">5.1.2. <code class="docutils literal notranslate"><span class="pre">MPdyn</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">5.1. インストール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mpdyns-1">5.1.1. MPDynS(1コア)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gnu">5.1.1.1. Gnuコンパイラの場合</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#intel">5.1.1.2. Intelコンパイラを利用する場合</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">5.2. 解析</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#md">5.2.1. MD計算</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#analy">5.2.2. <code class="docutils literal notranslate"><span class="pre">./Analy</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#crd">5.2.3. CRDファイル</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id4">5.2.3.1. 手順</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mpi">5.1.2. MPI版(並列計算版)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#dds4">5.1.2.1. dds4でのインストール例</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#top-cg-prm">5.2.4. top_CG.prm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#par-cg-prm">5.2.5. par_CG.prm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#input-data">5.2.6. input.data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">5.2.7. 解析完了</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id6">5.3. 解析の種類</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#rdf-rdfg">5.3.1. RDF / RDFG</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#rz">5.3.2. RZ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#scd">5.3.3. SCD（全原子限定）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#szz">5.3.4. SZZ（粗視化限定）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">5.2. 計算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">5.3. 解析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#md">5.3.1. MD計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#analy">5.3.2. <code class="docutils literal notranslate"><span class="pre">./Analy</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#crd">5.3.3. CRDファイル</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">5.3.3.1. 手順</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#top-cg-prm">5.3.4. top_CG.prm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#par-cg-prm">5.3.5. par_CG.prm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-data">5.3.6. input.data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">5.3.7. 解析完了</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">5.4. 解析の種類</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rdf-rdfg">5.4.1. RDF / RDFG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rz">5.4.2. RZ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scd">5.4.3. SCD（全原子限定）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#szz">5.4.4. SZZ（粗視化限定）</a></li>
 </ul>
 </li>
 </ul>
@@ -165,6 +175,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -203,7 +214,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li><span class="section-number">5. </span>MPDyn</li>
     
@@ -228,25 +239,34 @@
 <h1><span class="section-number">5. </span>MPDyn<a class="headerlink" href="#mpdyn" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>篠田の個人的な汎用プログラムであり、粗視化モデルの開発などもこちらを用いて最初行っていた。並列化効率は高くないので一般的なMDには扱いがよくないが、新しいモデルの開発には扱いが非常に良い。膜系の解析ツールが充実しているため、現在では主にMDのトラジェクトリーの解析プログラムとして利用している。ソースコードはfortran90で書かれており、比較的解読が容易と思われる。</p>
 <div class="section" id="id1">
-<h2><span class="section-number">5.1. </span>インストール法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="molfile">
-<h3><span class="section-number">5.1.1. </span><code class="docutils literal notranslate"><span class="pre">molfile</span></code><a class="headerlink" href="#molfile" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>解析でMPDynを使うためには<code class="docutils literal notranslate"><span class="pre">molfile</span></code>なるものが必要であり、これを予めインストールする必要があるのだが昔のこと過ぎてどうやってインストールしたのか忘れた。わかったら追記したいと思う（~~絶対しない~~）</p>
-</div>
-<div class="section" id="id2">
-<h3><span class="section-number">5.1.2. </span><code class="docutils literal notranslate"><span class="pre">MPdyn</span></code><a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="http://simulo.apchem.nagoya-u.ac.jp/personal/wshinoda/MPDyn2/">MPDynのダウンロードページ</a>からMPDynをダウンロードし、<code class="docutils literal notranslate"><span class="pre">~/App/</span></code>にダウンロードした。</p>
+<h2><span class="section-number">5.1. </span>インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><a class="reference external" href="http://www.chembio.nagoya-u.ac.jp/labhp/physchem1/member/wshinoda/MPDyn2/index.html">MPDynのダウンロードページ</a>からMPDynをダウンロードし、適当な場所で展開しておく。
+また、バーションによっては<code class="docutils literal notranslate"><span class="pre">bin</span></code>ディレクトリが作成されない場合もあるので、その場合は手動で作成する。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/App
 tar xvf MPDyn2.tar.gz
-<span class="nb">cd</span> MPDyn2/source/
-make -f Makefile.gnu -j <span class="m">4</span>
-rm -rf *.o *.mod
-make -f Makefile.gnu -j <span class="m">4</span> TOOL <span class="c1"># tool類の生成(CONV_CRDなど)</span>
-rm -rf *.o *.mod
-make -f Makefile.molfile.gnu -j <span class="m">4</span> <span class="c1"># 解析ツールの生成</span>
+<span class="nb">cd</span> MPDyn2/
+mkdir -p bin
+<span class="nb">cd</span> <span class="nb">source</span>
 </pre></div>
 </div>
-<p>こうすると、<code class="docutils literal notranslate"><span class="pre">MPDyn2/bin/</span></code>の中に</p>
+<div class="section" id="mpdyns-1">
+<h3><span class="section-number">5.1.1. </span>MPDynS(1コア)<a class="headerlink" href="#mpdyns-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>基本的には、makeファイルを選んでmakeするだけでインストールできる。</p>
+<p>gnuコンパイラ(gfortran)を利用する場合は<code class="docutils literal notranslate"><span class="pre">Makefile.gnu</span></code>を、intelコンパイラを利用する場合は<code class="docutils literal notranslate"><span class="pre">Makefile.intel</span></code>を利用しmakeする。</p>
+<div class="section" id="gnu">
+<h4><span class="section-number">5.1.1.1. </span>Gnuコンパイラの場合<a class="headerlink" href="#gnu" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -f Makefile.gnu -j <span class="m">4</span>
+make -f Makefile.gnu -j <span class="m">4</span> TOOL <span class="c1"># tool類の生成(CONV_CRDなど)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="intel">
+<h4><span class="section-number">5.1.1.2. </span>Intelコンパイラを利用する場合<a class="headerlink" href="#intel" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -f Makefile.intel -j <span class="m">4</span>
+make -f Makefile.gnu -j <span class="m">4</span> TOOL <span class="c1"># tool類の生成(CONV_CRDなど)</span>
+</pre></div>
+</div>
+<p>これで、<code class="docutils literal notranslate"><span class="pre">MPDyn2/bin/</span></code>の中に</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">MPDynS</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">MPDynS_MOLFILE</span></code></p></li>
@@ -262,20 +282,54 @@ make -f Makefile.molfile.gnu -j <span class="m">4</span> <span class="c1"># 解�
 を追加する。
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code>して<code class="docutils literal notranslate"><span class="pre">MPDynS_MOLFILE</span></code>としたときに</p>
+<p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code>して<code class="docutils literal notranslate"><span class="pre">MPDynS</span></code>と実行したときに</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Fortran</span> <span class="n">runtime</span> <span class="n">error</span><span class="p">:</span> <span class="n">File</span> <span class="s1">&#39;input.data&#39;</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">exist</span>
 <span class="n">At</span> <span class="n">line</span> <span class="mi">291</span> <span class="n">of</span> <span class="n">file</span> <span class="n">Read_Condition</span><span class="o">.</span><span class="n">f90</span> <span class="p">(</span><span class="n">unit</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;��=��&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>と表示されればインストールには成功している。</p>
+</div>
+</div>
+<div class="section" id="mpi">
+<h3><span class="section-number">5.1.2. </span>MPI版(並列計算版)<a class="headerlink" href="#mpi" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>先程の続きでも問題はない。</p>
+<p>sourceディレクトリでmakeするときに、MPIの文字を追加する。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make -j <span class="m">4</span> -f Makefile.intel MPI
+</pre></div>
+</div>
+<p>こうすることで、<code class="docutils literal notranslate"><span class="pre">./bin/MPDynP</span></code>が生成される。これはMPI計算に利用できる実行バイナリである。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>MPDynはintelコンパイラでもコンパイルでき、 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-f</span> <span class="pre">Makefile.intel</span></code> とするだけである。しかし筆者の環境ではintelコンパイラを使うと不安定になるため上記の方法を使用すること。</p>
+<p>gnuコンパイラを利用しても並列版はコンパイルできるはずであるが、自分は何度試してもできなかった。(gnu-4.8.4, 4.9.4, 8.3.1で検証した。)</p>
+</div>
+<div class="section" id="dds4">
+<h4><span class="section-number">5.1.2.1. </span>dds4でのインストール例<a class="headerlink" href="#dds4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar xvf MPDyn.tar.gz
+<span class="nb">cd</span> MPDyn
+mkdir -p bin
+<span class="nb">cd</span> <span class="nb">source</span>
+mpi-selector-menu
+<span class="c1"># set openmpi-2.0.2a1 as a current user default.</span>
+<span class="c1"># If you set the default openmpi, please relogin the machine.</span>
+module purge
+module load openmpi/2.1.1-intel2017u4 intel/2017u4
+make -j <span class="m">4</span> -f Makefile.intel 
+make -j <span class="m">4</span> -f Makefile.intel MPI
+</pre></div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">5.2. </span>計算<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>具体的なオプション等は公式ホームページを参考。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mpirun -np <span class="nv">$NSLOTS</span> MPDynP
+</pre></div>
+</div>
+<p>などで並列計算ができると思う。</p>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">5.2. </span>解析<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.3. </span>解析<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>大まかな手順は以下の通りである。</p>
 <ol class="simple">
 <li><p>MD計算をし、トラジェクトリを書き出す(.xtcでも.dcdでもいい。)</p></li>
@@ -286,17 +340,17 @@ make -f Makefile.molfile.gnu -j <span class="m">4</span> <span class="c1"># 解�
 <li><p><code class="docutils literal notranslate"><span class="pre">input.data</span></code>に解析方法を書く。</p></li>
 </ol>
 <div class="section" id="md">
-<h3><span class="section-number">5.2.1. </span>MD計算<a class="headerlink" href="#md" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.1. </span>MD計算<a class="headerlink" href="#md" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">NAMD</span></code>や<code class="docutils literal notranslate"><span class="pre">lammps</span></code>で計算する事が多いか。</p>
 </div>
 <div class="section" id="analy">
-<h3><span class="section-number">5.2.2. </span><code class="docutils literal notranslate"><span class="pre">./Analy</span></code><a class="headerlink" href="#analy" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.2. </span><code class="docutils literal notranslate"><span class="pre">./Analy</span></code><a class="headerlink" href="#analy" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>MPDynで解析したアウトプットは<code class="docutils literal notranslate"><span class="pre">実行ディレクトリ/Analy</span></code>に保存されていくために先に<code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">Analy</span></code>しておこう。</p>
 </div>
 <div class="section" id="crd">
-<h3><span class="section-number">5.2.3. </span>CRDファイル<a class="headerlink" href="#crd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.3. </span>CRDファイル<a class="headerlink" href="#crd" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id4">
-<h4><span class="section-number">5.2.3.1. </span>手順<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4><span class="section-number">5.3.3.1. </span>手順<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ol class="simple">
 <li><p>トラジェクトリからpdb生成</p></li>
 <li><p>分子ごとにソート</p></li>
@@ -410,7 +464,7 @@ POPC POPI TIP3
 </div>
 </div>
 <div class="section" id="top-cg-prm">
-<h3><span class="section-number">5.2.4. </span>top_CG.prm<a class="headerlink" href="#top-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.4. </span>top_CG.prm<a class="headerlink" href="#top-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>分子のトポロジー（結合順序などを書く）</p>
 <p>フォーマットは中を見てくれればわかると思うが、</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; POPC  ! palmitoyl oleyl PC
@@ -471,7 +525,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <p>としてもいい。</p>
 </div>
 <div class="section" id="par-cg-prm">
-<h3><span class="section-number">5.2.5. </span>par_CG.prm<a class="headerlink" href="#par-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.5. </span>par_CG.prm<a class="headerlink" href="#par-cg-prm" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ここに、相互作用パラメーターを追加する必要がある。</p>
 <p>上で書いたように、bondなどを追加しなければ必要なのはnonbond (lj)のパラメーターだけのはず。</p>
 <p>フォーマットは</p>
@@ -499,7 +553,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <p></p>
 </div>
 <div class="section" id="input-data">
-<h3><span class="section-number">5.2.6. </span>input.data<a class="headerlink" href="#input-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.6. </span>input.data<a class="headerlink" href="#input-data" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>やっと解析ができる。MPDynでの解析は解析をするディレクトリに<code class="docutils literal notranslate"><span class="pre">input.data</span></code>を作成し、そこにいろいろ書き込んでいく。</p>
 <p>以下インプットの例</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt; JOB_NAME
@@ -631,15 +685,15 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 </ul>
 </div>
 <div class="section" id="id5">
-<h3><span class="section-number">5.2.7. </span>解析完了<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.3.7. </span>解析完了<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>大体1回目は失敗するので出てきたエラーメッセージを元に修正していけばいい。</p>
 </div>
 </div>
 <div class="section" id="id6">
-<h2><span class="section-number">5.3. </span>解析の種類<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">5.4. </span>解析の種類<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここでは、筆者がよく使った解析について書いていく。とはいえ、usageは公式を見ればわかるので注意点を書いていこうと思う。</p>
 <div class="section" id="rdf-rdfg">
-<h3><span class="section-number">5.3.1. </span>RDF / RDFG<a class="headerlink" href="#rdf-rdfg" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.4.1. </span>RDF / RDFG<a class="headerlink" href="#rdf-rdfg" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>動径分布関数 / 重心の動径分布関数をもとめるメソッドである。NOINTRA= ONにすることで同分子内の原子をカウントしなくなるため、便利である。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -649,7 +703,7 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 <p>MDAnalysisを使おう！</p>
 </div>
 <div class="section" id="rz">
-<h3><span class="section-number">5.3.2. </span>RZ<a class="headerlink" href="#rz" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.4.2. </span>RZ<a class="headerlink" href="#rz" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>各原子の膜垂直軸に沿ってのプロフィールが計算できるメソッドである。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -657,12 +711,12 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 </div>
 </div>
 <div class="section" id="scd">
-<h3><span class="section-number">5.3.3. </span>SCD（全原子限定）<a class="headerlink" href="#scd" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.4.3. </span>SCD（全原子限定）<a class="headerlink" href="#scd" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>脂質分子のオーダーパラメーターが計算できる。混ぜものの脂質も可能。</p>
 <p>対応脂質がDPPC/DPhPC/DMPC/TEPCとなるため、それ以外の脂質についてはソースコードを書き換える必要がある。</p>
 </div>
 <div class="section" id="szz">
-<h3><span class="section-number">5.3.4. </span>SZZ（粗視化限定）<a class="headerlink" href="#szz" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">5.4.4. </span>SZZ（粗視化限定）<a class="headerlink" href="#szz" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>そもそも隠し解析コマンドなので気づかない。</p>
 <p>粗視化MDにおいて脂質分子のオーダーパラメーターが計算できる。混ぜものの脂質も可能。</p>
 <p>対応脂質が少ない。それ以外の脂質についてはソースコードを書き換える必要がある。</p>
@@ -690,11 +744,19 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2020, htanaka, stsurumaki, hishikawa
+        
+        &copy; 著作権 2020, htanaka, stsurumaki, hishikawa
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -705,7 +767,6 @@ ATOM      16      C25         CT2       29.0615    0.00   0.0
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

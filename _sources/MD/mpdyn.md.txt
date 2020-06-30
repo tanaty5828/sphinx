@@ -4,30 +4,40 @@
 
 
 
-## インストール法
+## インストール
 
-### `molfile`
-
-解析でMPDynを使うためには`molfile`なるものが必要であり、これを予めインストールする必要があるのだが昔のこと過ぎてどうやってインストールしたのか忘れた。わかったら追記したいと思う（~~絶対しない~~）
-
-
-
-### `MPdyn`
-
-[MPDynのダウンロードページ](http://simulo.apchem.nagoya-u.ac.jp/personal/wshinoda/MPDyn2/)からMPDynをダウンロードし、`~/App/`にダウンロードした。
+[MPDynのダウンロードページ](http://www.chembio.nagoya-u.ac.jp/labhp/physchem1/member/wshinoda/MPDyn2/index.html)からMPDynをダウンロードし、適当な場所で展開しておく。
+また、バーションによっては`bin`ディレクトリが作成されない場合もあるので、その場合は手動で作成する。
 
 ```bash
 cd ~/App
 tar xvf MPDyn2.tar.gz
-cd MPDyn2/source/
-make -f Makefile.gnu -j 4
-rm -rf *.o *.mod
-make -f Makefile.gnu -j 4 TOOL # tool類の生成(CONV_CRDなど)
-rm -rf *.o *.mod
-make -f Makefile.molfile.gnu -j 4 # 解析ツールの生成
+cd MPDyn2/
+mkdir -p bin
+cd source
 ```
 
-こうすると、`MPDyn2/bin/`の中に
+### MPDynS(1コア)
+
+基本的には、makeファイルを選んでmakeするだけでインストールできる。
+
+gnuコンパイラ(gfortran)を利用する場合は`Makefile.gnu`を、intelコンパイラを利用する場合は`Makefile.intel`を利用しmakeする。
+
+#### Gnuコンパイラの場合
+
+```bash
+make -f Makefile.gnu -j 4
+make -f Makefile.gnu -j 4 TOOL # tool類の生成(CONV_CRDなど)
+```
+
+#### Intelコンパイラを利用する場合
+
+```bash
+make -f Makefile.intel -j 4
+make -f Makefile.gnu -j 4 TOOL # tool類の生成(CONV_CRDなど)
+```
+
+これで、`MPDyn2/bin/`の中に
 
 - `MPDynS`
 - `MPDynS_MOLFILE`
@@ -45,7 +55,7 @@ export PATH=???????　と書いてある行の末尾に
 を追加する。
 ```
 
-`source ~/.bashrc`して`MPDynS_MOLFILE`としたときに
+`source ~/.bashrc`して`MPDynS`と実行したときに
 
 ```
 Fortran runtime error: File 'input.data' does not exist
@@ -56,13 +66,51 @@ At line 291 of file Read_Condition.f90 (unit = 2, file = '��=��')
 
 
 
+### MPI版(並列計算版)
+
+先程の続きでも問題はない。
+
+sourceディレクトリでmakeするときに、MPIの文字を追加する。
+
+```bash
+make -j 4 -f Makefile.intel MPI
+```
+
+こうすることで、`./bin/MPDynP`が生成される。これはMPI計算に利用できる実行バイナリである。
+
 ```eval_rst
 
 .. warning::
     
-    MPDynはintelコンパイラでもコンパイルでき、 ``make -f Makefile.intel`` とするだけである。しかし筆者の環境ではintelコンパイラを使うと不安定になるため上記の方法を使用すること。
+    gnuコンパイラを利用しても並列版はコンパイルできるはずであるが、自分は何度試してもできなかった。(gnu-4.8.4, 4.9.4, 8.3.1で検証した。)
     
 ```
+
+##### dds4でのインストール例
+
+```bash
+tar xvf MPDyn.tar.gz
+cd MPDyn
+mkdir -p bin
+cd source
+mpi-selector-menu
+# set openmpi-2.0.2a1 as a current user default.
+# If you set the default openmpi, please relogin the machine.
+module purge
+module load openmpi/2.1.1-intel2017u4 intel/2017u4
+make -j 4 -f Makefile.intel 
+make -j 4 -f Makefile.intel MPI
+```
+
+## 計算
+
+具体的なオプション等は公式ホームページを参考。
+
+```bash
+mpirun -np $NSLOTS MPDynP
+```
+
+などで並列計算ができると思う。
 
 
 
