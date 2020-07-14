@@ -2,9 +2,130 @@
 
 篠田グループの粗視化モデルがインストールされているため、粗視化MD計算はこちらで行うことが多い。
 
-
-
 ## インストール
+
+### CMake
+
+lammpsもGromacs同様、cmakeでインストールする方法が最近主流になってきている。CMakeのほうがかなり簡単にインストールできるので、頑張ってみよう。
+
+基本的には、ダウンロードしたディレクトリに入り、`build`ディレクトリを作成し`build`のなかに入り、cmakeを実行するだけである。
+
+```bash
+git clone stable https://github.com/lammps/lammps.git
+cd lammps
+mkdir build && cd build
+cmake ../cmake
+make -j 8
+```
+
+ただし、これでは必要なパッケージ等々がインストールできていないのでcmakeの際にオプションを指定する必要がある。
+
+#### 並列オプション
+
+これらがないとスパコン等での並列計算ができない
+
+| Options         | Description |
+| --------------- | ----------- |
+| -D BUILD_MPI=on | MPI並列     |
+| -D BUILD_OMP=on | OpenMP並列  |
+
+#### コンパイラオプション
+
+lammpsは、c++のコンパイラにデフォルトで`mpixx`を使用する。理由がなければ、インテルコンパイラに変更したほうがいい。
+
+| Options                            | Description                       |
+| ---------------------------------- | --------------------------------- |
+| -D  CMAKE_C_COMPILER=mpiicc        | Cコンパイラにmpiiccを指定         |
+| -D  CMAKE_CXX_COMPILER=mpiicpc     | C++コンパイラにmpiicpcを指定      |
+| -D CMAKE_Fortran_COMPILER=mpiifort | Fortranコンパイラにmpiifortを指定 |
+
+#### FFTオプション
+
+PPPM(Particle–Particle–Particle–Mesh)などの静電相互作用の取り扱いのために必要になる。
+
+| Options          | Description      |
+| ---------------- | ---------------- |
+| -D  FFT=FFTW3    | FFTにFFTW3を指定 |
+| (or) -D  FFT=MKL | FFTにMKLを指定   |
+
+FFTにFFTW3を指定しても、CMakeがFFTW3を見つけてくれないときがある。その時はFFTW3のincludeとlibディレクトリを指定する必要がある。
+
+| Options                         | Description                      |
+| ------------------------------- | -------------------------------- |
+| -D FFTW3_INCLUDE_DIRS=/home/... | FFTW3のincludeディレクトリを指定 |
+| -D FFTW3_LIBRARIES=/home/...    | FFTW3のlibディレクトリを指定     |
+
+#### パッケージオプション
+
+SPICA粗視化力場などを使用するために必要
+
+| Options                | Description                            |
+| ---------------------- | -------------------------------------- |
+| -D PKG_MOLECULE=on     | MOLECULEパッケージ                     |
+| -D PKG_OPT=on          | OPTパッケージ                          |
+| -D PKG_RIGID=on        | Rigid bodyをあつかうパッケージ         |
+| -D PKG_MISC=on         | xtcなどトラジェクトリ関連のパッケージ  |
+| -D PKG_KSPACE=on       | PPPMなどの静電相互作用関連のパッケージ |
+| -D PKG_USER-MISC=on    | xtcなどトラジェクトリ関連のパッケージ  |
+| -D PKG_USER-CGSDK=on   | SPICA力場のパッケージ                  |
+| -D PKG_USER-COLVARS=on | ABFなどcolvarsのパッケージ             |
+
+これらは全て必要になると思うので、入れておきましょう。
+
+#### GPUパッケージ
+
+GPUのあるスパコンで利用できる。
+
+| Options           | Description                                             |
+| ----------------- | ------------------------------------------------------- |
+| -D PKG_GPU=on     | GPUパッケージ本体                                       |
+| -D GPU_API=cuda   | 利用するAPIの指定。指定しないと**OpenCL**が指定される。 |
+| -D GPU_ARCH=sm_?? | d                                                       |
+
+GPUのアーキテクチャはcudaのバージョンやGPU本体によって変わる。大まかに、
+
+- sm_12 or sm_13 for GT200 (supported by CUDA 3.2 until CUDA 6.5)
+- sm_20 or sm_21 for Fermi (supported by CUDA 3.2 until CUDA 7.5)
+- sm_30 or sm_35 or sm_37 for Kepler (supported since CUDA 5)
+- sm_50 or sm_52 for Maxwell (supported since CUDA 6)
+- sm_60 or sm_61 for Pascal (supported since CUDA 8)
+- sm_70 for Volta (supported since CUDA 9)
+- sm_75 for Turing (supported since CUDA 10)
+
+という区分け。これを参考に、`-D GPU_ARCH=`を指定する。詳しくは[CUDA - Wikipedia(English)](https://en.wikipedia.org/wiki/CUDA#GPUs_supported)を参照してほしい。
+
+### TL;DL
+
+名大cxにインストールするときは、こんな感じになった。
+
+```bash
+# cmakeやmpiicpcなどモジュールのロード
+module load intel/2019.5.281
+module load impi/2019.5.281
+module load mpi-fftw/3.3.8
+module load fftw/3.3.8
+module load cuda/10.2.89_440.33.01
+module load cmake/3.17.3
+
+# lammpsソースのダウンロード
+git clone stable https://github.com/lammps/lammps.git
+
+# ディレクトリの管理
+cd lammps
+mkdir build && cd build
+
+# cmake
+cmake ../cmake -D BUILD_MPI=on -D BUILD_OMP=on -DCMAKE_C_COMPILER=mpiicc -DCMAKE_CXX_COMPILER=mpiicpc -DCMAKE_Fortran_COMPILER=mpiifort -D PKG_USER-COLVARS=yes -D PKG_MOLECULE=on -D PKG_OPT=on -D PKG_RIGID=on -D PKG_MISC=on -D PKG_USER-MISC=on -D PKG_USER-CGSDK=on -D PKG_KSPACE=on -D FFT=MKL -D PKG_GPU=on -D GPU_API=cuda -D GPU_ARCH=sm_70
+
+# インストール
+make -j 8
+```
+
+これで、`build`の中に`lmp`という実行バイナリが生成される。
+
+
+
+### Traditional make(古い方法)
 
 かなり長くて大変だが、説明しよう。
 
@@ -21,7 +142,7 @@ tar xvf lammps-11Aug17.tar.gz #2019現在。数字は異なる可能性あり。
 cd lammps-11Aug17/lib/colvars
 make -f Makefile.g++
 cd ../../src
-make yes-molecule yes-kspace yes-opt yes-rigid yes-xtc yes-misc yes-user-colvars yes-user-cg-cmm yes-user-misc yes-user-cgsdk yes-user-cgdna # 別途必要なモジュールがあれば指定する。
+make yes-molecule yes-kspace yes-opt yes-rigid yes-misc yes-user-colvars yes-user-misc yes-user-cgsdk# 別途必要なモジュールがあれば指定する。
 vi MAKE/Makefile.mpi
 ```
 

@@ -108,10 +108,20 @@
 <li class="toctree-l1"><a class="reference internal" href="namd.html">3. Namd</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">4. LAMMPS</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#id1">4.1. インストール</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#make">4.1.1. <code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cmake">4.1.1. CMake</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">4.1.1.1. 並列オプション</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">4.1.1.2. コンパイラオプション</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fft">4.1.1.3. FFTオプション</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4.1.1.4. パッケージオプション</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu">4.1.1.5. GPUパッケージ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#gpu">4.2. インストール(gpu)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tl-dl">4.1.2. TL;DL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#traditional-make">4.1.3. Traditional make(古い方法)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make">4.1.4. <code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">4.2. インストール(gpu)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="mpdyn.html">5. MPDyn</a></li>
@@ -212,6 +222,215 @@
 <p>篠田グループの粗視化モデルがインストールされているため、粗視化MD計算はこちらで行うことが多い。</p>
 <div class="section" id="id1">
 <h2><span class="section-number">4.1. </span>インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="cmake">
+<h3><span class="section-number">4.1.1. </span>CMake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>lammpsもGromacs同様、cmakeでインストールする方法が最近主流になってきている。CMakeのほうがかなり簡単にインストールできるので、頑張ってみよう。</p>
+<p>基本的には、ダウンロードしたディレクトリに入り、<code class="docutils literal notranslate"><span class="pre">build</span></code>ディレクトリを作成し<code class="docutils literal notranslate"><span class="pre">build</span></code>のなかに入り、cmakeを実行するだけである。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone stable https://github.com/lammps/lammps.git
+<span class="nb">cd</span> lammps
+mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+cmake ../cmake
+make -j <span class="m">8</span>
+</pre></div>
+</div>
+<p>ただし、これでは必要なパッケージ等々がインストールできていないのでcmakeの際にオプションを指定する必要がある。</p>
+<div class="section" id="id2">
+<h4><span class="section-number">4.1.1.1. </span>並列オプション<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>これらがないとスパコン等での並列計算ができない</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-D BUILD_MPI=on</td>
+<td>MPI並列</td>
+</tr>
+<tr>
+<td>-D BUILD_OMP=on</td>
+<td>OpenMP並列</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id3">
+<h4><span class="section-number">4.1.1.2. </span>コンパイラオプション<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>lammpsは、c++のコンパイラにデフォルトで<code class="docutils literal notranslate"><span class="pre">mpixx</span></code>を使用する。理由がなければ、インテルコンパイラに変更したほうがいい。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-D  CMAKE_C_COMPILER=mpiicc</td>
+<td>Cコンパイラにmpiiccを指定</td>
+</tr>
+<tr>
+<td>-D  CMAKE_CXX_COMPILER=mpiicpc</td>
+<td>C++コンパイラにmpiicpcを指定</td>
+</tr>
+<tr>
+<td>-D CMAKE_Fortran_COMPILER=mpiifort</td>
+<td>Fortranコンパイラにmpiifortを指定</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="fft">
+<h4><span class="section-number">4.1.1.3. </span>FFTオプション<a class="headerlink" href="#fft" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>PPPM(Particle–Particle–Particle–Mesh)などの静電相互作用の取り扱いのために必要になる。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-D  FFT=FFTW3</td>
+<td>FFTにFFTW3を指定</td>
+</tr>
+<tr>
+<td>(or) -D  FFT=MKL</td>
+<td>FFTにMKLを指定</td>
+</tr>
+</tbody>
+</table><p>FFTにFFTW3を指定しても、CMakeがFFTW3を見つけてくれないときがある。その時はFFTW3のincludeとlibディレクトリを指定する必要がある。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-D FFTW3_INCLUDE_DIRS=/home/...</td>
+<td>FFTW3のincludeディレクトリを指定</td>
+</tr>
+<tr>
+<td>-D FFTW3_LIBRARIES=/home/...</td>
+<td>FFTW3のlibディレクトリを指定</td>
+</tr>
+</tbody>
+</table></div>
+<div class="section" id="id4">
+<h4><span class="section-number">4.1.1.4. </span>パッケージオプション<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>SPICA粗視化力場などを使用するために必要</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-D PKG_MOLECULE=on</td>
+<td>MOLECULEパッケージ</td>
+</tr>
+<tr>
+<td>-D PKG_OPT=on</td>
+<td>OPTパッケージ</td>
+</tr>
+<tr>
+<td>-D PKG_RIGID=on</td>
+<td>Rigid bodyをあつかうパッケージ</td>
+</tr>
+<tr>
+<td>-D PKG_MISC=on</td>
+<td>xtcなどトラジェクトリ関連のパッケージ</td>
+</tr>
+<tr>
+<td>-D PKG_KSPACE=on</td>
+<td>PPPMなどの静電相互作用関連のパッケージ</td>
+</tr>
+<tr>
+<td>-D PKG_USER-MISC=on</td>
+<td>xtcなどトラジェクトリ関連のパッケージ</td>
+</tr>
+<tr>
+<td>-D PKG_USER-CGSDK=on</td>
+<td>SPICA力場のパッケージ</td>
+</tr>
+<tr>
+<td>-D PKG_USER-COLVARS=on</td>
+<td>ABFなどcolvarsのパッケージ</td>
+</tr>
+</tbody>
+</table><p>これらは全て必要になると思うので、入れておきましょう。</p>
+</div>
+<div class="section" id="gpu">
+<h4><span class="section-number">4.1.1.5. </span>GPUパッケージ<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<p>GPUのあるスパコンで利用できる。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-D PKG_GPU=on</td>
+<td>GPUパッケージ本体</td>
+</tr>
+<tr>
+<td>-D GPU_API=cuda</td>
+<td>利用するAPIの指定。指定しないと<strong>OpenCL</strong>が指定される。</td>
+</tr>
+<tr>
+<td>-D GPU_ARCH=sm_??</td>
+<td>d</td>
+</tr>
+</tbody>
+</table><p>GPUのアーキテクチャはcudaのバージョンやGPU本体によって変わる。大まかに、</p>
+<ul class="simple">
+<li><p>sm_12 or sm_13 for GT200 (supported by CUDA 3.2 until CUDA 6.5)</p></li>
+<li><p>sm_20 or sm_21 for Fermi (supported by CUDA 3.2 until CUDA 7.5)</p></li>
+<li><p>sm_30 or sm_35 or sm_37 for Kepler (supported since CUDA 5)</p></li>
+<li><p>sm_50 or sm_52 for Maxwell (supported since CUDA 6)</p></li>
+<li><p>sm_60 or sm_61 for Pascal (supported since CUDA 8)</p></li>
+<li><p>sm_70 for Volta (supported since CUDA 9)</p></li>
+<li><p>sm_75 for Turing (supported since CUDA 10)</p></li>
+</ul>
+<p>という区分け。これを参考に、<code class="docutils literal notranslate"><span class="pre">-D</span> <span class="pre">GPU_ARCH=</span></code>を指定する。詳しくは<a class="reference external" href="https://en.wikipedia.org/wiki/CUDA#GPUs_supported">CUDA - Wikipedia(English)</a>を参照してほしい。</p>
+</div>
+</div>
+<div class="section" id="tl-dl">
+<h3><span class="section-number">4.1.2. </span>TL;DL<a class="headerlink" href="#tl-dl" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>名大cxにインストールするときは、こんな感じになった。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># cmakeやmpiicpcなどモジュールのロード</span>
+module load intel/2019.5.281
+module load impi/2019.5.281
+module load mpi-fftw/3.3.8
+module load fftw/3.3.8
+module load cuda/10.2.89_440.33.01
+module load cmake/3.17.3
+
+<span class="c1"># lammpsソースのダウンロード</span>
+git clone stable https://github.com/lammps/lammps.git
+
+<span class="c1"># ディレクトリの管理</span>
+<span class="nb">cd</span> lammps
+mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
+
+<span class="c1"># cmake</span>
+cmake ../cmake -D <span class="nv">BUILD_MPI</span><span class="o">=</span>on -D <span class="nv">BUILD_OMP</span><span class="o">=</span>on -DCMAKE_C_COMPILER<span class="o">=</span>mpiicc -DCMAKE_CXX_COMPILER<span class="o">=</span>mpiicpc -DCMAKE_Fortran_COMPILER<span class="o">=</span>mpiifort -D PKG_USER-COLVARS<span class="o">=</span>yes -D <span class="nv">PKG_MOLECULE</span><span class="o">=</span>on -D <span class="nv">PKG_OPT</span><span class="o">=</span>on -D <span class="nv">PKG_RIGID</span><span class="o">=</span>on -D <span class="nv">PKG_MISC</span><span class="o">=</span>on -D PKG_USER-MISC<span class="o">=</span>on -D PKG_USER-CGSDK<span class="o">=</span>on -D <span class="nv">PKG_KSPACE</span><span class="o">=</span>on -D <span class="nv">FFT</span><span class="o">=</span>MKL -D <span class="nv">PKG_GPU</span><span class="o">=</span>on -D <span class="nv">GPU_API</span><span class="o">=</span>cuda -D <span class="nv">GPU_ARCH</span><span class="o">=</span>sm_70
+
+<span class="c1"># インストール</span>
+make -j <span class="m">8</span>
+</pre></div>
+</div>
+<p>これで、<code class="docutils literal notranslate"><span class="pre">build</span></code>の中に<code class="docutils literal notranslate"><span class="pre">lmp</span></code>という実行バイナリが生成される。</p>
+</div>
+<div class="section" id="traditional-make">
+<h3><span class="section-number">4.1.3. </span>Traditional make(古い方法)<a class="headerlink" href="#traditional-make" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>かなり長くて大変だが、説明しよう。</p>
 <p>以下は田中が東大物性研にインストールした際の手順だが、ほとんど同じはずだ。</p>
 <p><a class="reference external" href="https://lammps.sandia.gov/">LAMMPSのサイト</a>に行き、ダウンロードのページからstableと書いてあるものをダウンロード。</p>
@@ -221,7 +440,7 @@
 <span class="nb">cd</span> lammps-11Aug17/lib/colvars
 make -f Makefile.g++
 <span class="nb">cd</span> ../../src
-make yes-molecule yes-kspace yes-opt yes-rigid yes-xtc yes-misc yes-user-colvars yes-user-cg-cmm yes-user-misc yes-user-cgsdk yes-user-cgdna <span class="c1"># 別途必要なモジュールがあれば指定する。</span>
+make yes-molecule yes-kspace yes-opt yes-rigid yes-misc yes-user-colvars yes-user-misc yes-user-cgsdk# 別途必要なモジュールがあれば指定する。
 vi MAKE/Makefile.mpi
 </pre></div>
 </div>
@@ -249,8 +468,9 @@ FFT_LIB = -L/home/tanaka/App/fftw3/lib -lfftw3
 </div>
 <p>↑のような表示が出ればインストール成功で、(<code class="docutils literal notranslate"><span class="pre">./lmp_mpi</span></code>)という実行バイナリが生成されている。</p>
 <p>インストールできなかった場合、<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean-all</span></code>とすると生まれたゴミを一掃してくれて助かる。</p>
+</div>
 <div class="section" id="make">
-<h3><span class="section-number">4.1.1. </span><code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><span class="section-number">4.1.4. </span><code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>また、東大物性研にインストールする際は、<code class="docutils literal notranslate"><span class="pre">MAKE/makefile.mpi</span></code> を</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CCFLAGS =	-g -O3
 を、
@@ -260,8 +480,8 @@ CCFLAGS =	-g -O3 -restrict
 <p>と編集しないとインストールできなかった。とりあえずそのままやってみて<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">mpi</span> <span class="pre">-j</span> <span class="pre">8</span></code>、上手く行かなかったら上のような編集をするといい。</p>
 </div>
 </div>
-<div class="section" id="gpu">
-<h2><span class="section-number">4.2. </span>インストール(gpu)<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id5">
+<h2><span class="section-number">4.2. </span>インストール(gpu)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>パソコンにグラフィックボードが刺さってる場合は、gpu版を使ったほうが計算が劇的に早くなることがある。ただし、コンパイルのミスなどで逆に遅くなることもあるので注意して扱うべき？</p>
 <p>手元の環境ではgpuを使うとかなり早くなる。</p>
 <p>先ほどの続きで、</p>
