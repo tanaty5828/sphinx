@@ -11,7 +11,7 @@ lammpsもGromacs同様、cmakeでインストールする方法が最近主流�
 基本的には、ダウンロードしたディレクトリに入り、`build`ディレクトリを作成し`build`のなかに入り、cmakeを実行するだけである。
 
 ```bash
-git clone stable https://github.com/lammps/lammps.git
+git clone -b stable https://github.com/lammps/lammps.git
 cd lammps
 mkdir build && cd build
 cmake ../cmake
@@ -24,51 +24,51 @@ make -j 8
 
 これらがないとスパコン等での並列計算ができない
 
-| Options         | Description |
-| --------------- | ----------- |
-| -D BUILD_MPI=on | MPI並列     |
-| -D BUILD_OMP=on | OpenMP並列  |
+| Options        | Description |
+| -------------- | ----------- |
+| -DBUILD_MPI=on | MPI並列     |
+| -DBUILD_OMP=on | OpenMP並列  |
 
 #### コンパイラオプション
 
-lammpsは、c++のコンパイラにデフォルトで`mpixx`を使用する。理由がなければ、インテルコンパイラに変更したほうがいい。
+lammpsは、c++のコンパイラにデフォルトで`mpicxx`を使用する。理由がなければ、インテルコンパイラに変更したほうがいい。
 
-| Options                            | Description                       |
-| ---------------------------------- | --------------------------------- |
-| -D  CMAKE_C_COMPILER=mpiicc        | Cコンパイラにmpiiccを指定         |
-| -D  CMAKE_CXX_COMPILER=mpiicpc     | C++コンパイラにmpiicpcを指定      |
-| -D CMAKE_Fortran_COMPILER=mpiifort | Fortranコンパイラにmpiifortを指定 |
+| Options                           | Description                       |
+| --------------------------------- | --------------------------------- |
+| -DCMAKE_C_COMPILER=mpiicc         | Cコンパイラにmpiiccを指定         |
+| -DCMAKE_CXX_COMPILER=mpiicpc      | C++コンパイラにmpiicpcを指定      |
+| -DCMAKE_Fortran_COMPILER=mpiifort | Fortranコンパイラにmpiifortを指定 |
 
 #### FFTオプション
 
 PPPM(Particle–Particle–Particle–Mesh)などの静電相互作用の取り扱いのために必要になる。
 
-| Options          | Description      |
-| ---------------- | ---------------- |
-| -D  FFT=FFTW3    | FFTにFFTW3を指定 |
-| (or) -D  FFT=MKL | FFTにMKLを指定   |
+| Options        | Description      |
+| -------------- | ---------------- |
+| -DFFT=FFTW3    | FFTにFFTW3を指定 |
+| (or) -DFFT=MKL | FFTにMKLを指定   |
 
 FFTにFFTW3を指定しても、CMakeがFFTW3を見つけてくれないときがある。その時はFFTW3のincludeとlibディレクトリを指定する必要がある。
 
-| Options                         | Description                      |
-| ------------------------------- | -------------------------------- |
-| -D FFTW3_INCLUDE_DIRS=/home/... | FFTW3のincludeディレクトリを指定 |
-| -D FFTW3_LIBRARIES=/home/...    | FFTW3のlibディレクトリを指定     |
+| Options                        | Description                      |
+| ------------------------------ | -------------------------------- |
+| -DFFTW3_INCLUDE_DIRS=/home/... | FFTW3のincludeディレクトリを指定 |
+| -DFFTW3_LIBRARIES=/home/...    | FFTW3のlibディレクトリを指定     |
 
 #### パッケージオプション
 
 SPICA粗視化力場などを使用するために必要
 
-| Options                | Description                            |
-| ---------------------- | -------------------------------------- |
-| -D PKG_MOLECULE=on     | MOLECULEパッケージ                     |
-| -D PKG_OPT=on          | OPTパッケージ                          |
-| -D PKG_RIGID=on        | Rigid bodyをあつかうパッケージ         |
-| -D PKG_MISC=on         | xtcなどトラジェクトリ関連のパッケージ  |
-| -D PKG_KSPACE=on       | PPPMなどの静電相互作用関連のパッケージ |
-| -D PKG_USER-MISC=on    | xtcなどトラジェクトリ関連のパッケージ  |
-| -D PKG_USER-CGSDK=on   | SPICA力場のパッケージ                  |
-| -D PKG_USER-COLVARS=on | ABFなどcolvarsのパッケージ             |
+| Options               | Description                            |
+| --------------------- | -------------------------------------- |
+| -DPKG_MOLECULE=on     | MOLECULEパッケージ                     |
+| -DPKG_OPT=on          | OPTパッケージ                          |
+| -DPKG_RIGID=on        | Rigid bodyをあつかうパッケージ         |
+| -DPKG_MISC=on         | xtcなどトラジェクトリ関連のパッケージ  |
+| -DPKG_KSPACE=on       | PPPMなどの静電相互作用関連のパッケージ |
+| -DPKG_USER-MISC=on    | xtcなどトラジェクトリ関連のパッケージ  |
+| -DPKG_USER-CGSDK=on   | SPICA力場のパッケージ                  |
+| -DPKG_USER-COLVARS=on | ABFなどcolvarsのパッケージ             |
 
 これらは全て必要になると思うので、入れておきましょう。
 
@@ -76,11 +76,11 @@ SPICA粗視化力場などを使用するために必要
 
 GPUのあるスパコンで利用できる。
 
-| Options           | Description                                             |
-| ----------------- | ------------------------------------------------------- |
-| -D PKG_GPU=on     | GPUパッケージ本体                                       |
-| -D GPU_API=cuda   | 利用するAPIの指定。指定しないと**OpenCL**が指定される。 |
-| -D GPU_ARCH=sm_?? | d                                                       |
+| Options          | Description                                             |
+| ---------------- | ------------------------------------------------------- |
+| -DPKG_GPU=on     | GPUパッケージ本体                                       |
+| -DGPU_API=cuda   | 利用するAPIの指定。指定しないと**OpenCL**が指定される。 |
+| -DGPU_ARCH=sm_?? | GPUアーキテクチャの指定(以下参照)                       |
 
 GPUのアーキテクチャはcudaのバージョンやGPU本体によって変わる。大まかに、
 
@@ -115,7 +115,7 @@ cd lammps
 mkdir build && cd build
 
 # cmake
-cmake ../cmake -D BUILD_MPI=on -D BUILD_OMP=on -DCMAKE_C_COMPILER=mpiicc -DCMAKE_CXX_COMPILER=mpiicpc -DCMAKE_Fortran_COMPILER=mpiifort -D PKG_USER-COLVARS=yes -D PKG_MOLECULE=on -D PKG_OPT=on -D PKG_RIGID=on -D PKG_MISC=on -D PKG_USER-MISC=on -D PKG_USER-CGSDK=on -D PKG_KSPACE=on -D FFT=MKL -D PKG_GPU=on -D GPU_API=cuda -D GPU_ARCH=sm_70
+cmake ../cmake -DBUILD_MPI=on -DBUILD_OMP=on -DCMAKE_C_COMPILER=mpiicc -DCMAKE_CXX_COMPILER=mpiicpc -DCMAKE_Fortran_COMPILER=mpiifort -DPKG_USER-COLVARS=yes -DPKG_MOLECULE=on -DPKG_OPT=on -DPKG_RIGID=on -DPKG_MISC=on -DPKG_USER-MISC=on -DPKG_USER-CGSDK=on -DPKG_KSPACE=on -DFFT=MKL -DPKG_GPU=on -DGPU_API=cuda -DGPU_ARCH=sm_70
 
 # インストール
 make -j 8

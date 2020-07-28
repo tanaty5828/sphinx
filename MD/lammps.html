@@ -226,7 +226,7 @@
 <h3><span class="section-number">4.1.1. </span>CMake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>lammpsもGromacs同様、cmakeでインストールする方法が最近主流になってきている。CMakeのほうがかなり簡単にインストールできるので、頑張ってみよう。</p>
 <p>基本的には、ダウンロードしたディレクトリに入り、<code class="docutils literal notranslate"><span class="pre">build</span></code>ディレクトリを作成し<code class="docutils literal notranslate"><span class="pre">build</span></code>のなかに入り、cmakeを実行するだけである。</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone stable https://github.com/lammps/lammps.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone -b stable https://github.com/lammps/lammps.git
 <span class="nb">cd</span> lammps
 mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
 cmake ../cmake
@@ -246,18 +246,18 @@ make -j <span class="m">8</span>
 </thead>
 <tbody>
 <tr>
-<td>-D BUILD_MPI=on</td>
+<td>-DBUILD_MPI=on</td>
 <td>MPI並列</td>
 </tr>
 <tr>
-<td>-D BUILD_OMP=on</td>
+<td>-DBUILD_OMP=on</td>
 <td>OpenMP並列</td>
 </tr>
 </tbody>
 </table></div>
 <div class="section" id="id3">
 <h4><span class="section-number">4.1.1.2. </span>コンパイラオプション<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
-<p>lammpsは、c++のコンパイラにデフォルトで<code class="docutils literal notranslate"><span class="pre">mpixx</span></code>を使用する。理由がなければ、インテルコンパイラに変更したほうがいい。</p>
+<p>lammpsは、c++のコンパイラにデフォルトで<code class="docutils literal notranslate"><span class="pre">mpicxx</span></code>を使用する。理由がなければ、インテルコンパイラに変更したほうがいい。</p>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -267,15 +267,15 @@ make -j <span class="m">8</span>
 </thead>
 <tbody>
 <tr>
-<td>-D  CMAKE_C_COMPILER=mpiicc</td>
+<td>-DCMAKE_C_COMPILER=mpiicc</td>
 <td>Cコンパイラにmpiiccを指定</td>
 </tr>
 <tr>
-<td>-D  CMAKE_CXX_COMPILER=mpiicpc</td>
+<td>-DCMAKE_CXX_COMPILER=mpiicpc</td>
 <td>C++コンパイラにmpiicpcを指定</td>
 </tr>
 <tr>
-<td>-D CMAKE_Fortran_COMPILER=mpiifort</td>
+<td>-DCMAKE_Fortran_COMPILER=mpiifort</td>
 <td>Fortranコンパイラにmpiifortを指定</td>
 </tr>
 </tbody>
@@ -292,11 +292,11 @@ make -j <span class="m">8</span>
 </thead>
 <tbody>
 <tr>
-<td>-D  FFT=FFTW3</td>
+<td>-DFFT=FFTW3</td>
 <td>FFTにFFTW3を指定</td>
 </tr>
 <tr>
-<td>(or) -D  FFT=MKL</td>
+<td>(or) -DFFT=MKL</td>
 <td>FFTにMKLを指定</td>
 </tr>
 </tbody>
@@ -310,11 +310,11 @@ make -j <span class="m">8</span>
 </thead>
 <tbody>
 <tr>
-<td>-D FFTW3_INCLUDE_DIRS=/home/...</td>
+<td>-DFFTW3_INCLUDE_DIRS=/home/...</td>
 <td>FFTW3のincludeディレクトリを指定</td>
 </tr>
 <tr>
-<td>-D FFTW3_LIBRARIES=/home/...</td>
+<td>-DFFTW3_LIBRARIES=/home/...</td>
 <td>FFTW3のlibディレクトリを指定</td>
 </tr>
 </tbody>
@@ -331,35 +331,35 @@ make -j <span class="m">8</span>
 </thead>
 <tbody>
 <tr>
-<td>-D PKG_MOLECULE=on</td>
+<td>-DPKG_MOLECULE=on</td>
 <td>MOLECULEパッケージ</td>
 </tr>
 <tr>
-<td>-D PKG_OPT=on</td>
+<td>-DPKG_OPT=on</td>
 <td>OPTパッケージ</td>
 </tr>
 <tr>
-<td>-D PKG_RIGID=on</td>
+<td>-DPKG_RIGID=on</td>
 <td>Rigid bodyをあつかうパッケージ</td>
 </tr>
 <tr>
-<td>-D PKG_MISC=on</td>
+<td>-DPKG_MISC=on</td>
 <td>xtcなどトラジェクトリ関連のパッケージ</td>
 </tr>
 <tr>
-<td>-D PKG_KSPACE=on</td>
+<td>-DPKG_KSPACE=on</td>
 <td>PPPMなどの静電相互作用関連のパッケージ</td>
 </tr>
 <tr>
-<td>-D PKG_USER-MISC=on</td>
+<td>-DPKG_USER-MISC=on</td>
 <td>xtcなどトラジェクトリ関連のパッケージ</td>
 </tr>
 <tr>
-<td>-D PKG_USER-CGSDK=on</td>
+<td>-DPKG_USER-CGSDK=on</td>
 <td>SPICA力場のパッケージ</td>
 </tr>
 <tr>
-<td>-D PKG_USER-COLVARS=on</td>
+<td>-DPKG_USER-COLVARS=on</td>
 <td>ABFなどcolvarsのパッケージ</td>
 </tr>
 </tbody>
@@ -377,16 +377,16 @@ make -j <span class="m">8</span>
 </thead>
 <tbody>
 <tr>
-<td>-D PKG_GPU=on</td>
+<td>-DPKG_GPU=on</td>
 <td>GPUパッケージ本体</td>
 </tr>
 <tr>
-<td>-D GPU_API=cuda</td>
+<td>-DGPU_API=cuda</td>
 <td>利用するAPIの指定。指定しないと<strong>OpenCL</strong>が指定される。</td>
 </tr>
 <tr>
-<td>-D GPU_ARCH=sm_??</td>
-<td>d</td>
+<td>-DGPU_ARCH=sm_??</td>
+<td>GPUアーキテクチャの指定(以下参照)</td>
 </tr>
 </tbody>
 </table><p>GPUのアーキテクチャはcudaのバージョンやGPU本体によって変わる。大まかに、</p>
@@ -421,7 +421,7 @@ git clone stable https://github.com/lammps/lammps.git
 mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> build
 
 <span class="c1"># cmake</span>
-cmake ../cmake -D <span class="nv">BUILD_MPI</span><span class="o">=</span>on -D <span class="nv">BUILD_OMP</span><span class="o">=</span>on -DCMAKE_C_COMPILER<span class="o">=</span>mpiicc -DCMAKE_CXX_COMPILER<span class="o">=</span>mpiicpc -DCMAKE_Fortran_COMPILER<span class="o">=</span>mpiifort -D PKG_USER-COLVARS<span class="o">=</span>yes -D <span class="nv">PKG_MOLECULE</span><span class="o">=</span>on -D <span class="nv">PKG_OPT</span><span class="o">=</span>on -D <span class="nv">PKG_RIGID</span><span class="o">=</span>on -D <span class="nv">PKG_MISC</span><span class="o">=</span>on -D PKG_USER-MISC<span class="o">=</span>on -D PKG_USER-CGSDK<span class="o">=</span>on -D <span class="nv">PKG_KSPACE</span><span class="o">=</span>on -D <span class="nv">FFT</span><span class="o">=</span>MKL -D <span class="nv">PKG_GPU</span><span class="o">=</span>on -D <span class="nv">GPU_API</span><span class="o">=</span>cuda -D <span class="nv">GPU_ARCH</span><span class="o">=</span>sm_70
+cmake ../cmake -DBUILD_MPI<span class="o">=</span>on -DBUILD_OMP<span class="o">=</span>on -DCMAKE_C_COMPILER<span class="o">=</span>mpiicc -DCMAKE_CXX_COMPILER<span class="o">=</span>mpiicpc -DCMAKE_Fortran_COMPILER<span class="o">=</span>mpiifort -DPKG_USER-COLVARS<span class="o">=</span>yes -DPKG_MOLECULE<span class="o">=</span>on -DPKG_OPT<span class="o">=</span>on -DPKG_RIGID<span class="o">=</span>on -DPKG_MISC<span class="o">=</span>on -DPKG_USER-MISC<span class="o">=</span>on -DPKG_USER-CGSDK<span class="o">=</span>on -DPKG_KSPACE<span class="o">=</span>on -DFFT<span class="o">=</span>MKL -DPKG_GPU<span class="o">=</span>on -DGPU_API<span class="o">=</span>cuda -DGPU_ARCH<span class="o">=</span>sm_70
 
 <span class="c1"># インストール</span>
 make -j <span class="m">8</span>

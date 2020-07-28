@@ -224,7 +224,7 @@ VMD上で使えるコンソールだが、よく使うものとして、
 
 |              項目               |            設定値             |
 | :-----------------------------: | :---------------------------: |
-| Render the current scane using: |           Tachylon            |
+| Render the current scane using: |  Tachylon or TachylonL-OptiX  |
 |            Filename             |         好きなように          |
 |         Render Command:         | どこかに`-res 2000`を書き込む |
 
