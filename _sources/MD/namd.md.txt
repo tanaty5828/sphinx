@@ -20,7 +20,7 @@ NAMD (NAnoscale Molecular Dynamics program)は、フリーウェアの分子動�
 .. warning::
     ただし、Namdは **バージョンが異なるソフトで計算された場合、restartファイルの引き継ぎができない** ことがある。
 
-    特にB4の学生は名大CXを使うことが多いが、名大CXにインストールされているNamdのバージョンは2.13のため、注意が必要。
+    特にB4の学生は名大CXを使うことが多いが、名大CXにインストールされているNamdのバージョンは2.14bのため、注意が必要。
 
 ```
 
@@ -93,15 +93,13 @@ FATAL ERROR: No simulation config file specified on command line.
 
 ## インストール方法(Multinode版)
 
-東大物性研などのノードにまたがった計算がしたければこちら
+複数ノードでの計算をする場合はこちらを参考にすること。
 
 [Download NAMD](https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD)にアクセスし、「Linux-x86_64-ibverbs-smp-CUDA」とかいてあるものを選択。
 
-このバージョンならGPU高速化にも対応しているので、東大物性研のaccノードで計算できる。
-
 ```eval_rst
 .. warning::
-    ただし、Namdは **バージョンが異なるソフトで計算された場合、restartファイルの引き継ぎができない** ことがある。特にB4の学生は名大CXを使うことが多いが、名大CXにインストールされているNamdのバージョンは2.13のため、注意が必要。
+    ただし、Namdは **バージョンが異なるソフトで計算された場合、restartファイルの引き継ぎができない** ことがある。特にB4の学生は名大CXを使うことが多いが、名大CXにインストールされているNamdのバージョンは2.14bのため、注意が必要。
 ```
 
 途中アカウントを作成したりするところがあるが、指示に従って進めて行けばいい。
