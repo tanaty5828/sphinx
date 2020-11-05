@@ -111,8 +111,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">6. Gnuplotでグラフ作成</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vmd.html">7. VMD</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">8. Discovery Studio</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">8.1. インストール方法</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">8.1.1. パスを通す</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">8.1. 注意事項</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">8.2. インストール方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">8.2.1. パスを通す</a></li>
 </ul>
 </li>
 </ul>
@@ -120,6 +121,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fftw.html">9. FFTW</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plumed.html">10. PLUMED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packmol.html">11. Packmol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MPI.html">12. MPI environment</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tools</span></p>
 <ul>
@@ -213,7 +215,14 @@
 <p>篠田グループの方はインストールすべし</p>
 <p><img alt="../_images/Discovery.png" src="../_images/Discovery.png" /></p>
 <div class="section" id="id1">
-<h2><span class="section-number">8.1. </span>インストール方法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">8.1. </span>注意事項<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>DiscoveryStudio2020は、まだCentOS8に対応してないようで、ライブラリ等の不具合が頻発した。CentOSにインストールするか、Windows版を使ってください。</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">8.2. </span>インストール方法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="http://www.3dsbiovia.com/products/collaborative-science/biovia-discovery-studio/visualization-download.php">ダウンロードページ(2019現在)</a>にアクセスし、適当にプロフィールを入力します。</p>
 <p>すべて入力し、submitするとダウンロードリンクが現れるので<strong>Linux</strong>版をダウンロードします。</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># ダウンロードディレクトリに移動</span>
@@ -277,8 +286,8 @@ sudo yum install -y libXi-devel
 </pre></div>
 </div>
 <p>とすることで、解決した。（個人差があるかも）</p>
-<div class="section" id="id2">
-<h3><span class="section-number">8.1.1. </span>パスを通す<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id3">
+<h3><span class="section-number">8.2.1. </span>パスを通す<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>vi ~/.bashrc <span class="c1">#.bashrcの編集</span>
 </pre></div>
 </div>

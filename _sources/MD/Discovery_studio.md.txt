@@ -8,6 +8,14 @@
 
 ![](./Discovery.png)
 
+## 注意事項
+
+```eval_rst
+
+.. warning::
+    DiscoveryStudio2020は、まだCentOS8に対応してないようで、ライブラリ等の不具合が頻発した。CentOSにインストールするか、Windows版を使ってください。
+
+```
 
 
 ## インストール方法
