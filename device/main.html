@@ -124,12 +124,11 @@
 <li class="toctree-l3"><a class="reference internal" href="#id2">2.1.1. 手順</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 816(817?)号室プリンター</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. 816-2(817?)号室プリンター</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../trip/trip.html">5. Lab trip</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Python Room</span></p>
 <ul>
@@ -212,9 +211,17 @@
 <h1><span class="section-number">2. </span>Device in Lab<a class="headerlink" href="#device-in-lab" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id1">
 <h2><span class="section-number">2.1. </span>813号室プリンター<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Linuxドライバーが配信されているが、Ubuntu用の<code class="docutils literal notranslate"><span class="pre">.deb</span></code>パッケージしか存在しないため既存のドライバーを利用するのが楽。</p>
+<ul class="simple">
+<li><p>MC332</p></li>
+<li><p>MC363</p></li>
+</ul>
+<p>の2つが稼働している。MC363の方はかなり古く、紙詰まりを起こしやすいのでMC332を推奨する。</p>
 <div class="section" id="id2">
 <h3><span class="section-number">2.1.1. </span>手順<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>以下より、対応するプリンターのドライバーをダウンロードしてください。</p>
+<p><a class="reference download internal" download="" href="../_downloads/080e0ae0c6fada507b7fea7567e1612d/OKI C332 PS.ppd"><code class="xref download docutils literal notranslate"><span class="pre">OKI</span> <span class="pre">C332</span> <span class="pre">PS.ppd</span></code></a></p>
+<p><a href="#id4"><span class="problematic" id="id5">``</span></a><cite>eval_rst
+:download:`OKI MC363 PS.ppd &lt;./OKI MC363 PS.ppd&gt;</cite></p>
 <p>設定→Device→プリンターと進み</p>
 <p><img alt="../_images/printer1.png" src="../_images/printer1.png" /></p>
 <p>右上のUnlockをクリック、パスワードを入力することで新しいプリンターの追加ができるようになる。</p>
@@ -231,18 +238,15 @@
 <p><img alt="../_images/printer4.png" src="../_images/printer4.png" /></p>
 <p>(正しくドライバーが設定できていれば以下のような表示になるはず、その時はColorをColor Printerにしたり、Duplex UnitもONにしよう）</p>
 <p><img alt="../_images/printer7.png" src="../_images/printer7.png" /></p>
-<p>また先ほどの</p>
-<p>以上でプリントできるはずだができたなかったら田中まで。</p>
+<p>以上でプリントできるはずだができなかったら田中まで。</p>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">2.2. </span>816(817?)号室プリンター<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2><span class="section-number">2.2. </span>816-2(817?)号室プリンター<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>インストールパッケージは、いろいろ配布されているようだが、簡易インストーラを利用するのが一番いいみたい。</p>
 <p><a class="reference external" href="https://support.brother.co.jp/j/b/downloadtop.aspx?c=jp&amp;lang=ja&amp;prod=hl4570cdw">HL-4570のドライバーサイト</a>
 にアクセス</p>
-<p>Linux, <strong>rpm</strong> を選んで、</p>
-<p>ユーティリティソフトから <strong>Linux簡易インストーラ</strong>
-を選択し、適当な場所へダウンロードする。</p>
+<p>Linux, <strong>rpm</strong> を選んで、ユーティリティソフトから <strong>Linux簡易インストーラ</strong>を選択し、適当な場所へダウンロードする。</p>
 <p>以降は画面の指示に従えばいいが、ここにも書いておく</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ダウンロードディレクトリに移動</span>
 <span class="nb">cd</span> ~/Downloads
@@ -254,10 +258,8 @@ tar xvf linux-????
 bash linux-???? HL-4570
 </pre></div>
 </div>
-<p>途中の質問にはすべてyes(y)で答えていけばよく、</p>
-<p>最後、プリンターと接続するところで、<em>ipアドレスを指定</em>
-を選択し、ipアドレス <strong>192.168.101.101</strong> を入力。</p>
-<p>プリンターが追加されているはずだ。</p>
+<p>途中の質問にはすべてyes(y)で答えていけばよく、最後、プリンターと接続するところで、<strong>ipアドレスを指定</strong>を選択し、ipアドレス <strong>192.168.101.101</strong> を入力。</p>
+<p>プリンターが追加される。</p>
 </div>
 </div>
 

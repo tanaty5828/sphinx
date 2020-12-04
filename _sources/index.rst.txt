@@ -75,7 +75,7 @@ ________________________________________________________________________________
    /device/main
    /make_homepages/how_to_use_git
    /make_homepages/sandbox
-   /trip/trip
+..   /trip/trip
 
 .. toctree::
    :maxdepth: 2
