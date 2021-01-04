@@ -19,7 +19,8 @@
 :download:`OKI MC363 PS.ppd <./OKI MC363 PS.ppd>`
 ```
 
-設定→Device→プリンターと進み
+その後、設定→Device→プリンターと進み
+
 
 ![](./printer1.png)
 
