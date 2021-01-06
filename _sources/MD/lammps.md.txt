@@ -59,16 +59,17 @@ FFTにFFTW3を指定しても、CMakeがFFTW3を見つけてくれないとき�
 
 SPICA粗視化力場などを使用するために必要
 
-| Options               | Description                            |
-| --------------------- | -------------------------------------- |
-| -DPKG_MOLECULE=on     | MOLECULEパッケージ                     |
-| -DPKG_OPT=on          | OPTパッケージ                          |
-| -DPKG_RIGID=on        | Rigid bodyをあつかうパッケージ         |
-| -DPKG_MISC=on         | xtcなどトラジェクトリ関連のパッケージ  |
-| -DPKG_KSPACE=on       | PPPMなどの静電相互作用関連のパッケージ |
-| -DPKG_USER-MISC=on    | xtcなどトラジェクトリ関連のパッケージ  |
-| -DPKG_USER-CGSDK=on   | SPICA力場のパッケージ                  |
-| -DPKG_USER-COLVARS=on | ABFなどcolvarsのパッケージ             |
+| Options                  | Description                            |
+| ------------------------ | -------------------------------------- |
+| -DPKG_MOLECULE=on        | MOLECULEパッケージ                     |
+| -DPKG_OPT=on             | OPTパッケージ                          |
+| -DPKG_RIGID=on           | Rigid bodyをあつかうパッケージ         |
+| -DPKG_MISC=on            | xtcなどトラジェクトリ関連のパッケージ  |
+| -DPKG_KSPACE=on          | PPPMなどの静電相互作用関連のパッケージ |
+| -DPKG_USER-MISC=on       | xtcなどトラジェクトリ関連のパッケージ  |
+| -DPKG_USER-MOLFILE=on    | PDBの出力ができるようになる            |
+| -DPKG_USER-CGSDK=on      | SPICA力場のパッケージ                  |
+| -DPKG_USER-COLVARS=on    | ABFなどcolvarsのパッケージ             |
 
 これらは全て必要になると思うので、入れておきましょう。
 
