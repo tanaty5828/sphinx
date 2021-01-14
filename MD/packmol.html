@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>11. Packmol &mdash; SIEGE 2021.1.14 ドキュメント</title>
+  <title>Packmol &mdash; SIEGE 2021.1.14 ドキュメント</title>
   
 
   
@@ -39,9 +39,7 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="12. MPI environment" href="MPI.html" />
-    <link rel="prev" title="10. PLUMED" href="plumed.html" /> 
+    <link rel="search" title="検索" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,75 +87,37 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Linux</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">3. Linux commands (nessesary)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">4. vi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">5. ssh</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="mdsoft.html">1. Molecular Dynamics Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gromacs.html">2. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namd.html">3. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lammps.html">4. LAMMPS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpdyn.html">5. MPDyn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">6. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vmd.html">7. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">8. Discovery Studio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fftw.html">9. FFTW</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plumed.html">10. PLUMED</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">11. Packmol</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">11.1. インストール方法</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">11.2. 使い方</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">11.2.1. 完全にランダムな配置</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#tolerance">11.2.1.1. tolerance</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filetype">11.2.1.2. filetype</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#output">11.2.1.3. output</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#structure">11.2.1.4. structure~</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">11.2.2. 方向を固定して配置</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#constrain-rotation">11.2.2.1. constrain_rotation</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Packmol</a><ul>
+<li><a class="reference internal" href="#id1">インストール方法</a></li>
+<li><a class="reference internal" href="#id2">使い方</a><ul>
+<li><a class="reference internal" href="#id3">完全にランダムな配置</a><ul>
+<li><a class="reference internal" href="#tolerance">tolerance</a></li>
+<li><a class="reference internal" href="#filetype">filetype</a></li>
+<li><a class="reference internal" href="#output">output</a></li>
+<li><a class="reference internal" href="#structure">structure~</a><ul>
+<li><a class="reference internal" href="#id4">structure</a></li>
+<li><a class="reference internal" href="#number">number</a></li>
+<li><a class="reference internal" href="#inside-box">inside box</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#tips">11.3. tips</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#seed">11.3.1. seed</a></li>
+<li><a class="reference internal" href="#id5">方向を固定して配置</a><ul>
+<li><a class="reference internal" href="#constrain-rotation">constrain_rotation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="MPI.html">12. MPI environment</a></li>
+<li><a class="reference internal" href="#tips">tips</a><ul>
+<li><a class="reference internal" href="#seed">seed</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tools</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
+</li>
 </ul>
-<p class="caption"><span class="caption-text">Python Room</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">1. matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">2. MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">4. Anaconda</a></li>
+</li>
 </ul>
-<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">2. Readable Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">3. Home build PC</a></li>
-</ul>
-
+</div>
             
           
         </div>
@@ -202,7 +162,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">11. </span>Packmol</li>
+      <li>Packmol</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -222,11 +182,11 @@
            <div itemprop="articleBody">
             
   <div class="section" id="packmol">
-<h1><span class="section-number">11. </span>Packmol<a class="headerlink" href="#packmol" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>Packmol<a class="headerlink" href="#packmol" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><a class="reference external" href="http://m3g.iqm.unicamp.br/packmol/home.shtml">Packmol</a>は、シミュレーションの初期構造を作成する際に便利なソフトウェア。</p>
 <p>例えば、水(TIP3P)とイオン(Na+)のランダムな配置の水溶液を作成したい時などに有用である。</p>
 <div class="section" id="id1">
-<h2><span class="section-number">11.1. </span>インストール方法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール方法<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>適当なディレクトリ(<code class="docutils literal notranslate"><span class="pre">~/App/</span></code>)で、</p>
 <p>ダウンロードして、</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/m3g/packmol.git
@@ -242,9 +202,9 @@ make
 </div>
 </div>
 <div class="section" id="id2">
-<h2><span class="section-number">11.2. </span>使い方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>使い方<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
-<h3><span class="section-number">11.2.1. </span>完全にランダムな配置<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>完全にランダムな配置<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ここでは、水1000分子の中に尿素400分子を入れた水溶液を作成する。</p>
 <p>必要なものは、</p>
 <ul class="simple">
@@ -288,30 +248,30 @@ end structure
 </pre></div>
 </div>
 <div class="section" id="tolerance">
-<h4><span class="section-number">11.2.1.1. </span>tolerance<a class="headerlink" href="#tolerance" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>tolerance<a class="headerlink" href="#tolerance" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>各分子をどのくらい離して配置するかの値[Å]。3.0くらいでいいと思う。</p>
 </div>
 <div class="section" id="filetype">
-<h4><span class="section-number">11.2.1.2. </span>filetype<a class="headerlink" href="#filetype" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>filetype<a class="headerlink" href="#filetype" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>pdbにしておいて。</p>
 </div>
 <div class="section" id="output">
-<h4><span class="section-number">11.2.1.3. </span>output<a class="headerlink" href="#output" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>output<a class="headerlink" href="#output" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>出力ファイル名。自由にどうぞ。</p>
 </div>
 <div class="section" id="structure">
-<h4><span class="section-number">11.2.1.4. </span>structure~<a class="headerlink" href="#structure" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>structure~<a class="headerlink" href="#structure" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>structureから、end structureまでを一つの分子として認識する。</p>
 <div class="section" id="id4">
-<h5><span class="section-number">11.2.1.4.1. </span>structure<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5>structure<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>利用する分子のpdb名。</p>
 </div>
 <div class="section" id="number">
-<h5><span class="section-number">11.2.1.4.2. </span>number<a class="headerlink" href="#number" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5>number<a class="headerlink" href="#number" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>何分子入れるか。</p>
 </div>
 <div class="section" id="inside-box">
-<h5><span class="section-number">11.2.1.4.3. </span>inside box<a class="headerlink" href="#inside-box" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5>inside box<a class="headerlink" href="#inside-box" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <ol class="simple">
 <li><ol class="simple">
 <li><ol class="simple">
@@ -339,9 +299,9 @@ end structure
 </div>
 </div>
 <div class="section" id="id5">
-<h3><span class="section-number">11.2.2. </span>方向を固定して配置<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>方向を固定して配置<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="constrain-rotation">
-<h4><span class="section-number">11.2.2.1. </span>constrain_rotation<a class="headerlink" href="#constrain-rotation" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>constrain_rotation<a class="headerlink" href="#constrain-rotation" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>structure...end structureの間に<code class="docutils literal notranslate"><span class="pre">constrain_rotation</span> <span class="pre">軸</span> <span class="pre">角度</span> <span class="pre">誤差</span></code>を入れる。</p>
 <p>例えば、z軸に並行に配置したい場合、</p>
 <p><code class="docutils literal notranslate"><span class="pre">constrain_rotation</span> <span class="pre">x</span> <span class="pre">0.</span> <span class="pre">5.</span></code>
@@ -351,9 +311,9 @@ end structure
 </div>
 </div>
 <div class="section" id="tips">
-<h2><span class="section-number">11.3. </span>tips<a class="headerlink" href="#tips" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>tips<a class="headerlink" href="#tips" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="seed">
-<h3><span class="section-number">11.3.1. </span>seed<a class="headerlink" href="#seed" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>seed<a class="headerlink" href="#seed" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>packmolは同じ粒子数で実行した場合、配置が完全に同じ系ができてしまう。</p>
 <p>粒子数が同じで異なる初期配置を何個か作成したい場合、ランダムシード値を指定することで解決する。</p>
 <p>この時、-1を指定すると毎回異なる配置が作成されるため便利。</p>
@@ -367,15 +327,6 @@ end structure
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="MPI.html" class="btn btn-neutral float-right" title="12. MPI environment" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="plumed.html" class="btn btn-neutral float-left" title="10. PLUMED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

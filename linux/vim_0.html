@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. vi &mdash; SIEGE 2021.1.14 ドキュメント</title>
+  <title>vi &mdash; SIEGE 2021.1.14 ドキュメント</title>
   
 
   
@@ -39,9 +39,7 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="5. ssh" href="ssh.html" />
-    <link rel="prev" title="3. Linux commands (nessesary)" href="linuxcommand.html" /> 
+    <link rel="search" title="検索" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,105 +87,72 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Linux</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="linux1.html">1. Linux Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linuxq1.html">2. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="linuxcommand.html">3. Linux commands (nessesary)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. vi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">4.1. このページは</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">4.2. ！注意！</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">4.3. インストール</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#linux">4.3.1. Linux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mac">4.3.2. Mac</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#windows">4.3.3. Windows</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">vi</a><ul>
+<li><a class="reference internal" href="#id1">このページは</a></li>
+<li><a class="reference internal" href="#id2">！注意！</a></li>
+<li><a class="reference internal" href="#id3">インストール</a><ul>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#mac">Mac</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id4">4.4. 使い方</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#beginner">4.4.1. Beginner</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id5">4.4.1.1. モード</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id6">4.4.1.2. キーバインド</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id7">4.4.1.3. チェックリスト</a></li>
+<li><a class="reference internal" href="#id4">使い方</a><ul>
+<li><a class="reference internal" href="#beginner">Beginner</a><ul>
+<li><a class="reference internal" href="#id5">モード</a></li>
+<li><a class="reference internal" href="#id6">キーバインド</a></li>
+<li><a class="reference internal" href="#id7">チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#easy">4.4.2. Easy</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id8">4.4.2.1. キーバインド</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id9">4.4.2.2. キーバインド（カーソルの移動に関して）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id10">4.4.2.3. チェックリスト</a></li>
+<li><a class="reference internal" href="#easy">Easy</a><ul>
+<li><a class="reference internal" href="#id8">キーバインド</a></li>
+<li><a class="reference internal" href="#id9">キーバインド（カーソルの移動に関して）</a></li>
+<li><a class="reference internal" href="#id10">チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#normal">4.4.3. Normal</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id11">4.4.3.1. キーバインド（文字操作）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id12">4.4.3.2. キーバインド（移動）</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id13">4.4.3.3. チェックリスト</a></li>
+<li><a class="reference internal" href="#normal">Normal</a><ul>
+<li><a class="reference internal" href="#id11">キーバインド（文字操作）</a></li>
+<li><a class="reference internal" href="#id12">キーバインド（移動）</a></li>
+<li><a class="reference internal" href="#id13">チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#hard">4.4.4. Hard</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#vim">4.4.4.1. vimの設定</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#vimrc">4.4.4.2. .vimrc</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id14">4.4.4.3. チェックリスト</a></li>
+<li><a class="reference internal" href="#hard">Hard</a><ul>
+<li><a class="reference internal" href="#vim">vimの設定</a></li>
+<li><a class="reference internal" href="#vimrc">.vimrc</a></li>
+<li><a class="reference internal" href="#id14">チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#lunatic">4.4.5. Lunatic</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id15">4.4.5.1. 文字置換</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id16">4.4.5.2. 水平、垂直分割</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id17">4.4.5.3. 画面スクロール</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id18">4.4.5.4. インデント</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id19">4.4.5.5. チェックリスト</a></li>
+<li><a class="reference internal" href="#lunatic">Lunatic</a><ul>
+<li><a class="reference internal" href="#id15">文字置換</a></li>
+<li><a class="reference internal" href="#id16">水平、垂直分割</a></li>
+<li><a class="reference internal" href="#id17">画面スクロール</a></li>
+<li><a class="reference internal" href="#id18">インデント</a></li>
+<li><a class="reference internal" href="#id19">チェックリスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#phantasm">4.4.6. Phantasm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id20">4.4.6.1. インストール</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id23">4.4.6.2. プラグイン</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id24">4.4.6.3. .vimrc</a></li>
+<li><a class="reference internal" href="#phantasm">Phantasm</a><ul>
+<li><a class="reference internal" href="#id20">インストール</a><ul>
+<li><a class="reference internal" href="#id21">linux</a></li>
+<li><a class="reference internal" href="#id22">mac</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id23">プラグイン</a><ul>
+<li><a class="reference internal" href="#vim-plug">vim-plugの使い方</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id24">.vimrc</a><ul>
+<li><a class="reference internal" href="#id25">注意</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ssh.html">5. ssh</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">1. Molecular Dynamics Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">2. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">3. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">4. LAMMPS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/mpdyn.html">5. MPDyn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">6. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">7. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">8. Discovery Studio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">9. FFTW</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/plumed.html">10. PLUMED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/packmol.html">11. Packmol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../MD/MPI.html">12. MPI environment</a></li>
+</li>
 </ul>
-<p class="caption"><span class="caption-text">Tools</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Python Room</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">1. matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">2. MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">4. Anaconda</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">2. Readable Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">3. Home build PC</a></li>
-</ul>
-
+</div>
             
           
         </div>
@@ -232,7 +197,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">4. </span>vi</li>
+      <li>vi</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -252,9 +217,9 @@
            <div itemprop="articleBody">
             
   <div class="section" id="vi">
-<h1><span class="section-number">4. </span>vi<a class="headerlink" href="#vi" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>vi<a class="headerlink" href="#vi" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id1">
-<h2><span class="section-number">4.1. </span>このページは<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>このページは<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><p><strong>対象者</strong></p>
 <ul>
@@ -273,16 +238,16 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2><span class="section-number">4.2. </span>！注意！<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>！注意！<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以降、<code class="docutils literal notranslate"><span class="pre">vi</span></code>と<code class="docutils literal notranslate"><span class="pre">vim</span></code>は同じものを指すとする。ただし、<code class="docutils literal notranslate"><span class="pre">vi</span></code>と<code class="docutils literal notranslate"><span class="pre">vim</span></code>で違うものが起動してしまうことがあるので、エイリアスを当てておくことをおすすめする。(以下を<code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>に追記する。)</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">vi</span><span class="o">=</span><span class="s1">&#39;vim&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="id3">
-<h2><span class="section-number">4.3. </span>インストール<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="linux">
-<h3><span class="section-number">4.3.1. </span>Linux<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Linux<a class="headerlink" href="#linux" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>おそらくデフォルトでインストールされていると思うが、もしインストールされていない場合はyumからインストールする。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo yum -y update
 sudo yum -y install vim
@@ -290,7 +255,7 @@ sudo yum -y install vim
 </div>
 </div>
 <div class="section" id="mac">
-<h3><span class="section-number">4.3.2. </span>Mac<a class="headerlink" href="#mac" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Mac<a class="headerlink" href="#mac" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>バッケージ管理用に<code class="docutils literal notranslate"><span class="pre">Homebrew</span></code>がインストールされているなら、</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>brew update
 brew install lua
@@ -299,12 +264,12 @@ brew install vim
 </div>
 </div>
 <div class="section" id="windows">
-<h3><span class="section-number">4.3.3. </span>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Windows<a class="headerlink" href="#windows" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">Cygwin</span></code>をインストールする際にパッケージを追加できると思うので、ここで追加しよう。</p>
 </div>
 </div>
 <div class="section" id="id4">
-<h2><span class="section-number">4.4. </span>使い方<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>使い方<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>サンプルのテキストファイルを用意したので、各自適当な場所にダウンロードしてほしい。</p>
 <p><a class="reference download internal" download="" href="../_downloads/2cffdf78bdea6f8eb83d38c451f9a379/sample.dat"><code class="xref download docutils literal notranslate"><span class="pre">sample.dat</span></code></a></p>
 <p>viを起動するためには、<code class="docutils literal notranslate"><span class="pre">sample.dat</span></code>があるディレクトリに行って、</p>
@@ -323,9 +288,9 @@ brew install vim
 </ul>
 <p>の6レベルを用意した。初心者はBeginnerからはじめてほしい。</p>
 <div class="section" id="beginner">
-<h3><span class="section-number">4.4.1. </span>Beginner<a class="headerlink" href="#beginner" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Beginner<a class="headerlink" href="#beginner" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="id5">
-<h4><span class="section-number">4.4.1.1. </span>モード<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>モード<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>vimにはモードという概念があります。</p>
 <ul class="simple">
 <li><p>カーソルの移動や保存等を行う<strong>ノーマルモード</strong></p></li>
@@ -342,7 +307,7 @@ brew install vim
 <p>これを繰り返して文章を編集していきます。</p>
 </div>
 <div class="section" id="id6">
-<h4><span class="section-number">4.4.1.2. </span>キーバインド<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>キーバインド<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -371,7 +336,7 @@ brew install vim
 </table><p>とりあえずこれらを利用することで、テキストの編集や保存ができると思います。</p>
 </div>
 <div class="section" id="id7">
-<h4><span class="section-number">4.4.1.3. </span>チェックリスト<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>チェックリスト<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <input type="checkbox" value="true">vimの起動ができる</input>
 <br>
 <input type="checkbox" value="true">インサートモードに入れる</input>
@@ -383,10 +348,10 @@ brew install vim
 <br></div>
 </div>
 <div class="section" id="easy">
-<h3><span class="section-number">4.4.2. </span>Easy<a class="headerlink" href="#easy" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Easy<a class="headerlink" href="#easy" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>超初心者のキーバインドを覚えたら、次はコピペや移動などを覚えよう。</p>
 <div class="section" id="id8">
-<h4><span class="section-number">4.4.2.1. </span>キーバインド<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>キーバインド<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -419,7 +384,7 @@ brew install vim
 </table><p>u, Ctrl+rはwordの元に戻す、やり直しみたいなものです。</p>
 </div>
 <div class="section" id="id9">
-<h4><span class="section-number">4.4.2.2. </span>キーバインド（カーソルの移動に関して）<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>キーバインド（カーソルの移動に関して）<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -449,7 +414,7 @@ brew install vim
 <p>おそらく最近のvimでは、矢印キーを使っても移動は可能です。しかし、この移動法を覚えることで入力速度は格段に向上します。ある程度文字入力ができるようになったら、矢印を使わずに移動の練習をしてみてください。</p>
 </div>
 <div class="section" id="id10">
-<h4><span class="section-number">4.4.2.3. </span>チェックリスト<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>チェックリスト<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h4>
  <input type="checkbox" value="true">1行コピーができる</input>
  <br>
  <input type="checkbox" value="true">コピーしたものを貼り付けられる</input>
@@ -463,11 +428,11 @@ brew install vim
  <br></div>
 </div>
 <div class="section" id="normal">
-<h3><span class="section-number">4.4.3. </span>Normal<a class="headerlink" href="#normal" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Normal<a class="headerlink" href="#normal" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>移動もできるし、コピへなどもマスターしたあなたへ</p>
 <p>vimには数多いコマンドがある。ここでは知っておくと便利ものを紹介する。ポイントは、無理に覚えようとせず何度もここに戻ってきて確認することである。</p>
 <div class="section" id="id11">
-<h4><span class="section-number">4.4.3.1. </span>キーバインド（文字操作）<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>キーバインド（文字操作）<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -496,7 +461,7 @@ brew install vim
 </table><p><code class="docutils literal notranslate"><span class="pre">/検索したい文字</span></code>は頻繁に使うことになるだろう。文字を入力し終えたらEnterキーも忘れずに</p>
 </div>
 <div class="section" id="id12">
-<h4><span class="section-number">4.4.3.2. </span>キーバインド（移動）<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>キーバインド（移動）<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <table border="1" class="docutils">
 <thead>
 <tr>
@@ -524,7 +489,7 @@ brew install vim
 </tbody>
 </table></div>
 <div class="section" id="id13">
-<h4><span class="section-number">4.4.3.3. </span>チェックリスト<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>チェックリスト<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <input type="checkbox" value="true">検索ができる</input>
 <br>
 <input type="checkbox" value="true">検索候補を移動できる</input>
@@ -536,9 +501,9 @@ brew install vim
 <br></div>
 </div>
 <div class="section" id="hard">
-<h3><span class="section-number">4.4.4. </span>Hard<a class="headerlink" href="#hard" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Hard<a class="headerlink" href="#hard" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <div class="section" id="vim">
-<h4><span class="section-number">4.4.4.1. </span>vimの設定<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>vimの設定<a class="headerlink" href="#vim" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>これまで、様々なコマンドやキーバインドを覚えてもらいました。しかし、なんでこんな使いづらくてダサいものを使っているのか不思議に思った人も多いだろう。</p>
 <p>しかしvimは様々なカスタマイズが可能である。</p>
 <p>試しに、ノーマルモードで<code class="docutils literal notranslate"><span class="pre">:set</span> <span class="pre">number</span></code>と入力して（エンターを押して）みよう。</p>
@@ -551,7 +516,7 @@ brew install vim
 <p>これらの設定をデフォルトにするためには、ホームディレクトリに<code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>というファイルを配置し、そこに設定を書き込むことで毎回反映される。</p>
 </div>
 <div class="section" id="vimrc">
-<h4><span class="section-number">4.4.4.2. </span>.vimrc<a class="headerlink" href="#vimrc" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>.vimrc<a class="headerlink" href="#vimrc" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>.vimrcファイルを開くには、<code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">~/.vimrc</span></code>とする。試しに、以下を書き込んでみよう。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span> <span class="n">number</span>
 <span class="nb">set</span> <span class="n">cursorline</span>
@@ -614,7 +579,7 @@ brew install vim
 </div>
 </div>
 <div class="section" id="id14">
-<h4><span class="section-number">4.4.4.3. </span>チェックリスト<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>チェックリスト<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <input type="checkbox" value="true">.vimrcを編集した</input>
 <br>
 <input type="checkbox" value="true">自分の好みの設定を追加した</input>
@@ -622,10 +587,10 @@ brew install vim
 <br></div>
 </div>
 <div class="section" id="lunatic">
-<h3><span class="section-number">4.4.5. </span>Lunatic<a class="headerlink" href="#lunatic" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Lunatic<a class="headerlink" href="#lunatic" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>ここまで来たら、あとは「知らなくても問題ないが、知っているとイキれる」くらいのものを紹介する。</p>
 <div class="section" id="id15">
-<h4><span class="section-number">4.4.5.1. </span>文字置換<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>文字置換<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>vimで文字を置換する基本のコマンドは、<code class="docutils literal notranslate"><span class="pre">:s/置換前/置換後/</span></code>である。試しに、サンプルファイルのvimという文字をvim_tsuyoiに置換してみよう。</p>
 <p>この方法では、カーソルのある行の一番はじめのvimという文字が置換される。</p>
 <p>しかし、文章全体で置換したいことも多いだろう。その場合は、<code class="docutils literal notranslate"><span class="pre">:%s/置換前/置換後/</span></code>である。(sの前に%を追加)</p>
@@ -635,7 +600,7 @@ brew install vim
 <p>である。</p>
 </div>
 <div class="section" id="id16">
-<h4><span class="section-number">4.4.5.2. </span>水平、垂直分割<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>水平、垂直分割<a class="headerlink" href="#id16" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p><code class="docutils literal notranslate"><span class="pre">:vs</span></code>とすると現在のファイルを横に追加で表示し、<code class="docutils literal notranslate"><span class="pre">:split</span></code>とすると下に追加で表示できる。また<code class="docutils literal notranslate"><span class="pre">:vs</span> <span class="pre">別ファイル名前</span></code>とすると2つのファイルを同時に見ながら編集できる。</p>
 <p>ウインドウを移動する場合は以下のようなコマンドが使えます。</p>
 <ul class="simple">
@@ -646,7 +611,7 @@ brew install vim
 </ul>
 </div>
 <div class="section" id="id17">
-<h4><span class="section-number">4.4.5.3. </span>画面スクロール<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>画面スクロール<a class="headerlink" href="#id17" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li><p>zz: 現在のカーソル位置を中央となるように画面がスクロール。</p></li>
 <li><p>zt: 現在のカーソル位置が一番上となるように画面がスクロール。</p></li>
@@ -657,14 +622,14 @@ brew install vim
 </ul>
 </div>
 <div class="section" id="id18">
-<h4><span class="section-number">4.4.5.4. </span>インデント<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>インデント<a class="headerlink" href="#id18" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <ul class="simple">
 <li><p>&gt;&gt;: インデントを追加。</p></li>
 <li><p>&lt;&lt;: インデントを削除。</p></li>
 </ul>
 </div>
 <div class="section" id="id19">
-<h4><span class="section-number">4.4.5.5. </span>チェックリスト<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>チェックリスト<a class="headerlink" href="#id19" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <input type="checkbox" value="true">文字の置換が自由自在</input>
 <br>
 <input type="checkbox" value="true">画面分割ができる</input>
@@ -674,17 +639,17 @@ brew install vim
 <br></div>
 </div>
 <div class="section" id="phantasm">
-<h3><span class="section-number">4.4.6. </span>Phantasm<a class="headerlink" href="#phantasm" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Phantasm<a class="headerlink" href="#phantasm" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>これ以上のカスタマイズは通常のvimでは不可能だろう。しかし、プラグインを導入することでさらなるカスタマイズが可能になる。</p>
 <p>(参考図)</p>
 <p><img alt="../_images/vim_custom.png" src="../_images/vim_custom.png" /></p>
 <p>ただし、いろいろ理解しておくこともあるため、注意も必要である。</p>
 <div class="section" id="id20">
-<h4><span class="section-number">4.4.6.1. </span>インストール<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>インストール<a class="headerlink" href="#id20" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>お手持ちの環境で、<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">--version</span></code>とするといろいろ表示されるが、<code class="docutils literal notranslate"><span class="pre">-python</span></code>や<code class="docutils literal notranslate"><span class="pre">-python3</span></code>となっているだろうか？</p>
 <p>これは、pythonなどを無効にしてインストールしたという意味である。これから導入するプラグインは、これらが有効であるという前提のものが多い。このため、先にvimのインストールをし直しておく。</p>
 <div class="section" id="id21">
-<h5><span class="section-number">4.4.6.1.1. </span>linux<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5>linux<a class="headerlink" href="#id21" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
 sudo yum install https://centos7.iuscommunity.org/ius-release.rpm <span class="c1"># リポジトリ追加</span>
 sudo yum install openssl-devel readline-devel zlib-devel <span class="c1"># リポジトリ追加</span>
@@ -731,7 +696,7 @@ sudo make install
 <p>これら3つが+になっていることを確認してほしい。</p>
 </div>
 <div class="section" id="id22">
-<h5><span class="section-number">4.4.6.1.2. </span>mac<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5>mac<a class="headerlink" href="#id22" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew update
 brew install vim python cmake go mono node rust
 </pre></div>
@@ -748,7 +713,7 @@ brew install vim python cmake go mono node rust
 </div>
 </div>
 <div class="section" id="id23">
-<h4><span class="section-number">4.4.6.2. </span>プラグイン<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>プラグイン<a class="headerlink" href="#id23" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>CentOSがyum(CentOS8からはdnf)でパッケージをインストールできるように、vimにもプラグインを追加できるマネージャーがある。</p>
 <p>代表的なものは、</p>
 <ul class="simple">
@@ -761,7 +726,7 @@ brew install vim python cmake go mono node rust
 <p>などである。ネットで検索するとNeoBundleなどの記事が多く見つかると思うが、NeoBundleは作者がdein.vimに乗り換えるようアナウンスしている。</p>
 <p>ここでは軽くて記述が楽なvim-plugを使うことにする。</p>
 <div class="section" id="vim-plug">
-<h5><span class="section-number">4.4.6.2.1. </span>vim-plugの使い方<a class="headerlink" href="#vim-plug" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5>vim-plugの使い方<a class="headerlink" href="#vim-plug" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>vimrcへ追記する必要がある
 <code class="docutils literal notranslate"><span class="pre">call</span> <span class="pre">plug#begin()</span></code>
 と
@@ -784,7 +749,7 @@ brew install vim python cmake go mono node rust
 </div>
 </div>
 <div class="section" id="id24">
-<h4><span class="section-number">4.4.6.3. </span>.vimrc<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>.vimrc<a class="headerlink" href="#id24" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>筆者の<code class="docutils literal notranslate"><span class="pre">.vimrc</span></code>は以下のようにダウンロード出来る。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
 mv .vimrc .vimrc_backup <span class="c1"># 現在の.vimrcをバックアップ</span>
@@ -799,7 +764,7 @@ vi +PlugInstall +qall
 </div>
 <p>おそらく最強のvimが完成するだろう</p>
 <div class="section" id="id25">
-<h5><span class="section-number">4.4.6.3.1. </span>注意<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h5>
+<h5>注意<a class="headerlink" href="#id25" title="このヘッドラインへのパーマリンク">¶</a></h5>
 <p>この.vimrcではアイコンや特殊文字を使うため、ターミナルフォントにそれらが使えるものを指定したほうがいい。というかしないと文字化けがひどい。筆者が独自に合成したフォントは以下。</p>
 <p><a class="reference download internal" download="" href="../_downloads/f856890b458a1ca1cd22b6aa2e8710e9/RictyDimDIsRegPow.ttf"><code class="xref download docutils literal notranslate"><span class="pre">RictyDimDisRegPow.ttf</span></code></a></p>
 </div>
@@ -813,15 +778,6 @@ vi +PlugInstall +qall
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ssh.html" class="btn btn-neutral float-right" title="5. ssh" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="linuxcommand.html" class="btn btn-neutral float-left" title="3. Linux commands (nessesary)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

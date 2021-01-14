@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>4. LAMMPS &mdash; SIEGE 2021.1.14 ドキュメント</title>
+  <title>LAMMPS &mdash; SIEGE 2021.1.14 ドキュメント</title>
   
 
   
@@ -39,9 +39,7 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="5. MPDyn" href="mpdyn.html" />
-    <link rel="prev" title="3. Namd" href="namd.html" /> 
+    <link rel="search" title="検索" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,71 +87,28 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Linux</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">3. Linux commands (nessesary)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">4. vi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">5. ssh</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="mdsoft.html">1. Molecular Dynamics Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gromacs.html">2. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namd.html">3. Namd</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">4. LAMMPS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">4.1. インストール</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#cmake">4.1.1. CMake</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#id2">4.1.1.1. 並列オプション</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id3">4.1.1.2. コンパイラオプション</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#fft">4.1.1.3. FFTオプション</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id4">4.1.1.4. パッケージオプション</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gpu">4.1.1.5. GPUパッケージ</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">LAMMPS</a><ul>
+<li><a class="reference internal" href="#id1">インストール</a><ul>
+<li><a class="reference internal" href="#cmake">CMake</a><ul>
+<li><a class="reference internal" href="#id2">並列オプション</a></li>
+<li><a class="reference internal" href="#id3">コンパイラオプション</a></li>
+<li><a class="reference internal" href="#fft">FFTオプション</a></li>
+<li><a class="reference internal" href="#id4">パッケージオプション</a></li>
+<li><a class="reference internal" href="#gpu">GPUパッケージ</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#tl-dl">4.1.2. TL;DL</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#traditional-make">4.1.3. Traditional make(古い方法)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#make">4.1.4. <code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合</a></li>
+<li><a class="reference internal" href="#tl-dl">TL;DL</a></li>
+<li><a class="reference internal" href="#traditional-make">Traditional make(古い方法)</a></li>
+<li><a class="reference internal" href="#make"><code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id5">4.2. インストール(gpu)</a></li>
+<li><a class="reference internal" href="#id5">インストール(gpu)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="mpdyn.html">5. MPDyn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">6. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vmd.html">7. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">8. Discovery Studio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fftw.html">9. FFTW</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plumed.html">10. PLUMED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packmol.html">11. Packmol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MPI.html">12. MPI environment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tools</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Python Room</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">1. matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">2. MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">4. Anaconda</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">2. Readable Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">3. Home build PC</a></li>
-</ul>
-
+</div>
             
           
         </div>
@@ -198,7 +153,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">4. </span>LAMMPS</li>
+      <li>LAMMPS</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -218,12 +173,12 @@
            <div itemprop="articleBody">
             
   <div class="section" id="lammps">
-<h1><span class="section-number">4. </span>LAMMPS<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>LAMMPS<a class="headerlink" href="#lammps" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>篠田グループの粗視化モデルがインストールされているため、粗視化MD計算はこちらで行うことが多い。</p>
 <div class="section" id="id1">
-<h2><span class="section-number">4.1. </span>インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="cmake">
-<h3><span class="section-number">4.1.1. </span>CMake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>CMake<a class="headerlink" href="#cmake" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>lammpsもGromacs同様、cmakeでインストールする方法が最近主流になってきている。CMakeのほうがかなり簡単にインストールできるので、頑張ってみよう。</p>
 <p>基本的には、ダウンロードしたディレクトリに入り、<code class="docutils literal notranslate"><span class="pre">build</span></code>ディレクトリを作成し<code class="docutils literal notranslate"><span class="pre">build</span></code>のなかに入り、cmakeを実行するだけである。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone -b stable https://github.com/lammps/lammps.git
@@ -235,7 +190,7 @@ make -j <span class="m">8</span>
 </div>
 <p>ただし、これでは必要なパッケージ等々がインストールできていないのでcmakeの際にオプションを指定する必要がある。</p>
 <div class="section" id="id2">
-<h4><span class="section-number">4.1.1.1. </span>並列オプション<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>並列オプション<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>これらがないとスパコン等での並列計算ができない</p>
 <table border="1" class="docutils">
 <thead>
@@ -256,7 +211,7 @@ make -j <span class="m">8</span>
 </tbody>
 </table></div>
 <div class="section" id="id3">
-<h4><span class="section-number">4.1.1.2. </span>コンパイラオプション<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>コンパイラオプション<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>lammpsは、c++のコンパイラにデフォルトで<code class="docutils literal notranslate"><span class="pre">mpicxx</span></code>を使用する。理由がなければ、インテルコンパイラに変更したほうがいい。</p>
 <table border="1" class="docutils">
 <thead>
@@ -281,7 +236,7 @@ make -j <span class="m">8</span>
 </tbody>
 </table></div>
 <div class="section" id="fft">
-<h4><span class="section-number">4.1.1.3. </span>FFTオプション<a class="headerlink" href="#fft" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>FFTオプション<a class="headerlink" href="#fft" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>PPPM(Particle–Particle–Particle–Mesh)などの静電相互作用の取り扱いのために必要になる。</p>
 <table border="1" class="docutils">
 <thead>
@@ -320,7 +275,7 @@ make -j <span class="m">8</span>
 </tbody>
 </table></div>
 <div class="section" id="id4">
-<h4><span class="section-number">4.1.1.4. </span>パッケージオプション<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>パッケージオプション<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>SPICA粗視化力場などを使用するために必要</p>
 <table border="1" class="docutils">
 <thead>
@@ -370,7 +325,7 @@ make -j <span class="m">8</span>
 </table><p>これらは全て必要になると思うので、入れておきましょう。</p>
 </div>
 <div class="section" id="gpu">
-<h4><span class="section-number">4.1.1.5. </span>GPUパッケージ<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h4>
+<h4>GPUパッケージ<a class="headerlink" href="#gpu" title="このヘッドラインへのパーマリンク">¶</a></h4>
 <p>GPUのあるスパコンで利用できる。</p>
 <table border="1" class="docutils">
 <thead>
@@ -407,7 +362,7 @@ make -j <span class="m">8</span>
 </div>
 </div>
 <div class="section" id="tl-dl">
-<h3><span class="section-number">4.1.2. </span>TL;DL<a class="headerlink" href="#tl-dl" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>TL;DL<a class="headerlink" href="#tl-dl" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>名大cxにインストールするときは、こんな感じになった。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># cmakeやmpiicpcなどモジュールのロード</span>
 module load intel/2019.5.281
@@ -434,7 +389,7 @@ make -j <span class="m">8</span>
 <p>これで、<code class="docutils literal notranslate"><span class="pre">build</span></code>の中に<code class="docutils literal notranslate"><span class="pre">lmp</span></code>という実行バイナリが生成される。</p>
 </div>
 <div class="section" id="traditional-make">
-<h3><span class="section-number">4.1.3. </span>Traditional make(古い方法)<a class="headerlink" href="#traditional-make" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>Traditional make(古い方法)<a class="headerlink" href="#traditional-make" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>かなり長くて大変だが、説明しよう。</p>
 <p>以下は田中が東大物性研にインストールした際の手順だが、ほとんど同じはずだ。</p>
 <p><a class="reference external" href="https://lammps.sandia.gov/">LAMMPSのサイト</a>に行き、ダウンロードのページからstableと書いてあるものをダウンロード。</p>
@@ -474,7 +429,7 @@ FFT_LIB = -L/home/tanaka/App/fftw3/lib -lfftw3
 <p>インストールできなかった場合、<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean-all</span></code>とすると生まれたゴミを一掃してくれて助かる。</p>
 </div>
 <div class="section" id="make">
-<h3><span class="section-number">4.1.4. </span><code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">make</span></code>に失敗する場合<a class="headerlink" href="#make" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>また、東大物性研にインストールする際は、<code class="docutils literal notranslate"><span class="pre">MAKE/makefile.mpi</span></code> を</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>CCFLAGS =	-g -O3
 を、
@@ -485,7 +440,7 @@ CCFLAGS =	-g -O3 -restrict
 </div>
 </div>
 <div class="section" id="id5">
-<h2><span class="section-number">4.2. </span>インストール(gpu)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール(gpu)<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>パソコンにグラフィックボードが刺さってる場合は、gpu版を使ったほうが計算が劇的に早くなることがある。ただし、コンパイルのミスなどで逆に遅くなることもあるので注意して扱うべき？</p>
 <p>手元の環境ではgpuを使うとかなり早くなる。</p>
 <p>先ほどの続きで、</p>
@@ -545,15 +500,6 @@ make mpi -j <span class="m">8</span>
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="mpdyn.html" class="btn btn-neutral float-right" title="5. MPDyn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="namd.html" class="btn btn-neutral float-left" title="3. Namd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>3. Namd &mdash; SIEGE 2021.1.14 ドキュメント</title>
+  <title>Namd &mdash; SIEGE 2021.1.14 ドキュメント</title>
   
 
   
@@ -39,9 +39,7 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="4. LAMMPS" href="lammps.html" />
-    <link rel="prev" title="2. Gromacs" href="gromacs.html" /> 
+    <link rel="search" title="検索" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,63 +87,20 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Linux</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">3. Linux commands (nessesary)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">4. vi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">5. ssh</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="mdsoft.html">1. Molecular Dynamics Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gromacs.html">2. Gromacs</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Namd</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">3.1. 概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#singlenode">3.2. インストール方法(Singlenode版)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#multinode">3.3. インストール方法(Multinode版)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id2">3.3.1. ジョブスクリプトについて</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Namd</a><ul>
+<li><a class="reference internal" href="#id1">概要</a></li>
+<li><a class="reference internal" href="#singlenode">インストール方法(Singlenode版)</a></li>
+<li><a class="reference internal" href="#multinode">インストール方法(Multinode版)</a><ul>
+<li><a class="reference internal" href="#id2">ジョブスクリプトについて</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#md-inputfile">3.4. MD計算:inputfileについて</a></li>
+<li><a class="reference internal" href="#md-inputfile">MD計算:inputfileについて</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="lammps.html">4. LAMMPS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpdyn.html">5. MPDyn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">6. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vmd.html">7. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">8. Discovery Studio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fftw.html">9. FFTW</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plumed.html">10. PLUMED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packmol.html">11. Packmol</a></li>
-<li class="toctree-l1"><a class="reference internal" href="MPI.html">12. MPI environment</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Tools</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Python Room</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">1. matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">2. MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">4. Anaconda</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">2. Readable Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">3. Home build PC</a></li>
-</ul>
-
+</div>
             
           
         </div>
@@ -190,7 +145,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">3. </span>Namd</li>
+      <li>Namd</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -210,13 +165,13 @@
            <div itemprop="articleBody">
             
   <div class="section" id="namd">
-<h1><span class="section-number">3. </span>Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>Namd<a class="headerlink" href="#namd" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id1">
-<h2><span class="section-number">3.1. </span>概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>NAMD (NAnoscale Molecular Dynamics program)は、フリーウェアの分子動力学シミュレーションパッケージの一つである。Charm++並列プログラミングモデルを用いて書かれ、並列効率の高さで知られており、大規模な系（数百万の原子）をシミュレートするためにしばしば使われている。NAMDはイリノイ大学アーバナ・シャンペーン校のTheoretical and Computational Biophysics Group (TCB) とParallel Programming Laboratory (PPL) との共同研究によって開発されている。</p>
 </div>
 <div class="section" id="singlenode">
-<h2><span class="section-number">3.2. </span>インストール方法(Singlenode版)<a class="headerlink" href="#singlenode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール方法(Singlenode版)<a class="headerlink" href="#singlenode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>手元のPCや、tgpuなど1ノードで計算する場合はこちら</p>
 <p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD">Download NAMD</a>にアクセスし、「<a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&amp;AccessCode=&amp;ArchiveID=1566">Linux-x86_64-multicore-CUDA</a>」とかいてあるものを選択。</p>
 <p>（上のリンクはバージョン2.13へのリンクだが、より新しい物がリリースされている場合は新しい物でもいい。）</p>
@@ -278,7 +233,7 @@ FATAL ERROR: No simulation config file specified on <span class="nb">command</sp
 <p><img alt="../_images/namd_after_install.png" src="../_images/namd_after_install.png" /></p>
 </div>
 <div class="section" id="multinode">
-<h2><span class="section-number">3.3. </span>インストール方法(Multinode版)<a class="headerlink" href="#multinode" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール方法(Multinode版)<a class="headerlink" href="#multinode" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>複数ノードでの計算をする場合はこちらを参考にすること。</p>
 <p><a class="reference external" href="https://www.ks.uiuc.edu/Development/Download/download.cgi?PackageName=NAMD">Download NAMD</a>にアクセスし、「Linux-x86_64-ibverbs-smp-CUDA」とかいてあるものを選択。</p>
 <div class="admonition warning">
@@ -335,7 +290,7 @@ FATAL ERROR: No simulation config file specified on <span class="nb">command</sp
 </div>
 <p>このような表示が出れば、インストール及びパスは成功している。</p>
 <div class="section" id="id2">
-<h3><span class="section-number">3.3.1. </span>ジョブスクリプトについて<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>ジョブスクリプトについて<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>マルチノードで計算を流すためには、<code class="docutils literal notranslate"><span class="pre">charmrun</span></code>というバイナリが必要だったり<code class="docutils literal notranslate"><span class="pre">nodelist</span></code>を指定したりとめんどくさい。</p>
 <p>そこで、サンプルジョブスクリプトを作っておいたのでコピペして使ってほしい。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
@@ -406,7 +361,7 @@ charmrun /home/HOMENAME/App/NAMD_2.12_Linux-x86_64-ibverbs-smp-CUDA/namd2 ++ppn 
 </div>
 </div>
 <div class="section" id="md-inputfile">
-<h2><span class="section-number">3.4. </span>MD計算:inputfileについて<a class="headerlink" href="#md-inputfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>MD計算:inputfileについて<a class="headerlink" href="#md-inputfile" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>以下は自分が水ーリボース系での計算をしたときのインプットファイルである。</p>
 <details>
   <summary>長いので折りたたんでいます（クリックで展開）</summary>
@@ -643,15 +598,6 @@ PMEGridSizeZ       84
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="lammps.html" class="btn btn-neutral float-right" title="4. LAMMPS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="gromacs.html" class="btn btn-neutral float-left" title="2. Gromacs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>12. MPI environment &mdash; SIEGE 2021.1.14 ドキュメント</title>
+  <title>MPI environment &mdash; SIEGE 2021.1.14 ドキュメント</title>
   
 
   
@@ -39,9 +39,7 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="1. slack" href="../slack/insto.html" />
-    <link rel="prev" title="11. Packmol" href="packmol.html" /> 
+    <link rel="search" title="検索" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,66 +87,23 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">1. Welocome to Okazaki-Lab !!</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Linux</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">1. Linux Basic</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">2. Linux Basic Questions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">3. Linux commands (nessesary)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">4. vi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">5. ssh</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="mdsoft.html">1. Molecular Dynamics Software</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gromacs.html">2. Gromacs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="namd.html">3. Namd</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lammps.html">4. LAMMPS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpdyn.html">5. MPDyn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">6. Gnuplotでグラフ作成</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vmd.html">7. VMD</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Discovery_studio.html">8. Discovery Studio</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fftw.html">9. FFTW</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plumed.html">10. PLUMED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packmol.html">11. Packmol</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">12. MPI environment</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mpi-vs-openmp">12.1. MPI vs OpenMP</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">12.1.1. 実装</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">MPI environment</a><ul>
+<li><a class="reference internal" href="#mpi-vs-openmp">MPI vs OpenMP</a><ul>
+<li><a class="reference internal" href="#id1">実装</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">12.2. インストール</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">12.2.1. 手元のマシン</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">12.2.2. スパコン</a></li>
+<li><a class="reference internal" href="#id2">インストール</a><ul>
+<li><a class="reference internal" href="#id3">手元のマシン</a></li>
+<li><a class="reference internal" href="#id4">スパコン</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#reference">12.3. Reference</a></li>
+<li><a class="reference internal" href="#reference">Reference</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Tools</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">1. slack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../device/main.html">2. Device in Lab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">3. How to edit this homepages</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">4. Sandbox</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Python Room</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">1. matplotlib</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">2. MDAnalysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">3. MDAnalysis tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">4. Anaconda</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">1. Hiroki Tanaka</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">2. Readable Code</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">3. Home build PC</a></li>
-</ul>
-
+</div>
             
           
         </div>
@@ -193,7 +148,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li><span class="section-number">12. </span>MPI environment</li>
+      <li>MPI environment</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -213,14 +168,14 @@
            <div itemprop="articleBody">
             
   <div class="section" id="mpi-environment">
-<h1><span class="section-number">12. </span>MPI environment<a class="headerlink" href="#mpi-environment" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>MPI environment<a class="headerlink" href="#mpi-environment" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>MPIとは、Message Passing Interfaceのことで、並列コンピューティングを利用するための標準化された規格のこと。</p>
 <div class="section" id="mpi-vs-openmp">
-<h2><span class="section-number">12.1. </span>MPI vs OpenMP<a class="headerlink" href="#mpi-vs-openmp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>MPI vs OpenMP<a class="headerlink" href="#mpi-vs-openmp" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>並列計算には、共有メモリ型と分散メモリ型の2通りの処理形態がある。MPIは分散メモリ型の並列処理を行い、OpenMPは共有メモリ型の並列処理を行う。</p>
 <p>(単純に、並列処理にはMPIとOpenMPの2種類があると覚えておけば大丈夫です。)</p>
 <div class="section" id="id1">
-<h3><span class="section-number">12.1.1. </span>実装<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>実装<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>これがややこしい。MPIは、MPICHやOpenMPI(OpenMPじゃないよ)などの実装を通して利用できる。</p>
 <p>MPIには更に2種類あると考えればよい。</p>
 <ul class="simple">
@@ -235,9 +190,9 @@
 </div>
 </div>
 <div class="section" id="id2">
-<h2><span class="section-number">12.2. </span>インストール<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>インストール<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
-<h3><span class="section-number">12.2.1. </span>手元のマシン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>手元のマシン<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>手元のPCには、比較的簡単にインストールできる。おそらく、<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">openmpi</span> <span class="pre">openmpi-devel</span></code>コマンドでインストール可能である。</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
@@ -247,12 +202,12 @@
 <p>これで、<code class="docutils literal notranslate"><span class="pre">mpicc</span></code>や<code class="docutils literal notranslate"><span class="pre">mpirun</span></code>のようなコマンドが利用できるようになる。</p>
 </div>
 <div class="section" id="id4">
-<h3><span class="section-number">12.2.2. </span>スパコン<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>スパコン<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>スパコンには、MPI環境が整備されているはずなので、自分でインストールせず、<code class="docutils literal notranslate"><span class="pre">module</span></code>コマンドで提供されているものを使おう。</p>
 </div>
 </div>
 <div class="section" id="reference">
-<h2><span class="section-number">12.3. </span>Reference<a class="headerlink" href="#reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>Reference<a class="headerlink" href="#reference" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference external" href="https://qiita.com/kkk627/items/49c9c35301465f6780fa">MPIの環境構築や基本コマンドのまとめ</a></p>
 </div>
 </div>
@@ -262,15 +217,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../slack/insto.html" class="btn btn-neutral float-right" title="1. slack" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="packmol.html" class="btn btn-neutral float-left" title="11. Packmol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
