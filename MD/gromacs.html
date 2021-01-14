@@ -274,7 +274,7 @@ sudo make install
 <p>&quot;cmake&quot;や&quot;make&quot;のコマンドではある程度時間がかかります。</p>
 <p>ここまででエラーがでなければ、さらにVim等で&quot;~/.bashrc&quot;を開き(<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bashrc</span></code>),次のように書き加える。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>最後の行に
-　
+
 <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/App/gromacs-XXX/gmx_install/bin:<span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>
 
 を追加する。
@@ -299,18 +299,19 @@ gmx --version
 <p>tgpu7のCUDAバージョンは8.0であるため、gromacs2018-8がインストールできる最新バージョンである。またデフォルトで入っているcmakeもバージョンが古いため、cmakeも新しいものをインストールする必要がある。
 以下にcmakeのオプションを示す。</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/home/tanaka/App/cmake-3.10.2/build/bin/cmake ../ <span class="se">\</span>
--DCMAKE_C_COMPILER<span class="o">=</span>/usr/local/gcc-4.9.4/build/bin/gcc <span class="se">\ </span>           
--DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/local/gcc-4.9.4/build/bin/g++ <span class="se">\ </span>            
+-DCMAKE_C_COMPILER<span class="o">=</span>/usr/local/gcc-4.9.4/build/bin/gcc <span class="se">\ </span>
+-DCMAKE_CXX_COMPILER<span class="o">=</span>/usr/local/gcc-4.9.4/build/bin/g++ <span class="se">\ </span>
 -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on <span class="se">\</span>
 -DGMX_SIMD<span class="o">=</span>AVX_256 <span class="se">\</span>
--DCMAKE_INSTALL_PREFIX<span class="o">=</span>/home/tanaka/App/gromacs-2018.8/gmx_install/ 
+-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/home/tanaka/App/gromacs-2018.8/gmx_install/
 </pre></div>
 </div>
 <p>とした。(cmake3.10.2は上記の場所にインストールした。)</p>
-<p>SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(<code class="docutils literal notranslate"><span class="pre">-DGMX_SIMD=AVX_256</span></code>)。
+<p>SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(<cite>-DGMX_SIMD=AVX_256</cite>)。
 このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
-これを修正するためには、<strong>cmake後にできる<code class="docutils literal notranslate"><span class="pre">build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make</span></code>のファイルの109行目から(<code class="docutils literal notranslate"><span class="pre">;--enable-avx2;--enable-avx512</span></code>)を消去する。</strong></p>
-<p>その後makeするとインストールできた。</p>
+これを修正するためには、<strong>cmake後にできる`build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルの109行目から(`;--enable-avx2;--enable-avx512`)を消去する。</strong></p>
+<p>上記のfftwビルド失敗は、gromacs-5.1.5では発生せず、</p>
+<p>gromacs2020では、<strong>cmake後にできる`src/external/build-fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルから(`;--enable-avx2;--enable-avx512`)を消去する必要がある。</strong></p>
 </div>
 <div class="section" id="id3">
 <h4><span class="section-number">2.2.1.2. </span>東大物性研の場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
@@ -436,7 +437,7 @@ plumed patch -p
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir gmx_install
 mkdir build
 <span class="nb">cd</span> ./build
-cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on -DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>on -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/home/k0386/k038615/App/gromacs-5.1.4/gmx_install/ -DGMX_MPI<span class="o">=</span>on -DGMX_GPU<span class="o">=</span>off -DCMAKE_C_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/g++ -DBUILD_SHARED_LIBS<span class="o">=</span>OFF -DGMX_PREFER_STATIC_LIBS<span class="o">=</span>ON 
+cmake ../ -DGMX_BUILD_OWN_FFTW<span class="o">=</span>on -DREGRESSIONTEST_DOWNLOAD<span class="o">=</span>on -DCMAKE_INSTALL_PREFIX<span class="o">=</span>/home/k0386/k038615/App/gromacs-5.1.4/gmx_install/ -DGMX_MPI<span class="o">=</span>on -DGMX_GPU<span class="o">=</span>off -DCMAKE_C_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/home/app/gcc/4.9.4/bin/g++ -DBUILD_SHARED_LIBS<span class="o">=</span>OFF -DGMX_PREFER_STATIC_LIBS<span class="o">=</span>ON
 make -j4
 make check
 sudo make install

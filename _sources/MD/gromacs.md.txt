@@ -60,7 +60,7 @@ sudo make install
 
 ```bash
 最後の行に
-　
+
 export PATH=${HOME}/App/gromacs-XXX/gmx_install/bin:${PATH}
 
 を追加する。
@@ -86,9 +86,9 @@ gromacsはGPUによる高速計算に対応している。グラフィックボ�
 .. warning::
 
     数は少ないが、AMDのグラッフィックボード(RADEON)を使う場合、2018.8を使用することをおすすめする。
-    
+
     これは2018.7までは力場の制御にバグがあることが修正されていなかった（近年になってようやく発見された）ことと、2019.1〜2019.4まではAMD製のGPUがうまく検出されず動作しないバグ、2020.1ではそれは直ったものの動作が非常に不安定になっていることがあるためです。
-    
+
 ```
 
 #### tgpu7の場合
@@ -98,20 +98,34 @@ tgpu7のCUDAバージョンは8.0であるため、gromacs2018-8がインスト�
 
 ```bash
 /home/tanaka/App/cmake-3.10.2/build/bin/cmake ../ \
--DCMAKE_C_COMPILER=/usr/local/gcc-4.9.4/build/bin/gcc \            
--DCMAKE_CXX_COMPILER=/usr/local/gcc-4.9.4/build/bin/g++ \             
+-DCMAKE_C_COMPILER=/usr/local/gcc-4.9.4/build/bin/gcc \ 
+-DCMAKE_CXX_COMPILER=/usr/local/gcc-4.9.4/build/bin/g++ \ 
 -DGMX_BUILD_OWN_FFTW=on \
 -DGMX_SIMD=AVX_256 \
--DCMAKE_INSTALL_PREFIX=/home/tanaka/App/gromacs-2018.8/gmx_install/ 
+-DCMAKE_INSTALL_PREFIX=/home/tanaka/App/gromacs-2018.8/gmx_install/
 ```
 
 とした。(cmake3.10.2は上記の場所にインストールした。)
+
+```eval_rst
+
+.. warning::
 
 SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(`-DGMX_SIMD=AVX_256`)。
 このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
 これを修正するためには、**cmake後にできる`build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルの109行目から(`;--enable-avx2;--enable-avx512`)を消去する。**
 
-その後makeするとインストールできた。
+```
+
+```eval_rst
+
+.. warning::
+
+上記のfftwビルド失敗は、gromacs-5.1.5では発生せず、
+
+gromacs2020では、**cmake後にできる`src/external/build-fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルから(`;--enable-avx2;--enable-avx512`)を消去する必要がある。**
+
+```
 
 #### 東大物性研の場合
 
@@ -194,11 +208,11 @@ module load intel/16.0.8.266
 
 ```eval_rst
 .. note::
-    
+
     また粗視化の計算をgromacsで行うにはgromacs- **5.1.4** or  gromacs- **5.1.5** が必要であり、このバージョンに対応しているplumedのバージョンは2.4である。
 
     つまり現状(2020/01/22)ではgromacs- **5.1.4** + plumed- **2.4.6** が動く組み合わせとなる。
-    
+
 ```
 
 Plumedをインストールしたら、
@@ -236,11 +250,11 @@ plumed --no-mpi -p
 
 ```eval_rst
 .. note::
-    
+
     粗視化ではテーブルポテンシャルを利用する影響でGPUは使用できない。
 
     このため、明示的にGPUをOFFにしてコンパイルするのがベスト。( `-DGMX_GPU=off` )
-    
+
 ```
 
 つまりまとめると、
@@ -249,7 +263,7 @@ plumed --no-mpi -p
 mkdir gmx_install
 mkdir build
 cd ./build
-cmake ../ -DGMX_BUILD_OWN_FFTW=on -DREGRESSIONTEST_DOWNLOAD=on -DCMAKE_INSTALL_PREFIX=/home/k0386/k038615/App/gromacs-5.1.4/gmx_install/ -DGMX_MPI=on -DGMX_GPU=off -DCMAKE_C_COMPILER=/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER=/home/app/gcc/4.9.4/bin/g++ -DBUILD_SHARED_LIBS=OFF -DGMX_PREFER_STATIC_LIBS=ON 
+cmake ../ -DGMX_BUILD_OWN_FFTW=on -DREGRESSIONTEST_DOWNLOAD=on -DCMAKE_INSTALL_PREFIX=/home/k0386/k038615/App/gromacs-5.1.4/gmx_install/ -DGMX_MPI=on -DGMX_GPU=off -DCMAKE_C_COMPILER=/home/app/gcc/4.9.4/bin/gcc -DCMAKE_CXX_COMPILER=/home/app/gcc/4.9.4/bin/g++ -DBUILD_SHARED_LIBS=OFF -DGMX_PREFER_STATIC_LIBS=ON
 make -j4
 make check
 sudo make install
@@ -343,12 +357,12 @@ ex) `gmx solvate -cp 1bna.aa.newbox.gro -cs tip3p.gro -o 1bna.aa.solvate.gro -p 
 
 .. warning::
     カウンターイオン＋特定の濃度になるようにイオンを入れる場合は、
-    
+
     neutralとconcの両方を指定する必要がある。
-    
+
 ```
 
-ex) 
+ex)
 
 ```bash
 gmx grompp -f ions.mdp -c 1AKI_solv.gro -p topol.top -o ions.tpr
@@ -372,9 +386,9 @@ gmx genion -s ions.tpr -o 1AKI_solv_ions.gro -p topol.top -pname NA -nname CL -n
 
 .. note::
     使用できる力場は ``/gmx-install/share/gromacs/top/`` に[力場.ff]というディレクトリを追加すると使えるようになる。
-    
+
     charmm36なども自分で追加する必要がある。（探すのが難しかった）
-    
+
 ```
 
 `-ff`や`-water`は指定しなくても、その後対話形式で聞かれる。
