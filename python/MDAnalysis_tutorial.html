@@ -39,7 +39,9 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" /> 
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Anaconda" href="anaconda.html" />
+    <link rel="prev" title="MDAnalysis" href="MDAnalysis.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,57 +89,95 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">MDAnalysis tutorial</a><ul>
-<li><a class="reference internal" href="#id1">環境</a></li>
-<li><a class="reference internal" href="#id2">注意</a></li>
-<li><a class="reference internal" href="#how-to-use-this-tutorial">1.How to use this tutorial</a><ul>
-<li><a class="reference internal" href="#have-you-installed-mdanalysis">1.1.Have you installed MDAnalysis</a><ul>
-<li><a class="reference internal" href="#mdanalysis">チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる</a></li>
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">Linux Basic Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">Linux commands (nessesary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">vi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">ssh</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mpdyn.html">MPDyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">FFTW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/plumed.html">PLUMED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/packmol.html">Packmol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/MPI.html">MPI environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">Device in Lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">Sandbox</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Room</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="MDAnalysis.html">MDAnalysis</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">MDAnalysis tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">環境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">注意</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-use-this-tutorial">1.How to use this tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#have-you-installed-mdanalysis">1.1.Have you installed MDAnalysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mdanalysis">チュートリアルのはじめの章であり、MDAnalysisがインストールされているかを確かめる</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#preparation">3.Preparation</a><ul>
-<li><a class="reference internal" href="#python-interpreter-ipython">3.1.Python interpreter : ipython</a><ul>
-<li><a class="reference internal" href="#ipythontab">ipythonを使うとtabキー補完が便利になるよっていう話</a><ul>
-<li><a class="reference internal" href="#ipythoncommand">コマンドについての説明がほしいときはipython上で<code class="docutils literal notranslate"><span class="pre">command?</span></code>とする。</a></li>
-<li><a class="reference internal" href="#tab">tabキー補完が優秀</a></li>
-<li><a class="reference internal" href="#numpy-matplotlib">数値計算、グラフの即時プロットのために<code class="docutils literal notranslate"><span class="pre">numpy</span></code>,<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>をインポートしておくと良い</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#preparation">3.Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python-interpreter-ipython">3.1.Python interpreter : ipython</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ipythontab">ipythonを使うとtabキー補完が便利になるよっていう話</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#loading-mdanalysis">3.2.Loading MDAnalysis</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">ライブラリ（モジュール）のインポート</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">サンプルファイル（のインポート）</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#loading-mdanalysis">3.2.Loading MDAnalysis</a><ul>
-<li><a class="reference internal" href="#id3">ライブラリ（モジュール）のインポート</a></li>
-<li><a class="reference internal" href="#id4">サンプルファイル（のインポート）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic">4.Basic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#universe-and-atomgroup">4.1.Universe and AtomGroup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#universeobject"><code class="docutils literal notranslate"><span class="pre">Universe</span></code>object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#atomobject"><code class="docutils literal notranslate"><span class="pre">Atom</span></code>object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#residueobject"><code class="docutils literal notranslate"><span class="pre">residue</span></code>object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#segmentobject"><code class="docutils literal notranslate"><span class="pre">segment</span></code>object</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#basic">4.Basic</a><ul>
-<li><a class="reference internal" href="#universe-and-atomgroup">4.1.Universe and AtomGroup</a><ul>
-<li><a class="reference internal" href="#universeobject"><code class="docutils literal notranslate"><span class="pre">Universe</span></code>object</a></li>
-<li><a class="reference internal" href="#atomobject"><code class="docutils literal notranslate"><span class="pre">Atom</span></code>object</a></li>
-<li><a class="reference internal" href="#residueobject"><code class="docutils literal notranslate"><span class="pre">residue</span></code>object</a></li>
-<li><a class="reference internal" href="#segmentobject"><code class="docutils literal notranslate"><span class="pre">segment</span></code>object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#working-with-atomgroup">5.Working with AtomGroup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#important-methods-and-attributes-of-atomgroup">5.1.Important methods and attributes of AtomGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#exersice">5.2.Exersice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#processing-atomgroup">5.3.Processing AtomGroup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">参考</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#trajectory-analysis">6.Trajectory analysis</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#working-with-atomgroup">5.Working with AtomGroup</a><ul>
-<li><a class="reference internal" href="#important-methods-and-attributes-of-atomgroup">5.1.Important methods and attributes of AtomGroup</a></li>
-<li><a class="reference internal" href="#exersice">5.2.Exersice</a></li>
-<li><a class="reference internal" href="#processing-atomgroup">5.3.Processing AtomGroup</a></li>
-<li><a class="reference internal" href="#id5">参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="anaconda.html">Anaconda</a></li>
 </ul>
-</li>
-<li><a class="reference internal" href="#trajectory-analysis">6.Trajectory analysis</a></li>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">Hiroki Tanaka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">Home build PC</a></li>
 </ul>
-</li>
-</ul>
-</div>
+
             
           
         </div>
@@ -485,6 +525,15 @@ gnuplotなどでプロットできるデータが生まれる。</p>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="anaconda.html" class="btn btn-neutral float-right" title="Anaconda" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="MDAnalysis.html" class="btn btn-neutral float-left" title="MDAnalysis" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

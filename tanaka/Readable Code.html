@@ -39,7 +39,9 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" /> 
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Home build PC" href="home_build_pc.html" />
+    <link rel="prev" title="Hiroki Tanaka" href="../intro/tanaka.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,123 +89,166 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Readable Code</a><ul>
-<li><a class="reference internal" href="#id1">1章｜理解しやすいコード</a><ul>
-<li><a class="reference internal" href="#id2">コードは他人が最短時間で理解できなければならない。</a></li>
-<li><a class="reference internal" href="#id3">短ければいいと言うわけではない。</a></li>
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">Linux Basic Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">Linux commands (nessesary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">vi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">ssh</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mpdyn.html">MPDyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">FFTW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/plumed.html">PLUMED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/packmol.html">Packmol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/MPI.html">MPI environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">Device in Lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">Sandbox</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Room</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">MDAnalysis tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">Anaconda</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">Hiroki Tanaka</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Readable Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">1章｜理解しやすいコード</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">コードは他人が最短時間で理解できなければならない。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">短ければいいと言うわけではない。</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4">2章｜名前に情報を詰め込む</a><ul>
-<li><a class="reference internal" href="#id5">明確な名前をつける</a></li>
-<li><a class="reference internal" href="#id6">汎用的な名前は避ける。</a></li>
-<li><a class="reference internal" href="#tmp">tmpが悪いわけではない。</a></li>
-<li><a class="reference internal" href="#id7">イテレーターの場合。</a></li>
-<li><a class="reference internal" href="#id8">抽象的な名前より具体的な名前。</a></li>
-<li><a class="reference internal" href="#id9">名前に情報を追加する。</a></li>
-<li><a class="reference internal" href="#id10">注意喚起する。</a></li>
-<li><a class="reference internal" href="#id11">名前の長さ。</a></li>
-<li><a class="reference internal" href="#id12">省略形と接頭語。</a></li>
-<li><a class="reference internal" href="#id13">不必要な単語は捨てる。</a></li>
-<li><a class="reference internal" href="#id14">名前のフォーマット。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">2章｜名前に情報を詰め込む</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">明確な名前をつける</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">汎用的な名前は避ける。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tmp">tmpが悪いわけではない。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">イテレーターの場合。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">抽象的な名前より具体的な名前。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">名前に情報を追加する。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">注意喚起する。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">名前の長さ。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">省略形と接頭語。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">不必要な単語は捨てる。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">名前のフォーマット。</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id15">3章｜誤解されない名前をつける</a><ul>
-<li><a class="reference internal" href="#id16">他の名前と間違えられることはないか？</a></li>
-<li><a class="reference internal" href="#max-min">境界はmax, minでわかりやすく</a></li>
-<li><a class="reference internal" href="#id17">範囲指定</a></li>
-<li><a class="reference internal" href="#id18">期待に合わせる</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id15">3章｜誤解されない名前をつける</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">他の名前と間違えられることはないか？</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#max-min">境界はmax, minでわかりやすく</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">範囲指定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">期待に合わせる</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id19">4章｜美しさ</a><ul>
-<li><a class="reference internal" href="#id20">一貫性のある改行位置</a></li>
-<li><a class="reference internal" href="#id21">同じことが何度も出てくるならヘルパーメソッドを使う。</a></li>
-<li><a class="reference internal" href="#id22">縦に揃える</a></li>
-<li><a class="reference internal" href="#id23">宣言も意味のあるブロックにまとめる。</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">4章｜美しさ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">一貫性のある改行位置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">同じことが何度も出てくるならヘルパーメソッドを使う。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">縦に揃える</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">宣言も意味のあるブロックにまとめる。</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id24">5章｜コメントすべきこと</a><ul>
-<li><a class="reference internal" href="#u-u"><u>すぐ</u>わかることは書かない</a></li>
-<li><a class="reference internal" href="#id25">名前の酷さをコメントで補わない</a></li>
-<li><a class="reference internal" href="#id26">自分の考えは記録する</a></li>
-<li><a class="reference internal" href="#id27">バグも入れる</a></li>
-<li><a class="reference internal" href="#id28">定数にコメント</a></li>
-<li><a class="reference internal" href="#id29">質問されそうなことは書いておく+ハマりそうな罠も書いておく</a></li>
-<li><a class="reference internal" href="#id30">全体像をコメントしろ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id24">5章｜コメントすべきこと</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#u-u"><u>すぐ</u>わかることは書かない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">名前の酷さをコメントで補わない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">自分の考えは記録する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">バグも入れる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">定数にコメント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id29">質問されそうなことは書いておく+ハマりそうな罠も書いておく</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id30">全体像をコメントしろ</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id31">6章｜コメントは正確で完結に</a><ul>
-<li><a class="reference internal" href="#is-good">短いコメント is good</a></li>
-<li><a class="reference internal" href="#id32">曖昧な代名詞は良くない</a></li>
-<li><a class="reference internal" href="#id33">歯切れのいい文章</a></li>
-<li><a class="reference internal" href="#id34">関数の動作を正確に</a></li>
-<li><a class="reference internal" href="#id35">実例を提示</a></li>
-<li><a class="reference internal" href="#id36">コードの意図</a></li>
-<li><a class="reference internal" href="#id37">名前付き引数</a></li>
-<li><a class="reference internal" href="#id38">情報密度の高い言葉</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id31">6章｜コメントは正確で完結に</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#is-good">短いコメント is good</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">曖昧な代名詞は良くない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id33">歯切れのいい文章</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id34">関数の動作を正確に</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">実例を提示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">コードの意図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id37">名前付き引数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id38">情報密度の高い言葉</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id39">7章｜制御フローを読みやすくする</a><ul>
-<li><a class="reference internal" href="#id40">条件式</a></li>
-<li><a class="reference internal" href="#if-else">if / elseブロック</a></li>
-<li><a class="reference internal" href="#id41">三項演算子</a></li>
-<li><a class="reference internal" href="#do-while">do / whileはやめる</a></li>
-<li><a class="reference internal" href="#id42">関数から早く返す</a></li>
-<li><a class="reference internal" href="#goto"><code class="docutils literal notranslate"><span class="pre">goto</span></code>を使わない。</a></li>
-<li><a class="reference internal" href="#id43">ネストは浅く</a></li>
-<li><a class="reference internal" href="#id44">実行の流れを終えるか考える</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id39">7章｜制御フローを読みやすくする</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id40">条件式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#if-else">if / elseブロック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id41">三項演算子</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#do-while">do / whileはやめる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id42">関数から早く返す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#goto"><code class="docutils literal notranslate"><span class="pre">goto</span></code>を使わない。</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id43">ネストは浅く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id44">実行の流れを終えるか考える</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id45">8章｜巨大な式を分割する</a><ul>
-<li><a class="reference internal" href="#id46">説明変数の利用</a></li>
-<li><a class="reference internal" href="#id47">要約変数の利用</a></li>
-<li><a class="reference internal" href="#id48">ドモルガンの法則</a></li>
-<li><a class="reference internal" href="#id49">短絡評価</a></li>
-<li><a class="reference internal" href="#id50">複雑なロジック</a></li>
-<li><a class="reference internal" href="#id51">巨大な式の分割</a></li>
-<li><a class="reference internal" href="#c">（C++）マクロの利用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id45">8章｜巨大な式を分割する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id46">説明変数の利用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id47">要約変数の利用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id48">ドモルガンの法則</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">短絡評価</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id50">複雑なロジック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id51">巨大な式の分割</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#c">（C++）マクロの利用</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id52">9章｜変数と読みやすさ</a><ul>
-<li><a class="reference internal" href="#id53">役に立たない一時変数の削除</a></li>
-<li><a class="reference internal" href="#id54">中間結果も捨てる</a></li>
-<li><a class="reference internal" href="#id55">制御フロー変数はいらない</a></li>
-<li><a class="reference internal" href="#id56">変数のスコープを縮める</a></li>
-<li><a class="reference internal" href="#id57">変数は1度だけ代入する</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id52">9章｜変数と読みやすさ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id53">役に立たない一時変数の削除</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id54">中間結果も捨てる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id55">制御フロー変数はいらない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id56">変数のスコープを縮める</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id57">変数は1度だけ代入する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id58">10章｜無関係の下位問題を抽出する</a><ul>
-<li><a class="reference internal" href="#id59">基本的な例</a></li>
-<li><a class="reference internal" href="#id60">ユーティリティコード</a></li>
-<li><a class="reference internal" href="#id61">その他汎用コード</a></li>
-<li><a class="reference internal" href="#id62">プロジェクトに特化した機能</a></li>
-<li><a class="reference internal" href="#id63">既存のインターフェースを簡潔にする</a></li>
-<li><a class="reference internal" href="#id64">必要に応じてインターフェースを整える</a></li>
-<li><a class="reference internal" href="#id65">やりすぎに注意</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id58">10章｜無関係の下位問題を抽出する</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id59">基本的な例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id60">ユーティリティコード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id61">その他汎用コード</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id62">プロジェクトに特化した機能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id63">既存のインターフェースを簡潔にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id64">必要に応じてインターフェースを整える</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id65">やりすぎに注意</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id66">11章｜一度に1つのことを</a><ul>
-<li><a class="reference internal" href="#id67">デフォルト値</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id66">11章｜一度に1つのことを</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id67">デフォルト値</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id68">12章｜コードに思いを込める</a><ul>
-<li><a class="reference internal" href="#id69">ロジックを明確に説明</a></li>
-<li><a class="reference internal" href="#id70">ライブラリを詳しく知る</a></li>
-<li><a class="reference internal" href="#id71">解決策を口に出しながらコーディング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id68">12章｜コードに思いを込める</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id69">ロジックを明確に説明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id70">ライブラリを詳しく知る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id71">解決策を口に出しながらコーディング</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id72">13章｜短いコードを書く</a><ul>
-<li><a class="reference internal" href="#id73">いらない機能に悩まされない</a></li>
-<li><a class="reference internal" href="#id74">質問と要求の分割</a></li>
-<li><a class="reference internal" href="#id75">小さいコードを保つ</a></li>
-<li><a class="reference internal" href="#id76">身近なライブラリに親しむ</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#id72">13章｜短いコードを書く</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id73">いらない機能に悩まされない</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id74">質問と要求の分割</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id75">小さいコードを保つ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id76">身近なライブラリに親しむ</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="home_build_pc.html">Home build PC</a></li>
+</ul>
+
             
           
         </div>
@@ -841,6 +886,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="home_build_pc.html" class="btn btn-neutral float-right" title="Home build PC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../intro/tanaka.html" class="btn btn-neutral float-left" title="Hiroki Tanaka" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

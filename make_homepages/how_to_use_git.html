@@ -39,7 +39,9 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" /> 
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Sandbox" href="sandbox.html" />
+    <link rel="prev" title="Device in Lab" href="../device/main.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,34 +89,77 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">How to edit this homepages</a><ul>
-<li><a class="reference internal" href="#id1">アカウント作成</a></li>
-<li><a class="reference internal" href="#id2">編集の流れ</a><ul>
-<li><a class="reference internal" href="#clone-1">リモートリポジトリをclone（上図１）</a></li>
-<li><a class="reference internal" href="#id3">ブランチを分ける（上図２）</a></li>
-<li><a class="reference internal" href="#id4">編集をする（上図３）</a></li>
-<li><a class="reference internal" href="#push-4">pushする（上図４）</a></li>
-<li><a class="reference internal" href="#pull-5">pullリクエストの作成（上図５）</a></li>
-<li><a class="reference internal" href="#id5">新しい編集</a></li>
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">Linux Basic Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">Linux commands (nessesary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">vi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">ssh</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mpdyn.html">MPDyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">FFTW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/plumed.html">PLUMED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/packmol.html">Packmol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/MPI.html">MPI environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">Device in Lab</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to edit this homepages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">アカウント作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">編集の流れ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-1">リモートリポジトリをclone（上図１）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">ブランチを分ける（上図２）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">編集をする（上図３）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push-4">pushする（上図４）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pull-5">pullリクエストの作成（上図５）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">新しい編集</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">テキストの記載法</a></li>
-<li><a class="reference internal" href="#id7">ディレクトリの構成</a></li>
-<li><a class="reference internal" href="#git">Git の便利なコマンドまとめ</a><ul>
-<li><a class="reference internal" href="#id8">現在の状況を表示する</a></li>
-<li><a class="reference internal" href="#id9">これまでのコミット履歴をみる</a></li>
-<li><a class="reference internal" href="#git-clone-git-add">ファイルを編集したが、やっぱり<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>したときの状態に戻したい(まだ<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>していない。)</a></li>
-<li><a class="reference internal" href="#id10">ファイル内の変更箇所を見たい</a></li>
-<li><a class="reference internal" href="#id11">ブランチの表示</a></li>
-<li><a class="reference internal" href="#id12">ブランチの作成、移動をまとめて</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">テキストの記載法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">ディレクトリの構成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git">Git の便利なコマンドまとめ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">現在の状況を表示する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">これまでのコミット履歴をみる</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#git-clone-git-add">ファイルを編集したが、やっぱり<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>したときの状態に戻したい(まだ<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code>していない。)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">ファイル内の変更箇所を見たい</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">ブランチの表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">ブランチの作成、移動をまとめて</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="sandbox.html">Sandbox</a></li>
 </ul>
-</div>
+<p class="caption"><span class="caption-text">Python Room</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">MDAnalysis tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">Anaconda</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">Hiroki Tanaka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">Home build PC</a></li>
+</ul>
+
             
           
         </div>
@@ -443,6 +488,15 @@ git checkout ishikawa
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sandbox.html" class="btn btn-neutral float-right" title="Sandbox" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../device/main.html" class="btn btn-neutral float-left" title="Device in Lab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

@@ -39,7 +39,9 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" /> 
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="vi" href="vim_0.html" />
+    <link rel="prev" title="Linux Basic Questions" href="linuxq1.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,49 +89,92 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Linux commands (nessesary)</a><ul>
-<li><a class="reference internal" href="#cp"><code class="docutils literal notranslate"><span class="pre">cp</span></code></a><ul>
-<li><a class="reference internal" href="#id1">文法</a></li>
-<li><a class="reference internal" href="#test1-dat-test2-datcp-test1-dat-test2-dat">test1.dat をtest2.datという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test1.dat</span> <span class="pre">test2.dat</span></code></a></li>
-<li><a class="reference internal" href="#filetext1-datcp-file-text1-dat">fileディレクトリの中のtext1.datを一つ上のディレクトリにコピーしてくる。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file/text1.dat</span> <span class="pre">./</span></code></a></li>
-<li><a class="reference internal" href="#filefile-samecp-r-file-file-same">fileディレクトリをfile_sameという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">file</span> <span class="pre">file_same</span></code></a></li>
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="linux1.html">Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linuxq1.html">Linux Basic Questions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux commands (nessesary)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cp"><code class="docutils literal notranslate"><span class="pre">cp</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test1-dat-test2-datcp-test1-dat-test2-dat">test1.dat をtest2.datという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">test1.dat</span> <span class="pre">test2.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filetext1-datcp-file-text1-dat">fileディレクトリの中のtext1.datを一つ上のディレクトリにコピーしてくる。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">file/text1.dat</span> <span class="pre">./</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filefile-samecp-r-file-file-same">fileディレクトリをfile_sameという名前でコピーする。<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">file</span> <span class="pre">file_same</span></code></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mv"><code class="docutils literal notranslate"><span class="pre">mv</span></code></a><ul>
-<li><a class="reference internal" href="#id2">ファイル名変更時の文法</a></li>
-<li><a class="reference internal" href="#text1-dat-text-new-datmv-text1-dat-text-new-dat">text1.dat をtext_new.datに改名<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">text_new.dat</span></code></a></li>
-<li><a class="reference internal" href="#id3">ファイル移動時の文法</a><ul>
-<li><a class="reference internal" href="#text1-dat-filemv-text1-dat-file">text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a class="reference internal" href="#rm"><code class="docutils literal notranslate"><span class="pre">rm</span></code></a><ul>
-<li><a class="reference internal" href="#id4">文法</a></li>
-<li><a class="reference internal" href="#test-dat-rm-test-dat">ファイル test.dat を削除<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">test.dat</span></code></a></li>
-<li><a class="reference internal" href="#file-rm-r-file">ディレクトリ file/ を削除 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">file</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#echo"><code class="docutils literal notranslate"><span class="pre">echo</span></code></a><ul>
-<li><a class="reference internal" href="#id5">文法</a></li>
-<li><a class="reference internal" href="#id6"></a></li>
-<li><a class="reference internal" href="#i-am-a-geniusecho-i-am-a-genius">I am a geniusと表示する。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span></code></a></li>
-<li><a class="reference internal" href="#i-am-a-geniustest-datecho-i-am-a-genius-test-dat">I am a geniusという内容が書かれたtest.datというファイルを作成。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.dat</span></code></a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#cat"><code class="docutils literal notranslate"><span class="pre">cat</span></code></a><ul>
-<li><a class="reference internal" href="#id7">文法</a></li>
-<li><a class="reference internal" href="#i-am-a-geniustest-datcat-test-dat">I am a geniusという内容が書かれたtest.datというファイルの中身を見る<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">test.dat</span></code></a></li>
-<li><a class="reference internal" href="#bashrc">~/.bashrcの中身を表示してみる。</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#sl"><code class="docutils literal notranslate"><span class="pre">sl</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mv"><code class="docutils literal notranslate"><span class="pre">mv</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">ファイル名変更時の文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text1-dat-text-new-datmv-text1-dat-text-new-dat">text1.dat をtext_new.datに改名<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">text_new.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">ファイル移動時の文法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#text1-dat-filemv-text1-dat-file">text1.dat をfileの中に入れる<code class="docutils literal notranslate"><span class="pre">mv</span> <span class="pre">text1.dat</span> <span class="pre">file</span></code></a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rm"><code class="docutils literal notranslate"><span class="pre">rm</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#test-dat-rm-test-dat">ファイル test.dat を削除<code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">test.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-rm-r-file">ディレクトリ file/ を削除 <code class="docutils literal notranslate"><span class="pre">rm</span> <span class="pre">-r</span> <span class="pre">file</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#echo"><code class="docutils literal notranslate"><span class="pre">echo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6"></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-am-a-geniusecho-i-am-a-genius">I am a geniusと表示する。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-am-a-geniustest-datecho-i-am-a-genius-test-dat">I am a geniusという内容が書かれたtest.datというファイルを作成。<code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;I</span> <span class="pre">am</span> <span class="pre">a</span> <span class="pre">genius&quot;</span> <span class="pre">&gt;</span> <span class="pre">test.dat</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cat"><code class="docutils literal notranslate"><span class="pre">cat</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">文法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#i-am-a-geniustest-datcat-test-dat">I am a geniusという内容が書かれたtest.datというファイルの中身を見る<code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">test.dat</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bashrc">~/.bashrcの中身を表示してみる。</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sl"><code class="docutils literal notranslate"><span class="pre">sl</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vim_0.html">vi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ssh.html">ssh</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mpdyn.html">MPDyn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Gnuplot/Gnuplot_01.html">Gnuplotでグラフ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">FFTW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/plumed.html">PLUMED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/packmol.html">Packmol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/MPI.html">MPI environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">Device in Lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">Sandbox</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Room</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">MDAnalysis tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">Anaconda</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">Hiroki Tanaka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">Home build PC</a></li>
+</ul>
+
             
           
         </div>
@@ -435,6 +480,15 @@ I am a genius
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="vim_0.html" class="btn btn-neutral float-right" title="vi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="linuxq1.html" class="btn btn-neutral float-left" title="Linux Basic Questions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

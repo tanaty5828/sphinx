@@ -33,14 +33,12 @@ ________________________________________________________________________________
 .. toctree::
    :maxdepth: 2
    :caption: Contents
-..   :numbered:
 
    /welcome/test1
 
 .. toctree::
    :maxdepth: 2
    :caption: Linux
-..   :numbered:
 
    /linux/linux1
    /linux/linuxq1
@@ -51,7 +49,6 @@ ________________________________________________________________________________
 .. toctree::
    :maxdepth: 2
    :caption: Molecular Dynamics
-..   :numbered:
 
    /MD/mdsoft
    /MD/gromacs
@@ -69,7 +66,6 @@ ________________________________________________________________________________
 .. toctree::
    :maxdepth: 2
    :caption: Tools
-..   :numbered:
 
    /slack/insto
    /device/main
@@ -80,7 +76,6 @@ ________________________________________________________________________________
 .. toctree::
    :maxdepth: 2
    :caption: Python Room
-..   :numbered:
 
    /python/matplotlib
    /python/MDAnalysis
@@ -90,7 +85,6 @@ ________________________________________________________________________________
 .. toctree::
    :maxdepth: 2
    :caption: Hiroki Tanaka
-..   :numbered:
 
    /intro/tanaka
    /tanaka/Readable Code

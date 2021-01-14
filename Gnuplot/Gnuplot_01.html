@@ -39,7 +39,9 @@
 
     
     <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="検索" href="../search.html" /> 
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="VMD" href="../MD/vmd.html" />
+    <link rel="prev" title="MPDyn" href="../MD/mpdyn.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -87,31 +89,74 @@
               
             
             
-              <!-- Local TOC -->
-              <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Gnuplotでグラフ作成</a><ul>
-<li><a class="reference internal" href="#id1">Gnuplotで何ができる？</a></li>
-<li><a class="reference internal" href="#id2">とりあえずグラフをつくってみよう　その１</a><ul>
-<li><a class="reference internal" href="#id3">Gnuplotを起動</a></li>
-<li><a class="reference internal" href="#y-sin-x">y=sin(x) のグラフを描く</a></li>
-<li><a class="reference internal" href="#y-sin-x-y-cos-x-1">y=sin(x) と y=cos(x) を１つのグラフに描く</a></li>
-<li><a class="reference internal" href="#id4">グラフを画像として保存する</a></li>
+              <p class="caption"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../welcome/test1.html">Welocome to Okazaki-Lab !!</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Linux</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linux1.html">Linux Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxq1.html">Linux Basic Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/linuxcommand.html">Linux commands (nessesary)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/vim_0.html">vi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linux/ssh.html">ssh</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../MD/mdsoft.html">Molecular Dynamics Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/gromacs.html">Gromacs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/namd.html">Namd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/lammps.html">LAMMPS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/mpdyn.html">MPDyn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gnuplotでグラフ作成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Gnuplotで何ができる？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">とりあえずグラフをつくってみよう　その１</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Gnuplotを起動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#y-sin-x">y=sin(x) のグラフを描く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#y-sin-x-y-cos-x-1">y=sin(x) と y=cos(x) を１つのグラフに描く</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">グラフを画像として保存する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5">とりあえずグラフをつくってみよう　その２</a><ul>
-<li><a class="reference internal" href="#id6">データファイルからグラフを作成</a></li>
-<li><a class="reference internal" href="#id7">凡例と軸の名前を表示させる</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">とりあえずグラフをつくってみよう　その２</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">データファイルからグラフを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">凡例と軸の名前を表示させる</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id8">スクリプトファイルを読み込む</a><ul>
-<li><a class="reference internal" href="#id9">スクリプトファイルの書き方</a></li>
-<li><a class="reference internal" href="#id10">スクリプトファイルの読み込み方</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">スクリプトファイルを読み込む</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">スクリプトファイルの書き方</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">スクリプトファイルの読み込み方</a></li>
 </ul>
 </li>
 </ul>
-</div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/vmd.html">VMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/Discovery_studio.html">Discovery Studio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/fftw.html">FFTW</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/plumed.html">PLUMED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/packmol.html">Packmol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../MD/MPI.html">MPI environment</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tools</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../slack/insto.html">slack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../device/main.html">Device in Lab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/how_to_use_git.html">How to edit this homepages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../make_homepages/sandbox.html">Sandbox</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Room</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python/matplotlib.html">matplotlib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis.html">MDAnalysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/MDAnalysis_tutorial.html">MDAnalysis tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/anaconda.html">Anaconda</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Hiroki Tanaka</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/tanaka.html">Hiroki Tanaka</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/Readable Code.html">Readable Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tanaka/home_build_pc.html">Home build PC</a></li>
+</ul>
+
             
           
         </div>
@@ -366,6 +411,15 @@ gnuplot&gt;
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../MD/vmd.html" class="btn btn-neutral float-right" title="VMD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../MD/mpdyn.html" class="btn btn-neutral float-left" title="MPDyn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
