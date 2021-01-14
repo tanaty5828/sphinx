@@ -111,9 +111,8 @@ tgpu7のCUDAバージョンは8.0であるため、gromacs2018-8がインスト�
 
 .. warning::
 
-SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(`-DGMX_SIMD=AVX_256`)。
-このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
-これを修正するためには、**cmake後にできる`build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルの109行目から(`;--enable-avx2;--enable-avx512`)を消去する。**
+    SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(`-DGMX_SIMD=AVX_256`)。このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
+    これを修正するためには、**cmake後にできる`build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルの109行目から(`;--enable-avx2;--enable-avx512`)を消去する。**
 
 ```
 
@@ -121,9 +120,9 @@ SIMD最適化に関して、gromacsは自動で利用できる最適化を探し
 
 .. warning::
 
-上記のfftwビルド失敗は、gromacs-5.1.5では発生せず、
+    上記のfftwビルド失敗は、gromacs-5.1.5では発生せず、
 
-gromacs2020では、**cmake後にできる`src/external/build-fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルから(`;--enable-avx2;--enable-avx512`)を消去する必要がある。**
+    gromacs2020では、**cmake後にできる`src/external/build-fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルから(`;--enable-avx2;--enable-avx512`)を消去する必要がある。**
 
 ```
 

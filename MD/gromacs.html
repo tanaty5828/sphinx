@@ -307,11 +307,16 @@ gmx --version
 </pre></div>
 </div>
 <p>とした。(cmake3.10.2は上記の場所にインストールした。)</p>
-<p>SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(<cite>-DGMX_SIMD=AVX_256</cite>)。
-このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
+<p>SIMD最適化に関して、gromacsは自動で利用できる最適化を探してくれるはずが、手動で指定する必要があった(<cite>-DGMX_SIMD=AVX_256</cite>)。このままインストールを続けると、このあとのmakeでfftwのビルドに失敗する。
 これを修正するためには、<strong>cmake後にできる`build/src/contrib/fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルの109行目から(`;--enable-avx2;--enable-avx512`)を消去する。</strong></p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">警告</p>
 <p>上記のfftwビルド失敗は、gromacs-5.1.5では発生せず、</p>
 <p>gromacs2020では、<strong>cmake後にできる`src/external/build-fftw/CMakeFiles/fftwBuild.dir/build.make`のファイルから(`;--enable-avx2;--enable-avx512`)を消去する必要がある。</strong></p>
+</div>
 </div>
 <div class="section" id="id3">
 <h4><span class="section-number">2.2.1.2. </span>東大物性研の場合<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h4>
