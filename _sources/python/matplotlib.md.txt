@@ -1,6 +1,6 @@
-# :snake: matplotlib
+# matplotlib
 
-gnuplot同様に、グラフのプロットができる**python**​ |:snake:| ​のライブラリ。
+gnuplot同様に、グラフのプロットができる**python**のライブラリ。
 
 ただ、学習コストが高い（難しい）ため備忘録もかねてここに使い方を記す。
 
@@ -42,7 +42,7 @@ fplot <plotしたいファイル名(複数OK)>
 （例）
 
 ```bash
-fplot RZ_C11_POPC.dat RZ_C11_POPI.dat 
+fplot RZ_C11_POPC.dat RZ_C11_POPI.dat
 ```
 
 ![](./Figure_1.png)
