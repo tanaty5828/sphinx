@@ -1,4 +1,4 @@
-# matplotlib
+# :snake:matplotlib
 
 gnuplot同様に、グラフのプロットができる**python**のライブラリ。
 
