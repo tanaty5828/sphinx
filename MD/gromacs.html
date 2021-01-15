@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Gromacs &mdash; SIEGE 2021.1.14 ドキュメント</title>
+  <title>Gromacs &mdash; SIEGE 2021.1.15 ドキュメント</title>
   
 
   
@@ -119,6 +119,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#id5">gromacsのコンパイル</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-supported-compiler-versions">Minimum supported compiler versions</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#command-line-reference">Command-line reference</a><ul>
@@ -449,6 +450,70 @@ sudo make install
 </pre></div>
 </div>
 <p>となる。エラーがでなければ成功である。</p>
+</div>
+</div>
+<div class="section" id="minimum-supported-compiler-versions">
+<h3>Minimum supported compiler versions<a class="headerlink" href="#minimum-supported-compiler-versions" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>各バージョンのGromacsをコンパイルするために必要なコンパイラーの(最小)バージョン</p>
+<p>ただし、intelコンパイラを使用したとしてもあるバージョンのg++が必要なことがある(libstdc++を使用する)ため、注意が必要。</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th>Gromacs version</th>
+<th>CMAKE</th>
+<th>GNU(gcc)</th>
+<th>Intel(icc) + libstdc++</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2021-rc1</td>
+<td>3.13</td>
+<td>7</td>
+<td>19.1<br />libstdc++ 7.1</td>
+<td></td>
+</tr>
+<tr>
+<td>2020.5</td>
+<td>3.9.6</td>
+<td>5.1</td>
+<td>17.0.1<br />libstdc++ 5.1</td>
+<td>CentOS8</td>
+</tr>
+<tr>
+<td>2019.6</td>
+<td>3.4.3</td>
+<td>4.8.1</td>
+<td>17.0.1<br />libstdc++ 4.8.1</td>
+<td></td>
+</tr>
+<tr>
+<td>2018.8</td>
+<td>3.4.3</td>
+<td>4.8.1</td>
+<td>15.0<br />libstdc++ 4.8.1</td>
+<td></td>
+</tr>
+<tr>
+<td>2016.6</td>
+<td>2.8.8</td>
+<td>4.6</td>
+<td>14<br />libstdc++ 4.6.1</td>
+<td>CentOS7</td>
+</tr>
+<tr>
+<td>5.1.5</td>
+<td>2.8.8</td>
+<td>4.4?<br />(4.7:arrow_up: is better)</td>
+<td>12?<br />14<br />libstdc++ 4.4</td>
+<td>CentOS6</td>
+</tr>
+</tbody>
+</table><p>また、GPU有効でコンパイルするためには、更にCUDAのバージョンを合わせる必要がある。CUDAは新しいものほど良いというわけではなく、丁度いいものを選ぶ必要がある。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>CentOS7のgcc系は4.8.xがデフォルトで入っているため、cmakeのバージョンを上げれば、2019.6をコンパイルすることも可能なはず。</p>
 </div>
 </div>
 </div>
