@@ -1,6 +1,6 @@
 # :snake: matplotlib
 
-gnuplot同様に、グラフのプロットができる**python**:snake:のライブラリ。
+gnuplot同様に、グラフのプロットができる**python**​ |:snake:| ​のライブラリ。
 
 ただ、学習コストが高い（難しい）ため備忘録もかねてここに使い方を記す。
 
