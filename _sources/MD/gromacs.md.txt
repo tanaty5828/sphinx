@@ -185,7 +185,7 @@ cmake ../ -DGMX_BUILD_OWN_FFTW=on \
 
 粗視化の計算をgromacsで行う必要があり、またレプリカ交換のMDを行う必要があった。
 
-レプリカ交換はPlumedというインターフェイスを介して実装されているため、そちらをインストールしてある必要がある。[このページ](<https://tanaty5828.github.io/sphinx/MD/plumed.html>)を参考にすること。
+レプリカ交換はPlumed[^1]というインターフェイスを介して実装されているため、そちらをインストールしてある必要がある。[このページ](<https://tanaty5828.github.io/sphinx/MD/plumed.html>)を参考にすること。
 
 #### 東大物性研の場合
 
@@ -477,3 +477,6 @@ gmx trjconv -f output2.trr -o output3.trr -s minimize.tpr -n in.ndx -pbc mol -ur
 
 `-pbc cluster`するとクラスタリングしたいグループを選ばされる。各自溶質を選ぶといいだろう。
 
+## Reference
+
+[^1]: Bonomi, M. et al. PLUMED: A portable plugin for free-energy calculations with molecular dynamics. Comput. Phys. Commun. 180, 1961–1972 (2009).
